@@ -199,4 +199,50 @@ body{
     width: 100%;
 }
 
+/* Style the burger menu icon */
+.burger {
+    display: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 802px) {
+    /* Hide the navbar by default */
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #081b29;
+        width: 200px;
+        text-align: center;
+    }
+
+    /* Display the burger menu icon */
+    .burger {
+        display: block;
+    }
+
+    /* Show the navbar when the checkbox is checked */
+    #menu-toggle:checked + .burger + .navbar {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+
+    }
+
+    .home-photo img {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+
+
+ 
+
     
