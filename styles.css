@@ -268,12 +268,12 @@ body{
 /* Style the burger menu icon */
 .burger {
     display: none;
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
 }
 
 /* Media query for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 802px) {
     /* Hide the navbar by default */
     .navbar {
         display: none;
@@ -298,6 +298,7 @@ body{
     .navbar a {
         display: block;
         margin: 10px 0;
+
     }
 
     .home-photo img {
