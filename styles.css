@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-*{
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -18,7 +18,7 @@ body {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background-color: transparent;
+    background-color: #081b29;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,14 +130,14 @@ body {
 }
 
 .home-photo {
-    max-width: 400px;  
+    max-width: 400px;
     margin-left: 10px;
 }
 
 .home-photo img {
-    width: 300px; 
-    height: 400px; 
-    object-fit: cover; 
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
 }
 
 /* Hide the checkbox (menu toggle) */
@@ -185,25 +185,44 @@ body {
         margin: 10px 0;
     }
 
+    .home {
+        height: auto; /* Allow section height to adjust to content */
+        padding: 10% 5%; /* Adjust padding for mobile */
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+    }
+
     .home-content {
         max-width: 100%;
+        text-align: center; /* Center the text content */
     }
 
     .home-content h1 {
-        font-size: 36px;
+        font-size: 28px; /* Reduced size for mobile screens */
     }
 
     .home-content h3 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .home-content p {
         font-size: 14px;
     }
 
+    .home-photo {
+        margin-top: 40px; /* Added margin-top for spacing */
+        max-width: 100%;
+        text-align: center; /* Center the image */
+    }
+
     .home-photo img {
         width: 200px;
         height: 300px;
+    }
+
+    .home-photo h4 {
+        font-size: 12px;
+        margin-top: 10px;
     }
 
     .btn-box {
@@ -215,5 +234,13 @@ body {
 
     .btn-box a {
         width: 100%;
+    }
+
+    .home-sci {
+        margin-top: 20px; /* Adjusted for better spacing */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Even spacing between icons */
     }
 }
