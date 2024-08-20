@@ -152,11 +152,10 @@ body {
     cursor: pointer;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 802px) {
     /* Modify the header */
     .header {
-        padding: 15px 5%;
+        padding: 10px 5%;
     }
 
     .burger {
@@ -187,7 +186,7 @@ body {
 
     .home {
         height: auto; /* Allow section height to adjust to content */
-        padding: 10% 5%; /* Adjust padding for mobile */
+        padding: 15% 5%; /* Adjust padding for mobile */
         flex-direction: column; /* Stack content vertically */
         align-items: center;
     }
@@ -198,42 +197,46 @@ body {
     }
 
     .home-content h1 {
-        font-size: 28px; /* Reduced size for mobile screens */
+        font-size: 45px; /* Adjusted size for mobile screens */
+        line-height: 1.8; /* Line height for better spacing */
     }
 
     .home-content h3 {
-        font-size: 24px;
+        font-size: 28px; /* Adjusted size for mobile screens */
+        margin-top: 10px; /* Space between heading and subheading */
     }
 
     .home-content p {
-        font-size: 14px;
+        font-size: 16px; /* Adjusted size for better readability */
+        margin: 20px 0 30px; /* Space above and below the paragraph */
+        padding: 0 5%; /* Padding to give some room on the sides */
     }
 
     .home-photo {
-        margin-top: 40px; /* Added margin-top for spacing */
+        margin-top: 30px; /* Added margin-top for spacing */
         max-width: 100%;
         text-align: center; /* Center the image */
     }
 
     .home-photo img {
-        width: 200px;
-        height: 300px;
+        width: 250px; /* Increased width for better visibility */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .home-photo h4 {
-        font-size: 12px;
-        margin-top: 10px;
+        font-size: 14px; /* Slightly larger font for caption */
+        margin-top: 15px; /* Space above the caption */
     }
 
     .btn-box {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        gap: 10px;
+        gap: 10px; /* Increased gap between buttons */
     }
 
     .btn-box a {
-        width: 100%;
+        width: 90%; /* Wider buttons for better touch targets */
     }
 
     .home-sci {
@@ -244,3 +247,4 @@ body {
         gap: 15px; /* Even spacing between icons */
     }
 }
+

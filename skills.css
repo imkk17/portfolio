@@ -12,13 +12,14 @@ body {
     color: #ededed;
 }
 
+/* Header Section */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background-color: #081b29;  /* Changer la couleur de fond pour le rendre plus visible */
+    background-color: #081b29;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,13 +46,16 @@ body {
     color: #00abf0;
 }
 
+/* Home Section */
 .home {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 10%;
-    padding-top: 80px; /* Ajout d'un padding pour ne pas chevaucher le header */
+    padding-top: 80px;
+    text-align: center;
 }
 
 .home-content {
@@ -60,16 +64,9 @@ body {
 }
 
 .home-content h1 {
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
-}
-
-.home-content h3 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #00abf0;
-    margin-bottom: 20px;
 }
 
 .home-content p {
@@ -79,19 +76,15 @@ body {
 
 .home-content .btn-box {
     display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
 .btn-box a {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 100%;
+    margin: 10px 0;
+    width: 200px;
+    height: 50px;
     background: #00abf0;
     border: 2px solid #00abf0;
     border-radius: 8px;
@@ -99,36 +92,21 @@ body {
     color: #081b29;
     text-decoration: none;
     font-weight: 600;
-    letter-spacing: 1px;
-    z-index: 1;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 0.5s;
 }
 
 .btn-box a:hover {
     color: #00abf0;
-}
-
-.btn-box a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #081b29;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-.btn-box a:hover::before {
-    width: 100%;
+    background-color: transparent;
 }
 
 .home-sci {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;  
+    justify-content: center;
     margin-top: 20px;
 }
 
@@ -136,12 +114,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px;
+    width: 60px;
     margin: 10px;
 }
 
 .skill-item i {
-    font-size: 40px;
+    font-size: 30px;
     color: #00abf0;
     transition: 0.5s;
 }
@@ -162,21 +140,22 @@ body {
 }
 
 .home-photo {
-    max-width: 400px;
-    margin-left: 10px;
+    max-width: 100%;
+    margin-top: 20px;
 }
 
 .home-photo img {
-    width: 300px;
-    height: 500px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
+/* Skills Section */
 .skills {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
-    padding: 40px 10%;
+    padding: 20px 10%;
     background-color: #0a2c3d;
 }
 
@@ -184,8 +163,7 @@ body {
     background-color: #0e3b4a;
     padding: 20px;
     border-radius: 8px;
-    width: calc(33.333% - 40px);
-    margin: 20px 0;
+    width: 100%;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -205,7 +183,7 @@ body {
     transform: translateY(-10px);
 }
 
-/* Style the burger menu icon */
+/* Burger Menu */
 .burger {
     display: none;
     font-size: 40px;
@@ -214,23 +192,21 @@ body {
 
 /* Media query for smaller screens */
 @media (max-width: 802px) {
-    /* Hide the navbar by default */
     .navbar {
         display: none;
         position: absolute;
         top: 60px;
         right: 0;
         background-color: #081b29;
-        width: 200px;
+        width: 100%;
         text-align: center;
+        padding: 20px 0;
     }
 
-    /* Display the burger menu icon */
     .burger {
         display: block;
     }
 
-    /* Show the navbar when the checkbox is checked */
     #menu-toggle:checked + .burger + .navbar {
         display: block;
     }
@@ -238,14 +214,26 @@ body {
     .navbar a {
         display: block;
         margin: 10px 0;
+    }
 
+    .home-content h1 {
+        font-size: 55px;
+    }
+
+    .home-content p {
+        font-size: 16px;
     }
 
     .home-photo img {
         width: 200px;
-        height: 300px;
+        height: auto;
+    }
+
+    .skills {
+        padding: 20px 5%;
+    }
+
+    .skill {
+        width: 100%;
     }
 }
-
-
-

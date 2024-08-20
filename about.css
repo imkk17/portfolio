@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-*{
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif ;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     background-color: #081b29;
     color: #ededed;
 }
@@ -17,7 +17,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10% ;
+    padding: 20px 10%;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -27,13 +27,13 @@ body{
 
 .logo {
     position: relative;
-    font-size: 25px ;
+    font-size: 25px;
     color: #ededed;
-    text-decoration:none ;
+    text-decoration: none;
     font-weight: 600;
 }
 
-.logo::before{
+.logo::before {
     content: '';
     position: absolute;
     top: 0;
@@ -43,22 +43,22 @@ body{
     background: #081b29;
     animation: showRight 1s ease forwards;
     animation-delay: .3s;
-
 }
 
-.navbar  a{
+.navbar a {
     font-size: 18px;
-    color:white;
+    color: white;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
-    transition: 5s;
-}
-.navbar a:hover  {
-    color:#00abf0;
+    transition: 0.5s;
 }
 
-.about{
+.navbar a:hover {
+    color: #00abf0;
+}
+
+.about {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -66,8 +66,8 @@ body{
     padding: 0 10%;
 }
 
-.about-content{
-    max-width: 600px ; 
+.about-content {
+    max-width: 600px;
 }
 
 .about-content h1 {
@@ -76,7 +76,7 @@ body{
     line-height: 1.2;
 }
 
-.about-content p{
+.about-content p {
     font-size: 16px;
     margin: 20px 0 40px;
 }
@@ -95,8 +95,7 @@ body{
 .about-icons {
     position: absolute;
     bottom: 40px;
-    width: 170px
-
+    width: 170px;
 }
 
 .home-content .btn-box {
@@ -104,15 +103,6 @@ body{
     justify-content: space-between;
     width: 345px;
     height: 50px;
-    
-}
-
-.home-content .btn-box {
-    display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
-    margin-top: 20px;
 }
 
 .btn-box a {
@@ -232,16 +222,61 @@ body{
     .navbar a {
         display: block;
         margin: 10px 0;
-
     }
 
-    .home-photo img {
-        width: 200px;
-        height: 300px;
+    .about {
+        height: auto;
+        padding: 15% 5%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-content h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .about-content p {
+        font-size: 16px;
+        margin: 20px 0 30px;
+        padding: 0 5%;
+    }
+
+    .about-image {
+        margin-top: 30px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: auto;
+    }
+
+    .home-sci {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .btn-box {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .btn-box a {
+        width: 90%;
     }
 }
-
-
 
  
 
