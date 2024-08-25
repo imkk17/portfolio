@@ -51,8 +51,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
+    position: relative; /* Ensure proper positioning of child elements */
+    flex-direction: row; /* Ensure row direction on larger screens */
 }
 
+/* Home Content for Laptop */
 .home-content {
     max-width: 600px;
 }
@@ -101,6 +104,7 @@ body {
     color: #00abf0;
 }
 
+/* Social Icons for Laptop */
 .home-sci {
     position: absolute;
     bottom: 40px;
@@ -140,6 +144,12 @@ body {
     object-fit: cover;
 }
 
+.home-photo h4 {
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+}
+
 /* Hide the checkbox (menu toggle) */
 #menu-toggle {
     display: none;
@@ -153,7 +163,7 @@ body {
 }
 
 @media (max-width: 802px) {
-    /* Modify the header */
+    /* Mobile Header Adjustments */
     .header {
         padding: 10px 5%;
     }
@@ -184,6 +194,7 @@ body {
         margin: 10px 0;
     }
 
+    /* Mobile Home Section Adjustments */
     .home {
         height: auto; /* Allow section height to adjust to content */
         padding: 15% 5%; /* Adjust padding for mobile */
@@ -212,22 +223,6 @@ body {
         padding: 0 5%; /* Padding to give some room on the sides */
     }
 
-    .home-photo {
-        margin-top: 30px; /* Added margin-top for spacing */
-        max-width: 100%;
-        text-align: center; /* Center the image */
-    }
-
-    .home-photo img {
-        width: 250px; /* Increased width for better visibility */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .home-photo h4 {
-        font-size: 14px; /* Slightly larger font for caption */
-        margin-top: 15px; /* Space above the caption */
-    }
-
     .btn-box {
         flex-direction: column;
         align-items: center;
@@ -239,12 +234,48 @@ body {
         width: 90%; /* Wider buttons for better touch targets */
     }
 
+    .home-photo {
+        max-width: 100%;
+        margin-top: 30px; /* Added margin-top for spacing */
+        text-align: center; /* Center the image */
+    }
+
+    .home-photo img {
+        width: 250px; /* Adjusted width for better visibility */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .home-photo h4 {
+        font-size: 14px; /* Slightly larger font for caption */
+        margin-top: 15px; /* Space above the caption */
+    }
+
+    /* Mobile Social Icons Adjustments */
     .home-sci {
-        margin-top: 20px; /* Adjusted for better spacing */
+        margin-top: 20px; /* Space between photo and social icons */
         width: 100%;
         display: flex;
         justify-content: center;
         gap: 15px; /* Even spacing between icons */
     }
-}
 
+    .home-sci a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: 2px solid #00abf0;
+        border-radius: 50%;
+        font-size: 20px;
+        color: #00abf0;
+        text-decoration: none;
+        transition: .5s;
+    }
+
+    .home-sci a:hover {
+        color: #081b29;
+        background: #00abf0;
+    }
+}

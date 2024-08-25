@@ -48,14 +48,12 @@ body {
 
 /* Home Section */
 .home {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0 10%;
-    padding-top: 80px;
-    text-align: center;
+    padding-top: 80px; /* Prevent overlap with header */
 }
 
 .home-content {
@@ -64,7 +62,7 @@ body {
 }
 
 .home-content h1 {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -76,15 +74,19 @@ body {
 
 .home-content .btn-box {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
     margin-top: 20px;
 }
 
 .btn-box a {
-    margin: 10px 0;
-    width: 200px;
-    height: 50px;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
     background: #00abf0;
     border: 2px solid #00abf0;
     border-radius: 8px;
@@ -92,21 +94,36 @@ body {
     color: #081b29;
     text-decoration: none;
     font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
     transition: 0.5s;
 }
 
 .btn-box a:hover {
     color: #00abf0;
-    background-color: transparent;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
 }
 
 .home-sci {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;  
     margin-top: 20px;
 }
 
@@ -114,12 +131,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60px;
+    width: 80px;
     margin: 10px;
 }
 
 .skill-item i {
-    font-size: 30px;
+    font-size: 40px;
     color: #00abf0;
     transition: 0.5s;
 }
@@ -140,12 +157,12 @@ body {
 }
 
 .home-photo {
-    max-width: 100%;
-    margin-top: 20px;
+    max-width: 500px; /* Increased maximum width */
+    margin-left: 10px;
 }
 
 .home-photo img {
-    width: 100%;
+    width: 100%; /* Ensures the image uses full container width */
     height: auto;
     object-fit: cover;
 }
@@ -153,9 +170,9 @@ body {
 /* Skills Section */
 .skills {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
-    padding: 20px 10%;
+    padding: 40px 10%;
     background-color: #0a2c3d;
 }
 
@@ -163,7 +180,8 @@ body {
     background-color: #0e3b4a;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
+    width: calc(33.333% - 40px);
+    margin: 20px 0;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -190,8 +208,20 @@ body {
     cursor: pointer;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 802px) {
+    /* Header adjustments */
+    .header {
+        padding: 15px 5%;
+    }
+
+    .home-photo {
+        display: none; /* Hide the Deadpool image on small screens */
+    }
+
+    .burger {
+        display: block;
+    }
+
     .navbar {
         display: none;
         position: absolute;
@@ -203,10 +233,6 @@ body {
         padding: 20px 0;
     }
 
-    .burger {
-        display: block;
-    }
-
     #menu-toggle:checked + .burger + .navbar {
         display: block;
     }
@@ -216,24 +242,53 @@ body {
         margin: 10px 0;
     }
 
+    /* Home section adjustments */
+    .home {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px; /* Add space for fixed header */
+        text-align: center;
+    }
+
+    .home-content {
+        max-width: 90%;
+        text-align: center;
+    }
+
     .home-content h1 {
-        font-size: 55px;
+        font-size: 32px;
     }
 
     .home-content p {
         font-size: 16px;
     }
 
-    .home-photo img {
-        width: 200px;
-        height: auto;
+    .btn-box {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
+    .btn-box a {
+        width: 80%;
+        padding: 15px 25px; /* Adjust padding */
+        font-size: 18px;
+    }
+
+    .home-sci {
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    /* Skills section adjustments */
     .skills {
+        flex-direction: column;
         padding: 20px 5%;
     }
 
     .skill {
         width: 100%;
+        margin: 10px 0; /* Ensure there's spacing between skills */
     }
 }
