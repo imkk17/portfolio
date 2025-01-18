@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="hire_me.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
-Z<body>
+<body>
+    <body onload="brython()">
+
     <header class="header">
         <a href="#" class="logo">Irfan.</a>
         <nav class="navbar"> 
@@ -17,6 +19,8 @@ Z<body>
             <a href="Skills.html">Skills</a>
             <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
         </nav> 
+        <script src="https://cdn.jsdelivr.net/npm/brython@3.10.6/brython.min.js"></script>
+
     </header>
 
     <section class="hire-me">
@@ -37,17 +41,22 @@ Z<body>
                     <p>Have a facility to train their collegues </p>
                 </div>
             </div>
+            
             <div class="portfolio">
                 <h2>My Work</h2>
                 <div class="work-item">
-                    <img src="project1.png" alt="Project 1">
-                    <p>Project 1 Description</p>
-                </div>
-                <div class="work-item">
-                    <img src="project2.png" alt="Project 2">
-                    <p>Project 2 Description</p>
-                </div>
+    <a href="Nouveau dossier/Mastermind image .webp">
+        <img src="Nouveau dossier/Mastermind image .webp" alt="Mastermind Game" class="mastermind-image">
+    </a>
+    <p>A game who master's your mind </p>
+    <button id="start" class="btn">Play Now<a href="MasterMindV6_final.py" class="btn"></a></button>
+    <div id="game-output" style="margin-top:20px; background-color:#081b29; padding:10px; border-radius:10px;"></div>
+</div>
+
             </div>
+            
+            
+            
             <div class="testimonials">
                 <h2>Testimonials</h2>
                 <blockquote>

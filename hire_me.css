@@ -126,6 +126,32 @@ body{
 .work-item {
     margin-bottom: 20px;
 }
+.btn {
+    padding: 10px 20px;
+    background-color: #00abf0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.work-item {
+    width: 50%; /* Ajuste la largeur du conteneur */
+    margin: 0 auto; /* Centrer le conteneur */
+}
+
+.mastermind-image {
+    width: 100%; /* L'image prendra toute la largeur du conteneur */
+    height: auto; /* Maintient les proportions */
+    transition: transform 0.3s ease;
+}
+
+
+.btn:hover {
+    background-color: #008acb;
+}
 
 .work-item img {
     width: 100%;
@@ -217,4 +243,101 @@ footer p {
     100% {
         width: 0;
     }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #081b29;
+    color: #ededed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background-color: #081b29; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: 0.5s;
+}
+
+.navbar a:hover {
+    color: #00abf0;
+}
+
+.hire-me {
+    padding: 100px 10% 50px;
+}
+
+.hire-me h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hire-me p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.portfolio {
+    margin-bottom: 40px;
+}
+
+.portfolio h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.work-item {
+    margin-bottom: 20px;
+}
+
+.mastermind-image {
+    width: 100%; 
+    height: auto; 
+    transition: transform 0.3s ease;
+}
+
+footer {
+    padding: 20px 10%;
+    text-align: center;
+}
+
+footer .socials a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #00abf0;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
 }
