@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
-    <link rel="stylesheet" href="chat_box.css">
-    
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="chat_box.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Inclusion du SDK EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">Irfan.</a>
-        <nav class="navbar">
-            <a class="active" href="porto.html">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="Resume.html">Education</a>
-            <a href="Skills.html">Skills</a>
-            <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
-        </nav>
-    </header>
+  <header class="header">
+    <a href="#" class="logo">Irfan.</a>
+    <!-- Ajout du burger menu -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="burger"><i class='bx bx-menu'></i></label>
+    <nav class="navbar">
+      <a class="active" href="porto.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="Resume.html">Education</a>
+      <a href="Skills.html">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
+    </nav>
+  </header>
 
-    <section class="home">
-        <div class="home-content">
-            <h1>Contact Me</h1>
-            <form action="#" method="POST" class="contact-form" id="contactForm">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
+  <section class="home">
+    <div class="home-content">
+      <h1>Contact Me</h1>
+      <form action="#" method="POST" class="contact-form" id="contactForm">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
 
-                <label for="phone">Phone *</label>
-                <input type="tel" id="phone" name="phone" required>
+        <label for="phone">Phone *</label>
+        <input type="tel" id="phone" name="phone" required>
 
-                <label for="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" required>
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" required>
 
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
 
-                <button type="submit">Send</button>
-            </form>
-            <div class="success-message" id="successMessage">Your message has been sent!</div>
-        </div>
-    </section>
+        <button type="submit">Send</button>
+      </form>
+      <div class="success-message" id="successMessage">Your message has been sent!</div>
+    </div>
+  </section>
 
-    
+  <script>
+    // Initialiser EmailJS avec votre clé publique
+    emailjs.init("9RiO1EMmVFptFknAB"); // Remplacez par votre clé publique réelle
+
+    // Écouteur sur la soumission du formulaire
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      // Envoi du formulaire via EmailJS
+      emailjs.sendForm("service_21pc3zs", "template_luj2d4h", this)
+        .then(function(response) {
+          alert("Your message has been sent successfully!");
+          document.getElementById("successMessage").style.display = "block";
+          console.log("SUCCESS", response.status, response.text);
+          document.getElementById("contactForm").reset();
+        }, function(error) {
+          alert("Error: Message not sent. Please try again later.");
+          console.error("FAILED", error);
+        });
+    });
+  </script>
 </body>
 </html>
-

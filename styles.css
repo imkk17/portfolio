@@ -51,11 +51,10 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    position: relative; /* Ensure proper positioning of child elements */
-    flex-direction: row; /* Ensure row direction on larger screens */
+    position: relative;
+    flex-direction: row;
 }
 
-/* Home Content for Laptop */
 .home-content {
     max-width: 600px;
 }
@@ -104,7 +103,6 @@ body {
     color: #00abf0;
 }
 
-/* Social Icons for Laptop */
 .home-sci {
     position: absolute;
     bottom: 40px;
@@ -150,12 +148,10 @@ body {
     text-align: center;
 }
 
-/* Hide the checkbox (menu toggle) */
 #menu-toggle {
     display: none;
 }
 
-/* Style the burger menu icon */
 .burger {
     display: none;
     font-size: 40px;
@@ -163,7 +159,6 @@ body {
 }
 
 @media (max-width: 802px) {
-    /* Mobile Header Adjustments */
     .header {
         padding: 10px 5%;
     }
@@ -194,78 +189,74 @@ body {
         margin: 10px 0;
     }
 
-    /* Mobile Home Section Adjustments */
     .home {
-        height: auto; /* Allow section height to adjust to content */
-        padding: 15% 5%; /* Adjust padding for mobile */
-        flex-direction: column; /* Stack content vertically */
+        height: auto;
+        padding: 15% 5%;
+        flex-direction: column;
         align-items: center;
     }
 
     .home-content {
         max-width: 100%;
-        text-align: center; /* Center the text content */
+        text-align: center;
     }
 
     .home-content h1 {
-        font-size: 45px; /* Adjusted size for mobile screens */
-        line-height: 1.8; /* Line height for better spacing */
+        font-size: 45px;
+        line-height: 1.8;
     }
 
     .home-content h3 {
-        font-size: 28px; /* Adjusted size for mobile screens */
-        margin-top: 10px; /* Space between heading and subheading */
+        font-size: 28px;
+        margin-top: 10px;
     }
 
     .home-content p {
-        font-size: 16px; /* Adjusted size for better readability */
-        margin: 20px 0 30px; /* Space above and below the paragraph */
-        padding: 0 5%; /* Padding to give some room on the sides */
+        font-size: 16px;
+        margin: 20px 0 30px;
+        padding: 0 5%;
     }
 
     .btn-box {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        gap: 10px; /* Increased gap between buttons */
+        gap: 10px;
+        margin-top: 40px; /* Ajout pour abaisser les boutons sur mobile */
     }
 
     .btn-box a {
-        width: 90%; /* Wider buttons for better touch targets */
+        width: 90%;
     }
 
     .home-photo {
         max-width: 100%;
-        margin-top: 30px; /* Added margin-top for spacing */
-        text-align: center; /* Center the image */
+        margin-top: 30px;
+        text-align: center;
     }
 
     .home-photo img {
-        width: 250px; /* Adjusted width for better visibility */
-        height: auto; /* Maintain aspect ratio */
+        width: 250px;
+        height: auto;
     }
 
     .home-photo h4 {
-        font-size: 14px; /* Slightly larger font for caption */
-        margin-top: 15px; /* Space above the caption */
+        font-size: 14px;
+        margin-top: 15px;
     }
 
-    /* Mobile Social Icons Adjustments */
     .home-sci {
-        margin-top: 20px; /* Space between photo and social icons */
+        position: relative; /* Relatif pour contrôler la position */
+        margin-top: 50px; /* Espacement supplémentaire pour descendre les icônes */
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 15px; /* Even spacing between icons */
+        gap: 20px;
     }
 
     .home-sci a {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
         width: 40px;
         height: 40px;
-        background: transparent;
         border: 2px solid #00abf0;
         border-radius: 50%;
         font-size: 20px;

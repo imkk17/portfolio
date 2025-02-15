@@ -187,3 +187,275 @@ main.row {
         height: 300px;
     }
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #081b29;
+    color: #ededed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 10%;
+    background-color: #081b29;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: 0.5s;
+}
+
+.navbar a:hover {
+    color: #00abf0;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    position: relative;
+    flex-direction: row;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-content h3 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 20px 0 40px;
+}
+
+.home-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+}
+
+.btn-box a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    color: #00abf0;
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+    background: #00abf0;
+}
+
+.home-photo {
+    max-width: 400px;
+    margin-left: 10px;
+}
+
+.home-photo img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.home-photo h4 {
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.burger {
+    display: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@media (max-width: 802px) {
+    .header {
+        padding: 10px 5%;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #081b29;
+        width: 100%;
+        text-align: center;
+        transition: transform 0.5s ease;
+        transform: translateX(100%);
+    }
+
+    #menu-toggle:checked + .burger + .navbar {
+        display: block;
+        transform: translateX(0);
+    }
+
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .home {
+        height: auto;
+        padding: 15% 5%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 45px;
+        line-height: 1.8;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+        margin: 20px 0 30px;
+        padding: 0 5%;
+    }
+
+    .btn-box {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 40px; /* Ajout pour abaisser les boutons sur mobile */
+    }
+
+    .btn-box a {
+        width: 90%;
+    }
+
+    .home-photo {
+        max-width: 100%;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .home-photo img {
+        width: 250px;
+        height: auto;
+    }
+
+    .home-photo h4 {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .home-sci {
+        position: relative; /* Relatif pour contrôler la position */
+        margin-top: 50px; /* Espacement supplémentaire pour descendre les icônes */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .home-sci a {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #00abf0;
+        border-radius: 50%;
+        font-size: 20px;
+        color: #00abf0;
+        text-decoration: none;
+        transition: .5s;
+    }
+
+    .home-sci a:hover {
+        color: #081b29;
+        background: #00abf0;
+    }
+}

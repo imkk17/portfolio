@@ -32,6 +32,12 @@ body {
     font-weight: 600;
 }
 
+/* Par défaut, la navbar s'affiche en ligne sur desktop */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
     font-size: 18px;
     color: white;
@@ -108,7 +114,62 @@ body {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+/* --------------------- */
+/* Styles pour le burger */
+/* --------------------- */
+
+/* On cache l'input du burger (la checkbox) */
+#menu-toggle {
+    display: none;
+}
+
+/* Par défaut, le burger n'est pas affiché sur desktop */
+.burger {
+    display: none;
+}
+
+/* ------------------------------ */
+/* Media Query pour mobile/burger */
+/* ------------------------------ */
+@media (max-width: 802px) {
+
+    /* Afficher le burger */
+    .burger {
+        display: block;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    /* La navbar est cachée par défaut en mobile */
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 70px; /* Ajustez cette valeur en fonction de la hauteur de votre header */
+        right: 0;
+        background-color: #081b29;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    /* Lorsque la checkbox est cochée, afficher la navbar */
+    #menu-toggle:checked + .burger + .navbar {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    /* Ajustements pour le contenu mobile */
+    .home {
+        height: auto;
+        padding: 15% 5%;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .home-content h1 {
         font-size: 28px;
     }
@@ -121,4 +182,25 @@ body {
     .contact-form button {
         padding: 8px;
     }
+    
+    /* Réafficher les messages de succès/erreur en mobile */
+    .success-message, .error-message {
+        display: none;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .success-message {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    .error-message {
+        background-color: #f44336;
+        color: white;
+    }
 }
+
+/* (Optionnel) Si vous avez une duplication de styles dans votre CSS, assurez-vous de les nettoyer */
