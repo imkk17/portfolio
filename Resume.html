@@ -1,93 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education </title>
-    <link rel="stylesheet" href="Resume.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education</title>
+  <link rel="stylesheet" href="Resume.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header">
-        <a href="#" class="logo">Irfan.</a>
+  <header class="header">
+    <a href="#" class="logo">Irfan.</a>
+  
+    <!-- Checkbox to toggle the menu -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="burger">
+      <i class='bx bx-menu'></i>
+    </label>
+  
+    <nav class="navbar"> 
+      <a class="active" href="index.html" id="nav-home">Home</a>
+      <a href="about.html" id="nav-about">About Me</a>
+      <a href="Resume.html" id="nav-education">Education</a>
+      <a href="Skills.html" id="nav-skills">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
+    </nav>
     
-        <!-- Checkbox to toggle the menu -->
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="burger">
-            <i class='bx bx-menu'></i>
-        </label>
-    
-        <nav class="navbar"> 
-            <a class="active" href="index.html">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="Resume.html">Education</a>
-            <a href="Skills.html">Skills</a>
-            <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
-        </nav>
-    </header>
-<div class="container">
-	
-	<main class="row">
-		
-		
+    <!-- Bouton de traduction stylé avec drapeau -->
+    <div class="language-toggle">
+      <label class="plane-switch">
+        <input type="checkbox" id="translate-toggle">
+        <div>
+          <div>
+            <!-- Icône de drapeau en SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+              <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+            </svg>
+          </div>
+          <span class="street-middle"></span>
+          <span class="cloud"></span>
+          <span class="cloud two"></span>
+        </div>
+      </label>
+    </div>
+  </header>
 
-		<section class="col">
-			
-			<header class="title">
-				<h2>EDUCATION</h2>
-			</header>
+  <div class="container">
+    <main class="row">
+      
+      <!-- Section Education -->
+      <section class="col">
+        <header class="title">
+          <h2 id="edu-title">EDUCATION</h2>
+        </header>
+        <div class="contents">
+          <div class="box" id="edu-box1">
+            <h4>2019 - 2023</h4>
+            <h3>College Jean Renoir</h3>
+            <p>
+              During my middle school years at Collège Jean Renoir, I explored various academic fields and forged lasting friendships. Driven by a passion for multiple subjects, I actively participated in enriching extracurricular activities, which contributed significantly to my academic and personal growth.
+            </p>
+          </div>
+          <div class="box" id="edu-box2">
+            <h4>2022 - 2023</h4>
+            <h3>My Brevet diploma with good grades from Collège Jean Renoir.</h3>
+            <p>
+              I earned my Brevet diploma with honors from Collège Jean Renoir, marking a significant achievement in my academic journey. This accomplishment reflects my dedication to learning and my ability to excel in challenging academic environments.
+            </p>
+          </div>
+          <div class="box" id="edu-box3">
+            <h4>2018 - 2022</h4>
+            <h3>Lycee Simone Veil</h3>
+            <p>
+              Currently a second-year student at Lycée Simone Veil, I have chosen the specialized track in Physics-Chemistry and NSI (Numerical and Computer Science), alongside Mathematics. This educational path reflects my keen interest in scientific disciplines and my commitment to acquiring advanced knowledge in these fields.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Section Experience -->
+      <section class="col">
+        <header class="title">
+          <h2 id="exp-title">EXPERIENCE</h2>
+        </header>
+        <div class="contents">
+          <div class="box" id="exp-box1">
+            <h4>2 week of internship in December 2022-2023</h4>
+            <h3>Internship at <strong>Eutelsat</strong> during my 3eme</h3>
+            <p>
+              During my 3eme internship at Eutelsat, I gained valuable insights into satellite management and participated in mission planning. This experience allowed me to develop skills in communication, teamwork, and problem-solving, essential for navigating complex projects in the aerospace industry.
+            </p>
+          </div>
+          <div class="box" id="exp-box2">
+            <h4>17/06/2024 - 28/06/2024</h4>
+            <h3>Stage de 2nde G/T chez <strong>Safran</strong></h3>
+            <p>
+              During my 10th-grade internship at Safran, I explored careers like CERT analyst and HR, gaining insights into internal control, finance, and HR operations. I studied cloud computing types and leaders such as AWS and IBM, and their economic impacts. I also learned about DevOps and analyzed IT infrastructures like data centers and ERPs. In cybersecurity, I focused on data security methods such as antivirus software, encryption, and VPNs, and explored AI concepts like machine learning and deep learning. This experience broadened my understanding of technology's roles in business and society.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
 
-			<div class="contents">
-				
-				<div class="box">
-					<h4>2019 - 2023</h4>
-					<h3>College Jean Renoir </h3>
-					<p>During my middle school years  at Collège Jean Renoir, I explored various academic fields and forged lasting friendships. Driven by a passion for multiple subjects, I actively participated in enriching extracurricular activities, which contributed significantly to my academic and personal growth.</p>
-				</div>
+  <!-- Script de traduction manuelle -->
+  <script>
+    document.getElementById('translate-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        // Passage au français
+        document.getElementById('edu-title').innerText = "ÉDUCATION";
+        document.getElementById('exp-title').innerText = "EXPÉRIENCE";
 
-				<div class="box">
-					<h4>2022 - 2023</h4>
-					<h3>my Brevet diploma with good grades  from Collège Jean Renoir.</h3>
-					<p>I earned my Brevet diploma with honors from Collège Jean Renoir, marking a significant achievement in my academic journey. This accomplishment reflects my dedication to learning and my ability to excel in challenging academic environments.</p>
-				</div>
+        // Traduction Education - Box 1
+        document.querySelector("#edu-box1 h4").innerText = "2019 - 2023";
+        document.querySelector("#edu-box1 h3").innerText = "Collège Jean Renoir";
+        document.querySelector("#edu-box1 p").innerText =
+          "Pendant mes années au collège au Collège Jean Renoir, j'ai exploré divers domaines académiques et noué des amitiés durables. Animé par une passion pour plusieurs matières, j'ai participé activement à des activités parascolaires enrichissantes, ce qui a grandement contribué à ma croissance académique et personnelle.";
 
-				<div class="box">
-					<h4>2018 - 2022</h4>
-					<h3>Lycee Simone Veil </h3>
-					<p>Currently a second-year student at Lycée Simone Veil, I have chosen the specialized track in Physics-Chemistry and NSI (Numerical and Computer Science), alongside Mathematics. This educational path reflects my keen interest in scientific disciplines and my commitment to acquiring advanced knowledge in these fields.</p>
-				</div>
+        // Traduction Education - Box 2
+        document.querySelector("#edu-box2 h4").innerText = "2022 - 2023";
+        document.querySelector("#edu-box2 h3").innerText =
+          "Mon diplôme Brevet avec de bonnes notes obtenu au Collège Jean Renoir.";
+        document.querySelector("#edu-box2 p").innerText =
+          "J'ai obtenu mon diplôme Brevet avec mention au Collège Jean Renoir, marquant une étape importante de mon parcours académique. Cette réussite reflète mon engagement envers l'apprentissage et ma capacité à exceller dans des environnements académiques exigeants.";
 
-			</div>
-		</section>
+        // Traduction Education - Box 3
+        document.querySelector("#edu-box3 h4").innerText = "2018 - 2022";
+        document.querySelector("#edu-box3 h3").innerText = "Lycée Simone Veil";
+        document.querySelector("#edu-box3 p").innerText =
+          "Actuellement en deuxième année au Lycée Simone Veil, j'ai choisi la filière spécialisée en Physique-Chimie et NSI (Numérique et Informatique), ainsi qu'en Mathématiques. Ce parcours reflète mon vif intérêt pour les disciplines scientifiques et mon engagement à acquérir des connaissances approfondies.";
 
-		
+        // Traduction Experience - Box 1
+        document.querySelector("#exp-box1 h4").innerText =
+          "2 semaines de stage en décembre 2022-2023";
+        document.querySelector("#exp-box1 h3").innerHTML =
+          "Stage chez <strong>Eutelsat</strong> pendant ma 3ème";
+        document.querySelector("#exp-box1 p").innerText =
+          "Lors de mon stage en 3ème chez Eutelsat, j'ai acquis des connaissances précieuses en gestion de satellites et participé à la planification de missions. Cette expérience m'a permis de développer des compétences en communication, en travail d'équipe et en résolution de problèmes, essentielles pour mener à bien des projets complexes dans l'industrie aérospatiale.";
 
-		<section class="col">
-			
-			<header class="title">
-				<h2>EXPERIENCE</h2>
-			</header>
+        // Traduction Experience - Box 2
+        document.querySelector("#exp-box2 h4").innerText =
+          "17/06/2024 - 28/06/2024";
+        document.querySelector("#exp-box2 h3").innerHTML =
+          "Stage de 2nde G/T chez <strong>Safran</strong>";
+        document.querySelector("#exp-box2 p").innerText =
+          "Lors de mon stage en seconde chez Safran, j'ai exploré des métiers tels que celui d'analyste CERT et les ressources humaines, en acquérant des connaissances sur le contrôle interne, la finance et les opérations RH. J'ai étudié les types d'informatique en nuage et les leaders comme AWS et IBM, ainsi que leurs impacts économiques. J'ai également découvert le DevOps et analysé des infrastructures informatiques telles que les data centers et les ERP. En cybersécurité, je me suis concentré sur des méthodes de sécurisation des données telles que les antivirus, le chiffrement et les VPN, et j'ai exploré des concepts d'IA comme l'apprentissage automatique et l'apprentissage profond. Cette expérience a élargi ma compréhension des rôles de la technologie dans le monde des affaires et de la société.";
+        
+        // Traduction de la navigation
+        document.getElementById('nav-home').innerText = "Accueil";
+        document.getElementById('nav-about').innerText = "À propos";
+        document.getElementById('nav-education').innerText = "Éducation";
+        document.getElementById('nav-skills').innerText = "Compétences";
+        document.getElementById('nav-cv').innerText = "CV";
+      } else {
+        // Retour à l'anglais
+        document.getElementById('edu-title').innerText = "EDUCATION";
+        document.getElementById('exp-title').innerText = "EXPERIENCE";
 
-			<div class="contents">
-				
-				<div class="box">
-					<h4>2 week of internship in December 2022-2023</h4>
-					<h3>internship at <strong>Eutelsat</strong> during my 3eme </h3>
-					<p>During my 3eme internship at Eutelsat, I gained valuable insights into satellite management and participated in mission planning. This experience allowed me to develop skills in communication, teamwork, and problem-solving, essential for navigating complex projects in the aerospace industry.</p>
-				</div>
+        // Rétablissement Education - Box 1
+        document.querySelector("#edu-box1 h4").innerText = "2019 - 2023";
+        document.querySelector("#edu-box1 h3").innerText = "College Jean Renoir";
+        document.querySelector("#edu-box1 p").innerText =
+          "During my middle school years at Collège Jean Renoir, I explored various academic fields and forged lasting friendships. Driven by a passion for multiple subjects, I actively participated in enriching extracurricular activities, which contributed significantly to my academic and personal growth.";
 
-				<div class="box">
-					<h4>17/06/2024 - 28/06/2024</h4>
-					<h3>Stage de 2nde G/T chez <strong>Safran</strong></h3>
-					<p>During my 10th-grade internship at Safran, I explored careers like CERT analyst and HR, gaining insights into internal control, finance, and HR operations. I studied cloud computing types and leaders such as AWS and IBM, and their economic impacts. I also learned about DevOps and analyzed IT infrastructures like data centers and ERPs. In cybersecurity, I focused on data security methods such as antivirus software, encryption, and VPNs, and explored AI concepts like machine learning and deep learning. This experience broadened my understanding of technology's roles in business and society.</p>
-				</div>
+        // Rétablissement Education - Box 2
+        document.querySelector("#edu-box2 h4").innerText = "2022 - 2023";
+        document.querySelector("#edu-box2 h3").innerText =
+          "My Brevet diploma with good grades from Collège Jean Renoir.";
+        document.querySelector("#edu-box2 p").innerText =
+          "I earned my Brevet diploma with honors from Collège Jean Renoir, marking a significant achievement in my academic journey. This accomplishment reflects my dedication to learning and my ability to excel in challenging academic environments.";
 
-			</div>
-		</section>
+        // Rétablissement Education - Box 3
+        document.querySelector("#edu-box3 h4").innerText = "2018 - 2022";
+        document.querySelector("#edu-box3 h3").innerText = "Lycee Simone Veil";
+        document.querySelector("#edu-box3 p").innerText =
+          "Currently a second-year student at Lycée Simone Veil, I have chosen the specialized track in Physics-Chemistry and NSI (Digital and Computer Science), alongside Mathematics. This educational path reflects my keen interest in scientific disciplines and my commitment to acquiring advanced knowledge in these fields.";
 
-		
-	</main>
-</div>
+        // Rétablissement Experience - Box 1
+        document.querySelector("#exp-box1 h4").innerText =
+          "2 week of internship in December 2022-2023";
+        document.querySelector("#exp-box1 h3").innerHTML =
+          "Internship at <strong>Eutelsat</strong> during my 3eme";
+        document.querySelector("#exp-box1 p").innerText =
+          "During my 3eme internship at Eutelsat, I gained valuable insights into satellite management and participated in mission planning. This experience allowed me to develop skills in communication, teamwork, and problem-solving, essential for navigating complex projects in the aerospace industry.";
+
+        // Rétablissement Experience - Box 2
+        document.querySelector("#exp-box2 h4").innerText =
+          "17/06/2024 - 28/06/2024";
+        document.querySelector("#exp-box2 h3").innerHTML =
+          "Stage de 2nde G/T chez <strong>Safran</strong>";
+        document.querySelector("#exp-box2 p").innerText =
+          "During my 10th-grade internship at Safran, I explored careers like CERT analyst and HR, gaining insights into internal control, finance, and HR operations. I studied cloud computing types and leaders such as AWS and IBM, and their economic impacts. I also learned about DevOps and analyzed IT infrastructures like data centers and ERPs. In cybersecurity, I focused on data security methods such as antivirus software, encryption, and VPNs, and explored AI concepts like machine learning and deep learning. This experience broadened my understanding of technology's roles in business and society.";
+
+        // Rétablissement de la navigation
+        document.getElementById('nav-home').innerText = "Home";
+        document.getElementById('nav-about').innerText = "About Me";
+        document.getElementById('nav-education').innerText = "Education";
+        document.getElementById('nav-skills').innerText = "Skills";
+        document.getElementById('nav-cv').innerText = "CV";
+      }
+    });
+  </script>
+  
 </body>
 </html>

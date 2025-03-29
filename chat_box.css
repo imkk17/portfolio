@@ -1,206 +1,391 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #081b29;
-    color: #ededed;
+  background-color: #081b29;
+  color: #ededed;
 }
 
+/* Header et Navigation */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background-color: #081b29;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background-color: #081b29;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
 
 .logo {
-    font-size: 25px;
-    color: #ededed;
-    text-decoration: none;
-    font-weight: 600;
+  font-size: 25px;
+  color: #ededed;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* Par défaut, la navbar s'affiche en ligne sur desktop */
+/* Navigation desktop */
 .navbar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar a {
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: 0.5s;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 35px;
+  transition: 0.5s;
 }
 
 .navbar a:hover {
-    color: #00abf0;
+  color: #00abf0;
 }
 
+/* Bouton de traduction pour desktop (placé dans la navbar) */
+.language-toggle.desktop-language {
+  margin-left: 20px;
+}
+
+/* Section Contact */
 .home {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10%;
-    margin-top: 80px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+  margin-top: 80px;
 }
 
 .home-content {
-    max-width: 600px;
+  max-width: 600px;
 }
 
 .home-content h1 {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
+/* Formulaire de contact */
 .contact-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form label {
-    margin: 10px 0 5px;
+  margin: 10px 0 5px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #f5f5f5;
-    color: #333;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f5f5f5;
+  color: #333;
 }
 
-.contact-form button {
-    padding: 10px;
-    background-color: #00abf0;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Nouveau style du bouton Send personnalisé (plus petit) */
+.send-btn {
+  font-family: inherit;
+  font-size: 16px;
+  background: royalblue;
+  color: white;
+  padding: 0.5em 0.8em;
+  display: flex;
+  align-items: center;
+  border: solid 2px black;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-.contact-form button:hover {
-    background-color: #008acb;
+.send-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
 }
 
+.send-btn .svg-wrapper-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn svg {
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.send-btn:active span {
+  opacity: 0;
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+/* Success Message */
 .success-message {
-    display: none;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #4caf50;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
 }
 
-/* --------------------- */
-/* Styles pour le burger */
-/* --------------------- */
-
-/* On cache l'input du burger (la checkbox) */
+/* Burger menu styles */
 #menu-toggle {
-    display: none;
+  display: none;
 }
 
-/* Par défaut, le burger n'est pas affiché sur desktop */
 .burger {
-    display: none;
+  display: none;
 }
 
-/* ------------------------------ */
-/* Media Query pour mobile/burger */
-/* ------------------------------ */
 @media (max-width: 802px) {
-
-    /* Afficher le burger */
-    .burger {
-        display: block;
-        font-size: 40px;
-        cursor: pointer;
-    }
-
-    /* La navbar est cachée par défaut en mobile */
-    .navbar {
-        display: none;
-        position: absolute;
-        top: 70px; /* Ajustez cette valeur en fonction de la hauteur de votre header */
-        right: 0;
-        background-color: #081b29;
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
-    /* Lorsque la checkbox est cochée, afficher la navbar */
-    #menu-toggle:checked + .burger + .navbar {
-        display: flex;
-    }
-
-    .navbar a {
-        margin: 10px 0;
-    }
-
-    /* Ajustements pour le contenu mobile */
-    .home {
-        height: auto;
-        padding: 15% 5%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home-content h1 {
-        font-size: 28px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 8px;
-    }
-
-    .contact-form button {
-        padding: 8px;
-    }
-    
-    /* Réafficher les messages de succès/erreur en mobile */
-    .success-message, .error-message {
-        display: none;
-        margin-top: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-    }
-
-    .success-message {
-        background-color: #4caf50;
-        color: white;
-    }
-
-    .error-message {
-        background-color: #f44336;
-        color: white;
-    }
+  .burger {
+    display: block;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #081b29;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  #menu-toggle:checked + .burger + .navbar {
+    display: flex;
+  }
+  .navbar a {
+    margin: 10px 0;
+  }
+  .home {
+    height: auto;
+    padding: 15% 5%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-content h1 {
+    font-size: 28px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 8px;
+  }
+  .send-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
 }
 
-/* (Optionnel) Si vous avez une duplication de styles dans votre CSS, assurez-vous de les nettoyer */
+/* Footer */
+footer {
+  padding: 20px 10%;
+  text-align: center;
+}
+
+footer .socials a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #00abf0;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ------------------------------ */
+/* Bouton de traduction stylé (Drapeau) */
+/* ------------------------------ */
+.plane-switch {
+  --dot: #fff;
+  --street: #6B6D76;
+  --street-line: #A8AAB4;
+  --street-line-mid: #C0C2C8;
+  --sky-1: #60A7FA;
+  --sky-2: #2F8EFC;
+  --light-1: rgba(255, 233, 0, 1);
+  --light-2: rgba(255, 233, 0, 0.3);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.plane-switch input {
+  display: none;
+}
+
+.plane-switch input + div {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 25px;
+  padding: 1px;
+  border-radius: 13px;
+  background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
+  background-position-x: var(--p, 0%);
+  background-size: 400% auto;
+  transition: background-position 0.6s;
+}
+
+.plane-switch input + div:before,
+.plane-switch input + div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  transform: translateX(var(--s, 0));
+  transition: transform 0.3s;
+}
+
+.plane-switch input + div:before {
+  width: 42px;
+  right: 2px;
+  top: 4px;
+  height: 1px;
+  background: var(--street-line);
+  box-shadow: 0 16px 0 0 var(--street-line);
+}
+
+.plane-switch input + div:after {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  left: 23px;
+  top: 1px;
+  animation: lights2 2s linear infinite;
+  box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+}
+
+.plane-switch input + div span {
+  display: block;
+  position: absolute;
+}
+
+.plane-switch input + div span.street-middle {
+  top: 12px;
+  left: 21px;
+  width: 3px;
+  height: 1px;
+  transform: translateX(var(--s, 0));
+  background: var(--street-line-mid);
+  box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
+  transition: transform 0.3s;
+}
+
+.plane-switch input + div span.cloud {
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+  top: var(--ct, 8px);
+  left: 100%;
+  opacity: var(--co, 0);
+  transition: opacity 0.3s;
+  animation: clouds2 2s linear infinite var(--cd, 0s);
+}
+
+.plane-switch input + div span.cloud:before,
+.plane-switch input + div span.cloud:after {
+  content: "";
+  position: absolute;
+  transform: translateX(var(--cx, 0));
+  border-radius: 50%;
+  width: var(--cs, 5px);
+  height: var(--cs, 5px);
+  background: #fff;
+  bottom: 1px;
+  left: 1px;
+}
+
+.plane-switch input + div span.cloud:after {
+  --cs: 6px;
+  --cx: 4px;
+}
+
+.plane-switch input + div span.cloud.two {
+  --ct: 20px;
+  --cd: 1s;
+  opacity: var(--co-2, 0);
+}
+
+.plane-switch input + div div {
+  display: table;
+  position: relative;
+  z-index: 1;
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--dot);
+  transform: translateX(var(--x, 0));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
+}
+
+.plane-switch input + div div svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  color: var(--c, var(--street));
+  transition: color 0.6s;
+}
+
+.plane-switch input:checked + div {
+  --p: 100%;
+  --x: 25px;
+  --s: -50px;
+  --c: var(--sky-2);
+  --co: 0.8;
+  --co-2: 0.6;
+}
+
+@keyframes lights2 {
+  20%, 30% {
+    box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+  }
+  55%, 65% {
+    box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1);
+  }
+  90%, 100% {
+    box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+  }
+}
+
+@keyframes clouds2 {
+  97% {
+    transform: translateX(-72px);
+    visibility: visible;
+  }
+  98%, 100% {
+    visibility: hidden;
+  }
+  99% {
+    transform: translateX(-72px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

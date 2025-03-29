@@ -1,118 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire Me - Irfan Khan</title>
-    <link rel="stylesheet" href="hire_me.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire Me - Irfan Khan</title>
+  <link rel="stylesheet" href="hire_me.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-<header class="header">
+  <header class="header">
     <a href="#" class="logo">Irfan.</a>
     <div class="hamburger-menu">☰</div>
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="Resume.html">Education</a>
-        <a href="Skills.html">Skills</a>
-        <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
+      <a href="index.html" id="nav-home">Home</a>
+      <a href="about.html" id="nav-about">About Me</a>
+      <a href="Resume.html" id="nav-education">Education</a>
+      <a href="Skills.html" id="nav-skills">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
     </nav>
-</header>
+    <!-- Bouton de traduction stylé avec drapeau -->
+    <div class="language-toggle">
+      <label class="plane-switch">
+        <input type="checkbox" id="translate-toggle">
+        <div>
+          <div>
+            <!-- Icône de drapeau en SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+              <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+            </svg>
+          </div>
+          <span class="street-middle"></span>
+          <span class="cloud"></span>
+          <span class="cloud two"></span>
+        </div>
+      </label>
+    </div>
+  </header>
 
-<div class="mobile-menu">
+  <div class="mobile-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About Me</a>
     <a href="Resume.html">Education</a>
     <a href="Skills.html">Skills</a>
     <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
-</div>
+  </div>
 
-<section class="hire-me">
+  <section class="hire-me">
     <div class="container">
-        <h1>Hire Me</h1>
-        <p>I'm Irfan Khan, a passionate student with a goal to revolutionize the world through AI technology. Here are the services I offer:</p>
-        <div class="services">
-            <div class="service">
-                <h2>Coding</h2>
-                <p>Building responsive and dynamic Portofolio and Python, CSS, and Html.</p>
-            </div>
-            <div class="service">
-                <h2>AI Solutions</h2>
-                <p>Have some knowledge on AI from my internship of <strong>Safran</strong>.</p>
-            </div>
-            <div class="service">
-                <h2>Team work</h2>
-                <p>Have a facility to train their colleagues.</p>
-            </div>
+      <h1 id="hire-title">Hire Me</h1>
+      <p id="hire-text">
+        I'm Irfan Khan, a passionate student with a goal to revolutionize the world through AI technology. Here are the services I offer:
+      </p>
+      <div class="services">
+        <div class="service" id="service1">
+          <h2>Coding</h2>
+          <p>Building responsive and dynamic Portofolio and Python, CSS, and Html.</p>
         </div>
-        
-        <div class="portfolio">
-            <h2>My Work</h2>
-            <div class="work-item">
-                <a href="Nouveau dossier/Mastermind image .webp">
-                    <img src="Nouveau dossier/Mastermind image .webp" alt="Mastermind Game" class="mastermind-image">
-                </a>
-                <p>A game who masters your mind.</p>
-                <button id="start" class="btn">Play Now<a href="MasterMindV6_final.py" class="btn"></a></button>
-                <div id="game-output" style="margin-top:20px; background-color:#081b29; padding:10px; border-radius:10px;"></div>
-            </div>
-            <div class="work-item">
-                <a href="Nouveau dossier/calculatrice_project.webp">
-                    <img src="Nouveau dossier/calculatrice_project.webp" alt="Calculator Project" class="mastermind-image">
-                </a>
-                <p>A calculator that you should see.</p>
-                <button id="start" class="btn">Play Now<a href="calculatrice.py" class="btn"></a></button>
-                <div id="game-output" style="margin-top:20px; background-color:#081b29; padding:10px; border-radius:10px;"></div>
-            </div>
+        <div class="service" id="service2">
+          <h2>AI Solutions</h2>
+          <p>Have some knowledge on AI from my internship at <strong>Safran</strong>.</p>
         </div>
-        
-        <div class="testimonials">
-            <h2>Testimonials</h2>
-            <blockquote>
-                <p>"Irfan is a fantastic student! Highly recommend!" - <strong>Eutelsat</strong></p>
-            </blockquote>
-            <blockquote>
-                <p>"Great work on your concentration about the AI project. Very satisfied." - <strong>Safran</strong></p>
-            </blockquote>
+        <div class="service" id="service3">
+          <h2>Team work</h2>
+          <p>Have a facility to train their colleagues.</p>
         </div>
-        <div class="contact">
-            <h2>Get in Touch</h2>
-            <p>If you are interested in working with me, please reach out!</p>
-            <a href="let's_talk_message_chat_box.html" class="btn">Contact Me</a>
+      </div>
+      
+      <div class="portfolio">
+        <h2 id="work-title">My Work</h2>
+        <div class="work-item" id="work1">
+          <a href="Nouveau dossier/Mastermind image .webp">
+            <img src="Nouveau dossier/Mastermind image .webp" alt="Mastermind Game" class="mastermind-image">
+          </a>
+          <p>A game who masters your mind.</p>
+          <!-- Bouton Play Now avec nouveau style -->
+          <button class="play-now-btn" id="btn-play1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
+              <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+              <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+              <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
+              <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
+              <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+              <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
+              <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
+              <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
+              <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
+            </svg>
+            <span class="now">now!</span>
+            <span class="play">play</span>
+          </button>
         </div>
+        <div class="work-item" id="work2">
+          <a href="Nouveau dossier/calculatrice_project.webp">
+            <img src="Nouveau dossier/calculatrice_project.webp" alt="Calculator Project" class="mastermind-image">
+          </a>
+          <p>A calculator that you should see.</p>
+          <!-- Nouveau bouton Play Now -->
+          <button class="play-now-btn" id="btn-play2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
+              <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+              <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+              <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
+              <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
+              <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+              <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
+              <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
+              <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
+              <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
+            </svg>
+            <span class="now">now!</span>
+            <span class="play">play</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="testimonials">
+        <h2 id="testimonials-title">Testimonials</h2>
+        <blockquote id="testimonial1">
+          <p>"Irfan is a fantastic student! Highly recommend!" - <strong>Eutelsat</strong></p>
+        </blockquote>
+        <blockquote id="testimonial2">
+          <p>"Great guy you're sincerity makes you a better person. Very satisfied." - <strong>Safran</strong></p>
+        </blockquote>
+      </div>
+      
+      <div class="contact">
+        <h2 id="contact-title">Get in Touch</h2>
+        <p id="contact-text">If you are interested in working with me, please reach out!</p>
+        <a href="let's_talk_message_chat_box.html" class="btn" id="contact-btn">Contact Me</a>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer>
+  <footer>
     <div class="socials">
-        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-        <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a> 
-        <a href="#"><i class='bx bxl-twitter'></i></a>
+      <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+      <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a> 
+      <a href="#"><i class='bx bxl-twitter'></i></a>
     </div>
     <p>&copy; 2024 Irfan Khan. All rights reserved.</p>
-</footer>
+  </footer>
 
-<script>
+  <script>
     // Toggle Mobile Menu
     document.querySelector('.hamburger-menu').addEventListener('click', function() {
-        const menu = document.querySelector('.mobile-menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      const menu = document.querySelector('.mobile-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
-
     // Hide desktop navbar on mobile view
     function adjustNavbar() {
-        const navbar = document.querySelector('.navbar');
-        if (window.innerWidth <= 768) {
-            navbar.style.display = 'none';
-        } else {
-            navbar.style.display = 'flex';
-        }
+      const navbar = document.querySelector('.navbar');
+      if (window.innerWidth <= 768) {
+        navbar.style.display = 'none';
+      } else {
+        navbar.style.display = 'flex';
+      }
     }
-
     window.addEventListener('resize', adjustNavbar);
     window.addEventListener('load', adjustNavbar);
-</script>
+
+    // Traduction manuelle pour la page Hire Me
+    document.getElementById('translate-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        // Passage au français
+        document.getElementById('hire-title').innerText = "Choisissez-moi";
+        document.getElementById('hire-text').innerText =
+          "Je suis Irfan Khan, un étudiant passionné avec pour objectif de révolutionner le monde grâce à la technologie IA. Voici les services que j'offre :";
+        document.getElementById('service1').querySelector('h2').innerText = "Programmation";
+        document.getElementById('service1').querySelector('p').innerText =
+          "Création de portofolios réactifs et dynamiques avec Python, CSS et HTML.";
+        document.getElementById('service2').querySelector('h2').innerText = "Solutions IA";
+        document.getElementById('service2').querySelector('p').innerHTML =
+          "Connaissances en IA acquises lors de mon stage chez <strong>Safran</strong>.";
+        document.getElementById('service3').querySelector('h2').innerText = "Travail d'équipe";
+        document.getElementById('service3').querySelector('p').innerText =
+          "Capacité à former et encadrer mes collègues.";
+        document.getElementById('work-title').innerText = "Mes Réalisations";
+        // Mise à jour du bouton dans work-item 1
+        document.getElementById('btn-play1').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
+                <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+                <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
+                <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
+                <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+                <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
+                <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
+                <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
+                <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
+              </svg>
+              <span class="now">now!</span>
+              <span class="play">play</span>
+          `;
+        document.getElementById('testimonials-title').innerText = "Testimonials";
+        document.getElementById('testimonial1').querySelector('p').innerHTML =
+          "\"Irfan is a fantastic student! Highly recommend!\" - <strong>Eutelsat</strong>";
+        document.getElementById('testimonial2').querySelector('p').innerHTML =
+          "\"Great work on your concentration about the AI project. Very satisfied.\" - <strong>Safran</strong>";
+        document.getElementById('contact-title').innerText = "Get in Touch";
+        document.getElementById('contact-text').innerText =
+          "If you are interested in working with me, please reach out!";
+        // Traduction de la navigation
+        document.getElementById('nav-home').innerText = "Home";
+        document.getElementById('nav-about').innerText = "About Me";
+        document.getElementById('nav-education').innerText = "Education";
+        document.getElementById('nav-skills').innerText = "Skills";
+        document.getElementById('nav-cv').innerText = "CV";
+      } else {
+        // Retour à l'anglais
+        document.getElementById('hire-title').innerText = "Hire Me";
+        document.getElementById('hire-text').innerText =
+          "I'm Irfan Khan, a passionate student with a goal to revolutionize the world through AI technology. Here are the services I offer:";
+        document.getElementById('service1').querySelector('h2').innerText = "Coding";
+        document.getElementById('service1').querySelector('p').innerText =
+          "Building responsive and dynamic Portofolio and Python, CSS, and Html.";
+        document.getElementById('service2').querySelector('h2').innerText = "AI Solutions";
+        document.getElementById('service2').querySelector('p').innerHTML =
+          "Have some knowledge on AI from my internship at <strong>Safran</strong>.";
+        document.getElementById('service3').querySelector('h2').innerText = "Team work";
+        document.getElementById('service3').querySelector('p').innerText =
+          "Have a facility to train their colleagues.";
+        document.getElementById('work-title').innerText = "My Work";
+        // Rétablissement du bouton Play Now dans work-item 1
+        document.getElementById('btn-play1').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
+                <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+                <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79 c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7 c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
+                <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17 c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32 c-1.31,1.6-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09 c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.28-0.76,7.67-0.25,9.77,1.13 C33.79,13.6,35,22.23,35,27.17z"></path>
+                <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337 c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+                <path fill="#212121" d="M40.739,37.38c-0.28,1.99-0.69,3.53-1.22,4.62h-2.43c0.25-0.19,1.13-1.11,1.67-4.9 c0.57-4-0.23-11.79-0.93-12.78c-0.4-0.4-2.63-0.8-4.37-0.89l0.1-1.99c1.04,0.05,4.53,0.31,5.71,1.49 C40.689,24.36,41.289,33.53,40.739,37.38z"></path>
+                <path fill="#81d4fa" d="M10.154,20.201c0.261,2.059-0.196,3.351,2.543,3.546s8.076,1.022,9.402-0.554 c1.326-1.576,1.75-4.365-0.891-5.267C19.336,17.287,12.959,16.251,10.154,20.201z"></path>
+                <path fill="#212121" d="M17.615,29.677c-0.502,0-0.873-0.03-1.052-0.069c-0.086-0.019-0.236-0.035-0.434-0.06 c-5.344-0.679-8.053-2.784-8.052-6.255c0.001-2.698,1.17-7.238,8.986-7.32l0.181-0.002c3.444-0.038,6.414-0.068,8.272,1.818 c1.173,1.191,1.712,3,1.647,5.53c-0.044,1.688-0.785,3.147-2.144,4.217C22.785,29.296,19.388,29.677,17.615,29.677z M17.086,17.973 c-7.006,0.074-7.008,4.023-7.008,5.321c-0.001,3.109,3.598,3.926,6.305,4.27c0.273,0.035,0.48,0.063,0.601,0.089 c0.563,0.101,4.68,0.035,6.855-1.732c0.865-0.702,1.299-1.57,1.326-2.653c0.051-1.958-0.301-3.291-1.073-4.075 c-1.262-1.281-3.834-1.255-6.825-1.222L17.086,17.973z"></path>
+                <path fill="#e1f5fe" d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"></path>
+              </svg>
+              <span class="now">now!</span>
+              <span class="play">play</span>
+          `;
+        document.getElementById('testimonials-title').innerText = "Testimonials";
+        document.getElementById('testimonial1').querySelector('p').innerHTML =
+          "\"Irfan is a fantastic student! Highly recommend!\" - <strong>Eutelsat</strong>";
+        document.getElementById('testimonial2').querySelector('p').innerHTML =
+          "\"Great guy you're sincerity makes you a better person . Very satisfied.\" - <strong>Safran</strong>";
+        document.getElementById('contact-title').innerText = "Get in Touch";
+        document.getElementById('contact-text').innerText =
+          "If you are interested in working with me, please reach out!";
+        // Traduction de la navigation
+        document.getElementById('nav-home').innerText = "Home";
+        document.getElementById('nav-about').innerText = "About Me";
+        document.getElementById('nav-education').innerText = "Education";
+        document.getElementById('nav-skills').innerText = "Skills";
+        document.getElementById('nav-cv').innerText = "CV";
+      }
+    });
+  </script>
+  
 </body>
 </html>
