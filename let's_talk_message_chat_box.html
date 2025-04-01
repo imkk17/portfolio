@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Me</title>
-  <link rel="stylesheet" href="chat_box.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="chat_box.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <!-- Inclusion du SDK EmailJS -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
@@ -13,17 +13,16 @@
   <header class="header">
     <a href="#" class="logo">Irfan.</a>
     
-    <!-- Bouton de traduction pour desktop (placé dans la navbar) -->
-    <nav class="navbar">
-      <a href="index.html" id="nav-home">Home</a>
-      <a href="about.html" id="nav-about">About Me</a>
-      <a href="Resume.html" id="nav-education">Education</a>
-      <a href="Skills.html" id="nav-skills">Skills</a>
-      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
-      <!-- Bouton de traduction (visible sur desktop) -->
-      <div class="language-toggle desktop-language">
+    <!-- Input de contrôle du burger (placé en enfant direct du header) -->
+    <input type="checkbox" id="menu-toggle" />
+    
+    <!-- Conteneur pour mobile regroupant le burger et le bouton langue -->
+    <div class="mobile-controls">
+      <label for="menu-toggle" class="burger"><i class='bx bx-menu'></i></label>
+      <!-- Bouton langue pour mobile -->
+      <div class="language-toggle mobile-language">
         <label class="plane-switch">
-          <input type="checkbox" id="translate-toggle">
+          <input type="checkbox" id="translate-toggle-mobile" />
           <div>
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -37,42 +36,60 @@
           </div>
         </label>
       </div>
-      
-      <!-- Pour mobile, le bouton langue peut être placé ailleurs ou intégré dans le menu mobile -->
+    </div>
+    
+    <!-- Navigation desktop -->
+    <nav class="navbar desktop-nav">
+      <a href="index.html" id="nav-home">Home</a>
+      <a href="about.html" id="nav-about">About Me</a>
+      <a href="Resume.html" id="nav-education">Education</a>
+      <a href="Skills.html" id="nav-skills">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
+      <!-- Bouton langue pour desktop -->
+      <div class="language-toggle desktop-language">
+        <label class="plane-switch">
+          <input type="checkbox" id="translate-toggle" />
+          <div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+                <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+              </svg>
+            </div>
+            <span class="street-middle"></span>
+            <span class="cloud"></span>
+            <span class="cloud two"></span>
+          </div>
+        </label>
+      </div>
     </nav>
     
-    <!-- Checkbox et label pour le burger (affiché en mobile) -->
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="burger"><i class='bx bx-menu'></i></label>
+    <!-- Menu mobile (s'affiche quand le checkbox est coché) -->
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="Resume.html">Education</a>
+      <a href="Skills.html">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
+    </div>
   </header>
-
-  <!-- Menu mobile -->
-  <div class="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="Resume.html">Education</a>
-    <a href="Skills.html">Skills</a>
-    <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
-    <!-- Vous pouvez ajouter ici une version mobile du bouton langue si souhaité -->
-  </div>
 
   <section class="home">
     <div class="home-content">
       <h1>Contact Me</h1>
       <form action="#" method="POST" class="contact-form" id="contactForm">
         <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required />
 
         <label for="phone">Phone *</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="tel" id="phone" name="phone" required />
 
         <label for="subject">Subject *</label>
-        <input type="text" id="subject" name="subject" required>
+        <input type="text" id="subject" name="subject" required />
 
         <label for="message">Message *</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <!-- Nouveau bouton Send personnalisé -->
         <button type="submit" class="send-btn">
           <div class="svg-wrapper-1">
             <div class="svg-wrapper">
@@ -99,65 +116,55 @@
   </footer>
 
   <script>
-    // Initialiser EmailJS avec votre clé publique
+    // Initialisation EmailJS
     emailjs.init("9RiO1EMmVFptFknAB");
 
     // Soumission du formulaire via EmailJS
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
       event.preventDefault();
       emailjs.sendForm("service_21pc3zs", "template_luj2d4h", this)
-        .then(function(response) {
+        .then(function (response) {
           alert("Your message has been sent successfully!");
           document.getElementById("successMessage").style.display = "block";
-          console.log("SUCCESS", response.status, response.text);
           document.getElementById("contactForm").reset();
-        }, function(error) {
+        }, function (error) {
           alert("Error: Message not sent. Please try again later.");
-          console.error("FAILED", error);
         });
     });
 
-    // Toggle Mobile Menu
-    document.querySelector('.hamburger-menu').addEventListener('click', function() {
-      const menu = document.querySelector('.mobile-menu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
+    // Affichage de la navigation desktop selon la largeur d'écran
     function adjustNavbar() {
-      const navbar = document.querySelector('.navbar');
+      const desktopNav = document.querySelector('.desktop-nav');
       if (window.innerWidth <= 768) {
-        navbar.style.display = 'none';
+        desktopNav.style.display = 'none';
       } else {
-        navbar.style.display = 'flex';
+        desktopNav.style.display = 'flex';
       }
     }
     window.addEventListener('resize', adjustNavbar);
     window.addEventListener('load', adjustNavbar);
 
-    // Traduction manuelle pour la page Contact Me
-    document.getElementById('translate-toggle').addEventListener('change', function() {
+    // Traduction pour la version desktop
+    document.getElementById('translate-toggle').addEventListener('change', function () {
       if (this.checked) {
-        // Passage au français
         document.querySelector('.home-content h1').innerText = "Contactez-moi";
         document.querySelector('.contact-form label[for="email"]').innerText = "Email *";
         document.querySelector('.contact-form label[for="phone"]').innerText = "Téléphone *";
         document.querySelector('.contact-form label[for="subject"]').innerText = "Sujet *";
         document.querySelector('.contact-form label[for="message"]').innerText = "Message *";
         document.querySelector('.contact-form button span').innerText = "Envoyer";
-        // Traduction de la navigation
-        document.getElementById('nav-home').innerText = "Home"; // Vous pouvez adapter si nécessaire
+        document.getElementById('nav-home').innerText = "Home"; 
         document.getElementById('nav-about').innerText = "About Me";
         document.getElementById('nav-education').innerText = "Education";
         document.getElementById('nav-skills').innerText = "Skills";
         document.getElementById('nav-cv').innerText = "CV";
       } else {
-        // Retour à l'anglais
         document.querySelector('.home-content h1').innerText = "Contact Me";
         document.querySelector('.contact-form label[for="email"]').innerText = "Email *";
         document.querySelector('.contact-form label[for="phone"]').innerText = "Phone *";
         document.querySelector('.contact-form label[for="subject"]').innerText = "Subject *";
         document.querySelector('.contact-form label[for="message"]').innerText = "Message *";
         document.querySelector('.contact-form button span').innerText = "Send";
-        // Rétablissement de la navigation
         document.getElementById('nav-home').innerText = "Home";
         document.getElementById('nav-about').innerText = "About Me";
         document.getElementById('nav-education').innerText = "Education";
@@ -165,6 +172,12 @@
         document.getElementById('nav-cv').innerText = "CV";
       }
     });
+
+    // Traduction pour la version mobile (si besoin, on peut synchroniser l'état)
+    document.getElementById('translate-toggle-mobile') &&
+      document.getElementById('translate-toggle-mobile').addEventListener('change', function () {
+        // Vous pouvez copier ici la même logique ou synchroniser avec le toggle desktop.
+      });
   </script>
 </body>
 </html>

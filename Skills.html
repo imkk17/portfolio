@@ -11,26 +11,45 @@
 
   <header class="header">
     <a href="#" class="logo">Irfan.</a>
-    <!-- Checkbox to toggle the menu with an aria-label -->
+    <!-- Bouton de traduction pour desktop -->
+    <div class="language-toggle desktop-language">
+      <label class="plane-switch">
+        <input type="checkbox" id="translate-toggle">
+        <div>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+              <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+            </svg>
+          </div>
+          <span class="street-middle"></span>
+          <span class="cloud"></span>
+          <span class="cloud two"></span>
+        </div>
+      </label>
+    </div>
+    <!-- Navigation -->
     <input type="checkbox" id="menu-toggle" aria-label="Toggle navigation">
     <label for="menu-toggle" class="burger">
       <i class='bx bx-menu'></i>
     </label>
     <nav class="navbar" role="navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="Resume.html">Education</a>
-      <a href="Skills.html">Skills</a>
-      <a href="Nouveau dossier/Irfan_CVmot-5.pdf">CV</a>
+      <a class="active" href="index.html" id="nav-home">Home</a>
+      <a href="about.html" id="nav-about">About Me</a>
+      <a href="Resume.html" id="nav-education">Education</a>
+      <a href="Skills.html" id="nav-skills">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
     </nav>
   </header>
 
   <main>
-    <!-- Section présentant les icônes de compétences et le bouton d'interaction -->
+    <!-- Section présentant les compétences -->
     <section class="home">
       <div class="home-content">
-        <h1>My Skills</h1>
-        <p>Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.</p>
+        <h1 id="skills-title">My Skills</h1>
+        <p id="skills-desc">
+          Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.
+        </p>
         <div class="home-sci">
           <div class="skill-item">
             <a href="#"><i class='bx bxl-html5'></i></a>
@@ -53,49 +72,191 @@
             <p>Artificial Intelligence</p>
           </div>
         </div>
-        <div class="btn-box">
-          <a href="#"><i class='bx bxs-like'></i> Like</a>
-          <a href="#"><i class='bx bxs-like'></i> Love It</a>
+        <!-- Nouveau container pour Like / Love It -->
+        <div class="container">
+          <label for="dislike">
+            <input type="radio" name="evaluation" id="dislike" />
+            <svg
+              class="icon dislike"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 3H6.693A2.01 2.01 0 0 0 4.82 4.298l-2.757 7.351A1 1 0 0 0 2 12v2c0 1.103.897 2 2 2h5.612L8.49 19.367a2.004 2.004 0 0 0 .274 1.802c.376.52.982.831 1.624.831H12c.297 0 .578-.132.769-.36l4.7-5.64H20c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-8.469 17h-1.145l1.562-4.684A1 1 0 0 0 11 14H4v-1.819L6.693 5H16v9.638L11.531 20zM18 14V5h2l.001 9H18z"></path>
+            </svg>
+          </label>
+          <div class="count">
+            <div class="number">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span>8</span>
+              <span>9</span>
+            </div>
+            <div class="number">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span>8</span>
+              <span>9</span>
+            </div>
+            <div class="number">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span>8</span>
+              <span>9</span>
+            </div>
+          </div>
+          <label for="like">
+            <input type="radio" name="evaluation" id="like" checked />
+            <svg
+              class="icon like"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 8h-5.612l1.123-3.367c.202-.608.1-1.282-.275-1.802S14.253 2 13.612 2H12c-.297 0-.578.132-.769.36L6.531 8H4c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h13.307a2.01 2.01 0 0 0 1.873-1.298l2.757-7.351A1 1 0 0 0 22 12v-2c0-1.103-.897-2-2-2zM4 10h2v9H4v-9zm16 1.819L17.307 19H8V9.362L12.468 4h1.146l-1.562 4.683A.998.998 0 0 0 13 10h7v1.819z"></path>
+            </svg>
+          </label>
         </div>
       </div>
       <div class="home-photo">
         <img src="Nouveau dossier/dedpool-removebg-preview.png" alt="Deadpool">
       </div>
-      
     </section>
-    
 
     <!-- Section détaillant chaque compétence -->
     <section class="skills">
       <div class="skill">
         <h2>HTML</h2>
-        <p>I have acquire the HTML skill by began in high school, where I took an introductory computer science course in udemy. I was fascinated by how websites are created and work.  .</p>
+        <p id="skill-html">
+          I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.
+        </p>
       </div>
       <div class="skill">
         <h2>CSS</h2>
-        <p>During the vacation I have acquire  some skills to design a website with CSS3 including selectors, layout properties, and responsive design techniques.</p>
+        <p id="skill-css">
+          During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.
+        </p>
       </div>
       <div class="skill">
         <h2>Python</h2>
-        <p>I have acquire the Python skill by began in high school, where I took an introductory computer science course in France IOI which is a website who train you to solve some problems in Python. I was fascinated by how solving problems and creating some mini games . </p>
+        <p id="skill-python">
+          I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.
+        </p>
       </div>
       <div class="skill">
         <h2>Microsoft</h2>
-        <p>Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.</p>
+        <p id="skill-ms">
+          Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.
+        </p>
       </div>
       <div class="skill">
         <h2>Adobe</h2>
-        <p>Proficient in Adobe Creative Suite, including Photoshop, Illustrator, and Premiere Pro.</p>
+        <p id="skill-adobe">
+          Proficient in Adobe Creative Suite, including Photoshop, Illustrator, and Premiere Pro.
+        </p>
       </div>
       <div class="skill">
-        <h2>AI</h2>
-        <p>Always on alert about a new technology </p>
+        <h2>Artificial Intelligence</h2>
+        <p id="skill-ai">
+          Always on alert about new technologies.
+        </p>
       </div>
     </section>
-    <section>
-      
-    </section>
   </main>
-  
+
+  <footer>
+    <div class="socials">
+      <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+      <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a>
+      <a href="#"><i class='bx bxl-twitter'></i></a>
+    </div>
+    <p>&copy; 2024 Irfan Khan. All rights reserved.</p>
+  </footer>
+
+  <!-- Script de traduction manuelle -->
+  <script>
+    document.getElementById('translate-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        // Passage au français
+        document.getElementById('skills-title').innerText = "Mes Compétences";
+        document.getElementById('skills-desc').innerText = "Bienvenue sur ma page de compétences. Vous trouverez ci-dessous la liste de mes compétences techniques, ainsi que quelques exemples de mon travail dans chaque domaine.";
+        // Navigation
+        document.getElementById('nav-home').innerText = "Accueil";
+        document.getElementById('nav-about').innerText = "À propos";
+        document.getElementById('nav-education').innerText = "Éducation";
+        document.getElementById('nav-skills').innerText = "Compétences";
+        document.getElementById('nav-cv').innerText = "CV";
+        // Traduction des compétences
+        document.querySelector(".skill:nth-child(1) h2").innerText = "HTML";
+        document.getElementById("skill-html").innerText =
+          "J'ai acquis des compétences en HTML dès le lycée en suivant un cours introductif sur Udemy. J'ai été fasciné par la manière dont les sites web sont créés et fonctionnent.";
+        document.querySelector(".skill:nth-child(2) h2").innerText = "CSS";
+        document.getElementById("skill-css").innerText =
+          "Pendant les vacances, j'ai appris à concevoir des sites web avec CSS3, incluant les sélecteurs, les propriétés de mise en page et les techniques de design responsive.";
+        document.querySelector(".skill:nth-child(3) h2").innerText = "Python";
+        document.getElementById("skill-python").innerText =
+          "J'ai commencé à apprendre Python au lycée via un cours introductif sur France IOI, qui forme à résoudre des problèmes avec Python. J'ai été fasciné par la résolution de problèmes et la création de mini-jeux.";
+        document.querySelector(".skill:nth-child(4) h2").innerText = "Microsoft";
+        document.getElementById("skill-ms").innerText =
+          "Solide connaissance de la suite Microsoft Office, incluant Excel, Word et PowerPoint.";
+        document.querySelector(".skill:nth-child(5) h2").innerText = "Adobe";
+        document.getElementById("skill-adobe").innerText =
+          "Maîtrise de la suite Adobe Creative, incluant Photoshop, Illustrator et Premiere Pro.";
+        document.querySelector(".skill:nth-child(6) h2").innerText = "IA";
+        document.getElementById("skill-ai").innerText =
+          "Toujours à l'affût des nouvelles technologies.";
+      } else {
+        // Retour à l'anglais
+        document.getElementById('skills-title').innerText = "My Skills";
+        document.getElementById('skills-desc').innerText = "Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.";
+        // Navigation
+        document.getElementById('nav-home').innerText = "Home";
+        document.getElementById('nav-about').innerText = "About Me";
+        document.getElementById('nav-education').innerText = "Education";
+        document.getElementById('nav-skills').innerText = "Skills";
+        document.getElementById('nav-cv').innerText = "CV";
+        // Retour pour les compétences
+        document.querySelector(".skill:nth-child(1) h2").innerText = "HTML";
+        document.getElementById("skill-html").innerText =
+          "I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.";
+        document.querySelector(".skill:nth-child(2) h2").innerText = "CSS";
+        document.getElementById("skill-css").innerText =
+          "During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.";
+        document.querySelector(".skill:nth-child(3) h2").innerText = "Python";
+        document.getElementById("skill-python").innerText =
+          "I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.";
+        document.querySelector(".skill:nth-child(4) h2").innerText = "Microsoft";
+        document.getElementById("skill-ms").innerText =
+          "Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.";
+        document.querySelector(".skill:nth-child(5) h2").innerText = "Adobe";
+        document.getElementById("skill-adobe").innerText =
+          "Proficient in Adobe Creative Suite, including Photoshop, Illustrator, and Premiere Pro.";
+        document.querySelector(".skill:nth-child(6) h2").innerText = "Artificial Intelligence";
+        document.getElementById("skill-ai").innerText =
+          "Always on alert about new technologies.";
+      }
+    });
+  </script>
+
 </body>
 </html>
