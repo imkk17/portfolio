@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portofolio website - html and css only codehal</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Personal Portfolio - About Me | Irfan Khan</title>
+  <link rel="stylesheet" href="about.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Header avec navigation -->
   <header class="header">
-    <a href="#" class="logo">Irfan.</a>
-  
-    <!-- Checkbox to toggle the menu -->
+    <a href="index.html" class="logo" aria-label="Accueil">Irfan.</a>
+    
+    <!-- Checkbox pour activer le menu mobile -->
     <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="burger">
+    <label for="menu-toggle" class="burger" aria-label="Ouvrir le menu">
       <i class='bx bx-menu'></i>
     </label>
-  
-    <nav class="navbar"> 
+    
+    <nav class="navbar" aria-label="Navigation principale">
       <a class="active" href="index.html" id="nav-home">Home</a>
       <a href="about.html" id="nav-about">About Me</a>
       <a href="Resume.html" id="nav-education">Education</a>
       <a href="Skills.html" id="nav-skills">Skills</a>
-      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv">CV</a>
+      <a href="Nouveau dossier/Irfan_CVmot-5.pdf" id="nav-cv" target="_blank" rel="noopener">CV</a>
     </nav>
     
-    <!-- Bouton de traduction stylé avec drapeau -->
-    <div class="language-toggle">
+    <!-- Bouton de traduction stylé -->
+    <<div class="language-toggle">
       <label class="plane-switch">
         <input type="checkbox" id="translate-toggle">
         <div>
@@ -46,43 +47,47 @@
     </div>
   </header>
 
-  <section class="home">
+  <!-- Section About (contenu principal) -->
+  <main class="about">
+    <!-- Colonne texte -->
     <div class="about-content">
-      <!-- Ajout d'IDs pour faciliter la traduction -->
       <h1 id="main-title">About Me</h1>
       <div id="main-text">
         <p>
-          I am a high school junior passionate about new technologies and computer science. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my knowledge in these fascinating fields. I love discovering new technologies, particularly artificial intelligence, and I take great pleasure in coding and programming.
+          I am a high school junior passionate about new technologies, computer science, and artificial intelligence. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my technical skills and innovative mindset. I love exploring new tech, especially AI, and I take great pleasure in coding and programming.
         </p>
         <p>
-          I am perseverant, hardworking, perfectionistic, logical, and observant. My goal is to continue learning and evolving in the constantly changing world of technology.
+          I am perseverant, hardworking, perfectionistic, logical, and observant. My goal is to continuously learn and evolve, preparing myself for future challenges in tech and AI – making me an ideal candidate for computer science and AI programs.
         </p>
       </div>
       <div class="btn-box" id="btn-box">
         <a href="read_more_ABOUT.HTML" id="read-more">Read More</a>
       </div>
     </div>
-  
-    <div class="home-sci">
-      <a href="#"><i class='bx bxl-whatsapp'></i></a>
-      <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a> 
-      <a href="#"><i class='bx bxl-twitter'></i></a>
-    </div>
+    
+    <!-- Colonne image -->
     <div class="home-photo">
-      <img src="Nouveau dossier/unnamed.png" alt="">
+      <img src="Nouveau dossier/unnamed.png" alt="Photo of Irfan Khan">
       <h4><strong>The Original Photo</strong></h4>
     </div>
-  </section>
+  </main>
   
-  <!-- Script de traduction manuelle -->
+  <!-- Réseaux sociaux -->
+  <div class="home-sci">
+    <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+    <a href="https://www.linkedin.com/in/irfan-khan-050522300/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+    <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+  </div>
+  
+  <!-- Script de traduction -->
   <script>
     document.getElementById('translate-toggle').addEventListener('change', function() {
       if (this.checked) {
         // Passage au français
         document.getElementById('main-title').innerText = "À propos de moi";
         document.getElementById('main-text').innerHTML = `
-          <p>Je suis un lycéen passionné par les nouvelles technologies et l'informatique. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (numérique et informatique) pour approfondir mes connaissances dans ces domaines fascinants. J'adore découvrir de nouvelles technologies, notamment l'intelligence artificielle, et j'éprouve un grand plaisir à coder et programmer.</p>
-          <p>Je suis persévérant, travailleur, perfectionniste, logique et observateur. Mon objectif est de continuer à apprendre et à évoluer dans ce monde en constante évolution.</p>
+          <p>Je suis un lycéen passionné par les nouvelles technologies, l'informatique et l'intelligence artificielle. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (numérique et informatique) pour approfondir mes compétences techniques et mon esprit innovant. J'adore explorer les nouvelles technologies, notamment l'IA, et j'éprouve un grand plaisir à coder et programmer.</p>
+          <p>Je suis persévérant, travailleur, perfectionniste, logique et observateur. Mon objectif est de continuer à apprendre et à évoluer, me préparant ainsi aux défis futurs en tech et IA – faisant de moi un candidat idéal pour des programmes en informatique et intelligence artificielle.</p>
         `;
         document.getElementById('nav-home').innerText = "Accueil";
         document.getElementById('nav-about').innerText = "À propos";
@@ -94,8 +99,8 @@
         // Retour à l'anglais
         document.getElementById('main-title').innerText = "About Me";
         document.getElementById('main-text').innerHTML = `
-          <p>I am a high school junior passionate about new technologies and computer science. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my knowledge in these fascinating fields. I love discovering new technologies, particularly artificial intelligence, and I take great pleasure in coding and programming.</p>
-          <p>I am perseverant, hardworking, perfectionistic, logical, and observant. My goal is to continue learning and evolving in the constantly changing world of technology.</p>
+          <p>I am a high school junior passionate about new technologies, computer science, and artificial intelligence. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my technical skills and innovative mindset. I love exploring new tech, especially AI, and I take great pleasure in coding and programming.</p>
+          <p>I am perseverant, hardworking, perfectionistic, logical, and observant. My goal is to continuously learn and evolve, preparing myself for future challenges in tech and AI – making me an ideal candidate for computer science and AI programs.</p>
         `;
         document.getElementById('nav-home').innerText = "Home";
         document.getElementById('nav-about').innerText = "About Me";
