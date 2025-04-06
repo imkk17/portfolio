@@ -32,6 +32,59 @@ body {
   font-weight: 600;
 }
 
+/* Masquer le checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Burger menu personnalisé */
+.burger {
+  display: none;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  z-index: 101;
+}
+.burger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.burger span:nth-child(1) {
+  top: 0;
+}
+.burger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Transformation en croix quand le menu est ouvert */
+#menu-toggle:checked + .burger span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+#menu-toggle:checked + .burger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .burger span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 10px;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+}
 .navbar a {
   font-size: 18px;
   color: white;
@@ -40,32 +93,31 @@ body {
   margin-left: 35px;
   transition: 0.5s;
 }
-
 .navbar a:hover {
   color: #00abf0;
 }
 
+/* Section Hire Me */
 .hire-me {
   padding: 100px 10% 50px;
+  margin-top: 80px; /* pour laisser la place à l'en-tête fixe */
 }
-
 .hire-me h1 {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 20px;
 }
-
 .hire-me p {
   font-size: 18px;
   margin-bottom: 40px;
 }
 
+/* Services */
 .services {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
 }
-
 .service {
   flex: 1;
   margin: 0 10px;
@@ -74,39 +126,34 @@ body {
   border-radius: 10px;
   text-align: center;
 }
-
 .service h2 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #00abf0;
 }
 
+/* Portfolio */
 .portfolio {
   margin-bottom: 40px;
 }
-
 .portfolio h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
 .work-item {
   margin-bottom: 20px;
   text-align: center;
 }
-
-/* Ajout d'un espace sous le paragraphe pour placer le bouton en dessous */
 .work-item p {
   margin-bottom: 20px;
 }
-
 .mastermind-image {
   width: 100%; 
   height: auto; 
   transition: transform 0.3s ease;
 }
 
-/* Nouveau style du bouton Play Now */
+/* Bouton Play Now */
 .play-now-btn {
   display: flex;
   align-items: center;
@@ -126,28 +173,23 @@ body {
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
-  margin-top: 20px; /* Espace supplémentaire sous le paragraphe */
+  margin-top: 20px;
 }
-
 .play-now-btn:active {
   transform: scale(0.9);
   transition: all 100ms ease;
 }
-
 .play-now-btn svg {
   transition: all 0.5s ease;
   z-index: 2;
 }
-
 .play-now-btn .play {
   transition: all 0.5s ease;
   transition-delay: 300ms;
 }
-
 .play-now-btn:hover svg {
   transform: scale(3) translate(50%);
 }
-
 .play-now-btn .now {
   position: absolute;
   left: 0;
@@ -155,12 +197,10 @@ body {
   transition: all 0.5s ease;
   z-index: 2;
 }
-
 .play-now-btn:hover .now {
   transform: translateX(10px);
   transition-delay: 300ms;
 }
-
 .play-now-btn:hover .play {
   transform: translateX(200%);
   transition-delay: 300ms;
@@ -170,12 +210,10 @@ body {
 .testimonials {
   margin-bottom: 40px;
 }
-
 .testimonials h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
 .testimonials blockquote {
   background: #0a2c43;
   padding: 20px;
@@ -183,10 +221,10 @@ body {
   margin-bottom: 20px;
 }
 
+/* Contact */
 .contact {
   text-align: center;
 }
-
 .contact .btn {
   padding: 10px 20px;
   background-color: #00abf0;
@@ -197,30 +235,50 @@ body {
   text-decoration: none;
   transition: background-color 0.3s;
 }
-
 .contact .btn:hover {
   background-color: #008acb;
 }
 
+/* Footer */
 footer {
   padding: 20px 10%;
   text-align: center;
 }
-
 footer .socials a {
   margin: 0 10px;
   font-size: 24px;
   color: #00abf0;
 }
-
 footer p {
   margin-top: 10px;
   font-size: 14px;
   color: #aaa;
 }
 
-/* Responsive Design */
+/* Responsive Mobile */
 @media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+  /* Navbar masquée et affichée par le checkbox */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #081b29;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  #menu-toggle:checked + .burger + .navbar {
+    display: flex;
+  }
+  .navbar a {
+    margin: 10px 0;
+  }
+  /* Adaptation des services en colonne */
   .services {
     flex-direction: column;
     align-items: center;
@@ -228,47 +286,13 @@ footer p {
   .service {
     margin-bottom: 20px;
   }
-  .work-item {
-    width: 100%;
-  }
-  .hamburger-menu {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-  }
-  .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #081b29;
-    z-index: 101;
-    text-align: center;
-  }
-  .mobile-menu a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-  }
-  .mobile-menu a:hover {
-    background-color: #00abf0;
-  }
-}
-@media (min-width: 769px) {
-  .hamburger-menu {
-    display: none;
-  }
-  .mobile-menu {
-    display: none;
+  /* Ajustements pour le bouton de langue sur mobile */
+  .plane-switch {
+    transform: scale(0.8);
   }
 }
 
-/* =========================
-   Bouton de traduction stylé (Drapeau)
-   ========================= */
+/* Bouton de traduction stylé (Drapeau) */
 .plane-switch {
   --dot: #fff;
   --street: #6B6D76;
@@ -281,11 +305,9 @@ footer p {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-
 .plane-switch input {
   display: none;
 }
-
 .plane-switch input + div {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   position: relative;
@@ -299,7 +321,6 @@ footer p {
   background-size: 400% auto;
   transition: background-position 0.6s;
 }
-
 .plane-switch input + div:before,
 .plane-switch input + div:after {
   content: "";
@@ -308,7 +329,6 @@ footer p {
   transform: translateX(var(--s, 0));
   transition: transform 0.3s;
 }
-
 .plane-switch input + div:before {
   width: 42px;
   right: 2px;
@@ -317,7 +337,6 @@ footer p {
   background: var(--street-line);
   box-shadow: 0 16px 0 0 var(--street-line);
 }
-
 .plane-switch input + div:after {
   width: 2px;
   height: 2px;
@@ -327,12 +346,10 @@ footer p {
   animation: lights2 2s linear infinite;
   box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
 }
-
 .plane-switch input + div span {
   display: block;
   position: absolute;
 }
-
 .plane-switch input + div span.street-middle {
   top: 12px;
   left: 21px;
@@ -343,7 +360,6 @@ footer p {
   box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
   transition: transform 0.3s;
 }
-
 .plane-switch input + div span.cloud {
   width: 12px;
   height: 4px;
@@ -356,7 +372,6 @@ footer p {
   transition: opacity 0.3s;
   animation: clouds2 2s linear infinite var(--cd, 0s);
 }
-
 .plane-switch input + div span.cloud:before,
 .plane-switch input + div span.cloud:after {
   content: "";
@@ -369,18 +384,15 @@ footer p {
   bottom: 1px;
   left: 1px;
 }
-
 .plane-switch input + div span.cloud:after {
   --cs: 6px;
   --cx: 4px;
 }
-
 .plane-switch input + div span.cloud.two {
   --ct: 20px;
   --cd: 1s;
   opacity: var(--co-2, 0);
 }
-
 .plane-switch input + div div {
   display: table;
   position: relative;
@@ -391,7 +403,6 @@ footer p {
   transform: translateX(var(--x, 0));
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
 }
-
 .plane-switch input + div div svg {
   width: 13px;
   height: 13px;
@@ -399,7 +410,6 @@ footer p {
   color: var(--c, var(--street));
   transition: color 0.6s;
 }
-
 .plane-switch input:checked + div {
   --p: 100%;
   --x: 25px;
