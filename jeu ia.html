@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #0f172a;
+      color: white;
+    }
+    .game-container {
+      text-align: center;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #0ea5e9;
+    }
+    input {
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0ea5e9;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h2>IA Number Guessing Game</h2>
+    <p>Je pense à un nombre entre 1 et 100. Essaie de le deviner, et je vais t'aider !</p>
+    <input type="number" id="guess" placeholder="Entre 1 et 100" />
+    <button onclick="makeGuess()">Deviner</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let min = 1;
+    let max = 100;
+    let secretNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    let attempts = 0;
+
+    function makeGuess() {
+      const guess = parseInt(document.getElementById("guess").value);
+      const message = document.getElementById("message");
+      attempts++;
+
+      if (isNaN(guess) || guess < min || guess > max) {
+        message.textContent = "S'il te plaît, entre un nombre valide entre 1 et 100.";
+        return;
+      }
+
+      if (guess < secretNumber) {
+        message.textContent = `Trop petit ! Essaie encore.`;
+      } else if (guess > secretNumber) {
+        message.textContent = `Trop grand ! Essaie encore.`;
+      } else {
+        message.textContent = `Bravo ! Tu as trouvé le nombre en ${attempts} tentatives.`;
+      }
+    }
+  </script>
+</body>
+</html>

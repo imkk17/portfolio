@@ -229,7 +229,7 @@
       localStorage.setItem('logs', JSON.stringify(logs));
     }
 
-    // Fonction d'export CSV
+    // Fonction d'exportation des logs en CSV
     function exportToCSV() {
       let csvContent = "data:text/csv;charset=utf-8,Timestamp,Likes,Dislikes\n";
       logs.forEach(log => {
@@ -247,7 +247,6 @@
     // Fonction de réinitialisation réservée à l'administrateur
     function resetCounters() {
       const password = prompt("Entrez le mot de passe administrateur pour réinitialiser les compteurs:");
-      // Définissez ici le mot de passe souhaité (ex: "admin123")
       if (password === "admin123") {
         likeCount = 0;
         dislikeCount = 0;
@@ -263,6 +262,5 @@
       }
     }
   </script>
-
 </body>
 </html>
