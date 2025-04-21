@@ -3,45 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
-    <link rel="stylesheet" href="read_more_about.css">
+    <title>Personal Portfolio | About Me</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="read_more_about.css">
 </head>
 <body>
 
-    <header class="header">
+    <header id="header">
         <a href="#" class="logo">Irfan.</a>
 
-        <nav class="navbar"> 
-            <a class="active" href="index.html">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="resume.html">Education</a>
-            <a href="skills.html">Skills</a>
-            <a href="Nouveau%20dossier/Irfan_CVmot-8.pdf">CV</a>
-        </nav> 
+        <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="burger">
+      <i class='bx bx-menu'></i>
+    </label>
+
+    <nav class="navbar"> 
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="Resume.html">Education</a>
+      <a href="Skills.html">Skills</a>
+      <a href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
+    </nav>
     </header>
 
-    <section class="home">
+    <main>
+        <div class="profile-photo">
+            <img src="Nouveau dossier/Irfan_photo_standing.jpg" alt="Photo of Irfan">
+        </div>
         <div class="about-content">
             <h1>About Me</h1>
-            <p>I am a high school junior with a deep passion for new technologies and computer science. I have chosen to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to expand my knowledge in these fields. This combination gives me a solid foundation to explore complex scientific concepts and technological advancements comprehensively.
-            </p>
-            <p>Artificial intelligence fascinates me as it represents the frontier of technological innovation. I am particularly interested in how AI can transform industries through automation, predictive analytics, and intelligent systems. 
-            </p>
-            <p>Looking to the future, I aim to attend a university with a strong computer science or engineering program, ideally one known for its expertise in AI and innovation. I seek programs that offer research opportunities and state-of-the-art facilities.
-            </p>
-            <p>To prepare for college applications, I maintain strong academic performance, participate in extracurricular activities, and build relationships with teachers who recognize my dedication.
-            </p>
-            <p>In the ever-evolving world of technology, I am committed to staying curious, learning continuously, and contributing to advancements that drive progress. My passion and dedication position me for a successful career in technology.
-            </p>
+            <p>I am a high school junior passionate about new technologies and computer science. I specialize in mathematics, physics-chemistry, and NSI (Digital & Computer Science), building a strong foundation for exploring complex scientific concepts.</p>
+            <details>
+                <summary>Why AI fascinates me</summary>
+                <p>Artificial intelligence represents the cutting edge of innovation. I'm intrigued by how AI transforms industries with automation, predictive analytics, and intelligent systems.</p>
+            </details>
+            <details>
+                <summary>My Academic Goals</summary>
+                <p>I aim to attend a university renowned for its computer science or engineering programs, especially those excelling in AI research and offering state-of-the-art facilities.</p>
+            </details>
+            <details>
+                <summary>Preparation & Vision</summary>
+                <p>To prepare for applications, I maintain strong grades, engage in extracurriculars, and foster relationships with mentors. I stay curious and dedicated to contribute to technological progress.</p>
+            </details>
         </div>
-        
-        <div class="home-sci">
-            <a href="#"><i class='bx bxl-whatsapp'></i></a>
-            <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a> 
-            <a href="#"><i class='bx bxl-twitter'></i></a>
-        </div>
-    </section>
+    </main>
+
+    <div class="social">
+        <a href="#"><i class='bx bxl-whatsapp'></i></a>
+        <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+    </div>
+
+    <script>
+        // Change header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 
 </body>
 </html>

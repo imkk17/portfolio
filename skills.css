@@ -258,7 +258,7 @@ body {
     transition: background-color 0.3s ease;
   }
   .burger:hover {
-    background-color: #0088cc;
+    background-color: transparent;
   }
   .navbar {
     display: none;
@@ -596,4 +596,47 @@ footer p {
   z-index: -1;
   background-color: rgb(226, 226, 226);
   transform: translateX(-50%) rotate(45deg);
+}
+.burger {
+  display: none;
+  font-size: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+/* =========================
+   Responsive Mobile
+   ========================= */
+   @media (max-width: 802px) {
+    
+    .header {
+      padding: 10px 5%;
+    }
+  
+    .burger {
+      display: block;
+    }
+  
+    .navbar {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #081b29;
+      width: 100%;
+      text-align: center;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  
+    #menu-toggle:checked + .burger + .navbar {
+      display: block;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  
+    .navbar a {
+      display: block;
+      margin: 10px 0;
+    }
 }
