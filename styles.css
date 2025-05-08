@@ -368,10 +368,7 @@ body {
     opacity: 1;
   }
 
-  .navbar a {
-    display: block;
-    margin: 10px 0;
-  }
+   
 
   .home {
     height: auto;
