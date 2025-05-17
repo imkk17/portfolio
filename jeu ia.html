@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IA Guessing Game</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -42,6 +43,28 @@
       margin-top: 20px;
       font-weight: bold;
     }
+    .back-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0ea5e9;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .back-btn:hover {
+      background-color: #0284c7;
+      transform: scale(1.05);
+    }
+    .back-btn i {
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -51,6 +74,9 @@
     <input type="number" id="guess" placeholder="Entre 1 et 100" />
     <button onclick="makeGuess()">Deviner</button>
     <p id="message"></p>
+    <button class="back-btn" onclick="goBack()">
+      <i class="bx bx-arrow-back"></i> Retour
+    </button>
   </div>
 
   <script>
@@ -76,6 +102,10 @@
       } else {
         message.textContent = `Bravo ! Tu as trouvé le nombre en ${attempts} tentatives.`;
       }
+    }
+
+    function goBack() {
+      window.location.href = 'hire_me.html';
     }
   </script>
 </body>
