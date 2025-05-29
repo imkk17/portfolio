@@ -782,3 +782,61 @@ footer p {
     transform: translateX(0);
   }
 }
+/* Fond sombre pour le loader */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: none;
+    }
+
+    /* Style de la Pokéball */
+    .pokeball {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(to bottom, #ff0000 50%, #ffffff 50%);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 5px solid #000;
+      animation: spin 1s linear infinite;
+    }
+
+    .pokeball::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      background: #000;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .pokeball::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid #000;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
