@@ -21,8 +21,27 @@
       <a href="about.html">About Me</a>
       <a href="Resume.html">Education</a>
       <a href="Skills.html">Skills</a>
-      <a href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
+      <button class="download-button" onclick="window.location.href='Nouveau dossier/Irfan_CVmot-8.pdf'">
+        <div class="docs">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          CV
+        </div>
+        <div class="download">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </div>
+      </button>
     </nav>
+
 
     <!-- Bouton de traduction stylé avec drapeau -->
     <div class="language-toggle">
@@ -69,44 +88,42 @@
       <a href="https://www.instagram.com/irfan_imkk?igsh=MXV6cXppdTM5M2I3Mg%3D%3D&utm_source=qr" title="Instagram"><i class='bx bxl-instagram'></i></a>
     </div>
   </section>
-
-  <!-- Script pour basculer la traduction -->
   <script>
-    document.getElementById('translate-toggle').addEventListener('change', function() {
-      if (this.checked) {
-        // Passage au français
-        document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
-        document.getElementById('sub-title').innerText = "Étudiant";
-        document.getElementById('main-text').innerText =
-          "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
-        // Traduction de la navigation
-        let navLinks = document.querySelectorAll('.navbar a');
-        navLinks[0].innerText = "Accueil";
-        navLinks[1].innerText = "À propos";
-        navLinks[2].innerText = "Éducation";
-        navLinks[3].innerText = "Compétences";
-        navLinks[4].innerText = "CV";
-        // Traduction des boutons
-        document.getElementById('btn-hire').innerText = "Choisissez moi";
-        document.getElementById('btn-talk').innerText = "Discutons";
-      } else {
-        // Retour à l'anglais
-        document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
-        document.getElementById('sub-title').innerText = "Student";
-        document.getElementById('main-text').innerText =
-          "Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
-        // Rétablissement de la navigation
-        let navLinks = document.querySelectorAll('.navbar a');
-        navLinks[0].innerText = "Home";
-        navLinks[1].innerText = "About Me";
-        navLinks[2].innerText = "Education";
-        navLinks[3].innerText = "Skills";
-        navLinks[4].innerText = "CV";
-        // Rétablissement des boutons
-        document.getElementById('btn-hire').innerText = "Hire Me";
-        document.getElementById('btn-talk').innerText = "Let's Talk";
-      }
-    });
-  </script>
+   document.getElementById('translate-toggle').addEventListener('change', function() {
+  if (this.checked) {
+    // Passage au français
+    document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
+    document.getElementById('sub-title').innerText = "Étudiant";
+    document.getElementById('main-text').innerText =
+      "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
+    // Traduction de la navigation
+    let navLinks = document.querySelectorAll('.navbar a');
+    navLinks[0].innerText = "Accueil";
+    navLinks[1].innerText = "À propos";
+    navLinks[2].innerText = "Éducation";
+    navLinks[3].innerText = "Compétences";
+    // Supprimez : navLinks[4].innerText = "CV";
+    // Traduction des boutons
+    document.getElementById('btn-hire').innerText = "Choisissez moi";
+    document.getElementById('btn-talk').innerText = "Discutons";
+  } else {
+    // Retour à l'anglais
+    document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
+    document.getElementById('sub-title').innerText = "Student";
+    document.getElementById('main-text').innerText =
+      "Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
+    // Rétablissement de la navigation
+    let navLinks = document.querySelectorAll('.navbar a');
+    navLinks[0].innerText = "Home";
+    navLinks[1].innerText = "About Me";
+    navLinks[2].innerText = "Education";
+    navLinks[3].innerText = "Skills";
+    // Supprimez : navLinks[4].innerText = "CV";
+    // Rétablissement des boutons
+    document.getElementById('btn-hire').innerText = "Hire Me";
+    document.getElementById('btn-talk').innerText = "Let's Talk";
+  }
+});
+</script>
 </body>
 </html>

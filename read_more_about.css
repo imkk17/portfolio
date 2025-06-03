@@ -350,3 +350,94 @@ details[open] summary::before { transform: rotate(90deg); }
       margin: 10px 0;
     }
 }
+ /* Download Button for CV in Navbar */
+.download-button {
+  position: relative;
+  border-width: 0;
+  color: #ededed; /* Matches navbar link color */
+  font-size: 18px; /* Matches navbar font-size */
+  font-weight: 500; /* Matches navbar font-weight */
+  cursor: pointer;
+  border-radius: 8px; /* Matches other buttons */
+  background: transparent;
+  padding: 0;
+  line-height: normal;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 35px; /* Matches navbar spacing */
+}
+
+.download-button .docs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 8px;
+  z-index: 1;
+  background-color: #081b29; /* Matches navbar background */
+  border: 2px solid #00abf0; /* Matches navbar hover color */
+  transition: all 0.5s ease; /* Matches navbar transition */
+}
+
+.download-button:hover .docs {
+  background-color: #00abf0; /* Matches navbar hover */
+  color: #081b29; /* Matches navbar hover text */
+}
+
+.download-button .download {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+  z-index: -1;
+  border-radius: 8px;
+  transform: translateY(0%);
+  background-color: #00abf0; /* Matches navbar hover */
+  border: 2px solid #00abf0;
+  transition: all 0.5s ease;
+}
+
+.download-button:hover .download {
+  transform: translateY(100%);
+}
+
+.download-button .download svg polyline,
+.download-button .download svg line {
+  animation: docs 1s infinite;
+}
+
+@keyframes docs {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 802px) {
+  .download-button {
+    margin: 15px 0; /* Matches navbar links in mobile */
+    width: 100%;
+    justify-content: center;
+  }
+
+  .download-button .docs {
+    width: 90%;
+    justify-content: center;
+    padding: 10px 15px;
+  }
+
+  .download-button .download {
+    max-width: 100%;
+  }
+}
