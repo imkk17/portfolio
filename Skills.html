@@ -35,11 +35,11 @@
     </label>
 
     <nav class="navbar"> 
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="Resume.html">Education</a>
-      <a href="Skills.html">Skills</a>
-      <a href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
+      <a id="nav-home" class="active" href="index.html">Home</a>
+      <a id="nav-about" href="about.html">About Me</a>
+      <a id="nav-education" href="Resume.html">Education</a>
+      <a id="nav-skills" href="Skills.html">Skills</a>
+      <a id="nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
     </nav>
   </header>
 
@@ -82,11 +82,11 @@
         </div>
         <!-- Bouton pour exporter les données dans un fichier CSV -->
         <div class="export-container">
-          <button onclick="exportToCSV()">Exporter les données</button>
+          <button onclick="exportToCSV()">Export Data</button>
         </div>
         <!-- Bouton réservé à l'administrateur pour réinitialiser les compteurs -->
         <div class="reset-container">
-          <button onclick="resetCounters()">Réinitialiser les compteurs</button>
+          <button onclick="resetCounters()">Reset Counters</button>
         </div>
       </div>
       <div class="home-photo">
@@ -141,7 +141,7 @@
       <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a>
       <a href="#"><i class='bx bxl-twitter'></i></a>
     </div>
-    <p>&copy; 2024 Irfan Khan. All rights reserved.</p>
+    <p>© 2024 Irfan Khan. All rights reserved.</p>
   </footer>
 
   <!-- Script de traduction, compteur, export CSV et réinitialisation avec persistance -->
@@ -158,6 +158,7 @@
     // Traduction de la page
     document.getElementById('translate-toggle').addEventListener('change', function() {
       if (this.checked) {
+        // French translations
         document.getElementById('skills-title').innerText = "Mes Compétences";
         document.getElementById('skills-desc').innerText = "Bienvenue sur ma page de compétences. Vous trouverez ci-dessous la liste de mes compétences techniques, ainsi que quelques exemples de mon travail dans chaque domaine.";
         document.getElementById('nav-home').innerText = "Accueil";
@@ -165,25 +166,20 @@
         document.getElementById('nav-education').innerText = "Éducation";
         document.getElementById('nav-skills').innerText = "Compétences";
         document.getElementById('nav-cv').innerText = "CV";
-        document.querySelector(".skill:nth-child(1) h2").innerText = "HTML";
-        document.getElementById("skill-html").innerText =
-          "J'ai acquis des compétences en HTML dès le lycée en suivant un cours introductif sur Udemy. J'ai été fasciné par la manière dont les sites web sont créés et fonctionnent.";
-        document.querySelector(".skill:nth-child(2) h2").innerText = "CSS";
-        document.getElementById("skill-css").innerText =
-          "Pendant les vacances, j'ai appris à concevoir des sites web avec CSS3, incluant les sélecteurs, les propriétés de mise en page et les techniques de design responsive.";
-        document.querySelector(".skill:nth-child(3) h2").innerText = "Python";
-        document.getElementById("skill-python").innerText =
-          "J'ai commencé à apprendre Python au lycée via un cours introductif sur France IOI, qui forme à résoudre des problèmes avec Python. J'ai été fasciné par la résolution de problèmes et la création de mini-jeux.";
-        document.querySelector(".skill:nth-child(4) h2").innerText = "Microsoft";
-        document.getElementById("skill-ms").innerText =
-          "Solide connaissance de la suite Microsoft Office, incluant Excel, Word et PowerPoint.";
-        document.querySelector(".skill:nth-child(5) h2").innerText = "Adobe";
-        document.getElementById("skill-adobe").innerText =
-          "Maîtrise de la suite Adobe Creative, incluant Photoshop, Illustrator et Premiere Pro.";
-        document.querySelector(".skill:nth-child(6) h2").innerText = "IA";
-        document.getElementById("skill-ai").innerText =
-          "Toujours à l'affût des nouvelles technologies.";
+        document.getElementById('likeButton').innerText = "J'aime";
+        document.getElementById('dislikeButton').innerText = "Je n'aime pas";
+        document.querySelector('.export-container button').innerText = "Exporter les données";
+        document.querySelector('.reset-container button').innerText = "Réinitialiser les compteurs";
+        document.querySelector('footer p').innerText = "© 2024 Irfan Khan. Tous droits réservés.";
+        // Skill descriptions
+        document.getElementById("skill-html").innerText = "J'ai acquis des compétences en HTML dès le lycée en suivant un cours introductif sur Udemy. J'ai été fasciné par la manière dont les sites web sont créés et fonctionnent.";
+        document.getElementById("skill-css").innerText = "Pendant les vacances, j'ai appris à concevoir des sites web avec CSS3, incluant les sélecteurs, les propriétés de mise en page et les techniques de design responsive.";
+        document.getElementById("skill-python").innerText = "J'ai commencé à apprendre Python au lycée via un cours introductif sur France IOI, qui forme à résoudre des problèmes avec Python. J'ai été fasciné par la résolution de problèmes et la création de mini-jeux.";
+        document.getElementById("skill-ms").innerText = "Solide connaissance de la suite Microsoft Office, incluant Excel, Word et PowerPoint.";
+        document.getElementById("skill-adobe").innerText = "Maîtrise de la suite Adobe Creative, incluant Photoshop, Illustrator et Premiere Pro.";
+        document.getElementById("skill-ai").innerText = "Toujours à l'affût des nouvelles technologies.";
       } else {
+        // English texts
         document.getElementById('skills-title').innerText = "My Skills";
         document.getElementById('skills-desc').innerText = "Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.";
         document.getElementById('nav-home').innerText = "Home";
@@ -191,24 +187,18 @@
         document.getElementById('nav-education').innerText = "Education";
         document.getElementById('nav-skills').innerText = "Skills";
         document.getElementById('nav-cv').innerText = "CV";
-        document.querySelector(".skill:nth-child(1) h2").innerText = "HTML";
-        document.getElementById("skill-html").innerText =
-          "I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.";
-        document.querySelector(".skill:nth-child(2) h2").innerText = "CSS";
-        document.getElementById("skill-css").innerText =
-          "During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.";
-        document.querySelector(".skill:nth-child(3) h2").innerText = "Python";
-        document.getElementById("skill-python").innerText =
-          "I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.";
-        document.querySelector(".skill:nth-child(4) h2").innerText = "Microsoft";
-        document.getElementById("skill-ms").innerText =
-          "Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.";
-        document.querySelector(".skill:nth-child(5) h2").innerText = "Adobe";
-        document.getElementById("skill-adobe").innerText =
-          "Proficient in Adobe Creative Suite, including Photoshop, Illustrator, and Premiere Pro.";
-        document.querySelector(".skill:nth-child(6) h2").innerText = "Artificial Intelligence";
-        document.getElementById("skill-ai").innerText =
-          "Always on alert about new technologies.";
+        document.getElementById('likeButton').innerText = "Love It";
+        document.getElementById('dislikeButton').innerText = "Don't Like It";
+        document.querySelector('.export-container button').innerText = "Export Data";
+        document.querySelector('.reset-container button').innerText = "Reset Counters";
+        document.querySelector('footer p').innerText = "© 2024 Irfan Khan. All rights reserved.";
+        // Skill descriptions
+        document.getElementById("skill-html").innerText = "I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.";
+        document.getElementById("skill-css").innerText = "During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.";
+        document.getElementById("skill-python").innerText = "I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.";
+        document.getElementById("skill-ms").innerText = "Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.";
+        document.getElementById("skill-adobe").innerText = "Proficient in Adobe Creative Suite, including Photoshop, Illustrator, and Premiere Pro.";
+        document.getElementById("skill-ai").innerText = "Always on alert about new technologies.";
       }
     });
 
@@ -222,9 +212,7 @@
         dislikeCount++;
         document.getElementById('dislikeCounter').innerText = dislikeCount;
       }
-      // Enregistrement de l'événement dans le tableau logs
       logs.push({ timestamp: timestamp, likes: likeCount, dislikes: dislikeCount });
-      // Sauvegarde dans le localStorage
       localStorage.setItem('likeCount', likeCount);
       localStorage.setItem('dislikeCount', dislikeCount);
       localStorage.setItem('logs', JSON.stringify(logs));
@@ -247,7 +235,11 @@
 
     // Fonction de réinitialisation réservée à l'administrateur
     function resetCounters() {
-      const password = prompt("Entrez le mot de passe administrateur pour réinitialiser les compteurs:");
+      const isFrench = document.getElementById('translate-toggle').checked;
+      const promptText = isFrench ?
+        "Entrez le mot de passe administrateur pour réinitialiser les compteurs:" :
+        "Enter the administrator password to reset the counters:";
+      const password = prompt(promptText);
       if (password === "admin123") {
         likeCount = 0;
         dislikeCount = 0;
@@ -257,9 +249,15 @@
         localStorage.setItem('logs', JSON.stringify(logs));
         document.getElementById('likeCounter').innerText = likeCount;
         document.getElementById('dislikeCounter').innerText = dislikeCount;
-        alert("Les compteurs ont été réinitialisés.");
+        const alertText = isFrench ?
+          "Les compteurs ont été réinitialisés." :
+          "Counters have been reset.";
+        alert(alertText);
       } else {
-        alert("Mot de passe incorrect.");
+        const alertText = isFrench ?
+          "Mot de passe incorrect." :
+          "Incorrect password.";
+        alert(alertText);
       }
     }
   </script>

@@ -8,122 +8,162 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-  <header class="header">
-    <a href="#" class="logo">Irfan.</a>
-
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="burger">
-      <i class='bx bx-menu'></i>
-    </label>
-
-    <nav class="navbar"> 
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="Resume.html">Education</a>
-      <a href="Skills.html">Skills</a>
-      <button class="download-button" onclick="window.location.href='Nouveau dossier/Irfan_CVmot-8.pdf'">
-        <div class="docs">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          CV
-        </div>
-        <div class="download">
-          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-        </div>
-      </button>
-    </nav>
-
-
-    <!-- Bouton de traduction stylé avec drapeau -->
-    <div class="language-toggle">
-      <label class="plane-switch">
-        <input type="checkbox" id="translate-toggle">
-        <div>
-          <div>
-            <!-- Icône de drapeau en SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-              <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
-              <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
-            </svg>
-          </div>
-          <span class="street-middle"></span>
-          <span class="cloud"></span>
-          <span class="cloud two"></span>
-        </div>
-      </label>
-    </div>
-  </header>
-
-  <section class="home">
-    <div class="home-content">
-      <h1 id="main-title">Hi, I'm Irfan Khan</h1>
-      <h3 id="sub-title">Student</h3>
-      <p id="main-text">
-        Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.
-      </p>
-      <div class="btn-box">
-        <a href="hire_me.html" id="btn-hire">Hire Me</a>
-        <a href="let's_talk_message_chat_box.html" id="btn-talk">Let's Talk</a>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="box">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 94 94" class="svg">
+          <path d="M38.0481 4.82927C38.0481 2.16214 40.018 0 42.4481 0H51.2391C53.6692 0 55.6391 2.16214 55.6391 4.82927V40.1401C55.6391 48.8912 53.2343 55.6657 48.4248 60.4636C43.6153 65.2277 36.7304 67.6098 27.7701 67.6098C18.8099 67.6098 11.925 65.2953 7.11548 60.6663C2.37183 56.0036 3.8147e-06 49.2967 3.8147e-06 40.5456V4.82927C3.8147e-06 2.16213 1.96995 0 4.4 0H13.2405C15.6705 0 17.6405 2.16214 17.6405 4.82927V39.1265C17.6405 43.7892 18.4805 47.2018 20.1605 49.3642C21.8735 51.5267 24.4759 52.6079 27.9678 52.6079C31.4596 52.6079 34.0127 51.5436 35.6268 49.4149C37.241 47.2863 38.0481 43.8399 38.0481 39.0758V4.82927Z"></path>
+          <path d="M86.9 61.8682C86.9 64.5353 84.9301 66.6975 82.5 66.6975H73.6595C71.2295 66.6975 69.2595 64.5353 69.2595 61.8682V4.82927C69.2595 2.16214 71.2295 0 73.6595 0H82.5C84.9301 0 86.9 2.16214 86.9 4.82927V61.8682Z"></path>
+          <path d="M2.86102e-06 83.2195C2.86102e-06 80.5524 1.96995 78.3902 4.4 78.3902H83.6C86.0301 78.3902 88 80.5524 88 83.2195V89.1707C88 91.8379 86.0301 94 83.6 94H4.4C1.96995 94 0 91.8379 0 89.1707L2.86102e-06 83.2195Z"></path>
+        </svg>
       </div>
     </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
 
-    <div class="home-photo">
-      <img src="Nouveau dossier/IRFAN PHOTO BG.png" alt="Portrait généré par IA d'Irfan">
-      <h4><strong>A Photo made by an AI image Generator</strong></h4>
-    </div>
-    
+  <!-- Main Content Wrapper -->
+  <div class="content-wrapper" style="display: none;">
+    <header class="header">
+      <!-- Existing header content -->
+      <a href="#" class="logo">Irfan.</a>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="burger">
+        <i class='bx bx-menu'></i>
+      </label>
+      <nav class="navbar"> 
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="Resume.html">Education</a>
+        <a href="Skills.html">Skills</a>
+        <button class="download-button" onclick="window.location.href='Nouveau dossier/Irfan_CVmot-8.pdf'">
+          <div class="docs">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            CV
+          </div>
+          <div class="download">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+        </button>
+      </nav>
+      <div class="language-toggle">
+        <label class="plane-switch">
+          <input type="checkbox" id="translate-toggle">
+          <div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+                <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+              </svg>
+            </div>
+            <span class="street-middle"></span>
+            <span class="cloud"></span>
+            <span class="cloud two"></span>
+          </div>
+        </label>
+      </div>
+    </header>
 
-    <div class="home-sci">
-      <a href="https://github.com/imkk17" title="Git Hub "><i class='bx bxl-github'></i></a>
-      <a href="https://www.linkedin.com/in/irfan-khan-050522300/" title="LinkedIn"><i class='bx bxl-linkedin-square'></i></a> 
-      <a href="https://www.instagram.com/irfan_imkk?igsh=MXV6cXppdTM5M2I3Mg%3D%3D&utm_source=qr" title="Instagram"><i class='bx bxl-instagram'></i></a>
-    </div>
-  </section>
+    <section class="home">
+      <!-- Existing home section content -->
+      <div class="home-content">
+        <h1 id="main-title">Hi, I'm Irfan Khan</h1>
+        <h3 id="sub-title">Student</h3>
+        <p id="main-text">
+          Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.
+        </p>
+        <div class="btn-box">
+          <a href="hire_me.html" id="btn-hire">Hire Me</a>
+          <a href="let's_talk_message_chat_box.html" id="btn-talk">Let's Talk</a>
+        </div>
+      </div>
+      <div class="home-photo">
+        <div class="matrix-effect"></div>
+        <img src="Nouveau dossier/image.png" alt="Portrait généré par IA d'Irfan">
+        <h4><strong>A Photo made by an AI image Generator</strong></h4>
+      </div>
+      <div class="home-sci">
+        <a href="https://github.com/imkk17" title="Git Hub"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/irfan-khan-050522300/" title="LinkedIn"><i class='bx bxl-linkedin-square'></i></a> 
+        <a href="https://www.instagram.com/irfan_imkk?igsh=MXV6cXppdTM5M2I3Mg%3D%3D&utm_source=qr" title="Instagram"><i class='bx bxl-instagram'></i></a>
+      </div>
+    </section>
+
+    <section class="recent-projects">
+      <h2>Recent Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <h3>Car E-commerce</h3>
+          <p>Short description of Project 1.</p>
+          <a href="https://imkk17.github.io/car-ecommerce/">View Project</a>
+        </div>
+        <div class="project">
+          <h3>AI Morpion</h3>
+          <p>Short description of Project 2.</p>
+          <a href="chat_bot2.html">View Project</a>
+        </div>
+        <div class="project">
+          <h3>Pokedex</h3>
+          <p>Short description of Project 3.</p>
+          <a href="https://pokedex-pndu.onrender.com/">View Project</a>
+          <img src="Nouveau dossier/Sans_titre-removebg-preview.png" alt="Pikachu" class="pikachu" />
+        </div>
+      </div>
+    </section>
+  </div>
+
   <script>
-   document.getElementById('translate-toggle').addEventListener('change', function() {
-  if (this.checked) {
-    // Passage au français
-    document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
-    document.getElementById('sub-title').innerText = "Étudiant";
-    document.getElementById('main-text').innerText =
-      "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
-    // Traduction de la navigation
-    let navLinks = document.querySelectorAll('.navbar a');
-    navLinks[0].innerText = "Accueil";
-    navLinks[1].innerText = "À propos";
-    navLinks[2].innerText = "Éducation";
-    navLinks[3].innerText = "Compétences";
-    // Supprimez : navLinks[4].innerText = "CV";
-    // Traduction des boutons
-    document.getElementById('btn-hire').innerText = "Choisissez moi";
-    document.getElementById('btn-talk').innerText = "Discutons";
-  } else {
-    // Retour à l'anglais
-    document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
-    document.getElementById('sub-title').innerText = "Student";
-    document.getElementById('main-text').innerText =
-      "Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
-    // Rétablissement de la navigation
-    let navLinks = document.querySelectorAll('.navbar a');
-    navLinks[0].innerText = "Home";
-    navLinks[1].innerText = "About Me";
-    navLinks[2].innerText = "Education";
-    navLinks[3].innerText = "Skills";
-    // Supprimez : navLinks[4].innerText = "CV";
-    // Rétablissement des boutons
-    document.getElementById('btn-hire').innerText = "Hire Me";
-    document.getElementById('btn-talk').innerText = "Let's Talk";
-  }
-});
-</script>
+    // Existing translation script
+    document.getElementById('translate-toggle').addEventListener('change', function() {
+      if (this.checked) {
+        document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
+        document.getElementById('sub-title').innerText = "Étudiant";
+        document.getElementById('main-text').innerText =
+          "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
+        let navLinks = document.querySelectorAll('.navbar a');
+        navLinks[0].innerText = "Accueil";
+        navLinks[1].innerText = "À propos";
+        navLinks[2].innerText = "Éducation";
+        navLinks[3].innerText = "Compétences";
+        document.getElementById('btn-hire').innerText = "Choisissez moi";
+        document.getElementById('btn-talk').innerText = "Discutons";
+      } else {
+        document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
+        document.getElementById('sub-title').innerText = "Student";
+        document.getElementById('main-text').innerText =
+          "Hello, my name is Irfans. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
+        let navLinks = document.querySelectorAll('.navbar a');
+        navLinks[0].innerText = "Home";
+        navLinks[1].innerText = "About Me";
+        navLinks[2].innerText = "Education";
+        navLinks[3].innerText = "Skills";
+        document.getElementById('btn-hire').innerText = "Hire Me";
+        document.getElementById('btn-talk').innerText = "Let's Talk";
+      }
+    });
+
+    // Loader script
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loader');
+      const contentWrapper = document.querySelector('.content-wrapper');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        contentWrapper.style.display = 'block';
+      }, 2000); // Adjust delay to match --duration (2s) or as desired
+    });
+  </script>
 </body>
 </html>
