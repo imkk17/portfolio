@@ -83,34 +83,134 @@ body {
   margin-bottom: 20px;
 }
 
-/* Like / Don't Like Container */
-.like-container {
+/* New Star Rating System */
+.radio {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin-top: 20px;
 }
 
-.like-container button {
-  background-color: #00abf0;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+.radio > input {
+  position: absolute;
+  appearance: none;
+}
+
+.radio > label {
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 30px;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
-.like-container button:hover {
-  background-color: #0088cc;
+.radio > label > svg {
+  fill: #666;
+  transition: fill 0.3s ease;
 }
 
-#likeCounter,
-#dislikeCounter {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
+.radio > label::before,
+.radio > label::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #ff9e0b;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  animation: particle-explosion 1s ease-out;
+}
+
+.radio > label::before {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+}
+
+.radio > label::after {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+}
+
+.radio > label:hover::before,
+.radio > label:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.5);
+}
+
+.radio > label:hover {
+  transform: scale(1.2);
+  animation: pulse 0.6s infinite alternate;
+}
+
+/* Star glow and animation on hover */
+.radio > label:hover > svg {
+  fill: #ff9e0b;
+  filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+  animation: shimmer 1s ease infinite alternate;
+}
+
+.radio > input:checked + label > svg {
+  fill: #ff9e0b;
+  filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+  animation: pulse 0.8s infinite alternate;
+}
+
+.radio > input:checked + label ~ label > svg,
+.radio > input:checked + label > svg {
+  fill: #ff9e0b;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes particle-explosion {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 158, 11, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 158, 11, 1));
+  }
+}
+
+.radio > input:checked + label:hover,
+.radio > input:checked + label:hover ~ label {
+  fill: #e58e09;
+}
+
+.radio > label:hover,
+.radio > label:hover ~ label {
+  fill: #ff9e0b;
+}
+
+.radio input:checked ~ label svg {
+  fill: #ffa723;
 }
 
 /* Bouton d'exportation */
@@ -264,379 +364,4 @@ body {
     display: none;
     position: absolute;
     top: 60px;
-    right: 0;
-    background-color: #081b29;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-  }
-  #menu-toggle:checked + .burger + .navbar {
-    display: flex;
-    flex-direction: column;
-  }
-  .navbar a {
-    display: block;
-    margin: 10px 0;
-  }
-  .home {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    text-align: center;
-  }
-  .home-content {
-    max-width: 90%;
-  }
-  .home-content h1 {
-    font-size: 32px;
-  }
-  .home-content p {
-    font-size: 16px;
-  }
-  .home-sci {
-    justify-content: center;
-    margin-top: 20px;
-    gap: 15px;
-  }
-  .skills {
-    flex-direction: column;
-    padding: 20px 5%;
-  }
-  .skill {
-    width: 100%;
-    margin: 10px 0;
-  }
-  /* Masquer l'image Deadpool en version smartphone */
-  .home-photo {
-    display: none;
-  }
-}
-
-/* Footer */
-footer {
-  padding: 20px 10%;
-  text-align: center;
-}
-
-footer .socials a {
-  margin: 0 10px;
-  font-size: 24px;
-  color: #00abf0;
-}
-
-footer p {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #aaa;
-}
-
-/* ------------------------------
-   Bouton de traduction stylé (Drapeau)
------------------------------- */
-.plane-switch {
-  --dot: #fff;
-  --street: #6B6D76;
-  --street-line: #A8AAB4;
-  --street-line-mid: #C0C2C8;
-  --sky-1: #60A7FA;
-  --sky-2: #2F8EFC;
-  --light-1: rgba(255, 233, 0, 1);
-  --light-2: rgba(255, 233, 0, 0.3);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.plane-switch input {
-  display: none;
-}
-
-.plane-switch input + div {
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  position: relative;
-  overflow: hidden;
-  width: 50px;
-  height: 25px;
-  padding: 1px;
-  border-radius: 13px;
-  background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
-  background-position-x: var(--p, 0%);
-  background-size: 400% auto;
-  transition: background-position 0.6s;
-}
-
-.plane-switch input + div:before,
-.plane-switch input + div:after {
-  content: "";
-  display: block;
-  position: absolute;
-  transform: translateX(var(--s, 0));
-  transition: transform 0.3s;
-}
-
-.plane-switch input + div:before {
-  width: 42px;
-  right: 2px;
-  top: 4px;
-  height: 1px;
-  background: var(--street-line);
-  box-shadow: 0 16px 0 0 var(--street-line);
-}
-
-.plane-switch input + div:after {
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  left: 23px;
-  top: 1px;
-  animation: lights2 2s linear infinite;
-  box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-}
-
-.plane-switch input + div span {
-  display: block;
-  position: absolute;
-}
-
-.plane-switch input + div span.street-middle {
-  top: 12px;
-  left: 21px;
-  width: 3px;
-  height: 1px;
-  transform: translateX(var(--s, 0));
-  background: var(--street-line-mid);
-  box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
-  transition: transform 0.3s;
-}
-
-.plane-switch input + div span.cloud {
-  width: 12px;
-  height: 4px;
-  border-radius: 2px;
-  background: #fff;
-  position: absolute;
-  top: var(--ct, 8px);
-  left: 100%;
-  opacity: var(--co, 0);
-  transition: opacity 0.3s;
-  animation: clouds2 2s linear infinite var(--cd, 0s);
-}
-
-.plane-switch input + div span.cloud:before,
-.plane-switch input + div span.cloud:after {
-  content: "";
-  position: absolute;
-  transform: translateX(var(--cx, 0));
-  border-radius: 50%;
-  width: var(--cs, 5px);
-  height: var(--cs, 5px);
-  background: #fff;
-  bottom: 1px;
-  left: 1px;
-}
-
-.plane-switch input + div span.cloud:after {
-  --cs: 6px;
-  --cx: 4px;
-}
-
-.plane-switch input + div span.cloud.two {
-  --ct: 20px;
-  --cd: 1s;
-  opacity: var(--co-2, 0);
-}
-
-.plane-switch input + div div {
-  display: table;
-  position: relative;
-  z-index: 1;
-  padding: 5px;
-  border-radius: 50%;
-  background: var(--dot);
-  transform: translateX(var(--x, 0));
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
-}
-
-.plane-switch input + div div svg {
-  width: 13px;
-  height: 13px;
-  display: block;
-  color: var(--c, var(--street));
-  transition: color 0.6s;
-}
-
-.plane-switch input:checked + div {
-  --p: 100%;
-  --x: 25px;
-  --s: -50px;
-  --c: var(--sky-2);
-  --co: 0.8;
-  --co-2: 0.6;
-}
-
-@keyframes lights2 {
-  20%, 30% {
-    box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-  }
-  55%, 65% {
-    box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1);
-  }
-  90%, 100% {
-    box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-  }
-}
-
-@keyframes clouds2 {
-  97% {
-    transform: translateX(-72px);
-    visibility: visible;
-  }
-  98%, 100% {
-    visibility: hidden;
-  }
-  99% {
-    transform: translateX(-72px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* ------------------------------
-   Styles pour la section des barres de progression
------------------------------- */
-.container {
-  position: relative;
-  max-width: 500px;
-  width: 100%;
-  background: #282828;
-  margin: 0 15px;
-  padding: 10px 20px;
-  border-radius: 7px;
-}
-
-.container .skill-box {
-  width: 100%;
-  margin: 25px 0;
-}
-
-.skill-box .title {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(226, 226, 226);
-}
-
-.skill-box .skill-bar {
-  height: 8px;
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 6px;
-  background: rgba(236, 236, 236, 0.1);
-}
-
-.skill-bar .skill-per {
-  position: relative;
-  display: block;
-  height: 100%;
-  width: 90%;
-  border-radius: 6px;
-  background: rgb(226, 226, 226);
-  animation: progress 0.4s ease-in-out forwards;
-  opacity: 0;
-}
-
-.skill-per.html {
-  width: 70%;
-  animation-delay: 0.1s;
-}
-
-.skill-per.scss {
-  width: 80%;
-  animation-delay: 0.1s;
-}
-
-.skill-per.Boostrap {
-  width: 50%;
-  animation-delay: 0.2s;
-}
-
-@keyframes progress {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.skill-per .tooltip {
-  position: absolute;
-  right: -14px;
-  top: -28px;
-  font-size: 9px;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 3px;
-  background: rgb(226, 226, 226);
-  z-index: 1;
-}
-
-.tooltip::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  height: 10px;
-  width: 10px;
-  z-index: -1;
-  background-color: rgb(226, 226, 226);
-  transform: translateX(-50%) rotate(45deg);
-}
-.burger {
-  display: none;
-  font-size: 40px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-/* =========================
-   Responsive Mobile
-   ========================= */
-   @media (max-width: 802px) {
-    
-    .header {
-      padding: 10px 5%;
-    }
-  
-    .burger {
-      display: block;
-    }
-  
-    .navbar {
-      display: none;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: #081b29;
-      width: 100%;
-      text-align: center;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      transform: translateX(100%);
-      opacity: 0;
-    }
-  
-    #menu-toggle:checked + .burger + .navbar {
-      display: block;
-      transform: translateX(0);
-      opacity: 1;
-    }
-  
-    .navbar a {
-      display: block;
-      margin: 10px 0;
-    }
-}
+    right
