@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irfan Personal Portfolio</title>
+  <title>Portfolio Irfan</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -28,13 +28,8 @@
   <!-- Main Content Wrapper -->
   <div class="content-wrapper" style="display: none;">
     <header class="header">
-      <!-- Existing header content -->
       <a href="#" class="logo">Irfan.</a>
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="burger">
-        <i class='bx bx-menu'></i>
-      </label>
-      <nav class="navbar"> 
+      <nav class="navbar">
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="Resume.html">Education</a>
@@ -78,7 +73,6 @@
     </header>
 
     <section class="home">
-      <!-- Existing home section content -->
       <div class="home-content">
         <h1 id="main-title">Hi, I'm Irfan Khan</h1>
         <h3 id="sub-title">Student</h3>
@@ -97,7 +91,7 @@
       </div>
       <div class="home-sci">
         <a href="https://github.com/imkk17" title="Git Hub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/irfan-khan-050522300/" title="LinkedIn"><i class='bx bxl-linkedin-square'></i></a> 
+        <a href="https://www.linkedin.com/in/irfan-khan-050522300/" title="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
         <a href="https://www.instagram.com/irfan_imkk?igsh=MXV6cXppdTM5M2I3Mg%3D%3D&utm_source=qr" title="Instagram"><i class='bx bxl-instagram'></i></a>
       </div>
     </section>
@@ -123,6 +117,51 @@
         </div>
       </div>
     </section>
+
+    <!-- Grille d'icônes (visible uniquement sur mobile) -->
+    <div class="icon-grid" id="icon-grid">
+      <div class="icon-item" data-action="home">
+        <i class='bx bx-home'></i>
+        <span>Home</span>
+      </div>
+      <div class="icon-item" data-action="about">
+        <i class='bx bx-user'></i>
+        <span>About Me</span>
+      </div>
+      <div class="icon-item" data-action="education">
+        <i class='bx bx-book'></i>
+        <span>Education</span>
+      </div>
+      <div class="icon-item" data-action="skills">
+        <i class='bx bx-wrench'></i>
+        <span>Skills</span>
+      </div>
+      <div class="icon-item" data-action="projects">
+        <i class='bx bx-briefcase'></i>
+        <span>Projects</span>
+      </div>
+      <div class="icon-item" data-action="contact">
+        <i class='bx bx-envelope'></i>
+        <span>Contact</span>
+      </div>
+      <div class="icon-item" data-action="cv">
+        <i class='bx bx-file'></i>
+        <span>CV</span>
+      </div>
+      <div class="icon-item" data-action="hire">
+        <i class='bx bx-dollar'></i>
+        <span>Hire Me</span>
+      </div>
+      <div class="icon-item" data-action="close">
+        <i class='bx bx-x'></i>
+        <span>Close</span>
+      </div>
+    </div>
+
+    <!-- Bouton déclencheur pour mobile -->
+    <button class="icon-grid-trigger" aria-label="Ouvrir le menu">
+      <i class='bx bx-grid-alt'></i>
+    </button>
   </div>
 
   <script>
@@ -144,7 +183,7 @@
         document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
         document.getElementById('sub-title').innerText = "Student";
         document.getElementById('main-text').innerText =
-          "Hello, my name is Irfans. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
+          "Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
         let navLinks = document.querySelectorAll('.navbar a');
         navLinks[0].innerText = "Home";
         navLinks[1].innerText = "About Me";
@@ -162,7 +201,60 @@
       setTimeout(() => {
         loader.style.display = 'none';
         contentWrapper.style.display = 'block';
-      }, 2000); // Adjust delay to match --duration (2s) or as desired
+      }, 2000);
+    });
+
+    // Grille d'icônes script
+    const triggerButton = document.querySelector('.icon-grid-trigger');
+    const iconGrid = document.getElementById('icon-grid');
+    const iconItems = document.querySelectorAll('.icon-item');
+
+    // Afficher/masquer la grille
+    triggerButton.addEventListener('click', () => {
+      iconGrid.classList.toggle('show');
+    });
+
+    // Fermer la grille en cliquant à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!iconGrid.contains(e.target) && e.target !== triggerButton) {
+        iconGrid.classList.remove('show');
+      }
+    });
+
+    // Actions des icônes
+    iconItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const action = item.getAttribute('data-action');
+        switch (action) {
+          case 'home':
+            window.location.href = 'index.html';
+            break;
+          case 'about':
+            window.location.href = 'about.html';
+            break;
+          case 'education':
+            window.location.href = 'Resume.html';
+            break;
+          case 'skills':
+            window.location.href = 'Skills.html';
+            break;
+          case 'projects':
+            window.location.href = '#projects';
+            break;
+          case 'contact':
+            window.location.href = "let's_talk_message_chat_box.html";
+            break;
+          case 'cv':
+            window.location.href = 'Nouveau dossier/Irfan_CVmot-8.pdf';
+            break;
+          case 'hire':
+            window.location.href = 'hire_me.html';
+            break;
+          case 'close':
+            iconGrid.classList.remove('show');
+            break;
+        }
+      });
     });
   </script>
 </body>
