@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Irfan</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Loader -->
@@ -118,54 +118,51 @@
       </div>
     </section>
 
-    <!-- Grille d'icônes (visible uniquement sur mobile) -->
-    <div class="icon-grid" id="icon-grid">
-      <div class="icon-item" data-action="home">
-        <i class='bx bx-home'></i>
-        <span>Home</span>
-      </div>
-      <div class="icon-item" data-action="about">
-        <i class='bx bx-user'></i>
-        <span>About Me</span>
-      </div>
-      <div class="icon-item" data-action="education">
-        <i class='bx bx-book'></i>
-        <span>Education</span>
-      </div>
-      <div class="icon-item" data-action="skills">
-        <i class='bx bx-wrench'></i>
-        <span>Skills</span>
-      </div>
-      <div class="icon-item" data-action="projects">
-        <i class='bx bx-briefcase'></i>
-        <span>Projects</span>
-      </div>
-      <div class="icon-item" data-action="contact">
-        <i class='bx bx-envelope'></i>
-        <span>Contact</span>
-      </div>
-      <div class="icon-item" data-action="cv">
-        <i class='bx bx-file'></i>
-        <span>CV</span>
-      </div>
-      <div class="icon-item" data-action="hire">
-        <i class='bx bx-dollar'></i>
-        <span>Hire Me</span>
-      </div>
-      <div class="icon-item" data-action="close">
-        <i class='bx bx-x'></i>
-        <span>Close</span>
+    <!-- Menu circulaire remplace l'ancienne grille -->
+    <div class="circular-menu-wrapper">
+      <input type="checkbox" id="toogle" class="hidden-trigger">
+      <label for="toogle" class="circle">
+        <i class='bx bx-grid-alt menu-icon'></i>
+      </label>
+      <div class="subs">
+        <button class="sub-circle" data-action="home">
+          <input value="1" name="sub-circle" type="radio" id="sub1" class="hidden-sub-trigger">
+          <label for="sub1" title="Home"><i class='bx bx-home'></i></label>
+        </button>
+        <button class="sub-circle" data-action="about">
+          <input value="2" name="sub-circle" type="radio" id="sub2" class="hidden-sub-trigger">
+          <label for="sub2" title="About Me"><i class='bx bx-user'></i></label>
+        </button>
+        <button class="sub-circle" data-action="education">
+          <input value="3" name="sub-circle" type="radio" id="sub3" class="hidden-sub-trigger">
+          <label for="sub3" title="Education"><i class='bx bx-book'></i></label>
+        </button>
+        <button class="sub-circle" data-action="skills">
+          <input value="4" name="sub-circle" type="radio" id="sub4" class="hidden-sub-trigger">
+          <label for="sub4" title="Skills"><i class='bx bx-wrench'></i></label>
+        </button>
+        <button class="sub-circle" data-action="projects">
+          <input value="5" name="sub-circle" type="radio" id="sub5" class="hidden-sub-trigger">
+          <label for="sub5" title="Projects"><i class='bx bx-briefcase'></i></label>
+        </button>
+        <button class="sub-circle" data-action="contact">
+          <input value="6" name="sub-circle" type="radio" id="sub6" class="hidden-sub-trigger">
+          <label for="sub6" title="Let's Talk"><i class='bx bx-envelope'></i></label>
+        </button>
+        <button class="sub-circle" data-action="cv">
+          <input value="7" name="sub-circle" type="radio" id="sub7" class="hidden-sub-trigger">
+          <label for="sub7" title="Download CV"><i class='bx bx-file'></i></label>
+        </button>
+        <button class="sub-circle" data-action="hire">
+          <input value="8" name="sub-circle" type="radio" id="sub8" class="hidden-sub-trigger">
+          <label for="sub8" title="Hire Me"><i class='bx bx-dollar'></i></label>
+        </button>
       </div>
     </div>
-
-    <!-- Bouton déclencheur pour mobile -->
-    <button class="icon-grid-trigger" aria-label="Ouvrir le menu">
-      <i class='bx bx-grid-alt'></i>
-    </button>
   </div>
 
   <script>
-    // Existing translation script
+    // Translation script
     document.getElementById('translate-toggle').addEventListener('change', function() {
       if (this.checked) {
         document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
@@ -204,57 +201,57 @@
       }, 2000);
     });
 
-    // Grille d'icônes script
-    const triggerButton = document.querySelector('.icon-grid-trigger');
-    const iconGrid = document.getElementById('icon-grid');
-    const iconItems = document.querySelectorAll('.icon-item');
+    // Circular menu script
+    const circularButtons = document.querySelectorAll('.sub-circle');
+    const menuToggle = document.getElementById('toogle');
 
-    // Afficher/masquer la grille
-    triggerButton.addEventListener('click', () => {
-      iconGrid.classList.toggle('show');
-    });
-
-    // Fermer la grille en cliquant à l'extérieur
-    document.addEventListener('click', (e) => {
-      if (!iconGrid.contains(e.target) && e.target !== triggerButton) {
-        iconGrid.classList.remove('show');
-      }
-    });
-
-    // Actions des icônes
-    iconItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const action = item.getAttribute('data-action');
-        switch (action) {
-          case 'home':
-            window.location.href = 'index.html';
-            break;
-          case 'about':
-            window.location.href = 'about.html';
-            break;
-          case 'education':
-            window.location.href = 'Resume.html';
-            break;
-          case 'skills':
-            window.location.href = 'Skills.html';
-            break;
-          case 'projects':
-            window.location.href = '#projects';
-            break;
-          case 'contact':
-            window.location.href = "let's_talk_message_chat_box.html";
-            break;
-          case 'cv':
-            window.location.href = 'Nouveau dossier/Irfan_CVmot-8.pdf';
-            break;
-          case 'hire':
-            window.location.href = 'hire_me.html';
-            break;
-          case 'close':
-            iconGrid.classList.remove('show');
-            break;
-        }
+    // Navigation actions for circular menu
+    circularButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const action = button.getAttribute('data-action');
+        
+        // Close the menu first
+        menuToggle.checked = false;
+        
+        // Navigate based on action
+        setTimeout(() => {
+          switch (action) {
+            case 'home':
+              window.location.href = 'index.html';
+              break;
+            case 'about':
+              window.location.href = 'about.html';
+              break;
+            case 'education':
+              window.location.href = 'Resume.html';
+              break;
+            case 'skills':
+              window.location.href = 'Skills.html';
+              break;
+            case 'projects':
+              document.querySelector('.recent-projects').scrollIntoView({ behavior: 'smooth' });
+              break;
+            case 'contact':
+              window.location.href = "let's_talk_message_chat_box.html";
+              break;
+            case 'cv':
+              window.location.href = 'Nouveau dossier/Irfan_CVmot-8.pdf';
+              break;
+            case 'hire':
+              window.location.href = 'hire_me.html';
+              break;
+          }
+        }, 200);
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menuWrapper = document.querySelector('.circular-menu-wrapper');
+      if (!menuWrapper.contains(e.target)) {
+        menuToggle.checked = false;
+      }
     });
   </script>
 </body>
