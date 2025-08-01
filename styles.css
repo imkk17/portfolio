@@ -161,9 +161,9 @@
   transform: translateX(-50%);
   width: 60px;
   height: 150px;
-  --black: #081b29;
-  --ch-black: #141414;
-  --eer-black: #1b1b1b;
+  --black: #fff;
+  --ch-black: #fff;
+  --eer-black: #ffff;
   --night-rider: #00abf0;
   --white: #ffffff;
   --af-white: #f3f3f3;
