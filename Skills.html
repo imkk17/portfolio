@@ -3,140 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills</title>
-  <link rel="stylesheet" href="skills.css">
+  <title>Skills | Irfan Khan</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="skills.css">
 </head>
 <body>
-  <header class="header">
-    <a href="#" class="logo">Irfan.</a>
-    <div class="language-toggle desktop-language">
-      <label class="plane-switch">
-        <input type="checkbox" id="translate-toggle">
-        <div>
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-              <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
-              <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+  <div id="loader">
+    <div class="box-of-star1">
+      <div class="star star-position1"></div>
+      <div class="star star-position2"></div>
+      <div class="star star-position3"></div>
+      <div class="star star-position4"></div>
+      <div class="star star-position5"></div>
+      <div class="star star-position6"></div>
+      <div class="star star-position7"></div>
+    </div>
+    <div class="box-of-star2">
+      <div class="star star-position1"></div>
+      <div class="star star-position2"></div>
+      <div class="star star-position3"></div>
+      <div class="star star-position4"></div>
+      <div class="star star-position5"></div>
+      <div class="star star-position6"></div>
+      <div class="star star-position7"></div>
+    </div>
+    <div class="box-of-star3">
+      <div class="star star-position1"></div>
+      <div class="star star-position2"></div>
+      <div class="star star-position3"></div>
+      <div class="star star-position4"></div>
+      <div class="star star-position5"></div>
+      <div class="star star-position6"></div>
+      <div class="star star-position7"></div>
+    </div>
+    <div class="box-of-star4">
+      <div class="star star-position1"></div>
+      <div class="star star-position2"></div>
+      <div class="star star-position3"></div>
+      <div class="star star-position4"></div>
+      <div class="star star-position5"></div>
+      <div class="star star-position6"></div>
+      <div class="star star-position7"></div>
+    </div>
+    <div data-js="astro" class="astronaut">
+      <div class="head"></div>
+      <div class="arm arm-left"></div>
+      <div class="arm arm-right"></div>
+      <div class="body">
+        <div class="panel"></div>
+      </div>
+      <div class="leg leg-left"></div>
+      <div class="leg leg-right"></div>
+      <div class="schoolbag"></div>
+    </div>
+  </div>
+
+  <div class="content-wrapper" style="display: none;">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Home">Irfan.</a>
+      <button id="menuBtn" aria-label="Open menu" aria-expanded="false" title="Menu">
+        <div class="menu__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="overlay" id="overlay" aria-hidden="true"></div>
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="index.html" id="nav-home" class="loader-button">Home</a>
+        <a href="about.html" id="nav-about" class="loader-button">About Me</a>
+        <a href="Resume.html" id="nav-education" class="loader-button">Education</a>
+        <a href="Skills.html" id="nav-skills" class="active loader-button">Skills</a>
+        <button class="download-button loader-button" id="cv-button" aria-label="Download CV">
+          <div class="docs">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span id="nav-cv">CV</span>
+          </div>
+          <div class="download">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
           </div>
-          <span class="street-middle"></span>
-          <span class="cloud"></span>
-          <span class="cloud two"></span>
+        </button>
+      </nav>
+      <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
+        <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+        <div class="nav-inner">
+          <a href="index.html" id="nav-home-mobile" class="loader-button">Home</a>
+          <a href="about.html" id="nav-about-mobile" class="loader-button">About Me</a>
+          <a href="Resume.html" id="nav-education-mobile" class="loader-button">Education</a>
+          <a href="Skills.html" id="nav-skills-mobile" class="active loader-button">Skills</a>
+          <button class="download-button loader-button" id="cv-button-mobile" aria-label="Download CV">
+            <div class="docs">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span id="nav-cv-mobile">CV</span>
+            </div>
+            <div class="download">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+          </button>
         </div>
-      </label>
-    </div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="burger">
-      <i class='bx bx-menu'></i>
-    </label>
-    <nav class="navbar"> 
-      <a id="nav-home" class="active" href="index.html">Home</a>
-      <a id="nav-about" href="about.html">About Me</a>
-      <a id="nav-education" href="Resume.html">Education</a>
-      <a id="nav-skills" href="Skills.html">Skills</a>
-      <a id="nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
-    </nav>
-  </header>
+      </nav>
+      <div class="language-toggle">
+        <label class="plane-switch" aria-label="Toggle language: English or French">
+          <input type="checkbox" id="translate-toggle" aria-label="Toggle language">
+          <div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
+                <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
+              </svg>
+            </div>
+            <span class="street-middle"></span>
+            <span class="cloud"></span>
+            <span class="cloud two"></span>
+          </div>
+        </label>
+      </div>
+    </header>
 
-  <main>
-    <section class="home">
-      <div class="home-content">
-        <h1 id="skills-title">My Skills</h1>
-        <p id="skills-desc">
-          Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.
-        </p>
-        <div class="home-sci">
-          <div class="skill-item">
-            <a href="#"><i class='bx bxl-html5'></i></a>
-            <p>HTML5</p>
-          </div>
-          <div class="skill-item">
-            <a href="#"><i class='bx bxl-css3'></i></a>
-            <p>CSS3</p>
-          </div>
-          <div class="skill-item">
-            <a href="#"><i class='bx bxl-python'></i></a>
-            <p>Python</p>
-          </div>
-          <div class="skill-item">
-            <a href="#"><i class='bx bxl-microsoft'></i></a>
-            <p>Microsoft Office</p>
-          </div>
-          <div class="skill-item">
-            <a href="#"><i class='bx bxl-javascript'></i></a>
-            <p>JavaScript</p>
-          </div>
-          <div class="skill-item">
-            <a href="#"><i class='bx bxs-data'></i></a>
-            <p>SQL</p>
+    <main>
+      <section class="home">
+        <div class="home-content">
+          <h1 id="skills-title">My Skills</h1>
+          <p id="skills-desc">
+            Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.
+          </p>
+          <div class="home-sci">
+            <div class="skill-item">
+              <a href="#"><i class='bx bxl-html5'></i></a>
+              <p>HTML5</p>
+            </div>
+            <div class="skill-item">
+              <a href="#"><i class='bx bxl-css3'></i></a>
+              <p>CSS3</p>
+            </div>
+            <div class="skill-item">
+              <a href="#"><i class='bx bxl-python'></i></a>
+              <p>Python</p>
+            </div>
+            <div class="skill-item">
+              <a href="#"><i class='bx bxl-microsoft'></i></a>
+              <p>Microsoft Office</p>
+            </div>
+            <div class="skill-item">
+              <a href="#"><i class='bx bxl-javascript'></i></a>
+              <p>JavaScript</p>
+            </div>
+            <div class="skill-item">
+              <a href="#"><i class='bx bxs-data'></i></a>
+              <p>SQL</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="home-photo">
-        <img src="Nouveau dossier/funko.png" alt="Funko Pop Character">
-      </div>
-    </section>
+        <div class="home-photo">
+          <img src="Nouveau dossier/funko.png" alt="Funko Pop Character">
+        </div>
+      </section>
 
-    <section class="skills">
-      <div class="skill">
-        <h2>HTML</h2>
-        <p id="skill-html">
-          I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>CSS</h2>
-        <p id="skill-css">
-          During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>Python</h2>
-        <p id="skill-python">
-          I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>Microsoft</h2>
-        <p id="skill-ms">
-          Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>JavaScript</h2>
-        <p id="skill-js">
-          During vacation, I learned JavaScript on Codédex, focusing on interactive web development and dynamic content.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>SQL</h2>
-        <p id="skill-sql">
-          During vacation, I learned SQL on Codédex, gaining skills in database management and querying.
-        </p>
-      </div>
-      <div class="skill">
-        <h2>Artificial Intelligence</h2>
-        <p id="skill-ai">
-          Always on alert about new technologies.
-        </p>
-      </div>
-    </section>
+      <section class="skills">
+        <div class="skill">
+          <h2>HTML</h2>
+          <p id="skill-html">
+            I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>CSS</h2>
+          <p id="skill-css">
+            During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>Python</h2>
+          <p id="skill-python">
+            I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>Microsoft</h2>
+          <p id="skill-ms">
+            Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>JavaScript</h2>
+          <p id="skill-js">
+            During vacation, I learned JavaScript on Codédex, focusing on interactive web development and dynamic content.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>SQL</h2>
+          <p id="skill-sql">
+            During vacation, I learned SQL on Codédex, gaining skills in database management and querying.
+          </p>
+        </div>
+        <div class="skill">
+          <h2>Artificial Intelligence</h2>
+          <p id="skill-ai">
+            Always on alert about new technologies.
+          </p>
+        </div>
+      </section>
 
-    <section class="rating-section">
-      <div class="rating-system">
+      <section class="rating-system">
         <h2 id="rating-title">Rate My Portfolio</h2>
-        <div class="stars-input">
+        <div class="stars-input" role="radiogroup" aria-label="Rate portfolio from 1 to 5 stars">
           <input type="radio" id="star5" name="rating" value="5">
-          <label for="star5">★</label>
+          <label for="star5" aria-label="5 stars">★</label>
           <input type="radio" id="star4" name="rating" value="4">
-          <label for="star4">★</label>
+          <label for="star4" aria-label="4 stars">★</label>
           <input type="radio" id="star3" name="rating" value="3">
-          <label for="star3">★</label>
+          <label for="star3" aria-label="3 stars">★</label>
           <input type="radio" id="star2" name="rating" value="2">
-          <label for="star2">★</label>
+          <label for="star2" aria-label="2 stars">★</label>
           <input type="radio" id="star1" name="rating" value="1">
-          <label for="star1">★</label>
+          <label for="star1" aria-label="1 star">★</label>
         </div>
         <div class="rating-graph">
           <div class="graph-bar" data-stars="5">
@@ -168,7 +268,7 @@
             <span class="votes-count">0</span>
           </div>
           <div class="graph-bar" data-stars="1">
-            <span class="stars-label">1 ★ Meaningful</span>
+            <span class="stars-label">1 ★</span>
             <div class="bar-container">
               <div class="bar"></div>
             </div>
@@ -180,133 +280,222 @@
           <span class="total-votes">(0 votes)</span>
         </div>
         <button id="reset-rating-btn">Reset Ratings</button>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="socials">
-      <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-      <a href="https://www.linkedin.com/in/irfan-khan-050522300/"><i class='bx bxl-linkedin-square'></i></a>
-      <a href="#"><i class='bx bxl-twitter'></i></a>
-    </div>
-    <p>© 2024 Irfan Khan. All rights reserved.</p>
-  </footer>
+    <footer>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="https://www.linkedin.com/in/irfan-khan-050522300/" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+      </div>
+      <p id="footer-text">© 2024 Irfan Khan. All rights reserved.</p>
+    </footer>
+  </div>
 
   <script>
-    let ratings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-    let totalVotes = 0;
-    const password = "Jk0412197981@";
-
-    function loadRatings() {
-      const saved = localStorage.getItem('skill-ratings');
-      if (saved) {
-        const data = JSON.parse(saved);
-        ratings = data.ratings;
-        totalVotes = data.totalVotes;
-        updateGraph();
-      }
-    }
-
-    function saveRatings() {
-      localStorage.setItem('skill-ratings', JSON.stringify({
-        ratings: ratings,
-        totalVotes: totalVotes
-      }));
-    }
-
-    function updateGraph() {
-      Object.keys(ratings).forEach(stars => {
-        const count = ratings[stars];
-        const percentage = totalVotes > 0 ? (count / totalVotes) * 100 : 0;
-        const bar = document.querySelector(`.graph-bar[data-stars="${stars}"] .bar`);
-        const votesCount = document.querySelector(`.graph-bar[data-stars="${stars}"] .votes-count`);
-        bar.style.width = `${percentage}%`;
-        votesCount.textContent = count;
-        document.querySelector(`.graph-bar[data-stars="${stars}"]`).classList.remove('active');
-      });
-      let sum = 0;
-      Object.keys(ratings).forEach(stars => {
-        sum += parseInt(stars) * ratings[stars];
-      });
-      const average = totalVotes > 0 ? (sum / totalVotes).toFixed(1) : '0.0';
-      document.querySelector('.rating-stats .average').textContent = average;
-      document.querySelector('.rating-stats .total-votes').textContent = `(${totalVotes} vote${totalVotes !== 1 ? 's' : ''})`;
-    }
-
-    function hasUserVoted() {
-      return localStorage.getItem('hasVoted') === 'true';
-    }
-
-    function setUserVoted() {
-      localStorage.setItem('hasVoted', 'true');
-    }
-
-    document.querySelectorAll('.stars-input input').forEach(star => {
-      star.addEventListener('change', function() {
-        if (hasUserVoted()) {
-          alert("Vous avez déjà voté.");
-          return;
-        }
-        const rating = parseInt(this.value);
-        ratings[rating]++;
-        totalVotes++;
-        updateGraph();
-        const activeBar = document.querySelector(`.graph-bar[data-stars="${rating}"]`);
-        activeBar.classList.add('active');
-        saveRatings();
-        setUserVoted();
-        alert(`Merci pour votre note de ${rating} étoile(s) !`);
-      });
-    });
-
     document.addEventListener('DOMContentLoaded', function() {
-      loadRatings();
-      document.getElementById('translate-toggle').addEventListener('change', function() {
-        if (this.checked) {
-          document.getElementById('skills-title').innerText = "Mes Compétences";
-          document.getElementById('rating-title').innerText = "Noter Mon E-Portfolio";
-          document.getElementById('skill-html').innerText = "J'ai acquis des compétences en HTML en commençant au lycée, où j'ai suivi un cours d'introduction à l'informatique sur Udemy. J'étais fasciné par la création et le fonctionnement des sites web.";
-          document.getElementById('skill-css').innerText = "Pendant les vacances, j'ai acquis des compétences en conception de sites web avec CSS3, y compris les sélecteurs, les propriétés de mise en page et les techniques de design responsive.";
-          document.getElementById('skill-python').innerText = "J'ai commencé à apprendre Python au lycée via un cours d'introduction à l'informatique sur France IOI, qui vous entraîne à résoudre des problèmes avec Python. J'étais fasciné par la résolution de problèmes et la création de petits jeux.";
-          document.getElementById('skill-ms').innerText = "Solides connaissances de la suite Microsoft Office, y compris Excel, Word et PowerPoint.";
-          document.getElementById('skill-js').innerText = "Pendant les vacances, j'ai appris JavaScript sur Codédex, en me concentrant sur le développement web interactif et le contenu dynamique.";
-          document.getElementById('skill-sql').innerText = "Pendant les vacances, j'ai appris SQL sur Codédex, en acquérant des compétences en gestion de bases de données et en requêtes.";
-          document.getElementById('skill-ai').innerText = "Toujours à l'affût des nouvelles technologies.";
-          document.getElementById('nav-home').innerText = "Accueil";
-          document.getElementById('nav-about').innerText = "À propos";
-          document.getElementById('nav-education').innerText = "Éducation";
-          document.getElementById('nav-skills').innerText = "Compétences";
-          document.getElementById('nav-cv').innerText = "CV";
-        } else {
-          document.getElementById('skills-title').innerText = "My Skills";
-          document.getElementById('rating-title').innerText = "Rate My Portfolio";
-          document.getElementById('skill-html').innerText = "I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.";
-          document.getElementById('skill-css').innerText = "During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.";
-          document.getElementById('skill-python').innerText = "I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.";
-          document.getElementById('skill-ms').innerText = "Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.";
-          document.getElementById('skill-js').innerText = "During vacation, I learned JavaScript on Codédex, focusing on interactive web development and dynamic content.";
-          document.getElementById('skill-sql').innerText = "During vacation, I learned SQL on Codédex, gaining skills in database management and querying.";
-          document.getElementById('skill-ai').innerText = "Always on alert about new technologies.";
-          document.getElementById('nav-home').innerText = "Home";
-          document.getElementById('nav-about').innerText = "About Me";
-          document.getElementById('nav-education').innerText = "Education";
-          document.getElementById('nav-skills').innerText = "Skills";
-          document.getElementById('nav-cv').innerText = "CV";
-        }
+      // Loader script
+      const loader = document.getElementById('loader');
+      const contentWrapper = document.querySelector('.content-wrapper');
+
+      function showLoader() {
+        loader.style.display = 'block';
+        contentWrapper.style.display = 'none';
+      }
+
+      function hideLoader() {
+        loader.style.display = 'none';
+        contentWrapper.style.display = 'block';
+      }
+
+      window.addEventListener('load', function() {
+        setTimeout(hideLoader, 2000);
       });
+
+      // Handle button clicks with loader
+      const buttons = document.querySelectorAll('.loader-button');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href') || 'assets/Irfan_CV.pdf';
+          showLoader();
+          setTimeout(() => {
+            window.location.href = href;
+          }, 2000);
+        });
+      });
+
+      // Mobile menu controls
+      const menuBtn = document.getElementById('menuBtn');
+      const overlay = document.getElementById('overlay');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeBtn = document.getElementById('closeBtn');
+
+      function openMenu() {
+        document.body.classList.add('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        overlay.setAttribute('aria-hidden', 'false');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => closeBtn.focus(), 180);
+      }
+
+      function closeMenu() {
+        document.body.classList.remove('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        menuBtn.focus();
+      }
+
+      menuBtn.addEventListener('click', () => {
+        if (document.body.classList.contains('menu-open')) closeMenu();
+        else openMenu();
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      closeBtn.addEventListener('click', closeMenu);
+
+      document.querySelectorAll('.nav-inner a, .nav-inner .download-button').forEach(a => {
+        a.addEventListener('click', () => closeMenu());
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
+      });
+
+      // Translation script
+      const translateToggle = document.getElementById('translate-toggle');
+      translateToggle.addEventListener('change', function() {
+        const isFrench = this.checked;
+        translateToggle.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Switch to French');
+        document.getElementById('skills-title').innerText = isFrench ? "Mes Compétences" : "My Skills";
+        document.getElementById('skills-desc').innerText = isFrench
+          ? "Bienvenue sur ma page de compétences. Ci-dessous, vous trouverez une liste de mes compétences techniques, ainsi que quelques exemples de mon travail dans chaque domaine."
+          : "Welcome to my skillset page. Below you will find a list of my technical skills, along with some examples of my work in each area.";
+        document.getElementById('rating-title').innerText = isFrench ? "Noter Mon Portfolio" : "Rate My Portfolio";
+        document.getElementById('skill-html').innerText = isFrench
+          ? "J'ai acquis des compétences en HTML en commençant au lycée, où j'ai suivi un cours d'introduction à l'informatique sur Udemy. J'étais fasciné par la création et le fonctionnement des sites web."
+          : "I have acquired HTML skills by starting in high school, where I took an introductory computer science course on Udemy. I was fascinated by how websites are created and work.";
+        document.getElementById('skill-css').innerText = isFrench
+          ? "Pendant les vacances, j'ai acquis des compétences en conception de sites web avec CSS3, y compris les sélecteurs, les propriétés de mise en page et les techniques de design responsive."
+          : "During vacation, I acquired skills in designing websites with CSS3, including selectors, layout properties, and responsive design techniques.";
+        document.getElementById('skill-python').innerText = isFrench
+          ? "J'ai commencé à apprendre Python au lycée via un cours d'introduction à l'informatique sur France IOI, qui vous entraîne à résoudre des problèmes avec Python. J'étais fasciné par la résolution de problèmes et la création de petits jeux."
+          : "I started learning Python in high school via an introductory computer science course on France IOI, which trains you to solve problems using Python. I was fascinated by problem solving and creating mini games.";
+        document.getElementById('skill-ms').innerText = isFrench
+          ? "Solides connaissances de la suite Microsoft Office, y compris Excel, Word et PowerPoint."
+          : "Strong knowledge of Microsoft Office Suite, including Excel, Word, and PowerPoint.";
+        document.getElementById('skill-js').innerText = isFrench
+          ? "Pendant les vacances, j'ai appris JavaScript sur Codédex, en me concentrant sur le développement web interactif et le contenu dynamique."
+          : "During vacation, I learned JavaScript on Codédex, focusing on interactive web development and dynamic content.";
+        document.getElementById('skill-sql').innerText = isFrench
+          ? "Pendant les vacances, j'ai appris SQL sur Codédex, en acquérant des compétences en gestion de bases de données et en requêtes."
+          : "During vacation, I learned SQL on Codédex, gaining skills in database management and querying.";
+        document.getElementById('skill-ai').innerText = isFrench
+          ? "Toujours à l'affût des nouvelles technologies."
+          : "Always on alert about new technologies.";
+        document.getElementById('nav-home').innerText = isFrench ? "Accueil" : "Home";
+        document.getElementById('nav-about').innerText = isFrench ? "À propos" : "About Me";
+        document.getElementById('nav-education').innerText = isFrench ? "Éducation" : "Education";
+        document.getElementById('nav-skills').innerText = isFrench ? "Compétences" : "Skills";
+        document.getElementById('nav-cv').innerText = isFrench ? "CV" : "CV";
+        document.getElementById('nav-home-mobile').innerText = isFrench ? "Accueil" : "Home";
+        document.getElementById('nav-about-mobile').innerText = isFrench ? "À propos" : "About Me";
+        document.getElementById('nav-education-mobile').innerText = isFrench ? "Éducation" : "Education";
+        document.getElementById('nav-skills-mobile').innerText = isFrench ? "Compétences" : "Skills";
+        document.getElementById('nav-cv-mobile').innerText = isFrench ? "CV" : "CV";
+        document.getElementById('footer-text').innerText = isFrench
+          ? "© 2024 Irfan Khan. Tous droits réservés."
+          : "© 2024 Irfan Khan. All rights reserved.";
+      });
+
+      // Rating system script
+      let ratings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      let totalVotes = 0;
+      const password = "Jk0412197981@";
+
+      function loadRatings() {
+        const saved = localStorage.getItem('skill-ratings');
+        if (saved) {
+          const data = JSON.parse(saved);
+          ratings = data.ratings;
+          totalVotes = data.totalVotes;
+          updateGraph();
+        }
+      }
+
+      function saveRatings() {
+        localStorage.setItem('skill-ratings', JSON.stringify({
+          ratings: ratings,
+          totalVotes: totalVotes
+        }));
+      }
+
+      function updateGraph() {
+        Object.keys(ratings).forEach(stars => {
+          const count = ratings[stars];
+          const percentage = totalVotes > 0 ? (count / totalVotes) * 100 : 0;
+          const bar = document.querySelector(`.graph-bar[data-stars="${stars}"] .bar`);
+          const votesCount = document.querySelector(`.graph-bar[data-stars="${stars}"] .votes-count`);
+          bar.style.width = `${percentage}%`;
+          votesCount.textContent = count;
+          document.querySelector(`.graph-bar[data-stars="${stars}"]`).classList.remove('active');
+        });
+        let sum = 0;
+        Object.keys(ratings).forEach(stars => {
+          sum += parseInt(stars) * ratings[stars];
+        });
+        const average = totalVotes > 0 ? (sum / totalVotes).toFixed(1) : '0.0';
+        document.querySelector('.rating-stats .average').textContent = average;
+        document.querySelector('.rating-stats .total-votes').textContent = `(${totalVotes} vote${totalVotes !== 1 ? 's' : ''})`;
+      }
+
+      function hasUserVoted() {
+        return localStorage.getItem('hasVoted') === 'true';
+      }
+
+      function setUserVoted() {
+        localStorage.setItem('hasVoted', 'true');
+      }
+
+      document.querySelectorAll('.stars-input input').forEach(star => {
+        star.addEventListener('change', function() {
+          if (hasUserVoted()) {
+            alert("You have already voted.");
+            return;
+          }
+          const rating = parseInt(this.value);
+          ratings[rating]++;
+          totalVotes++;
+          updateGraph();
+          const activeBar = document.querySelector(`.graph-bar[data-stars="${rating}"]`);
+          activeBar.classList.add('active');
+          saveRatings();
+          setUserVoted();
+          alert(`Thank you for your ${rating}-star rating!`);
+        });
+      });
+
       document.getElementById('reset-rating-btn').addEventListener('click', function() {
-        const inputPassword = prompt("Veuillez entrer le mot de passe pour réinitialiser les notations :");
+        const inputPassword = prompt("Please enter the password to reset ratings:");
         if (inputPassword === password) {
           ratings = {1:0, 2:0, 3:0, 4:0, 5:0};
           totalVotes = 0;
           updateGraph();
           saveRatings();
-          alert("Les notations ont été réinitialisées.");
+          localStorage.removeItem('hasVoted');
+          alert("Ratings have been reset.");
         } else {
-          alert("Mot de passe incorrect. Vous n'êtes pas autorisé à réinitialiser les notations.");
+          alert("Incorrect password. You are not authorized to reset ratings.");
         }
       });
+
+      loadRatings();
     });
   </script>
 </body>
