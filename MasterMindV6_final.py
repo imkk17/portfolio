@@ -132,7 +132,7 @@ def save_score(difficulty, time_taken, attempts_used, player_name):
         else: 
             print(f"Erreur lors de la sauvegarde du score: {response.status_code}")
             print(f"Réponse: {response.text}")
-            return False
+            return False 
             
     except Exception as e:
         print(f"Erreur lors de la sauvegarde du score: {e}")
