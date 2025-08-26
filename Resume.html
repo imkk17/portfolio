@@ -6,8 +6,7 @@
   <title>Education | Irfan Khan</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="Resume.css">
- 
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="loader">
@@ -150,23 +149,23 @@
           </header>
           <div class="contents">
             <div class="box" id="edu-box1">
-              <h4>2019 - 2023</h4>
-              <h3>Collège Jean Renoir</h3>
-              <p>
+              <h4 id="edu-box1-date">2019 - 2023</h4>
+              <h3 id="edu-box1-title">Collège Jean Renoir</h3>
+              <p id="edu-box1-desc">
                 During my middle school years at Collège Jean Renoir, I explored various academic fields and forged lasting friendships. Driven by a passion for multiple subjects, I actively participated in enriching extracurricular activities, which contributed significantly to my academic and personal growth.
               </p>
             </div>
             <div class="box" id="edu-box2">
-              <h4>2022 - 2023</h4>
-              <h3>My Brevet diploma with good grades from Collège Jean Renoir.</h3>
-              <p>
+              <h4 id="edu-box2-date">2022 - 2023</h4>
+              <h3 id="edu-box2-title">My Brevet diploma with good grades from Collège Jean Renoir.</h3>
+              <p id="edu-box2-desc">
                 I earned my Brevet diploma with honors from Collège Jean Renoir, marking a significant achievement in my academic journey. This accomplishment reflects my dedication to learning and my ability to excel in challenging academic environments.
               </p>
             </div>
             <div class="box" id="edu-box3">
-              <h4>2023 - Now</h4>
-              <h3>Lycée Simone Veil</h3>
-              <p>
+              <h4 id="edu-box3-date">2023 - Now</h4>
+              <h3 id="edu-box3-title">Lycée Simone Veil</h3>
+              <p id="edu-box3-desc">
                 Currently a first-year student at Lycée Simone Veil, I have chosen the specialized track in Physics-Chemistry and NSI (Numerical and Computer Science), alongside Mathematics. This educational path reflects my keen interest in scientific disciplines and my commitment to acquiring advanced knowledge in these fields.
               </p>
             </div>
@@ -178,16 +177,16 @@
           </header>
           <div class="contents">
             <div class="box" id="exp-box1">
-              <h4>2 weeks of internship in December 2022-2023</h4>
-              <h3>Internship at <strong>Eutelsat</strong> during my 3eme</h3>
-              <p>
+              <h4 id="exp-box1-date">2 weeks of internship in December 2022-2023</h4>
+              <h3 id="exp-box1-title">Internship at <strong>Eutelsat</strong> during my 3eme</h3>
+              <p id="exp-box1-desc">
                 During my 3eme internship at Eutelsat, I gained valuable insights into satellite management and participated in mission planning. This experience allowed me to develop skills in communication, teamwork, and problem-solving, essential for navigating complex projects in the aerospace industry.
               </p>
             </div>
             <div class="box" id="exp-box2">
-              <h4>17/06/2024 - 28/06/2024</h4>
-              <h3>Stage de 2nde G/T chez <strong>Safran</strong></h3>
-              <p>
+              <h4 id="exp-box2-date">17/06/2024 - 28/06/2024</h4>
+              <h3 id="exp-box2-title">Stage de 2nde G/T chez <strong>Safran</strong></h3>
+              <p id="exp-box2-desc">
                 During my 10th-grade internship at Safran, I explored careers like CERT analyst and HR, gaining insights into internal control, finance, and HR operations. I studied cloud computing types and leaders such as AWS and IBM, and their economic impacts. I also learned about DevOps and analyzed IT infrastructures like data centers and ERPs. In cybersecurity, I focused on data security methods such as antivirus software, encryption, and VPNs, and explored AI concepts like machine learning and deep learning. This experience broadened my understanding of technology's roles in business and society.
               </p>
             </div>
@@ -209,8 +208,12 @@
       }
 
       function hideLoader() {
-        loader.style.display = 'none';
+        loader.style.opacity = '0';
+        loader.style.pointerEvents = 'none';
         contentWrapper.style.display = 'block';
+        setTimeout(() => {
+          contentWrapper.style.opacity = '1';
+        }, 50);
       }
 
       window.addEventListener('load', function() {
@@ -277,26 +280,25 @@
         if (this.checked) {
           document.getElementById('edu-title').innerText = "ÉDUCATION";
           document.getElementById('exp-title').innerText = "EXPÉRIENCE";
-          document.querySelector("#edu-box1 h4").innerText = "2019 - 2023";
-          document.querySelector("#edu-box1 h3").innerText = "Collège Jean Renoir";
-          document.querySelector("#edu-box1 p").innerText =
+          document.getElementById('edu-box1-date').innerText = "2019 - 2023";
+          document.getElementById('edu-box1-title').innerText = "Collège Jean Renoir";
+          document.getElementById('edu-box1-desc').innerText =
             "Pendant mes années au collège au Collège Jean Renoir, j'ai exploré divers domaines académiques et noué des amitiés durables. Animé par une passion pour plusieurs matières, j'ai participé activement à des activités parascolaires enrichissantes, ce qui a grandement contribué à ma croissance académique et personnelle.";
-          document.querySelector("#edu-box2 h4").innerText = "2022 - 2023";
-          document.querySelector("#edu-box2 h3").innerText =
-            "Mon diplôme Brevet avec de bonnes notes obtenu au Collège Jean Renoir.";
-          document.querySelector("#edu-box2 p").innerText =
+          document.getElementById('edu-box2-date').innerText = "2022 - 2023";
+          document.getElementById('edu-box2-title').innerText = "Mon diplôme Brevet avec de bonnes notes obtenu au Collège Jean Renoir.";
+          document.getElementById('edu-box2-desc').innerText =
             "J'ai obtenu mon diplôme Brevet avec mention au Collège Jean Renoir, marquant une étape importante de mon parcours académique. Cette réussite reflète mon engagement envers l'apprentissage et ma capacité à exceller dans des environnements académiques exigeants.";
-          document.querySelector("#edu-box3 h4").innerText = "2023 - Maintenant";
-          document.querySelector("#edu-box3 h3").innerText = "Lycée Simone Veil";
-          document.querySelector("#edu-box3 p").innerText =
+          document.getElementById('edu-box3-date').innerText = "2023 - Maintenant";
+          document.getElementById('edu-box3-title').innerText = "Lycée Simone Veil";
+          document.getElementById('edu-box3-desc').innerText =
             "Actuellement en première générale au Lycée Simone Veil, j'ai choisi de me spécialiser en Physique-Chimie et NSI (Numérique et Informatique), ainsi qu'en Mathématiques. Ce parcours reflète mon vif intérêt pour les disciplines scientifiques et mon engagement à acquérir des connaissances approfondies.";
-          document.querySelector("#exp-box1 h4").innerText = "2 semaines de stage en décembre 2022-2023";
-          document.querySelector("#exp-box1 h3").innerHTML = "Stage chez <strong>Eutelsat</strong> pendant ma 3ème";
-          document.querySelector("#exp-box1 p").innerText =
+          document.getElementById('exp-box1-date').innerText = "2 semaines de stage en décembre 2022-2023";
+          document.getElementById('exp-box1-title').innerHTML = "Stage chez <strong>Eutelsat</strong> pendant ma 3ème";
+          document.getElementById('exp-box1-desc').innerText =
             "Lors de mon stage en 3ème chez Eutelsat, j'ai acquis des connaissances précieuses en gestion de satellites et participé à la planification de missions. Cette expérience m'a permis de développer des compétences en communication, en travail d'équipe et en résolution de problèmes, essentielles pour mener à bien des projets complexes dans l'industrie aérospatiale.";
-          document.querySelector("#exp-box2 h4").innerText = "17/06/2024 - 28/06/2024";
-          document.querySelector("#exp-box2 h3").innerHTML = "Stage de 2nde G/T chez <strong>Safran</strong>";
-          document.querySelector("#exp-box2 p").innerText =
+          document.getElementById('exp-box2-date').innerText = "17/06/2024 - 28/06/2024";
+          document.getElementById('exp-box2-title').innerHTML = "Stage de 2nde G/T chez <strong>Safran</strong>";
+          document.getElementById('exp-box2-desc').innerText =
             "Lors de mon stage en seconde chez Safran, j'ai exploré des métiers tels que celui d'analyste CERT et les ressources humaines, en acquérant des connaissances sur le contrôle interne, la finance et les opérations RH. J'ai étudié les types d'informatique en nuage et les leaders comme AWS et IBM, ainsi que leurs impacts économiques. J'ai également découvert le DevOps et analysé des infrastructures informatiques telles que les data centers et les ERP. En cybersécurité, je me suis concentré sur des méthodes de sécurisation des données telles que les antivirus, le chiffrement et les VPN, et j'ai exploré des concepts d'IA comme l'apprentissage automatique et l'apprentissage profond. Cette expérience a élargi ma compréhension des rôles de la technologie dans le monde des affaires et de la société.";
           document.getElementById('nav-home').innerText = "Accueil";
           document.getElementById('nav-about').innerText = "À propos";
@@ -311,25 +313,25 @@
         } else {
           document.getElementById('edu-title').innerText = "EDUCATION";
           document.getElementById('exp-title').innerText = "EXPERIENCE";
-          document.querySelector("#edu-box1 h4").innerText = "2019 - 2023";
-          document.querySelector("#edu-box1 h3").innerText = "Collège Jean Renoir";
-          document.querySelector("#edu-box1 p").innerText =
+          document.getElementById('edu-box1-date').innerText = "2019 - 2023";
+          document.getElementById('edu-box1-title').innerText = "Collège Jean Renoir";
+          document.getElementById('edu-box1-desc').innerText =
             "During my middle school years at Collège Jean Renoir, I explored various academic fields and forged lasting friendships. Driven by a passion for multiple subjects, I actively participated in enriching extracurricular activities, which contributed significantly to my academic and personal growth.";
-          document.querySelector("#edu-box2 h4").innerText = "2022 - 2023";
-          document.querySelector("#edu-box2 h3").innerText = "My Brevet diploma with good grades from Collège Jean Renoir.";
-          document.querySelector("#edu-box2 p").innerText =
+          document.getElementById('edu-box2-date').innerText = "2022 - 2023";
+          document.getElementById('edu-box2-title').innerText = "My Brevet diploma with good grades from Collège Jean Renoir.";
+          document.getElementById('edu-box2-desc').innerText =
             "I earned my Brevet diploma with honors from Collège Jean Renoir, marking a significant achievement in my academic journey. This accomplishment reflects my dedication to learning and my ability to excel in challenging academic environments.";
-          document.querySelector("#edu-box3 h4").innerText = "2023 - Now";
-          document.querySelector("#edu-box3 h3").innerText = "Lycée Simone Veil";
-          document.querySelector("#edu-box3 p").innerText =
+          document.getElementById('edu-box3-date').innerText = "2023 - Now";
+          document.getElementById('edu-box3-title').innerText = "Lycée Simone Veil";
+          document.getElementById('edu-box3-desc').innerText =
             "Currently a first-year student at Lycée Simone Veil, I have chosen the specialized track in Physics-Chemistry and NSI (Numerical and Computer Science), alongside Mathematics. This educational path reflects my keen interest in scientific disciplines and my commitment to acquiring advanced knowledge in these fields.";
-          document.querySelector("#exp-box1 h4").innerText = "2 weeks of internship in December 2022-2023";
-          document.querySelector("#exp-box1 h3").innerHTML = "Internship at <strong>Eutelsat</strong> during my 3eme";
-          document.querySelector("#exp-box1 p").innerText =
+          document.getElementById('exp-box1-date').innerText = "2 weeks of internship in December 2022-2023";
+          document.getElementById('exp-box1-title').innerHTML = "Internship at <strong>Eutelsat</strong> during my 3eme";
+          document.getElementById('exp-box1-desc').innerText =
             "During my 3eme internship at Eutelsat, I gained valuable insights into satellite management and participated in mission planning. This experience allowed me to develop skills in communication, teamwork, and problem-solving, essential for navigating complex projects in the aerospace industry.";
-          document.querySelector("#exp-box2 h4").innerText = "17/06/2024 - 28/06/2024";
-          document.querySelector("#exp-box2 h3").innerHTML = "Stage de 2nde G/T chez <strong>Safran</strong>";
-          document.querySelector("#exp-box2 p").innerText =
+          document.getElementById('exp-box2-date').innerText = "17/06/2024 - 28/06/2024";
+          document.getElementById('exp-box2-title').innerHTML = "Stage de 2nde G/T chez <strong>Safran</strong>";
+          document.getElementById('exp-box2-desc').innerText =
             "During my 10th-grade internship at Safran, I explored careers like CERT analyst and HR, gaining insights into internal control, finance, and HR operations. I studied cloud computing types and leaders such as AWS and IBM, and their economic impacts. I also learned about DevOps and analyzed IT infrastructures like data centers and ERPs. In cybersecurity, I focused on data security methods such as antivirus software, encryption, and VPNs, and explored AI concepts like machine learning and deep learning. This experience broadened my understanding of technology's roles in business and society.";
           document.getElementById('nav-home').innerText = "Home";
           document.getElementById('nav-about').innerText = "About Me";

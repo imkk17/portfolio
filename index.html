@@ -6,7 +6,7 @@
   <title>Irfan Personal Portfolio</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Loader -->
@@ -86,7 +86,7 @@
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
+            </svg>
             </div>
           </button>
         </div>
@@ -134,21 +134,21 @@
     </section>
 
     <section class="recent-projects">
-      <h2>Recent Projects</h2>
+      <h2 id="projects-title">Recent Projects</h2>
       <div class="project-list">
         <div class="project">
-          <h3>Car E-commerce</h3>
-          <p>Short description of Project 1.</p>
+          <h3 id="project1-title">Car E-commerce</h3>
+          <p id="project1-desc">Short description of Project 1.</p>
           <a href="https://imkk17.github.io/car-ecommerce/" class="loader-button">View Project</a>
         </div>
         <div class="project">
-          <h3>AI Morpion</h3>
-          <p>Short description of Project 2.</p>
+          <h3 id="project2-title">AI Morpion</h3>
+          <p id="project2-desc">Short description of Project 2.</p>
           <a href="chat_bot2.html" class="loader-button">View Project</a>
         </div>
         <div class="project">
-          <h3>Pokedex</h3>
-          <p>Short description of Project 3.</p>
+          <h3 id="project3-title">Pokedex</h3>
+          <p id="project3-desc">Short description of Project 3.</p>
           <a href="https://pokedex-pndu.onrender.com/" class="loader-button">View Project</a>
           <img src="Nouveau dossier/Sans_titre-removebg-preview.png" alt="Pikachu" class="pikachu" />
         </div>
@@ -239,6 +239,13 @@
           document.getElementById('nav-cv-mobile').innerText = "CV";
           document.getElementById('btn-hire').innerText = "Choisissez moi";
           document.getElementById('btn-talk').innerText = "Discutons";
+          document.getElementById('projects-title').innerText = "Projets Récents";
+          document.getElementById('project1-title').innerText = "Commerce de Voitures";
+          document.getElementById('project1-desc').innerText = "Courte description du projet 1.";
+          document.getElementById('project2-title').innerText = "Morpion IA";
+          document.getElementById('project2-desc').innerText = "Courte description du projet 2.";
+          document.getElementById('project3-title').innerText = "Pokédex";
+          document.getElementById('project3-desc').innerText = "Courte description du projet 3.";
         } else {
           document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
           document.getElementById('sub-title').innerText = "Student";
@@ -252,6 +259,13 @@
           document.getElementById('nav-cv-mobile').innerText = "CV";
           document.getElementById('btn-hire').innerText = "Hire Me";
           document.getElementById('btn-talk').innerText = "Let's Talk";
+          document.getElementById('projects-title').innerText = "Recent Projects";
+          document.getElementById('project1-title').innerText = "Car E-commerce";
+          document.getElementById('project1-desc').innerText = "Short description of Project 1.";
+          document.getElementById('project2-title').innerText = "AI Morpion";
+          document.getElementById('project2-desc').innerText = "Short description of Project 2.";
+          document.getElementById('project3-title').innerText = "Pokedex";
+          document.getElementById('project3-desc').innerText = "Short description of Project 3.";
         }
       });
     });

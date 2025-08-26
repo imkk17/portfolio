@@ -2,6 +2,7 @@
        Styles généraux et Portfolio
        ========================= */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
     * {
       margin: 0;
@@ -31,6 +32,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1000;
+      animation: fadeOutLoader 0.5s ease forwards 2s;
+    }
+
+    @keyframes fadeOutLoader {
+      to { opacity: 0; pointer-events: none; }
     }
 
     .loader .box {
@@ -75,6 +81,16 @@
       100% { fill: var(--logo-color); }
     }
 
+    /* Content Wrapper Animation */
+    .content-wrapper {
+      animation: fadeInContent 1s ease forwards 2.5s;
+      opacity: 0;
+    }
+
+    @keyframes fadeInContent {
+      to { opacity: 1; }
+    }
+
     /* Header Styles */
     .header {
       position: fixed;
@@ -87,6 +103,12 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
+      animation: slideDown 0.8s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
     }
 
     .logo {
@@ -94,6 +116,12 @@
       color: #ededed;
       text-decoration: none;
       font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: transform 0.3s;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
     }
 
     /* Navbar Styles */
@@ -108,11 +136,26 @@
       text-decoration: none;
       font-weight: 500;
       margin-left: 35px;
-      transition: color 0.5s;
+      transition: color 0.3s, transform 0.3s;
+      opacity: 0;
+      animation: slideInNav 0.5s ease forwards;
+      animation-delay: calc(0.1s * var(--i));
+    }
+
+    .navbar a:nth-child(1) { --i: 1; }
+    .navbar a:nth-child(2) { --i: 2; }
+    .navbar a:nth-child(3) { --i: 3; }
+    .navbar a:nth-child(4) { --i: 4; }
+    .navbar button { --i: 5; }
+
+    @keyframes slideInNav {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .navbar a:hover {
       color: #00abf0;
+      transform: scale(1.1);
     }
 
     .navbar a.active {
@@ -136,6 +179,11 @@
       font-family: inherit;
       align-items: center;
       justify-content: center;
+      transition: transform 0.3s;
+    }
+
+    #menuBtn:hover {
+      transform: scale(1.1);
     }
 
     .menu__icon {
@@ -256,12 +304,22 @@
       text-decoration: none;
       border-radius: 8px;
       margin-bottom: 6px;
-      transition: background .12s;
+      transition: background .12s, transform 0.3s;
+      opacity: 0;
+      animation: slideInNav 0.5s ease forwards;
+      animation-delay: calc(0.1s * var(--i));
     }
+
+    .navbar-mobile a:nth-child(1) { --i: 1; }
+    .navbar-mobile a:nth-child(2) { --i: 2; }
+    .navbar-mobile a:nth-child(3) { --i: 3; }
+    .navbar-mobile a:nth-child(4) { --i: 4; }
+    .navbar-mobile button { --i: 5; }
 
     .navbar-mobile a:hover {
       background: rgba(255, 255, 255, .03);
       color: #00abf0;
+      transform: scale(1.05);
     }
 
     .navbar-mobile a.active {
@@ -278,6 +336,11 @@
       font-size: 28px;
       padding: 6px;
       cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .close-btn:hover {
+      transform: rotate(90deg);
     }
 
     .close-btn:focus {
@@ -299,6 +362,11 @@
       display: inline-flex;
       align-items: center;
       margin-left: 35px;
+      transition: transform 0.3s;
+    }
+
+    .download-button:hover {
+      transform: scale(1.1);
     }
 
     .download-button .docs {
@@ -363,6 +431,11 @@
       --light-2: rgba(255, 233, 0, 0.3);
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      transition: transform 0.3s;
+    }
+
+    .plane-switch:hover {
+      transform: scale(1.1);
     }
 
     .plane-switch input {
@@ -514,10 +587,23 @@
       padding: 0 10%;
       position: relative;
       flex-direction: row;
+      animation: fadeInMain 1s ease forwards 2.7s;
+      opacity: 0;
+    }
+
+    @keyframes fadeInMain {
+      to { opacity: 1; }
     }
 
     .home-content {
       max-width: 600px;
+      opacity: 0;
+      animation: slideInLeft 0.8s ease forwards 2.9s;
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     .home-content h1 {
@@ -557,12 +643,13 @@
       color: #081b29;
       text-decoration: none;
       font-weight: 600;
-      transition: background-color 0.5s, color 0.5s;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
     }
 
     .btn-box a:hover {
       color: #00abf0;
       background: transparent;
+      transform: scale(1.05);
     }
 
     .home-sci {
@@ -571,6 +658,12 @@
       width: 170px;
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      animation: fadeInFooter 1s ease forwards 3.3s;
+    }
+
+    @keyframes fadeInFooter {
+      to { opacity: 1; }
     }
 
     .home-sci a {
@@ -585,18 +678,26 @@
       font-size: 20px;
       color: #00abf0;
       text-decoration: none;
-      transition: background 0.5s, color 0.5s;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
     }
 
     .home-sci a:hover {
       color: #081b29;
       background: #00abf0;
+      transform: scale(1.1);
     }
 
     .home-photo {
       max-width: 400px;
       margin-left: 10px;
       position: relative;
+      opacity: 0;
+      animation: slideInRight 0.8s ease forwards 3.1s;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     .home-photo img {
@@ -606,6 +707,11 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       animation: float 3s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+
+    .home-photo img:hover {
+      transform: scale(1.05);
     }
 
     .home-photo h4 {
@@ -648,6 +754,8 @@
       padding: 50px 10%;
       text-align: center;
       background-color: #081b29;
+      opacity: 0;
+      animation: fadeInMain 1s ease forwards 3.5s;
     }
 
     .recent-projects h2 {
@@ -674,6 +782,18 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      opacity: 0;
+      animation: slideInUp 0.5s ease forwards;
+      animation-delay: calc(0.2s * var(--i));
+    }
+
+    .project:nth-child(1) { --i: 1; }
+    .project:nth-child(2) { --i: 2; }
+    .project:nth-child(3) { --i: 3; }
+
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .project:hover {
@@ -698,11 +818,12 @@
       color: #00abf0;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.5s;
+      transition: color 0.3s, transform 0.3s;
     }
 
     .project a:hover {
       color: #34c759;
+      transform: scale(1.05);
     }
 
     .pikachu {
@@ -813,12 +934,13 @@
         font-size: 20px;
         color: #00abf0;
         text-decoration: none;
-        transition: background 0.5s, color 0.5s;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
       }
 
       .home-sci a:hover {
         color: #081b29;
         background: #00abf0;
+        transform: scale(1.1);
       }
 
       .recent-projects {

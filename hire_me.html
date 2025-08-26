@@ -5,11 +5,731 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hire Me - Irfan Khan</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="hire_me.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #081b29;
+      color: #ededed;
+      overflow-x: hidden;
+    }
+
+    /* Loader Styles */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 27, 41, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.5s ease;
+    }
+
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .box-of-star {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 12s linear infinite;
+    }
+
+    .star {
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .star-position1 { top: 20px; left: 40px; }
+    .star-position2 { top: 60px; left: 160px; }
+    .star-position3 { top: 100px; left: 20px; }
+    .star-position4 { top: 140px; left: 180px; }
+    .star-position5 { top: 80px; left: 80px; }
+    .star-position6 { top: 40px; left: 120px; }
+    .star-position7 { top: 160px; left: 60px; }
+
+    .box-of-star:nth-child(2) { animation-delay: -3s; }
+    .box-of-star:nth-child(3) { animation-delay: -6s; }
+    .box-of-star:nth-child(4) { animation-delay: -9s; }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .astronaut {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      z-index: 2;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    .head {
+      width: 32px;
+      height: 32px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 8px;
+      left: 24px;
+    }
+
+    .arm-left, .arm-right {
+      width: 8px;
+      height: 24px;
+      background: #fff;
+      position: absolute;
+      top: 40px;
+    }
+
+    .arm-left { left: 16px; transform: rotate(30deg); }
+    .arm-right { left: 56px; transform: rotate(-30deg); }
+
+    .body {
+      width: 32px;
+      height: 40px;
+      background: #fff;
+      position: absolute;
+      top: 40px;
+      left: 24px;
+      border-radius: 8px;
+    }
+
+    .panel {
+      width: 16px;
+      height: 16px;
+      background: #ccc;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+
+    .leg-left, .leg-right {
+      width: 8px;
+      height: 24px;
+      background: #fff;
+      position: absolute;
+      top: 72px;
+    }
+
+    .leg-left { left: 24px; }
+    .leg-right { left: 48px; }
+
+    .schoolbag {
+      width: 24px;
+      height: 24px;
+      background: #ccc;
+      position: absolute;
+      top: 48px;
+      left: 28px;
+      border-radius: 4px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 5%;
+      background: linear-gradient(180deg, rgba(8, 27, 41, 0.95), rgba(8, 27, 41, 0.8));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: #ededed;
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: #00abf0;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #00abf0;
+      transform: translateY(-2px);
+    }
+
+    .navbar a.active {
+      color: #00abf0;
+      border-bottom: 2px solid #00abf0;
+    }
+
+    /* Burger Menu */
+    #menuBtn {
+      display: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(74, 74, 74, 0.3);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu__icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .menu__icon span {
+      display: block;
+      width: 100%;
+      height: 0.15rem;
+      border-radius: 2px;
+      background-color: #00abf0;
+      transition: all 0.4s ease;
+    }
+
+    body.menu-open .menu__icon span:nth-child(1) {
+      transform: translateY(0.45rem) rotate(45deg);
+    }
+
+    body.menu-open .menu__icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    body.menu-open .menu__icon span:nth-child(3) {
+      transform: translateY(-0.45rem) rotate(-45deg);
+    }
+
+    /* Overlay and Mobile Menu */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 195;
+    }
+
+    body.menu-open .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .navbar-mobile {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 80%;
+      max-width: 320px;
+      background: linear-gradient(180deg, #071522, #081b29);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 200;
+      padding: 60px 15px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.menu-open .navbar-mobile {
+      transform: translateX(0);
+    }
+
+    .navbar-mobile .nav-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+      padding-bottom: 20px;
+    }
+
+    .navbar-mobile a, .navbar-mobile .download-button {
+      display: block;
+      padding: 10px;
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .navbar-mobile a:hover, .navbar-mobile .download-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #00abf0;
+    }
+
+    .navbar-mobile a.active {
+      color: #00abf0;
+      background: rgba(0, 171, 240, 0.1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .close-btn:focus {
+      outline: 2px solid #00abf0;
+      outline-offset: 2px;
+    }
+
+    /* Download Button */
+    .download-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 2px solid #00abf0;
+      border-radius: 8px;
+      color: #ededed;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .download-button:hover {
+      background: #00abf0;
+      color: #081b29;
+    }
+
+    .download-button .docs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .download-button .download {
+      display: none;
+    }
+
+    /* Language Toggle */
+    .plane-switch {
+      --dot: #fff;
+      --street: #6B6D76;
+      --street-line: #A8AAB4;
+      --street-line-mid: #C0C2C8;
+      --sky-1: #60A7FA;
+      --sky-2: #2F8EFC;
+      --light-1: rgba(255, 233, 0, 1);
+      --light-2: rgba(255, 233, 0, 0.3);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .plane-switch input {
+      display: none;
+    }
+
+    .plane-switch input + div {
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      position: relative;
+      overflow: hidden;
+      width: 50px;
+      height: 25px;
+      padding: 1px;
+      border-radius: 13px;
+      background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
+      background-position-x: var(--p, 0%);
+      background-size: 400% auto;
+      transition: background-position 0.6s;
+    }
+
+    .plane-switch input + div:before,
+    .plane-switch input + div:after {
+      content: "";
+      display: block;
+      position: absolute;
+      transform: translateX(var(--s, 0));
+      transition: transform 0.3s;
+    }
+
+    .plane-switch input + div:before {
+      width: 42px;
+      right: 2px;
+      top: 4px;
+      height: 1px;
+      background: var(--street-line);
+      box-shadow: 0 16px 0 0 var(--street-line);
+    }
+
+    .plane-switch input + div:after {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      left: 23px;
+      top: 1px;
+      animation: lights2 2s linear infinite;
+      box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+    }
+
+    .plane-switch input + div span {
+      display: block;
+      position: absolute;
+    }
+
+    .plane-switch input + div span.street-middle {
+      top: 12px;
+      left: 21px;
+      width: 3px;
+      height: 1px;
+      transform: translateX(var(--s, 0));
+      background: var(--street-line-mid);
+      box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
+      transition: transform 0.3s;
+    }
+
+    .plane-switch input + div span.cloud {
+      width: 12px;
+      height: 4px;
+      border-radius: 2px;
+      background: #fff;
+      position: absolute;
+      top: var(--ct, 8px);
+      left: 100%;
+      opacity: var(--co, 0);
+      transition: opacity 0.3s;
+      animation: clouds2 2s linear infinite var(--cd, 0s);
+    }
+
+    .plane-switch input + div span.cloud:before,
+    .plane-switch input + div span.cloud:after {
+      content: "";
+      position: absolute;
+      transform: translateX(var(--cx, 0));
+      border-radius: 50%;
+      width: var(--cs, 5px);
+      height: var(--cs, 5px);
+      background: #fff;
+      bottom: 1px;
+      left: 1px;
+    }
+
+    .plane-switch input + div span.cloud:after {
+      --cs: 6px;
+      --cx: 4px;
+    }
+
+    .plane-switch input + div span.cloud.two {
+      --ct: 20px;
+      --cd: 1s;
+      opacity: var(--co-2, 0);
+    }
+
+    .plane-switch input + div div {
+      display: table;
+      position: relative;
+      z-index: 1;
+      padding: 5px;
+      border-radius: 50%;
+      background: var(--dot);
+      transform: translateX(var(--x, 0));
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
+    }
+
+    .plane-switch input + div div svg {
+      width: 13px;
+      height: 13px;
+      display: block;
+      color: var(--c, var(--street));
+      transition: color 0.6s;
+    }
+
+    .plane-switch input:checked + div {
+      --p: 100%;
+      --x: 25px;
+      --s: -50px;
+      --c: var(--sky-2);
+      --co: 0.8;
+      --co-2: 0.6;
+    }
+
+    @keyframes lights2 {
+      20%, 30% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
+      55%, 65% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1); }
+      90%, 100% { box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
+    }
+
+    @keyframes clouds2 {
+      97% { transform: translateX(-72px); visibility: visible; }
+      98%, 100% { visibility: hidden; }
+      99% { transform: translateX(-72px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Hire Me Section */
+    .hire-me {
+      padding: 80px 5% 40px;
+      margin-top: 60px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hire-me h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #00abf0;
+      text-align: center;
+    }
+
+    .hire-me p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .service {
+      background: #0a2c43;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 171, 240, 0.2);
+    }
+
+    .service h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #00abf0;
+    }
+
+    .service p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .portfolio {
+      margin-bottom: 2rem;
+    }
+
+    .portfolio h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00abf0;
+      text-align: center;
+    }
+
+    .work-item {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .work-item img, .work-item video {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item img:hover, .work-item video:hover {
+      transform: scale(1.05);
+    }
+
+    .work-item video {
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    .work-item p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .play-now-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #00abf0;
+      border: none;
+      border-radius: 50px;
+      color: #081b29;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .play-now-btn:hover {
+      background: #008acb;
+      transform: translateY(-2px);
+    }
+
+    .play-now-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .play-now-btn .now {
+      display: none;
+    }
+
+    .testimonials {
+      margin-bottom: 2rem;
+    }
+
+    .testimonials h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00abf0;
+      text-align: center;
+    }
+
+    .testimonials blockquote {
+      background: #0a2c43;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00abf0;
+    }
+
+    .contact p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact .btn {
+      padding: 0.75rem 1.5rem;
+      background: #00abf0;
+      border: none;
+      border-radius: 8px;
+      color: #081b29;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact .btn:hover {
+      background: #008acb;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem 5%;
+      text-align: center;
+      background: #071522;
+    }
+
+    footer .socials a {
+      margin: 0 0.75rem;
+      font-size: 1.5rem;
+      color: #00abf0;
+      transition: color 0.3s ease;
+    }
+
+    footer .socials a:hover {
+      color: #008acb;
+    }
+
+    footer p {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header { padding: 10px 3%; }
+      #menuBtn { display: flex; }
+      .navbar { display: none; }
+      .navbar-mobile { display: flex; }
+      .hire-me { padding: 60px 3% 20px; }
+      .services { grid-template-columns: 1fr; }
+      .download-button, .play-now-btn { width: 100%; justify-content: center; }
+      .work-item img, .work-item video { max-width: 100%; }
+    }
+
+    @media (min-width: 769px) {
+      .navbar-mobile, .close-btn, .overlay { display: none; }
+      .navbar { display: flex; }
+    }
+  </style>
 </head>
 <body>
   <div id="loader">
-    <div class="box-of-star1">
+    <div class="box-of-star">
       <div class="star star-position1"></div>
       <div class="star star-position2"></div>
       <div class="star star-position3"></div>
@@ -18,7 +738,7 @@
       <div class="star star-position6"></div>
       <div class="star star-position7"></div>
     </div>
-    <div class="box-of-star2">
+    <div class="box-of-star">
       <div class="star star-position1"></div>
       <div class="star star-position2"></div>
       <div class="star star-position3"></div>
@@ -27,7 +747,7 @@
       <div class="star star-position6"></div>
       <div class="star star-position7"></div>
     </div>
-    <div class="box-of-star3">
+    <div class="box-of-star">
       <div class="star star-position1"></div>
       <div class="star star-position2"></div>
       <div class="star star-position3"></div>
@@ -36,7 +756,7 @@
       <div class="star star-position6"></div>
       <div class="star star-position7"></div>
     </div>
-    <div class="box-of-star4">
+    <div class="box-of-star">
       <div class="star star-position1"></div>
       <div class="star star-position2"></div>
       <div class="star star-position3"></div>
@@ -45,7 +765,7 @@
       <div class="star star-position6"></div>
       <div class="star star-position7"></div>
     </div>
-    <div data-js="astro" class="astronaut">
+    <div class="astronaut">
       <div class="head"></div>
       <div class="arm arm-left"></div>
       <div class="arm arm-right"></div>
@@ -58,10 +778,10 @@
     </div>
   </div>
 
-  <div class="content-wrapper" style="display: none;">
+  <div class="content-wrapper">
     <header class="header">
       <a href="index.html" class="logo" aria-label="Home">Irfan.</a>
-      <button id="menuBtn" aria-label="Open menu" aria-expanded="false" title="Menu">
+      <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
         <div class="menu__icon">
           <span></span>
           <span></span>
@@ -86,13 +806,6 @@
             </svg>
             <span id="nav-cv">CV</span>
           </div>
-          <div class="download">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </div>
         </button>
       </nav>
       <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
@@ -113,13 +826,6 @@
                 <polyline points="10 9 9 9 8 9"></polyline>
               </svg>
               <span id="nav-cv-mobile">CV</span>
-            </div>
-            <div class="download">
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
             </div>
           </button>
         </div>
@@ -147,7 +853,7 @@
         <div class="container">
           <h1 id="hire-title">Hire Me</h1>
           <p id="hire-text">
-            I'm Irfan Khan, a passionate student with a goal to revolutionize the world through AI technology. Here are the services I offer:
+            I'm Irfan Khan, a passionate student aiming to revolutionize the world through AI technology. Here are the services I offer:
           </p>
           <div class="services">
             <div class="service" id="service1">
@@ -156,81 +862,58 @@
             </div>
             <div class="service" id="service2">
               <h2>AI Solutions</h2>
-              <p>Have some knowledge on AI from my internship at <strong>Safran</strong>.</p>
+              <p>Gained AI expertise during my internship at <strong>Safran</strong>.</p>
             </div>
             <div class="service" id="service3">
               <h2>Team Work</h2>
-              <p>Ability to train and work well with colleagues.</p>
+              <p>Skilled in collaborating and training colleagues effectively.</p>
             </div>
           </div>
           <div class="portfolio">
             <h2 id="work-title">My Work</h2>
             <div class="work-item" id="work-mastermind">
-              <a href="Nouveau dossier/Mastermind image .webp" aria-label="View Mastermind Game" class="loader-button">
-                <img src="Nouveau dossier/Mastermind image .webp" alt="Mastermind Game" class="mastermind-image">
-              </a>
-              <p id="mastermind-desc">A game that masters your mind.</p>
-              <a href="MastermindV6_final.py" download aria-label="Download Mastermind Game" class="play-now-btn loader-button" id="btn-play-mastermind">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
-                  <rect width="36" height="36" fill="#fdd835"></rect>
-                  <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28C40.89,30.29,39.48,38.31,39.02,42z"></path>
-                  <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5五大公开课推荐的书7本！免费领取"></path>
-                  <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32c-1.31,1.60-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.25-0.76,7.67-0.25,9.77,1.13C33.79,13.6,35,22.23,35,27.17z"></path>
-                  <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+              
+              <video controls poster="Nouveau dossier/Mastermind image .webp" aria-label="Mastermind Game Demo" class="mastermind-video">
+                <source src="Nouveau dossier/mastermind_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p id="mastermind-desc">A game that challenges your mind.</p>
+              <a href="MastermindV6_final.py" download aria-label="Download Mastermind Game" class="play-now-btn loader-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span class="now" id="now-mastermind">now!</span>
-                <span class="play" id="play-mastermind">Download</span>
+                <span id="play-mastermind">Download</span>
               </a>
             </div>
             <div class="work-item" id="work-calculator">
-              <a href="Nouveau dossier/calculatrice_project.webp" aria-label="View Calculator Project" class="loader-button">
-                <img src="Nouveau dossier/calculatrice_project.webp" alt="Calculator Project" class="mastermind-image">
-              </a>
-              <p id="calc-desc">A calculator that you should see.</p>
-              <a href="calculatrice.py" download aria-label="Download Calculator Project" class="play-now-btn loader-button" id="btn-play-calculator">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
-                  <rect width="36" height="36" fill="#fdd835"></rect>
-                  <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28C40.89,30.29,39.48,38.31,39.02,42z"></path>
-                  <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
-                  <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32c-1.31,1.60-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.25-0.76,7.67-0.25,9.77,1.13C33.79,13.6,35,22.23,35,27.17z"></path>
-                  <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+              
+              <video controls poster="Nouveau dossier/calculatrice_project.webp" aria-label="Calculator Project Demo" class="mastermind-video">
+                <source src="Nouveau dossier/demo_calculator.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p id="calc-desc">A sleek and functional calculator application.</p>
+              <a href="Nouveau dossier/calculatrice.py" download aria-label="Download Calculator Project" class="play-now-btn loader-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span class="now" id="now-calculator">now!</span>
-                <span class="play" id="play-calculator">Download</span>
+                <span id="play-calculator">Download</span>
               </a>
             </div>
             <div class="work-item" id="work-pokedex">
               <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="View Pokédex Project" class="loader-button">
                 <img src="Nouveau dossier/International_Pokémon_logo.svg.png" alt="Pokédex Project" class="mastermind-image">
               </a>
-              <p id="pokedex-desc">An interactive Pokédex web application to explore Pokémon data.</p>
-              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visit Pokédex Project" class="play-now-btn loader-button" id="btn-visit-pokedex">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36px" height="36px">
-                  <rect width="36" height="36" fill="#fdd835"></rect>
-                  <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28C40.89,30.29,39.48,38.31,39.02,42z"></path>
-                  <path fill="#b71c1c" d="M39.02,42H11.99c-0.22-2.67-0.48-7.05-0.49-12.72c0.83,4.18,1.63,9.59,6.98,9.79c3.48,0.12,8.27,0.55,9.83-2.45c1.57-3,3.72-8.95,3.51-15.62c-0.19-5.84-1.75-8.2-2.13-8.7c0.59,0.66,3.74,4.49,4.01,11.7c0.03,0.83,0.06,1.72,0.08,2.66c4.21-0.15,5.93,1.5,6.07,2.35C40.68,33.85,39.8,38.9,39.02,42z"></path>
-                  <path fill="#212121" d="M35,27.17c0,3.67-0.28,11.2-0.42,14.83h-2C32.72,38.42,33,30.83,33,27.17c0-5.54-1.46-12.65-3.55-14.02c-1.65-1.08-5.49-1.48-8.23-0.85c-3.62,0.83-4.57,1.99-6.14,3.92L15,16.32c-1.31,1.60-2.59,6.92-3,8.96v10.8c0,2.58,0.28,4.61,0.54,5.92H10.5c-0.25-1.41-0.5-3.42-0.5-5.92l0.02-11.09c0.15-0.77,1.55-7.63,3.43-9.94l0.08-0.09c1.65-2.03,2.96-3.63,7.25-4.61c3.25-0.76,7.67-0.25,9.77,1.13C33.79,13.6,35,22.23,35,27.17z"></path>
-                  <path fill="#01579b" d="M17.165,17.283c5.217-0.055,9.391,0.283,9,6.011c-0.391,5.728-8.478,5.533-9.391,5.337c-0.913-0.196-7.826-0.043-7.696-5.337C9.209,18,13.645,17.32,17.165,17.283z"></path>
+              <p id="pokedex-desc">An interactive Pokédex web app to explore Pokémon data.</p>
+              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visit Pokédex Project" class="play-now-btn loader-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span class="now" id="now-pokedex">now!</span>
-                <span class="play" id="visit-pokedex">Visit</span>
+                <span id="visit-pokedex">Visit</span>
               </a>
-              <a href="POKEDEX project.zip" download class="download-button loader-button" id="pokedex-download" aria-label="Download Pokédex Project">
+              <a href="Nouveau dossier/pokedex_project.zip" download class="download-button loader-button" aria-label="Download Pokédex Project">
                 <div class="docs">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <path
-                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                    ></path>
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                     <line x1="16" y1="13" x2="8" y2="13"></line>
                     <line x1="16" y1="17" x2="8" y2="17"></line>
@@ -238,39 +921,22 @@
                   </svg>
                   <span>Download</span>
                 </div>
-                <div class="download">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                  </svg>
-                </div>
               </a>
             </div>
           </div>
           <div class="testimonials" aria-labelledby="testimonials-title">
             <h2 id="testimonials-title">Testimonials</h2>
             <blockquote id="testimonial1">
-              <p>"Irfan is a fantastic student! Highly recommend!" - <strong>Eutelsat</strong></p>
+              <p>"Irfan is an exceptional student with great potential!" - <strong>Eutelsat</strong></p>
             </blockquote>
             <blockquote id="testimonial2">
-              <p>"Great guy, your sincerity makes you a better person. Very satisfied." - <strong>Safran</strong></p>
+              <p>"Irfan's dedication and sincerity are truly commendable." - <strong>Safran</strong></p>
             </blockquote>
           </div>
           <div class="contact" aria-labelledby="contact-title">
             <h2 id="contact-title">Get in Touch</h2>
-            <p id="contact-text">If you are interested in working with me, please reach out!</p>
-            <a href="lets_talk_message_chat_box.html" class="btn loader-button" id="contact-btn" aria-label="Contact Me">Contact Me</a>
+            <p id="contact-text">Interested in collaborating? Let's connect!</p>
+            <a href="let's_talk_message_chat_box.html" class="btn loader-button" id="contact-btn" aria-label="Contact Me">Contact Me</a>
           </div>
         </div>
       </section>
@@ -282,160 +948,137 @@
         <a href="https://www.linkedin.com/in/irfan-khan-050522300/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class='bx bxl-linkedin-square'></i></a>
         <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
       </div>
-      <p id="footer-text">© 2024 Irfan Khan. All rights reserved.</p>
+      <p id="footer-text">© 2025 Irfan Khan. All rights reserved.</p>
     </footer>
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Loader script
+    document.addEventListener('DOMContentLoaded', () => {
+      // Loader
       const loader = document.getElementById('loader');
       const contentWrapper = document.querySelector('.content-wrapper');
 
-      function showLoader() {
-        loader.style.display = 'block';
-        contentWrapper.style.display = 'none';
-      }
+      const hideLoader = () => {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+          loader.style.display = 'none';
+          contentWrapper.style.display = 'block';
+        }, 500);
+      };
 
-      function hideLoader() {
-        loader.style.display = 'none';
-        contentWrapper.style.display = 'block';
-      }
+      window.addEventListener('load', () => setTimeout(hideLoader, 1500));
 
-      window.addEventListener('load', function() {
-        setTimeout(hideLoader, 2000);
-      });
-
-      // Handle button clicks with loader
-      const buttons = document.querySelectorAll('.loader-button');
-      buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
+      // Navigation with loader
+      document.querySelectorAll('.loader-button').forEach(button => {
+        button.addEventListener('click', (e) => {
           e.preventDefault();
-          const href = this.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
-          const target = this.getAttribute('target');
-          showLoader();
+          const href = button.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
+          const target = button.getAttribute('target');
+          loader.style.display = 'block';
+          loader.classList.remove('hidden');
+          contentWrapper.style.display = 'none';
           setTimeout(() => {
             if (target === '_blank') {
               window.open(href, '_blank');
             } else {
               window.location.href = href;
             }
-          }, 2000);
+          }, 1000);
         });
       });
 
-      // Mobile menu controls
+      // Mobile menu
       const menuBtn = document.getElementById('menuBtn');
       const overlay = document.getElementById('overlay');
       const mobileNav = document.getElementById('mobileNav');
       const closeBtn = document.getElementById('closeBtn');
 
-      function openMenu() {
+      const openMenu = () => {
         document.body.classList.add('menu-open');
         menuBtn.setAttribute('aria-expanded', 'true');
         overlay.setAttribute('aria-hidden', 'false');
         mobileNav.setAttribute('aria-hidden', 'false');
         document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => closeBtn.focus(), 180);
-      }
+        closeBtn.focus();
+      };
 
-      function closeMenu() {
+      const closeMenu = () => {
         document.body.classList.remove('menu-open');
         menuBtn.setAttribute('aria-expanded', 'false');
         overlay.setAttribute('aria-hidden', 'true');
         mobileNav.setAttribute('aria-hidden', 'true');
         document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
         menuBtn.focus();
-      }
+      };
 
-      menuBtn.addEventListener('click', () => {
-        if (document.body.classList.contains('menu-open')) closeMenu();
-        else openMenu();
-      });
-
+      menuBtn.addEventListener('click', () => document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
       overlay.addEventListener('click', closeMenu);
       closeBtn.addEventListener('click', closeMenu);
+      document.querySelectorAll('.nav-inner a, .nav-inner .download-button').forEach(item => item.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => e.key === 'Escape' && document.body.classList.contains('menu-open') && closeMenu());
 
-      document.querySelectorAll('.nav-inner a, .nav-inner .download-button').forEach(a => {
-        a.addEventListener('click', () => closeMenu());
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
-      });
-
-      // Translation script
+      // Language toggle
       const translateToggle = document.getElementById('translate-toggle');
-      translateToggle.addEventListener('change', function() {
-        const isFrench = this.checked;
+      translateToggle.addEventListener('change', () => {
+        const isFrench = translateToggle.checked;
         translateToggle.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Switch to French');
-        document.getElementById('hire-title').innerText = isFrench ? "Choisissez-moi" : "Hire Me";
-        document.getElementById('hire-text').innerText = isFrench
-          ? "Je suis Irfan Khan, un étudiant passionné avec pour objectif de révolutionner le monde grâce à la technologie IA. Voici les services que j'offre :"
-          : "I'm Irfan Khan, a passionate student with a goal to revolutionize the world through AI technology. Here are the services I offer:";
-        document.getElementById('service1').querySelector('h2').innerText = isFrench ? "Programmation" : "Coding";
-        document.getElementById('service1').querySelector('p').innerText = isFrench
-          ? "Création de portfolios réactifs et dynamiques avec Python, CSS et HTML."
-          : "Building responsive and dynamic portfolios with Python, CSS, and HTML.";
-        document.getElementById('service2').querySelector('h2').innerText = isFrench ? "Solutions IA" : "AI Solutions";
+        document.getElementById('hire-title').textContent = isFrench ? 'Choisissez-moi' : 'Hire Me';
+        document.getElementById('hire-text').textContent = isFrench
+          ? 'Je suis Irfan Khan, un étudiant passionné visant à révolutionner le monde grâce à la technologie IA. Voici mes services :'
+          : 'I\'m Irfan Khan, a passionate student aiming to revolutionize the world through AI technology. Here are the services I offer:';
+        document.getElementById('service1').querySelector('h2').textContent = isFrench ? 'Programmation' : 'Coding';
+        document.getElementById('service1').querySelector('p').textContent = isFrench
+          ? 'Création de portfolios réactifs et dynamiques avec Python, CSS et HTML.'
+          : 'Building responsive and dynamic portfolios with Python, CSS, and HTML.';
+        document.getElementById('service2').querySelector('h2').textContent = isFrench ? 'Solutions IA' : 'AI Solutions';
         document.getElementById('service2').querySelector('p').innerHTML = isFrench
-          ? "Connaissances en IA acquises lors de mon stage chez <strong>Safran</strong>."
-          : "Have some knowledge on AI from my internship at <strong>Safran</strong>.";
-        document.getElementById('service3').querySelector('h2').innerText = isFrench ? "Travail d'équipe" : "Team Work";
-        document.getElementById('service3').querySelector('p').innerText = isFrench
-          ? "Capacité à former et travailler efficacement avec mes collègues."
-          : "Ability to train and work well with colleagues.";
-        document.getElementById('work-title').innerText = isFrench ? "Mes Réalisations" : "My Work";
-        document.getElementById('mastermind-desc').innerText = isFrench
-          ? "Un jeu qui met votre esprit à l'épreuve."
-          : "A game that masters your mind.";
-        document.getElementById('calc-desc').innerText = isFrench
-          ? "Une calculatrice à découvrir absolument."
-          : "A calculator that you should see.";
-        document.getElementById('pokedex-desc').innerText = isFrench
-          ? "Une application web interactive pour explorer les données Pokémon."
-          : "An interactive Pokédex web application to explore Pokémon data.";
-        document.getElementById('now-mastermind').innerText = isFrench ? "maintenant !" : "now!";
-        document.getElementById('play-mastermind').innerText = isFrench ? "Télécharger" : "Download";
-        document.getElementById('btn-play-mastermind').setAttribute('aria-label', isFrench ? "Télécharger le jeu Mastermind" : "Download Mastermind Game");
-        document.getElementById('now-calculator').innerText = isFrench ? "maintenant !" : "now!";
-        document.getElementById('play-calculator').innerText = isFrench ? "Télécharger" : "Download";
-        document.getElementById('btn-play-calculator').setAttribute('aria-label', isFrench ? "Télécharger le projet Calculatrice" : "Download Calculator Project");
-        document.getElementById('now-pokedex').innerText = isFrench ? "maintenant !" : "now!";
-        document.getElementById('visit-pokedex').innerText = isFrench ? "Visiter" : "Visit";
-        document.getElementById('btn-visit-pokedex').setAttribute('aria-label', isFrench ? "Visiter le projet Pokédex" : "Visit Pokédex Project");
-        document.getElementById('pokedex-download').querySelector('.docs span').innerText = isFrench ? "Docs" : "Docs";
-        document.getElementById('pokedex-download').setAttribute('aria-label', isFrench ? "Télécharger le projet Pokédex" : "Download Pokédex Project");
-        document.getElementById('testimonials-title').innerText = isFrench ? "Témoignages" : "Testimonials";
-        document.getElementById('testimonial1').querySelector('p').innerText = isFrench
-          ? '"Irfan est un étudiant fantastique ! Je le recommande vivement !" - Eutelsat'
-          : '"Irfan is a fantastic student! Highly recommend!" - Eutelsat';
-        document.getElementById('testimonial2').querySelector('p').innerText = isFrench
-          ? '"Super personne, votre sincérité vous rend meilleur. Très satisfait." - Safran'
-          : '"Great guy, your sincerity makes you a better person. Very satisfied." - Safran';
-        document.getElementById('contact-title').innerText = isFrench ? "Contactez-moi" : "Get in Touch";
-        document.getElementById('contact-text').innerText = isFrench
-          ? "Si vous êtes intéressé à travailler avec moi, n’hésitez pas à me contacter !"
-          : "If you are interested in working with me, please reach out!";
-        document.getElementById('contact-btn').innerText = isFrench ? "Me contacter" : "Contact Me";
-        document.getElementById('contact-btn').setAttribute('aria-label', isFrench ? "Me contacter" : "Contact Me");
-        document.getElementById('nav-home').innerText = isFrench ? "Accueil" : "Home";
-        document.getElementById('nav-about').innerText = isFrench ? "À propos" : "About Me";
-        document.getElementById('nav-education').innerText = isFrench ? "Éducation" : "Education";
-        document.getElementById('nav-skills').innerText = isFrench ? "Compétences" : "Skills";
-        document.getElementById('nav-hire').innerText = isFrench ? "Embauchez-moi" : "Hire Me";
-        document.getElementById('nav-cv').innerText = isFrench ? "CV" : "CV";
-        document.getElementById('nav-home-mobile').innerText = isFrench ? "Accueil" : "Home";
-        document.getElementById('nav-about-mobile').innerText = isFrench ? "À propos" : "About Me";
-        document.getElementById('nav-education-mobile').innerText = isFrench ? "Éducation" : "Education";
-        document.getElementById('nav-skills-mobile').innerText = isFrench ? "Compétences" : "Skills";
-        document.getElementById('nav-hire-mobile').innerText = isFrench ? "Embauchez-moi" : "Hire Me";
-        document.getElementById('nav-cv-mobile').innerText = isFrench ? "CV" : "CV";
-        document.getElementById('footer-text').innerText = isFrench
-          ? "© 2024 Irfan Khan. Tous droits réservés."
-          : "© 2024 Irfan Khan. All rights reserved.";
+          ? 'Expertise en IA acquise lors de mon stage chez <strong>Safran</strong>.'
+          : 'Gained AI expertise during my internship at <strong>Safran</strong>.';
+        document.getElementById('service3').querySelector('h2').textContent = isFrench ? 'Travail d\'équipe' : 'Team Work';
+        document.getElementById('service3').querySelector('p').textContent = isFrench
+          ? 'Compétent pour collaborer et former efficacement mes collègues.'
+          : 'Skilled in collaborating and training colleagues effectively.';
+        document.getElementById('work-title').textContent = isFrench ? 'Mes Réalisations' : 'My Work';
+        document.getElementById('mastermind-desc').textContent = isFrench
+          ? 'Un jeu qui met votre esprit à l\'épreuve.'
+          : 'A game that challenges your mind.';
+        document.getElementById('calc-desc').textContent = isFrench
+          ? 'Une application de calculatrice élégante et fonctionnelle.'
+          : 'A sleek and functional calculator application.';
+        document.getElementById('pokedex-desc').textContent = isFrench
+          ? 'Une application web interactive pour explorer les données Pokémon.'
+          : 'An interactive Pokédex web app to explore Pokémon data.';
+        document.getElementById('play-mastermind').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('play-calculator').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('visit-pokedex').textContent = isFrench ? 'Visiter' : 'Visit';
+        document.getElementById('testimonials-title').textContent = isFrench ? 'Témoignages' : 'Testimonials';
+        document.getElementById('testimonial1').querySelector('p').textContent = isFrench
+          ? '"Irfan est un étudiant exceptionnel avec un grand potentiel !" - Eutelsat'
+          : '"Irfan is an exceptional student with great potential!" - Eutelsat';
+        document.getElementById('testimonial2').querySelector('p').textContent = isFrench
+          ? '"Le dévouement et la sincérité d\'Irfan sont vraiment louables." - Safran'
+          : '"Irfan\'s dedication and sincerity are truly commendable." - Safran';
+        document.getElementById('contact-title').textContent = isFrench ? 'Contactez-moi' : 'Get in Touch';
+        document.getElementById('contact-text').textContent = isFrench
+          ? 'Intéressé par une collaboration ? Connectons-nous !'
+          : 'Interested in collaborating? Let\'s connect!';
+        document.getElementById('contact-btn').textContent = isFrench ? 'Me Contacter' : 'Contact Me';
+        document.getElementById('contact-btn').setAttribute('aria-label', isFrench ? 'Me Contacter' : 'Contact Me');
+        document.getElementById('nav-home').textContent = isFrench ? 'Accueil' : 'Home';
+        document.getElementById('nav-about').textContent = isFrench ? 'À Propos' : 'About Me';
+        document.getElementById('nav-education').textContent = isFrench ? 'Éducation' : 'Education';
+        document.getElementById('nav-skills').textContent = isFrench ? 'Compétences' : 'Skills';
+        document.getElementById('nav-hire').textContent = isFrench ? 'Embauchez-moi' : 'Hire Me';
+        document.getElementById('nav-cv').textContent = isFrench ? 'CV' : 'CV';
+        document.getElementById('nav-home-mobile').textContent = isFrench ? 'Accueil' : 'Home';
+        document.getElementById('nav-about-mobile').textContent = isFrench ? 'À Propos' : 'About Me';
+        document.getElementById('nav-education-mobile').textContent = isFrench ? 'Éducation' : 'Education';
+        document.getElementById('nav-skills-mobile').textContent = isFrench ? 'Compétences' : 'Skills';
+        document.getElementById('nav-hire-mobile').textContent = isFrench ? 'Embauchez-moi' : 'Hire Me';
+        document.getElementById('nav-cv-mobile').textContent = isFrench ? 'CV' : 'CV';
+        document.getElementById('footer-text').textContent = isFrench
+          ? '© 2025 Irfan Khan. Tous droits réservés.'
+          : '© 2025 Irfan Khan. All rights reserved.';
       });
     });
   </script>
