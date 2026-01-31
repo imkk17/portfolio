@@ -1,767 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio | About Me</title>
+    <title>Portfolio Personnel | À propos</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="read_more_about.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #081b29;
-            color: #ededed;
-        }
-
-        /* Loader Styles */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(8, 27, 41, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .box-of-star1, .box-of-star2, .box-of-star3, .box-of-star4 {
-            width: 240px;
-            height: 240px;
-            position: relative;
-            z-index: 1;
-            transform-style: preserve-3d;
-            animation: rotate 10s linear infinite;
-        }
-
-        .star {
-            width: 3px;
-            height: 3px;
-            background: #fff;
-            position: absolute;
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-        }
-
-        .star-position1 { top: 30px; left: 50px; }
-        .star-position2 { top: 70px; left: 180px; }
-        .star-position3 { top: 120px; left: 30px; }
-        .star-position4 { top: 160px; left: 200px; }
-        .star-position5 { top: 100px; left: 100px; }
-        .star-position6 { top: 50px; left: 150px; }
-        .star-position7 { top: 200px; left: 80px; }
-
-        .box-of-star2 { animation-delay: -2.5s; }
-        .box-of-star3 { animation-delay: -5s; }
-        .box-of-star4 { animation-delay: -7.5s; }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .astronaut {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            z-index: 2;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .head {
-            width: 40px;
-            height: 40px;
-            background: #fff;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 30px;
-        }
-
-        .arm-left, .arm-right {
-            width: 10px;
-            height: 30px;
-            background: #fff;
-            position: absolute;
-            top: 50px;
-        }
-
-        .arm-left { left: 20px; transform: rotate(30deg); }
-        .arm-right { left: 70px; transform: rotate(-30deg); }
-
-        .body {
-            width: 40px;
-            height: 50px;
-            background: #fff;
-            position: absolute;
-            top: 50px;
-            left: 30px;
-            border-radius: 10px;
-        }
-
-        .panel {
-            width: 20px;
-            height: 20px;
-            background: #ccc;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        .leg-left, .leg-right {
-            width: 10px;
-            height: 30px;
-            background: #fff;
-            position: absolute;
-            top: 90px;
-        }
-
-        .leg-left { left: 30px; }
-        .leg-right { left: 60px; }
-
-        .schoolbag {
-            width: 30px;
-            height: 30px;
-            background: #ccc;
-            position: absolute;
-            top: 60px;
-            left: 35px;
-            border-radius: 5px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 10%;
-            background-color: #081b29;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .logo {
-            position: relative;
-            font-size: 25px;
-            color: #ededed;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: #081b29;
-            animation: showRight 1s ease forwards;
-            animation-delay: .3s;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar a {
-            font-size: 18px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            margin-left: 35px;
-            transition: color 0.5s;
-        }
-
-        .navbar a:hover {
-            color: #00abf0;
-        }
-
-        .navbar a.active {
-            color: #00abf0;
-        }
-
-        /* Burger Button */
-        #menuBtn {
-            display: none;
-            width: 65px;
-            height: 65px;
-            border-radius: 16px;
-            border: 1px solid #1a1a1a;
-            background: rgba(74, 74, 74, 0.39);
-            mix-blend-mode: luminosity;
-            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.20);
-            backdrop-filter: blur(15px);
-            cursor: pointer;
-            padding: 0;
-            margin: 0;
-            font-family: inherit;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu__icon {
-            width: 32px;
-            height: 32px;
-            padding: 4px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .menu__icon span {
-            display: block;
-            width: 100%;
-            height: 0.125rem;
-            border-radius: 2px;
-            background-color: rgb(0, 122, 255);
-            box-shadow: 0 .5px 2px 0 hsla(0, 0%, 0%, .2);
-            transition: background-color .4s;
-            position: relative;
-        }
-
-        .menu__icon span + span { margin-top: .375rem; }
-        body.menu-open .menu__icon span:nth-child(1) { animation: ease .8s menu-icon-top forwards; }
-        body.menu-open .menu__icon span:nth-child(2) { animation: ease .8s menu-icon-scaled forwards; }
-        body.menu-open .menu__icon span:nth-child(3) { animation: ease .8s menu-icon-bottom forwards; background-color: rgb(255, 59, 48); }
-        .menu__icon span:nth-child(1) { animation: ease .8s menu-icon-top-2 forwards; }
-        .menu__icon span:nth-child(2) { animation: ease .8s menu-icon-scaled-2 forwards; }
-        .menu__icon span:nth-child(3) { animation: ease .8s menu-icon-bottom-2 forwards; }
-
-        @keyframes menu-icon-top {
-            0% { top: 0; transform: rotate(0); }
-            50% { top: .5rem; transform: rotate(0); }
-            100% { top: .5rem; transform: rotate(45deg); }
-        }
-
-        @keyframes menu-icon-top-2 {
-            0% { top: .5rem; transform: rotate(45deg); }
-            50% { top: .5rem; transform: rotate(0); }
-            100% { top: 0; transform: rotate(0); }
-        }
-
-        @keyframes menu-icon-bottom {
-            0% { bottom: 0; transform: rotate(0); }
-            50% { bottom: .5rem; transform: rotate(0); }
-            100% { bottom: .5rem; transform: rotate(135deg); }
-        }
-
-        @keyframes menu-icon-bottom-2 {
-            0% { bottom: .5rem; transform: rotate(135deg); }
-            50% { bottom: .5rem; transform: rotate(0); }
-            100% { bottom: 0; transform: rotate(0); }
-        }
-
-        @keyframes menu-icon-scaled {
-            50% { transform: scale(0); }
-            100% { transform: scale(0); }
-        }
-
-        @keyframes menu-icon-scaled-2 {
-            0% { transform: scale(0); }
-            50% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-
-        /* Overlay and Mobile Menu */
-        .overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .45);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .25s;
-            z-index: 195;
-        }
-
-        body.menu-open .overlay {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .navbar-mobile {
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100vh;
-            width: 82%;
-            max-width: 360px;
-            background: linear-gradient(180deg, #071522, #081b29);
-            transform: translateX(110%);
-            transition: transform .32s cubic-bezier(.2, .8, .2, 1);
-            z-index: 200;
-            padding: 72px 18px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            overflow: hidden;
-        }
-
-        body.menu-open .navbar-mobile {
-            transform: translateX(0);
-        }
-
-        .navbar-mobile .nav-inner {
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .navbar-mobile a {
-            display: block;
-            padding: 12px 10px;
-            font-size: 18px;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            transition: background .12s;
-        }
-
-        .navbar-mobile a:hover {
-            background: rgba(255, 255, 255, .03);
-            color: #00abf0;
-        }
-
-        .navbar-mobile a.active {
-            color: #00abf0;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 28px;
-            padding: 6px;
-            cursor: pointer;
-        }
-
-        .close-btn:focus {
-            outline: 3px solid rgba(0, 171, 240, .12);
-        }
-
-        /* Download Button */
-        .download-button {
-            position: relative;
-            border-width: 0;
-            color: #ededed;
-            font-size: 18px;
-            font-weight: 500;
-            cursor: pointer;
-            border-radius: 8px;
-            background: transparent;
-            padding: 0;
-            line-height: normal;
-            display: inline-flex;
-            align-items: center;
-            margin-left: 35px;
-        }
-
-        .download-button .docs {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            min-height: 40px;
-            padding: 0 15px;
-            border-radius: 8px;
-            z-index: 1;
-            background-color: #081b29;
-            border: 2px solid #00abf0;
-            transition: all 0.5s ease;
-        }
-
-        .download-button:hover .docs {
-            background-color: #00abf0;
-            color: #081b29;
-        }
-
-        .download-button .download {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 90%;
-            margin: 0 auto;
-            z-index: -1;
-            border-radius: 8px;
-            transform: translateY(0%);
-            background-color: #00abf0;
-            border: 2px solid #00abf0;
-            transition: all 0.5s ease;
-        }
-
-        .download-button:hover .download {
-            transform: translateY(100%);
-        }
-
-        .download-button .download svg polyline,
-        .download-button .download svg line {
-            animation: docs 1s infinite;
-        }
-
-        @keyframes docs {
-            0% { transform: translateY(0%); }
-            50% { transform: translateY(-15%); }
-            100% { transform: translateY(0%); }
-        }
-
-        /* Language Toggle */
-        .plane-switch {
-            --dot: #fff;
-            --street: #6B6D76;
-            --street-line: #A8AAB4;
-            --street-line-mid: #C0C2C8;
-            --sky-1: #60A7FA;
-            --sky-2: #2F8EFC;
-            --light-1: rgba(255, 233, 0, 1);
-            --light-2: rgba(255, 233, 0, 0.3);
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .plane-switch input {
-            display: none;
-        }
-
-        .plane-switch input + div {
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            position: relative;
-            overflow: hidden;
-            width: 50px;
-            height: 25px;
-            padding: 1px;
-            border-radius: 13px;
-            background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
-            background-position-x: var(--p, 0%);
-            background-size: 400% auto;
-            transition: background-position 0.6s;
-        }
-
-        .plane-switch input + div:before,
-        .plane-switch input + div:after {
-            content: "";
-            display: block;
-            position: absolute;
-            transform: translateX(var(--s, 0));
-            transition: transform 0.3s;
-        }
-
-        .plane-switch input + div:before {
-            width: 42px;
-            right: 2px;
-            top: 4px;
-            height: 1px;
-            background: var(--street-line);
-            box-shadow: 0 16px 0 0 var(--street-line);
-        }
-
-        .plane-switch input + div:after {
-            width: 2px;
-            height: 2px;
-            border-radius: 50%;
-            left: 23px;
-            top: 1px;
-            animation: lights2 2s linear infinite;
-            box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-        }
-
-        .plane-switch input + div span {
-            display: block;
-            position: absolute;
-        }
-
-        .plane-switch input + div span.street-middle {
-            top: 12px;
-            left: 21px;
-            width: 3px;
-            height: 1px;
-            transform: translateX(var(--s, 0));
-            background: var(--street-line-mid);
-            box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
-            transition: transform 0.3s;
-        }
-
-        .plane-switch input + div span.cloud {
-            width: 12px;
-            height: 4px;
-            border-radius: 2px;
-            background: #fff;
-            position: absolute;
-            top: var(--ct, 8px);
-            left: 100%;
-            opacity: var(--co, 0);
-            transition: opacity 0.3s;
-            animation: clouds2 2s linear infinite var(--cd, 0s);
-        }
-
-        .plane-switch input + div span.cloud:before,
-        .plane-switch input + div span.cloud:after {
-            content: "";
-            position: absolute;
-            transform: translateX(var(--cx, 0));
-            border-radius: 50%;
-            width: var(--cs, 5px);
-            height: var(--cs, 5px);
-            background: #fff;
-            bottom: 1px;
-            left: 1px;
-        }
-
-        .plane-switch input + div span.cloud:after {
-            --cs: 6px;
-            --cx: 4px;
-        }
-
-        .plane-switch input + div span.cloud.two {
-            --ct: 20px;
-            --cd: 1s;
-            opacity: var(--co-2, 0);
-        }
-
-        .plane-switch input + div div {
-            display: table;
-            position: relative;
-            z-index: 1;
-            padding: 5px;
-            border-radius: 50%;
-            background: var(--dot);
-            transform: translateX(var(--x, 0));
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
-        }
-
-        .plane-switch input + div div svg {
-            width: 13px;
-            height: 13px;
-            display: block;
-            color: var(--c, var(--street));
-            transition: color 0.6s;
-        }
-
-        .plane-switch input:checked + div {
-            --p: 100%;
-            --x: 25px;
-            --s: -50px;
-            --c: var(--sky-2);
-            --co: 0.8;
-            --co-2: 0.6;
-        }
-
-        @keyframes lights2 {
-            20%, 30% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-            55%, 65% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1); }
-            90%, 100% { box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-        }
-
-        @keyframes clouds2 {
-            97% { transform: translateX(-72px); visibility: visible; }
-            98%, 100% { visibility: hidden; }
-            99% { transform: translateX(-72px); }
-            100% { transform: translateX(0); }
-        }
-
-        /* Main Section */
-        main {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-            padding: 5rem 10% 2rem;
-        }
-
-        .profile-photo {
-            flex: 1 1 300px;
-            text-align: center;
-        }
-
-        .profile-photo img {
-            width: 280px;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .about-content {
-            flex: 2 1 400px;
-            padding: 1rem;
-        }
-
-        .about-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: .75rem;
-            position: relative;
-            display: inline-block;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .about-content h1::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 50%;
-            height: 3px;
-            background: #00abf0;
-        }
-
-        .about-content p {
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        details {
-            margin-bottom: 1.5rem;
-        }
-
-        summary {
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::before {
-            content: '▶';
-            display: inline-block;
-            margin-right: .5rem;
-            transition: transform .3s;
-        }
-
-        details[open] summary::before {
-            transform: rotate(90deg);
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px 10%;
-            text-align: center;
-        }
-
-        footer .socials a {
-            margin: 0 10px;
-            font-size: 24px;
-            color: #00abf0;
-        }
-
-        footer p {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #aaa;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        @keyframes showRight {
-            100% { width: 0; }
-        }
-
-        /* Responsive Mobile */
-        @media (max-width: 802px) {
-            .header { padding: 15px 5%; }
-            #menuBtn { display: flex; }
-            .navbar { display: none; }
-            .navbar-mobile { display: flex; }
-            .navbar a, .navbar .download-button { margin-left: 0; }
-            main { flex-direction: column; text-align: center; }
-            .about-content { padding: 0; }
-            .socials { display: flex; justify-content: center; gap: 1rem; }
-            .download-button { margin: 15px 0; width: 100%; justify-content: center; }
-            .download-button .docs { width: 90%; justify-content: center; padding: 10px 15px; }
-            .download-button .download { max-width: 100%; }
-            .plane-switch { transform: scale(0.8); }
-        }
-
-        /* Desktop-specific styles */
-        @media (min-width: 803px) {
-            .navbar-mobile { display: none; }
-            .navbar { display: flex; }
-            .close-btn, .overlay { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <div id="loader">
-        <div class="box-of-star1">
-            <div class="star star-position1"></div>
-            <div class="star star-position2"></div>
-            <div class="star star-position3"></div>
-            <div class="star star-position4"></div>
-            <div class="star star-position5"></div>
-            <div class="star star-position6"></div>
-            <div class="star star-position7"></div>
-        </div>
-        <div class="box-of-star2">
-            <div class="star star-position1"></div>
-            <div class="star star-position2"></div>
-            <div class="star star-position3"></div>
-            <div class="star star-position4"></div>
-            <div class="star star-position5"></div>
-            <div class="star star-position6"></div>
-            <div class="star star-position7"></div>
-        </div>
-        <div class="box-of-star3">
-            <div class="star star-position1"></div>
-            <div class="star star-position2"></div>
-            <div class="star star-position3"></div>
-            <div class="star star-position4"></div>
-            <div class="star star-position5"></div>
-            <div class="star star-position6"></div>
-            <div class="star star-position7"></div>
-        </div>
-        <div class="box-of-star4">
-            <div class="star star-position1"></div>
-            <div class="star star-position2"></div>
-            <div class="star star-position3"></div>
-            <div class="star star-position4"></div>
-            <div class="star star-position5"></div>
-            <div class="star star-position6"></div>
-            <div class="star star-position7"></div>
-        </div>
-        <div data-js="astro" class="astronaut">
-            <div class="head"></div>
-            <div class="arm arm-left"></div>
-            <div class="arm arm-right"></div>
-            <div class="body">
-                <div class="panel"></div>
-            </div>
-            <div class="leg leg-left"></div>
-            <div class="leg leg-right"></div>
-            <div class="schoolbag"></div>
-        </div>
-    </div>
-
-    <div class="content-wrapper" style="display: none;">
+    <div class="content-wrapper">
         <header class="header">
-            <a href="index.html" class="logo loader-button" aria-label="Home">Irfan.</a>
+            <a href="index.html" class="logo" aria-label="Home">Irfan.</a>
             <button id="menuBtn" aria-label="Open menu" aria-expanded="false" title="Menu">
                 <div class="menu__icon">
                     <span></span>
@@ -771,12 +20,12 @@
             </button>
             <div class="overlay" id="overlay" aria-hidden="true"></div>
             <nav class="navbar" aria-label="Main navigation">
-                <a href="index.html" id="nav-home" class="loader-button">Home</a>
-                <a href="about.html" id="nav-about" class="active loader-button">About Me</a>
-                <a href="Resume.html" id="nav-education" class="loader-button">Education</a>
-                <a href="Skills.html" id="nav-skills" class="loader-button">Skills</a>
-                <a href="HireMe.html" id="nav-hire" class="loader-button">Hire Me</a>
-                <button class="download-button loader-button" id="cv-button" aria-label="Download CV">
+                <a href="index.html" id="nav-home">Accueil</a>
+                <a href="about.html" id="nav-about" class="active">À propos</a>
+                <a href="Resume.html" id="nav-education">Éducation</a>
+                <a href="Skills.html" id="nav-skills">Compétences</a>
+                <a href="HireMe.html" id="nav-hire">Embauchez-moi</a>
+                <button class="download-button" id="cv-button" aria-label="Download CV">
                     <div class="docs">
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -799,12 +48,12 @@
             <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
                 <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
                 <div class="nav-inner">
-                    <a href="index.html" id="nav-home-mobile" class="loader-button">Home</a>
-                    <a href="about.html" id="nav-about-mobile" class="active loader-button">About Me</a>
-                    <a href="Resume.html" id="nav-education-mobile" class="loader-button">Education</a>
-                    <a href="Skills.html" id="nav-skills-mobile" class="loader-button">Skills</a>
-                    <a href="HireMe.html" id="nav-hire-mobile" class="loader-button">Hire Me</a>
-                    <button class="download-button loader-button" id="cv-button-mobile" aria-label="Download CV">
+                    <a href="index.html" id="nav-home-mobile">Accueil</a>
+                    <a href="about.html" id="nav-about-mobile" class="active">À propos</a>
+                    <a href="Resume.html" id="nav-education-mobile">Éducation</a>
+                    <a href="Skills.html" id="nav-skills-mobile">Compétences</a>
+                    <a href="HireMe.html" id="nav-hire-mobile">Embauchez-moi</a>
+                    <button class="download-button" id="cv-button-mobile" aria-label="Download CV">
                         <div class="docs">
                             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -845,71 +94,44 @@
 
         <main>
             <div class="profile-photo">
-                <img src="Nouveau dossier/Irfan_photo_standing.jpg" alt="Photo of Irfan" class="loader-button">
+                <img src="Nouveau dossier/Irfan_photo_standing.jpg" alt="Photo d'Irfan">
             </div>
             <div class="about-content">
-                <h1 id="about-title">About Me</h1>
-                <p id="about-text">I am a high school junior passionate about new technologies, computer science, and artificial intelligence. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my technical skills and innovative mindset. I love exploring new tech, especially AI, and I take great pleasure in coding and programming.</p>
+                <h1 id="about-title">À propos de moi</h1>
+                <p id="about-text">Je suis un lycéen passionné par les nouvelles technologies, l'informatique et l'intelligence artificielle. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (Numérique et Sciences Informatiques) pour approfondir mes compétences techniques et développer un esprit innovant. J'adore explorer les nouvelles technologies, en particulier l'IA et la data science, et je prends un grand plaisir à coder et programmer.</p>
                 <details>
-                    <summary id="summary-ai">Why AI fascinates me</summary>
-                    <p id="ai-text">Artificial intelligence represents the cutting edge of innovation. I'm intrigued by how AI transforms industries with automation, predictive analytics, and intelligent systems.</p>
+                    <summary id="summary-ai">Pourquoi l'IA et la Data m'attirent</summary>
+                    <p id="ai-text">L'intelligence artificielle et la science des données représentent l'avenir de l'innovation. Je suis fasciné par la capacité de l'IA à transformer les industries grâce à l'automatisation, l'analyse prédictive et les systèmes intelligents. La data science me permet de découvrir des patterns cachés dans les données et de créer des modèles qui peuvent prédire et optimiser des processus complexes. Ces domaines combinent parfaitement la logique mathématique et la créativité technologique.</p>
                 </details>
                 <details>
-                    <summary id="summary-goals">My Academic Goals</summary>
-                    <p id="goals-text">I aim to attend a university renowned for its computer science or engineering programs, especially those excelling in AI research and offering state-of-the-art facilities.</p>
+                    <summary id="summary-goals">Mes objectifs académiques</summary>
+                    <p id="goals-text">Je vise à intégrer une université réputée pour ses programmes en informatique, ingénierie ou data science, en particulier ceux qui excellent dans la recherche en IA et offrent des installations de pointe. Mon ambition est de contribuer aux avancées technologiques dans le domaine de l'intelligence artificielle et de l'analyse de données, en développant des solutions innovantes qui peuvent avoir un impact positif sur la société.</p>
                 </details>
                 <details>
-                    <summary id="summary-vision">Preparation & Vision</summary>
-                    <p id="vision-text">To prepare for applications, I maintain strong grades, engage in extracurriculars, and foster relationships with mentors. I stay curious and dedicated to contribute to technological progress.</p>
+                    <summary id="summary-vision">Préparation et vision</summary>
+                    <p id="vision-text">Pour préparer mes candidatures universitaires, je maintiens d'excellentes notes, participe à des projets de programmation et des compétitions en ligne, et cultive des relations avec des mentors dans le domaine technologique. Je reste constamment curieux, en apprenant de nouvelles technologies et frameworks, et je suis déterminé à contribuer au progrès technologique. Mon objectif est de devenir un expert en IA et data science, capable de résoudre des problèmes complexes du monde réel.</p>
                 </details>
             </div>
         </main>
 
         <footer>
             <div class="socials">
-                <a href="#" aria-label="WhatsApp" class="loader-button"><i class='bx bxl-whatsapp'></i></a>
-                <a href="https://www.linkedin.com/in/irfan-khan-050522300/" aria-label="LinkedIn" target="_blank" rel="noopener" class="loader-button"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="#" aria-label="Twitter" class="loader-button"><i class='bx bxl-twitter'></i></a>
+                <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://www.linkedin.com/in/irfan-khan-050522300/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
             </div>
-            <p id="footer-text">© 2024 Irfan Khan. All rights reserved.</p>
+            <p id="footer-text">© 2024 Irfan Khan. Tous droits réservés.</p>
         </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Loader script
-            const loader = document.getElementById('loader');
-            const contentWrapper = document.querySelector('.content-wrapper');
-
-            function showLoader() {
-                loader.style.display = 'block';
-                contentWrapper.style.display = 'none';
-            }
-
-            function hideLoader() {
-                loader.style.display = 'none';
-                contentWrapper.style.display = 'block';
-            }
-
-            window.addEventListener('load', function() {
-                setTimeout(hideLoader, 2000);
-            });
-
-            // Handle button clicks with loader
-            const buttons = document.querySelectorAll('.loader-button');
-            buttons.forEach(button => {
+            // Handle CV button clicks
+            const cvButtons = document.querySelectorAll('#cv-button, #cv-button-mobile');
+            cvButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const href = this.getAttribute('href') || 'assets/Irfan_CV.pdf';
-                    const target = this.getAttribute('target');
-                    showLoader();
-                    setTimeout(() => {
-                        if (target === '_blank') {
-                            window.open(href, '_blank');
-                        } else {
-                            window.location.href = href;
-                        }
-                    }, 2000);
+                    window.location.href = 'Nouveau dossier/Irfan_CVmot-8.pdf';
                 });
             });
 
@@ -958,39 +180,55 @@
             // Translation script
             const translateToggle = document.getElementById('translate-toggle');
             translateToggle.addEventListener('change', function() {
-                const isFrench = this.checked;
-                translateToggle.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Switch to French');
-                document.getElementById('about-title').innerText = isFrench ? "À propos de moi" : "About Me";
-                document.getElementById('about-text').innerText = isFrench
-                    ? "Je suis un lycéen passionné par les nouvelles technologies et l'informatique. Je me spécialise en mathématiques, physique-chimie et NSI (Numérique et Sciences Informatiques), posant ainsi une base solide pour explorer des concepts scientifiques complexes."
-                    : "I am a high school junior passionate about new technologies and computer science. I specialize in mathematics, physics-chemistry, and NSI (Digital & Computer Science), building a strong foundation for exploring complex scientific concepts.";
-                document.getElementById('summary-ai').innerText = isFrench ? "Pourquoi l'IA me fascine" : "Why AI fascinates me";
-                document.getElementById('ai-text').innerText = isFrench
-                    ? "L'intelligence artificielle représente la pointe de l'innovation. Je suis intrigué par la manière dont l'IA transforme les industries avec l'automatisation, l'analyse prédictive et les systèmes intelligents."
-                    : "Artificial intelligence represents the cutting edge of innovation. I'm intrigued by how AI transforms industries with automation, predictive analytics, and intelligent systems.";
-                document.getElementById('summary-goals').innerText = isFrench ? "Mes objectifs académiques" : "My Academic Goals";
-                document.getElementById('goals-text').innerText = isFrench
-                    ? "Je vise à intégrer une université réputée pour ses programmes en informatique ou en ingénierie, en particulier ceux qui excellent dans la recherche en IA et offrent des installations de pointe."
-                    : "I aim to attend a university renowned for its computer science or engineering programs, especially those excelling in AI research and offering state-of-the-art facilities.";
-                document.getElementById('summary-vision').innerText = isFrench ? "Préparation et vision" : "Preparation & Vision";
-                document.getElementById('vision-text').innerText = isFrench
-                    ? "Pour préparer mes candidatures, je maintiens de bonnes notes, participe à des activités extrascolaires et cultive des relations avec des mentors. Je reste curieux et déterminé à contribuer au progrès technologique."
-                    : "To prepare for applications, I maintain strong grades, engage in extracurriculars, and foster relationships with mentors. I stay curious and dedicated to contribute to technological progress.";
-                document.getElementById('nav-home').innerText = isFrench ? "Accueil" : "Home";
-                document.getElementById('nav-about').innerText = isFrench ? "À propos" : "About Me";
-                document.getElementById('nav-education').innerText = isFrench ? "Éducation" : "Education";
-                document.getElementById('nav-skills').innerText = isFrench ? "Compétences" : "Skills";
-                document.getElementById('nav-hire').innerText = isFrench ? "Embauchez-moi" : "Hire Me";
-                document.getElementById('nav-cv').innerText = isFrench ? "CV" : "CV";
-                document.getElementById('nav-home-mobile').innerText = isFrench ? "Accueil" : "Home";
-                document.getElementById('nav-about-mobile').innerText = isFrench ? "À propos" : "About Me";
-                document.getElementById('nav-education-mobile').innerText = isFrench ? "Éducation" : "Education";
-                document.getElementById('nav-skills-mobile').innerText = isFrench ? "Compétences" : "Skills";
-                document.getElementById('nav-hire-mobile').innerText = isFrench ? "Embauchez-moi" : "Hire Me";
-                document.getElementById('nav-cv-mobile').innerText = isFrench ? "CV" : "CV";
-                document.getElementById('footer-text').innerText = isFrench
-                    ? "© 2024 Irfan Khan. Tous droits réservés."
-                    : "© 2024 Irfan Khan. All rights reserved.";
+                if (this.checked) {
+                    // Traduction en anglais
+                    translateToggle.setAttribute('aria-label', 'Switch to French');
+                    document.getElementById('about-title').innerText = "About Me";
+                    document.getElementById('about-text').innerText = "I am a high school student passionate about new technologies, computer science, and artificial intelligence. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my technical skills and develop an innovative mindset. I love exploring new technologies, especially AI and data science, and I take great pleasure in coding and programming.";
+                    document.getElementById('summary-ai').innerText = "Why AI and Data attract me";
+                    document.getElementById('ai-text').innerText = "Artificial intelligence and data science represent the future of innovation. I'm fascinated by AI's ability to transform industries through automation, predictive analytics, and intelligent systems. Data science allows me to discover hidden patterns in data and create models that can predict and optimize complex processes. These fields perfectly combine mathematical logic and technological creativity.";
+                    document.getElementById('summary-goals').innerText = "My Academic Goals";
+                    document.getElementById('goals-text').innerText = "I aim to attend a university renowned for its computer science, engineering, or data science programs, especially those excelling in AI research and offering state-of-the-art facilities. My ambition is to contribute to technological advances in artificial intelligence and data analysis, developing innovative solutions that can have a positive impact on society.";
+                    document.getElementById('summary-vision').innerText = "Preparation & Vision";
+                    document.getElementById('vision-text').innerText = "To prepare for university applications, I maintain excellent grades, participate in programming projects and online competitions, and foster relationships with mentors in the tech field. I stay constantly curious, learning new technologies and frameworks, and I'm determined to contribute to technological progress. My goal is to become an expert in AI and data science, capable of solving complex real-world problems.";
+                    document.getElementById('nav-home').innerText = "Home";
+                    document.getElementById('nav-about').innerText = "About Me";
+                    document.getElementById('nav-education').innerText = "Education";
+                    document.getElementById('nav-skills').innerText = "Skills";
+                    document.getElementById('nav-hire').innerText = "Hire Me";
+                    document.getElementById('nav-cv').innerText = "CV";
+                    document.getElementById('nav-home-mobile').innerText = "Home";
+                    document.getElementById('nav-about-mobile').innerText = "About Me";
+                    document.getElementById('nav-education-mobile').innerText = "Education";
+                    document.getElementById('nav-skills-mobile').innerText = "Skills";
+                    document.getElementById('nav-hire-mobile').innerText = "Hire Me";
+                    document.getElementById('nav-cv-mobile').innerText = "CV";
+                    document.getElementById('footer-text').innerText = "© 2024 Irfan Khan. All rights reserved.";
+                } else {
+                    // Retour au français
+                    translateToggle.setAttribute('aria-label', 'Switch to English');
+                    document.getElementById('about-title').innerText = "À propos de moi";
+                    document.getElementById('about-text').innerText = "Je suis un lycéen passionné par les nouvelles technologies, l'informatique et l'intelligence artificielle. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (Numérique et Sciences Informatiques) pour approfondir mes compétences techniques et développer un esprit innovant. J'adore explorer les nouvelles technologies, en particulier l'IA et la data science, et je prends un grand plaisir à coder et programmer.";
+                    document.getElementById('summary-ai').innerText = "Pourquoi l'IA et la Data m'attirent";
+                    document.getElementById('ai-text').innerText = "L'intelligence artificielle et la science des données représentent l'avenir de l'innovation. Je suis fasciné par la capacité de l'IA à transformer les industries grâce à l'automatisation, l'analyse prédictive et les systèmes intelligents. La data science me permet de découvrir des patterns cachés dans les données et de créer des modèles qui peuvent prédire et optimiser des processus complexes. Ces domaines combinent parfaitement la logique mathématique et la créativité technologique.";
+                    document.getElementById('summary-goals').innerText = "Mes objectifs académiques";
+                    document.getElementById('goals-text').innerText = "Je vise à intégrer une université réputée pour ses programmes en informatique, ingénierie ou data science, en particulier ceux qui excellent dans la recherche en IA et offrent des installations de pointe. Mon ambition est de contribuer aux avancées technologiques dans le domaine de l'intelligence artificielle et de l'analyse de données, en développant des solutions innovantes qui peuvent avoir un impact positif sur la société.";
+                    document.getElementById('summary-vision').innerText = "Préparation et vision";
+                    document.getElementById('vision-text').innerText = "Pour préparer mes candidatures universitaires, je maintiens d'excellentes notes, participe à des projets de programmation et des compétitions en ligne, et cultive des relations avec des mentors dans le domaine technologique. Je reste constamment curieux, en apprenant de nouvelles technologies et frameworks, et je suis déterminé à contribuer au progrès technologique. Mon objectif est de devenir un expert en IA et data science, capable de résoudre des problèmes complexes du monde réel.";
+                    document.getElementById('nav-home').innerText = "Accueil";
+                    document.getElementById('nav-about').innerText = "À propos";
+                    document.getElementById('nav-education').innerText = "Éducation";
+                    document.getElementById('nav-skills').innerText = "Compétences";
+                    document.getElementById('nav-hire').innerText = "Embauchez-moi";
+                    document.getElementById('nav-cv').innerText = "CV";
+                    document.getElementById('nav-home-mobile').innerText = "Accueil";
+                    document.getElementById('nav-about-mobile').innerText = "À propos";
+                    document.getElementById('nav-education-mobile').innerText = "Éducation";
+                    document.getElementById('nav-skills-mobile').innerText = "Compétences";
+                    document.getElementById('nav-hire-mobile').innerText = "Embauchez-moi";
+                    document.getElementById('nav-cv-mobile').innerText = "CV";
+                    document.getElementById('footer-text').innerText = "© 2024 Irfan Khan. Tous droits réservés.";
+                }
             });
         });
     </script>

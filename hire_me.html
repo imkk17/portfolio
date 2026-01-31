@@ -1,786 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hire Me - Irfan Khan</title>
+  <title>Embauchez-moi - Irfan Khan</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="hire_me.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: #081b29;
-      color: #ededed;
-      overflow-x: hidden;
-    }
-
-    /* Loader Styles */
-    #loader {
+    /* Styles pour le pop-up modal */
+    .modal-overlay {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(8, 27, 41, 0.95);
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
-      transition: opacity 0.5s ease;
+      opacity: 1;
     }
 
-    #loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .box-of-star {
-      width: 200px;
-      height: 200px;
+    .modal-content {
+      background: linear-gradient(135deg, #0a2c43 0%, #081b29 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 171, 240, 0.3);
+      border: 2px solid rgba(0, 171, 240, 0.3);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
       position: relative;
-      transform-style: preserve-3d;
-      animation: rotate 12s linear infinite;
     }
 
-    .star {
-      width: 4px;
-      height: 4px;
-      background: #fff;
-      position: absolute;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
     }
 
-    .star-position1 { top: 20px; left: 40px; }
-    .star-position2 { top: 60px; left: 160px; }
-    .star-position3 { top: 100px; left: 20px; }
-    .star-position4 { top: 140px; left: 180px; }
-    .star-position5 { top: 80px; left: 80px; }
-    .star-position6 { top: 40px; left: 120px; }
-    .star-position7 { top: 160px; left: 60px; }
-
-    .box-of-star:nth-child(2) { animation-delay: -3s; }
-    .box-of-star:nth-child(3) { animation-delay: -6s; }
-    .box-of-star:nth-child(4) { animation-delay: -9s; }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .astronaut {
-      width: 80px;
-      height: 80px;
-      position: absolute;
-      z-index: 2;
-      animation: float 2.5s ease-in-out infinite;
-    }
-
-    .head {
-      width: 32px;
-      height: 32px;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      top: 8px;
-      left: 24px;
-    }
-
-    .arm-left, .arm-right {
-      width: 8px;
-      height: 24px;
-      background: #fff;
-      position: absolute;
-      top: 40px;
-    }
-
-    .arm-left { left: 16px; transform: rotate(30deg); }
-    .arm-right { left: 56px; transform: rotate(-30deg); }
-
-    .body {
-      width: 32px;
-      height: 40px;
-      background: #fff;
-      position: absolute;
-      top: 40px;
-      left: 24px;
-      border-radius: 8px;
-    }
-
-    .panel {
-      width: 16px;
-      height: 16px;
-      background: #ccc;
-      position: absolute;
-      top: 8px;
-      left: 8px;
-    }
-
-    .leg-left, .leg-right {
-      width: 8px;
-      height: 24px;
-      background: #fff;
-      position: absolute;
-      top: 72px;
-    }
-
-    .leg-left { left: 24px; }
-    .leg-right { left: 48px; }
-
-    .schoolbag {
-      width: 24px;
-      height: 24px;
-      background: #ccc;
-      position: absolute;
-      top: 48px;
-      left: 28px;
-      border-radius: 4px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    /* Header Styles */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 5%;
-      background: linear-gradient(180deg, rgba(8, 27, 41, 0.95), rgba(8, 27, 41, 0.8));
+    .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
-      backdrop-filter: blur(5px);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(0, 171, 240, 0.2);
     }
 
-    .logo {
-      font-size: 1.8rem;
-      color: #ededed;
-      text-decoration: none;
-      font-weight: 700;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .logo:hover {
+    .modal-header h3 {
       color: #00abf0;
-    }
-
-    .navbar {
+      font-size: 1.5rem;
+      margin: 0;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-    }
-
-    .navbar a {
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: #00abf0;
-      transform: translateY(-2px);
-    }
-
-    .navbar a.active {
-      color: #00abf0;
-      border-bottom: 2px solid #00abf0;
-    }
-
-    /* Burger Menu */
-    #menuBtn {
-      display: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(74, 74, 74, 0.3);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      padding: 0;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .menu__icon {
-      width: 28px;
-      height: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.3rem;
-    }
-
-    .menu__icon span {
-      display: block;
-      width: 100%;
-      height: 0.15rem;
-      border-radius: 2px;
-      background-color: #00abf0;
-      transition: all 0.4s ease;
-    }
-
-    body.menu-open .menu__icon span:nth-child(1) {
-      transform: translateY(0.45rem) rotate(45deg);
-    }
-
-    body.menu-open .menu__icon span:nth-child(2) {
-      opacity: 0;
-    }
-
-    body.menu-open .menu__icon span:nth-child(3) {
-      transform: translateY(-0.45rem) rotate(-45deg);
-    }
-
-    /* Overlay and Mobile Menu */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 195;
-    }
-
-    body.menu-open .overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .navbar-mobile {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 80%;
-      max-width: 320px;
-      background: linear-gradient(180deg, #071522, #081b29);
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      z-index: 200;
-      padding: 60px 15px 20px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body.menu-open .navbar-mobile {
-      transform: translateX(0);
-    }
-
-    .navbar-mobile .nav-inner {
-      display: flex;
-      flex-direction: column;
       gap: 0.5rem;
-      overflow-y: auto;
-      padding-bottom: 20px;
     }
 
-    .navbar-mobile a, .navbar-mobile .download-button {
-      display: block;
-      padding: 10px;
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.2s ease, color 0.2s ease;
+    .modal-header h3 i {
+      font-size: 1.8rem;
     }
 
-    .navbar-mobile a:hover, .navbar-mobile .download-button:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .modal-close {
+      background: none;
+      border: none;
+      color: #ededed;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-close:hover {
       color: #00abf0;
-    }
-
-    .navbar-mobile a.active {
-      color: #00abf0;
+      transform: rotate(90deg);
       background: rgba(0, 171, 240, 0.1);
     }
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 5px;
-    }
-
-    .close-btn:focus {
-      outline: 2px solid #00abf0;
-      outline-offset: 2px;
-    }
-
-    /* Download Button */
-    .download-button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: transparent;
-      border: 2px solid #00abf0;
-      border-radius: 8px;
-      color: #ededed;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .download-button:hover {
-      background: #00abf0;
-      color: #081b29;
-    }
-
-    .download-button .docs {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .download-button .download {
-      display: none;
-    }
-
-    /* Language Toggle */
-    .plane-switch {
-      --dot: #fff;
-      --street: #6B6D76;
-      --street-line: #A8AAB4;
-      --street-line-mid: #C0C2C8;
-      --sky-1: #60A7FA;
-      --sky-2: #2F8EFC;
-      --light-1: rgba(255, 233, 0, 1);
-      --light-2: rgba(255, 233, 0, 0.3);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .plane-switch input {
-      display: none;
-    }
-
-    .plane-switch input + div {
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
-      position: relative;
-      overflow: hidden;
-      width: 50px;
-      height: 25px;
-      padding: 1px;
-      border-radius: 13px;
-      background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
-      background-position-x: var(--p, 0%);
-      background-size: 400% auto;
-      transition: background-position 0.6s;
-    }
-
-    .plane-switch input + div:before,
-    .plane-switch input + div:after {
-      content: "";
-      display: block;
-      position: absolute;
-      transform: translateX(var(--s, 0));
-      transition: transform 0.3s;
-    }
-
-    .plane-switch input + div:before {
-      width: 42px;
-      right: 2px;
-      top: 4px;
-      height: 1px;
-      background: var(--street-line);
-      box-shadow: 0 16px 0 0 var(--street-line);
-    }
-
-    .plane-switch input + div:after {
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      left: 23px;
-      top: 1px;
-      animation: lights2 2s linear infinite;
-      box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-    }
-
-    .plane-switch input + div span {
-      display: block;
-      position: absolute;
-    }
-
-    .plane-switch input + div span.street-middle {
-      top: 12px;
-      left: 21px;
-      width: 3px;
-      height: 1px;
-      transform: translateX(var(--s, 0));
-      background: var(--street-line-mid);
-      box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
-      transition: transform 0.3s;
-    }
-
-    .plane-switch input + div span.cloud {
-      width: 12px;
-      height: 4px;
-      border-radius: 2px;
-      background: #fff;
-      position: absolute;
-      top: var(--ct, 8px);
-      left: 100%;
-      opacity: var(--co, 0);
-      transition: opacity 0.3s;
-      animation: clouds2 2s linear infinite var(--cd, 0s);
-    }
-
-    .plane-switch input + div span.cloud:before,
-    .plane-switch input + div span.cloud:after {
-      content: "";
-      position: absolute;
-      transform: translateX(var(--cx, 0));
-      border-radius: 50%;
-      width: var(--cs, 5px);
-      height: var(--cs, 5px);
-      background: #fff;
-      bottom: 1px;
-      left: 1px;
-    }
-
-    .plane-switch input + div span.cloud:after {
-      --cs: 6px;
-      --cx: 4px;
-    }
-
-    .plane-switch input + div span.cloud.two {
-      --ct: 20px;
-      --cd: 1s;
-      opacity: var(--co-2, 0);
-    }
-
-    .plane-switch input + div div {
-      display: table;
-      position: relative;
-      z-index: 1;
-      padding: 5px;
-      border-radius: 50%;
-      background: var(--dot);
-      transform: translateX(var(--x, 0));
-      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
-    }
-
-    .plane-switch input + div div svg {
-      width: 13px;
-      height: 13px;
-      display: block;
-      color: var(--c, var(--street));
-      transition: color 0.6s;
-    }
-
-    .plane-switch input:checked + div {
-      --p: 100%;
-      --x: 25px;
-      --s: -50px;
-      --c: var(--sky-2);
-      --co: 0.8;
-      --co-2: 0.6;
-    }
-
-    @keyframes lights2 {
-      20%, 30% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-      55%, 65% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1); }
-      90%, 100% { box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-    }
-
-    @keyframes clouds2 {
-      97% { transform: translateX(-72px); visibility: visible; }
-      98%, 100% { visibility: hidden; }
-      99% { transform: translateX(-72px); }
-      100% { transform: translateX(0); }
-    }
-
-    /* Hire Me Section */
-    .hire-me {
-      padding: 80px 5% 40px;
-      margin-top: 60px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hire-me h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #00abf0;
-      text-align: center;
-    }
-
-    .hire-me p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .service {
-      background: #0a2c43;
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0, 171, 240, 0.2);
-    }
-
-    .service h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #00abf0;
-    }
-
-    .service p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .portfolio {
-      margin-bottom: 2rem;
-    }
-
-    .portfolio h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #00abf0;
-      text-align: center;
-    }
-
-    .work-item {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .work-item img, .work-item video {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .work-item img:hover, .work-item video:hover {
-      transform: scale(1.05);
-    }
-
-    .work-item video {
-      display: block;
-      margin: 0 auto 1rem;
-    }
-
-    .work-item p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .play-now-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: #00abf0;
-      border: none;
-      border-radius: 50px;
-      color: #081b29;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .play-now-btn:hover {
-      background: #008acb;
-      transform: translateY(-2px);
-    }
-
-    .play-now-btn svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .play-now-btn .now {
-      display: none;
-    }
-
-    .testimonials {
-      margin-bottom: 2rem;
-    }
-
-    .testimonials h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #00abf0;
-      text-align: center;
-    }
-
-    .testimonials blockquote {
-      background: #0a2c43;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #00abf0;
-    }
-
-    .contact p {
-      font-size: 1rem;
+    .modal-body {
       margin-bottom: 1.5rem;
     }
 
-    .contact .btn {
+    .modal-body h4 {
+      color: #00abf0;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-instructions {
+      background: rgba(0, 171, 240, 0.05);
+      border-left: 4px solid #00abf0;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .modal-instructions ol {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+
+    .modal-instructions li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      color: #ededed;
+    }
+
+    .modal-instructions li:last-child {
+      margin-bottom: 0;
+    }
+
+    .modal-instructions code {
+      background: rgba(0, 171, 240, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #00abf0;
+      font-size: 0.9rem;
+    }
+
+    .modal-warning {
+      background: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid #ffc107;
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .modal-warning i {
+      color: #ffc107;
+      font-size: 1.3rem;
+      margin-top: 2px;
+    }
+
+    .modal-warning p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #ededed;
+      text-align: left;
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .modal-btn {
       padding: 0.75rem 1.5rem;
-      background: #00abf0;
       border: none;
       border-radius: 8px;
-      color: #081b29;
       font-weight: 600;
-      text-decoration: none;
+      cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 1rem;
     }
 
-    .contact .btn:hover {
+    .modal-btn-cancel {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #ededed;
+    }
+
+    .modal-btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .modal-btn-download {
+      background: #00abf0;
+      color: #081b29;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-btn-download:hover {
       background: #008acb;
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 171, 240, 0.4);
     }
 
-    /* Footer */
-    footer {
-      padding: 1.5rem 5%;
-      text-align: center;
-      background: #071522;
+    .modal-btn-download i {
+      font-size: 1.2rem;
     }
 
-    footer .socials a {
-      margin: 0 0.75rem;
-      font-size: 1.5rem;
-      color: #00abf0;
-      transition: color 0.3s ease;
-    }
-
-    footer .socials a:hover {
-      color: #008acb;
-    }
-
-    footer p {
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .header { padding: 10px 3%; }
-      #menuBtn { display: flex; }
-      .navbar { display: none; }
-      .navbar-mobile { display: flex; }
-      .hire-me { padding: 60px 3% 20px; }
-      .services { grid-template-columns: 1fr; }
-      .download-button, .play-now-btn { width: 100%; justify-content: center; }
-      .work-item img, .work-item video { max-width: 100%; }
-    }
+      .modal-content {
+        padding: 1.5rem;
+        max-width: 95%;
+      }
 
-    @media (min-width: 769px) {
-      .navbar-mobile, .close-btn, .overlay { display: none; }
-      .navbar { display: flex; }
+      .modal-header h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-footer {
+        flex-direction: column;
+      }
+
+      .modal-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="loader">
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="astronaut">
-      <div class="head"></div>
-      <div class="arm arm-left"></div>
-      <div class="arm arm-right"></div>
-      <div class="body">
-        <div class="panel"></div>
+  <!-- Modal Pop-up -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>
+          <i class='bx bx-info-circle'></i>
+          <span id="modal-title">Instructions de Téléchargement</span>
+        </h3>
+        <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
       </div>
-      <div class="leg leg-left"></div>
-      <div class="leg leg-right"></div>
-      <div class="schoolbag"></div>
+      <div class="modal-body">
+        <h4>
+          <i class='bx bx-terminal'></i>
+          <span id="modal-subtitle">Comment exécuter ce projet :</span>
+        </h4>
+        <div class="modal-instructions" id="modalInstructions">
+          <!-- Les instructions seront insérées dynamiquement ici -->
+        </div>
+        <div class="modal-warning">
+          <i class='bx bx-error'></i>
+          <p id="modal-warning">Assurez-vous d'avoir Python installé sur votre ordinateur avant d'exécuter ce fichier.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn modal-btn-cancel" id="modalCancel">
+          <span id="btn-cancel">Annuler</span>
+        </button>
+        <button class="modal-btn modal-btn-download" id="modalDownload">
+          <i class='bx bx-download'></i>
+          <span id="btn-download">Télécharger</span>
+        </button>
+      </div>
     </div>
   </div>
 
   <div class="content-wrapper">
     <header class="header">
-      <a href="index.html" class="logo" aria-label="Home">Irfan.</a>
+      <a href="index.html" class="logo" aria-label="Accueil">Irfan.</a>
       <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
         <div class="menu__icon">
           <span></span>
@@ -789,13 +270,13 @@
         </div>
       </button>
       <div class="overlay" id="overlay" aria-hidden="true"></div>
-      <nav class="navbar" aria-label="Main navigation">
-        <a href="index.html" id="nav-home" class="loader-button">Home</a>
-        <a href="about.html" id="nav-about" class="loader-button">About Me</a>
-        <a href="Resume.html" id="nav-education" class="loader-button">Education</a>
-        <a href="Skills.html" id="nav-skills" class="loader-button">Skills</a>
-        <a href="HireMe.html" id="nav-hire" class="active loader-button">Hire Me</a>
-        <button class="download-button loader-button" id="cv-button" aria-label="Download CV">
+      <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" id="nav-home" class="loader-button">Accueil</a>
+        <a href="about.html" id="nav-about" class="loader-button">À Propos</a>
+        <a href="Resume.html" id="nav-education" class="loader-button">Éducation</a>
+        <a href="Skills.html" id="nav-skills" class="loader-button">Compétences</a>
+        <a href="HireMe.html" id="nav-hire" class="active loader-button">Projet</a>
+        <button class="download-button loader-button" id="cv-button" aria-label="Télécharger CV">
           <div class="docs">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -808,15 +289,15 @@
           </div>
         </button>
       </nav>
-      <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
-        <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+      <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Navigation mobile">
+        <button class="close-btn" id="closeBtn" aria-label="Fermer le menu">✕</button>
         <div class="nav-inner">
-          <a href="index.html" id="nav-home-mobile" class="loader-button">Home</a>
-          <a href="about.html" id="nav-about-mobile" class="loader-button">About Me</a>
-          <a href="Resume.html" id="nav-education-mobile" class="loader-button">Education</a>
-          <a href="Skills.html" id="nav-skills-mobile" class="loader-button">Skills</a>
-          <a href="HireMe.html" id="nav-hire-mobile" class="active loader-button">Hire Me</a>
-          <button class="download-button loader-button" id="cv-button-mobile" aria-label="Download CV">
+          <a href="index.html" id="nav-home-mobile" class="loader-button">Accueil</a>
+          <a href="about.html" id="nav-about-mobile" class="loader-button">À Propos</a>
+          <a href="Resume.html" id="nav-education-mobile" class="loader-button">Éducation</a>
+          <a href="Skills.html" id="nav-skills-mobile" class="loader-button">Compétences</a>
+          <a href="HireMe.html" id="nav-hire-mobile" class="active loader-button">Projet</a>
+          <button class="download-button loader-button" id="cv-button-mobile" aria-label="Télécharger CV">
             <div class="docs">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -831,8 +312,8 @@
         </div>
       </nav>
       <div class="language-toggle">
-        <label class="plane-switch" aria-label="Toggle language: English or French">
-          <input type="checkbox" id="translate-toggle" aria-label="Toggle language">
+        <label class="plane-switch" aria-label="Changer de langue: Anglais ou Français">
+          <input type="checkbox" id="translate-toggle" aria-label="Changer de langue">
           <div>
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -851,114 +332,141 @@
     <main>
       <section class="hire-me" aria-labelledby="hire-title">
         <div class="container">
-          <h1 id="hire-title">Hire Me</h1>
+          <h1 id="hire-title">Mes Projets </h1>
           <p id="hire-text">
-            I'm Irfan Khan, a passionate student aiming to revolutionize the world through AI technology. Here are the services I offer:
+            Je suis Irfan Khan, un étudiant passionné par l'informatique et l'intelligence artificielle. Mon objectif est d'innover et de créer des solutions technologiques impactantes. Découvrez mes compétences et réalisations :
           </p>
           <div class="services">
             <div class="service" id="service1">
-              <h2>Coding</h2>
-              <p>Building responsive and dynamic portfolios with Python, CSS, and HTML.</p>
+              <h2>Développement</h2>
+              <p>Maîtrise de Python, HTML, CSS et JavaScript pour créer des applications web modernes et interactives.</p>
             </div>
             <div class="service" id="service2">
-              <h2>AI Solutions</h2>
-              <p>Gained AI expertise during my internship at <strong>Safran</strong>.</p>
+              <h2>Intelligence Artificielle</h2>
+              <p>Expertise en IA développée lors de mon stage chez <strong>Safran</strong>, incluant le machine learning et l'analyse de données.</p>
             </div>
             <div class="service" id="service3">
-              <h2>Team Work</h2>
-              <p>Skilled in collaborating and training colleagues effectively.</p>
+              <h2>Gestion de Projets</h2>
+              <p>Capacité à mener des projets de A à Z, de la conception à la réalisation, avec rigueur et créativité.</p>
             </div>
           </div>
           <div class="portfolio">
-            <h2 id="work-title">My Work</h2>
+            <h2 id="work-title">Mes Réalisations</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #ededed;">
+              Chaque projet reflète ma passion pour l'informatique et ma volonté d'apprendre continuellement. Ces réalisations illustrent ma capacité à transformer des idées en solutions concrètes et fonctionnelles.
+            </p>
+            
+            <!-- Mastermind -->
             <div class="work-item" id="work-mastermind">
-              
-              <video controls poster="Nouveau dossier/Mastermind image .webp" aria-label="Mastermind Game Demo" class="mastermind-video">
+              <h3>Mastermind</h3>
+              <video controls poster="Nouveau dossier/Mastermind image .webp" aria-label="Démo du jeu Mastermind" class="mastermind-video">
                 <source src="Nouveau dossier/mastermind_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Votre navigateur ne supporte pas la balise vidéo.
               </video>
-              <p id="mastermind-desc">A game that challenges your mind.</p>
-              <a href="MastermindV6_final.py" download aria-label="Download Mastermind Game" class="play-now-btn loader-button">
+              <p id="mastermind-desc">Jeu de logique classique recréé en Python, mettant en œuvre des algorithmes de vérification et une interface utilisateur intuitive.</p>
+              <button class="play-now-btn download-with-instructions" 
+                      data-file="MastermindV6_final.py" 
+                      data-project="mastermind"
+                      aria-label="Télécharger le jeu Mastermind">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span id="play-mastermind">Download</span>
-              </a>
+                <span id="play-mastermind">Télécharger</span>
+              </button>
             </div>
+
+            <!-- Calculatrice -->
             <div class="work-item" id="work-calculator">
-              
-              <video controls poster="Nouveau dossier/calculatrice_project.webp" aria-label="Calculator Project Demo" class="mastermind-video">
+              <h3>Calculatrice Scientifique</h3>
+              <video controls poster="Nouveau dossier/calculatrice_project.webp" aria-label="Démo du projet Calculatrice" class="mastermind-video">
                 <source src="Nouveau dossier/demo_calculator.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Votre navigateur ne supporte pas la balise vidéo.
               </video>
-              <p id="calc-desc">A sleek and functional calculator application.</p>
-              <a href="Nouveau dossier/calculatrice.py" download aria-label="Download Calculator Project" class="play-now-btn loader-button">
+              <p id="calc-desc">Application de calculatrice complète avec interface graphique moderne, incluant fonctions scientifiques et gestion des erreurs.</p>
+              <button class="play-now-btn download-with-instructions" 
+                      data-file="Nouveau dossier/calculatrice.py" 
+                      data-project="calculator"
+                      aria-label="Télécharger le projet Calculatrice">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span id="play-calculator">Download</span>
-              </a>
+                <span id="play-calculator">Télécharger</span>
+              </button>
             </div>
+
+            <!-- Pokedex -->
             <div class="work-item" id="work-pokedex">
-              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="View Pokédex Project" class="loader-button">
-                <img src="Nouveau dossier/International_Pokémon_logo.svg.png" alt="Pokédex Project" class="mastermind-image">
+              <h3>Pokédex Interactif</h3>
+              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Voir le projet Pokédex" class="loader-button">
+                <img src="Nouveau dossier/International_Pokémon_logo.svg.png" alt="Projet Pokédex" class="mastermind-image">
               </a>
-              <p id="pokedex-desc">An interactive Pokédex web app to explore Pokémon data.</p>
-              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visit Pokédex Project" class="play-now-btn loader-button">
+              <p id="pokedex-desc">Application web interactive développée avec HTML, CSS et JavaScript, intégrant une API REST pour afficher des données Pokémon en temps réel.</p>
+              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visiter le projet Pokédex" class="play-now-btn loader-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span id="visit-pokedex">Visit</span>
+                <span id="visit-pokedex">Visiter</span>
               </a>
-              <a href="Nouveau dossier/POKEDEX project.zip" download class="download-button loader-button" aria-label="Download Pokédex Project">
-                <span id="play-calculator">Download</span>
-              </a>
-                </div>
-              
-              <div class="work-item" id="work-calculator">
-              
-              <video controls poster="Nouveau dossier/chat_bot.png" aria-label="Calculator Project Demo" class="mastermind-video">
-                <source src="Nouveau dossier/chat_bot_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <p id="calc-desc">A sleek and functional calculator application.</p>
-              <a href="projet/career_chat_bot.py" download aria-label="Download Calculator Project" class="play-now-btn loader-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
-                </svg>
-                <span id="play-calculator">Download</span>
-              </a>
+              <button class="download-button download-with-instructions" 
+                      data-file="Nouveau dossier/POKEDEX project.zip" 
+                      data-project="pokedex"
+                      aria-label="Télécharger le projet Pokédex">
+                <span id="download-pokedex">Télécharger</span>
+              </button>
             </div>
-            <div class="work-item" id="work-calculator">
-              
-              <video controls poster="Nouveau dossier/game.png" aria-label="Calculator Project Demo" class="mastermind-video">
-                <source src="Nouveau dossier/demo_calculator.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+
+            <!-- Chatbot -->
+            <div class="work-item" id="work-chatbot">
+              <h3>Chatbot d'Orientation Professionnelle</h3>
+              <video controls poster="Nouveau dossier/chat_bot.png" aria-label="Démo du Chatbot de carrière" class="mastermind-video">
+                <source src="Nouveau dossier/chat_bot_demo.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
               </video>
-              <p id="calc-desc">A sleek and functional calculator application.</p>
-              <a href="projet/game_alice_in_borderland.py" download aria-label="Download Calculator Project" class="play-now-btn loader-button">
+              <p>Intelligence artificielle simple basée sur des algorithmes de traitement du langage naturel pour guider les utilisateurs dans leurs choix de carrière.</p>
+              <button class="play-now-btn download-with-instructions" 
+                      data-file="projet/career_chat_bot.py" 
+                      data-project="chatbot"
+                      aria-label="Télécharger le Chatbot de carrière">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                 </svg>
-                <span id="play-calculator">Download</span>
-              </a>
+                <span id="download-chatbot">Télécharger</span>
+              </button>
             </div>
             
+            <!-- Survivor -->
+            <div class="work-item" id="work-survivor">
+              <h3>Survivor</h3>
+              <video controls poster="Nouveau dossier/image copy.png" aria-label="Démo du jeu Survivor" class="mastermind-video">
+                <source src="Nouveau dossier/survivor_demo.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+              <p id="survivor-desc">Jeu de survie développé en Python avec une interface graphique immersive.</p>
+              <button class="play-now-btn download-with-instructions" 
+                      data-file="project_survivor1.zip" 
+                      data-project="survivor"
+                      aria-label="Télécharger le jeu Survivor">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
+                </svg>
+                <span id="play-survivor">Télécharger</span>
+              </button>
             </div>
           </div>
+
           <div class="testimonials" aria-labelledby="testimonials-title">
-            <h2 id="testimonials-title">Testimonials</h2>
+            <h2 id="testimonials-title">Témoignages Professionnels</h2>
             <blockquote id="testimonial1">
-              <p>"Irfan is an exceptional student with great potential!" - <strong>Eutelsat</strong></p>
+              <p>"Irfan est un étudiant exceptionnel avec un grand potentiel en ingénierie et technologies spatiales." - <strong>Eutelsat</strong></p>
             </blockquote>
             <blockquote id="testimonial2">
-              <p>"Irfan's dedication and sincerity are truly commendable." - <strong>Safran</strong></p>
+              <p>"Le dévouement, la curiosité intellectuelle et la sincérité d'Irfan sont vraiment louables. Il démontre une capacité d'apprentissage remarquable en IA." - <strong>Safran</strong></p>
             </blockquote>
           </div>
           <div class="contact" aria-labelledby="contact-title">
-            <h2 id="contact-title">Get in Touch</h2>
-            <p id="contact-text">Interested in collaborating? Let's connect!</p>
-            <a href="contact_me.html" class="btn loader-button" id="contact-btn" aria-label="Contact Me">Contact Me</a>
+            <h2 id="contact-title">Discutons de Vos Projets</h2>
+            <p id="contact-text">Intéressé par mes compétences ? Je suis ouvert aux opportunités de stage, projets collaboratifs et défis techniques. Connectons-nous !</p>
+            <a href="contact_me.html" class="btn loader-button" id="contact-btn" aria-label="Me Contacter">Me Contacter</a>
           </div>
         </div>
       </section>
@@ -970,42 +478,222 @@
         <a href="https://www.linkedin.com/in/irfan-khan-050522300/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class='bx bxl-linkedin-square'></i></a>
         <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
       </div>
-      <p id="footer-text">© 2025 Irfan Khan. All rights reserved.</p>
+      <p id="footer-text">© 2025 Irfan Khan. Tous droits réservés.</p>
     </footer>
   </div>
 
   <script>
+    // Instructions pour chaque projet
+    const projectInstructions = {
+      mastermind: {
+        fr: {
+          title: 'Instructions - Mastermind',
+          steps: [
+            'Assurez-vous que <code>Python 3.x</code> est installé sur votre système',
+            'Téléchargez le fichier <code>MastermindV6_final.py</code>',
+            'Ouvrez un terminal dans le dossier du fichier',
+            'Exécutez la commande : <code>python MastermindV6_final.py</code>',
+            'Amusez-vous bien avec le jeu !'
+          ],
+          warning: 'Assurez-vous d\'avoir Python installé sur votre ordinateur avant d\'exécuter ce fichier.'
+        },
+        en: {
+          title: 'Instructions - Mastermind',
+          steps: [
+            'Make sure <code>Python 3.x</code> is installed on your system',
+            'Download the file <code>MastermindV6_final.py</code>',
+            'Open a terminal in the file directory',
+            'Run the command: <code>python MastermindV6_final.py</code>',
+            'Have fun playing!'
+          ],
+          warning: 'Make sure you have Python installed on your computer before running this file.'
+        }
+      },
+      calculator: {
+        fr: {
+          title: 'Instructions - Calculatrice',
+          steps: [
+            'Vérifiez que <code>Python 3.x</code> est installé',
+            'Téléchargez le fichier <code>calculatrice.py</code>',
+            'Installez les dépendances si nécessaire : <code>pip install tkinter</code>',
+            'Naviguez vers le dossier du fichier',
+            'Lancez avec : <code>python calculatrice.py</code>'
+          ],
+          warning: 'Le module Tkinter est généralement inclus avec Python. Si ce n\'est pas le cas, installez-le d\'abord.'
+        },
+        en: {
+          title: 'Instructions - Calculator',
+          steps: [
+            'Check that <code>Python 3.x</code> is installed',
+            'Download the file <code>calculatrice.py</code>',
+            'Install dependencies if needed: <code>pip install tkinter</code>',
+            'Navigate to the file directory',
+            'Run with: <code>python calculatrice.py</code>'
+          ],
+          warning: 'Tkinter module is usually included with Python. If not, install it first.'
+        }
+      },
+      pokedex: {
+        fr: {
+          title: 'Instructions - Pokédex',
+          steps: [
+            'Téléchargez et décompressez <code>POKEDEX project.zip</code>',
+            'Ouvrez le dossier décompressé',
+            'Localisez le fichier <code>index.html</code>',
+            'Double-cliquez sur <code>index.html</code> pour l\'ouvrir dans votre navigateur',
+            'Ou hébergez-le sur un serveur web local'
+          ],
+          warning: 'Ce projet web ne nécessite pas Python. Il s\'ouvre directement dans votre navigateur.'
+        },
+        en: {
+          title: 'Instructions - Pokédex',
+          steps: [
+            'Download and unzip <code>POKEDEX project.zip</code>',
+            'Open the unzipped folder',
+            'Locate the <code>index.html</code> file',
+            'Double-click <code>index.html</code> to open it in your browser',
+            'Or host it on a local web server'
+          ],
+          warning: 'This web project doesn\'t require Python. It opens directly in your browser.'
+        }
+      },
+      chatbot: {
+        fr: {
+          title: 'Instructions - Chatbot',
+          steps: [
+            'Installez <code>Python 3.x</code> sur votre machine',
+            'Téléchargez <code>career_chat_bot.py</code>',
+            'Installez les librairies nécessaires : <code>pip install nltk</code>',
+            'Ouvrez un terminal dans le dossier du projet',
+            'Exécutez : <code>python career_chat_bot.py</code>'
+          ],
+          warning: 'Ce chatbot peut nécessiter le téléchargement de données NLTK lors de la première exécution.'
+        },
+        en: {
+          title: 'Instructions - Chatbot',
+          steps: [
+            'Install <code>Python 3.x</code> on your machine',
+            'Download <code>career_chat_bot.py</code>',
+            'Install required libraries: <code>pip install nltk</code>',
+            'Open a terminal in the project folder',
+            'Run: <code>python career_chat_bot.py</code>'
+          ],
+          warning: 'This chatbot may require downloading NLTK data on first run.'
+        }
+      },
+      survivor: {
+        fr: {
+          title: 'Instructions - Survivor',
+          steps: [
+            'Assurez-vous d\'avoir <code>Python 3.x</code> installé',
+            'Téléchargez le projet <code>project_survivor</code>',
+            'Installez pygame si nécessaire : <code>pip install math , pip install pyxel , pip install random </code>',
+            'Naviguez vers le dossier du projet',
+            'Lancez le jeu avec : <code>python menu.py</code>'
+          ],
+          warning: 'Ce jeu nécessite la bibliothèque Pyxel , Math , random. Installez-la avant de lancer le jeu.'
+        },
+        en: {
+          title: 'Instructions - Survivor',
+          steps: [
+            'Make sure you have <code>Python 3.x</code> installed',
+            'Download the project <code>project_survivor</code>',
+            'Install pygame if needed: <code>pip install math , pip install pyxel , pip install random</code>',
+            'Navigate to the project folder',
+            'Launch the game with: <code>python menu.py</code>'
+          ],
+          warning: 'This game requires the Pyxel , math , random library. Install it before running the game.'
+        }
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
-      // Loader
-      const loader = document.getElementById('loader');
-      const contentWrapper = document.querySelector('.content-wrapper');
+      const modal = document.getElementById('downloadModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalCancel = document.getElementById('modalCancel');
+      const modalDownload = document.getElementById('modalDownload');
+      const modalInstructions = document.getElementById('modalInstructions');
+      const modalTitle = document.getElementById('modal-title');
+      const modalWarning = document.getElementById('modal-warning');
+      let currentFile = '';
+      let currentLang = 'fr';
 
-      const hideLoader = () => {
-        loader.classList.add('hidden');
-        setTimeout(() => {
-          loader.style.display = 'none';
-          contentWrapper.style.display = 'block';
-        }, 500);
-      };
+      // Fonction pour afficher le modal
+      function showModal(project, file, lang) {
+        currentFile = file;
+        currentLang = lang;
+        const instructions = projectInstructions[project][lang];
+        
+        // Mettre à jour le titre
+        modalTitle.textContent = instructions.title;
+        
+        // Mettre à jour les instructions
+        const stepsList = instructions.steps.map(step => `<li>${step}</li>`).join('');
+        modalInstructions.innerHTML = `<ol>${stepsList}</ol>`;
+        
+        // Mettre à jour l'avertissement
+        modalWarning.textContent = instructions.warning;
+        
+        // Afficher le modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
 
-      window.addEventListener('load', () => setTimeout(hideLoader, 1500));
+      // Fonction pour fermer le modal
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
 
-      // Navigation with loader
-      document.querySelectorAll('.loader-button').forEach(button => {
+      // Fonction pour télécharger le fichier
+      function downloadFile() {
+        const link = document.createElement('a');
+        link.href = currentFile;
+        link.download = currentFile.split('/').pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        closeModal();
+      }
+
+      // Événements pour tous les boutons de téléchargement
+      document.querySelectorAll('.download-with-instructions').forEach(button => {
         button.addEventListener('click', (e) => {
           e.preventDefault();
+          const project = button.dataset.project;
+          const file = button.dataset.file;
+          const lang = document.getElementById('translate-toggle').checked ? 'fr' : 'en';
+          showModal(project, file, lang);
+        });
+      });
+
+      // Événements pour fermer le modal
+      modalClose.addEventListener('click', closeModal);
+      modalCancel.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Événement pour le bouton de téléchargement
+      modalDownload.addEventListener('click', downloadFile);
+
+      // Fermer avec Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Navigation
+      document.querySelectorAll('.loader-button:not(.download-with-instructions)').forEach(button => {
+        button.addEventListener('click', (e) => {
           const href = button.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
           const target = button.getAttribute('target');
-          loader.style.display = 'block';
-          loader.classList.remove('hidden');
-          contentWrapper.style.display = 'none';
-          setTimeout(() => {
-            if (target === '_blank') {
-              window.open(href, '_blank');
-            } else {
-              window.location.href = href;
-            }
-          }, 1000);
+          if (target === '_blank') {
+            window.open(href, '_blank');
+          } else if (href) {
+            window.location.href = href;
+          }
         });
       });
 
@@ -1036,68 +724,94 @@
       menuBtn.addEventListener('click', () => document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
       overlay.addEventListener('click', closeMenu);
       closeBtn.addEventListener('click', closeMenu);
-      document.querySelectorAll('.nav-inner a, .nav-inner .download-button').forEach(item => item.addEventListener('click', closeMenu));
+      document.querySelectorAll('.nav-inner a, .nav-inner .download-button:not(.download-with-instructions)').forEach(item => item.addEventListener('click', closeMenu));
       document.addEventListener('keydown', (e) => e.key === 'Escape' && document.body.classList.contains('menu-open') && closeMenu());
 
       // Language toggle
       const translateToggle = document.getElementById('translate-toggle');
+      translateToggle.checked = true;
+      
       translateToggle.addEventListener('change', () => {
         const isFrench = translateToggle.checked;
-        translateToggle.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Switch to French');
-        document.getElementById('hire-title').textContent = isFrench ? 'Choisissez-moi' : 'Hire Me';
+        currentLang = isFrench ? 'fr' : 'en';
+        
+        // Mettre à jour tous les textes de l'interface
+        translateToggle.setAttribute('aria-label', isFrench ? 'Passer à l\'anglais' : 'Passer au français');
+        document.getElementById('hire-title').textContent = isFrench ? 'Mes Projets' : 'My Projects';
         document.getElementById('hire-text').textContent = isFrench
-          ? 'Je suis Irfan Khan, un étudiant passionné visant à révolutionner le monde grâce à la technologie IA. Voici mes services :'
-          : 'I\'m Irfan Khan, a passionate student aiming to revolutionize the world through AI technology. Here are the services I offer:';
-        document.getElementById('service1').querySelector('h2').textContent = isFrench ? 'Programmation' : 'Coding';
+          ? 'Je suis Irfan Khan, un étudiant passionné par l\'informatique et l\'intelligence artificielle. Mon objectif est d\'innover et de créer des solutions technologiques impactantes. Découvrez mes compétences et réalisations :'
+          : 'I\'m Irfan Khan, a passionate student in computer science and artificial intelligence. My goal is to innovate and create impactful technological solutions. Discover my skills and achievements:';
+        
+        // Mettre à jour les textes du modal
+        document.getElementById('modal-subtitle').textContent = isFrench ? 'Comment exécuter ce projet :' : 'How to run this project:';
+        document.getElementById('btn-cancel').textContent = isFrench ? 'Annuler' : 'Cancel';
+        document.getElementById('btn-download').textContent = isFrench ? 'Télécharger' : 'Download';
+        
+        // Services
+        document.getElementById('service1').querySelector('h2').textContent = isFrench ? 'Développement' : 'Development';
         document.getElementById('service1').querySelector('p').textContent = isFrench
-          ? 'Création de portfolios réactifs et dynamiques avec Python, CSS et HTML.'
-          : 'Building responsive and dynamic portfolios with Python, CSS, and HTML.';
-        document.getElementById('service2').querySelector('h2').textContent = isFrench ? 'Solutions IA' : 'AI Solutions';
+          ? 'Maîtrise de Python, HTML, CSS et JavaScript pour créer des applications web modernes et interactives.'
+          : 'Mastery of Python, HTML, CSS and JavaScript to create modern and interactive web applications.';
+        document.getElementById('service2').querySelector('h2').textContent = isFrench ? 'Intelligence Artificielle' : 'Artificial Intelligence';
         document.getElementById('service2').querySelector('p').innerHTML = isFrench
-          ? 'Expertise en IA acquise lors de mon stage chez <strong>Safran</strong>.'
-          : 'Gained AI expertise during my internship at <strong>Safran</strong>.';
-        document.getElementById('service3').querySelector('h2').textContent = isFrench ? 'Travail d\'équipe' : 'Team Work';
+          ? 'Expertise en IA développée lors de mon stage chez <strong>Safran</strong>, incluant le machine learning et l\'analyse de données.'
+          : 'AI expertise developed during my internship at <strong>Safran</strong>, including machine learning and data analysis.';
+        document.getElementById('service3').querySelector('h2').textContent = isFrench ? 'Gestion de Projets' : 'Project Management';
         document.getElementById('service3').querySelector('p').textContent = isFrench
-          ? 'Compétent pour collaborer et former efficacement mes collègues.'
-          : 'Skilled in collaborating and training colleagues effectively.';
+          ? 'Capacité à mener des projets de A à Z, de la conception à la réalisation, avec rigueur et créativité.'
+          : 'Ability to lead projects from A to Z, from design to implementation, with rigor and creativity.';
+        
+        // Projets
         document.getElementById('work-title').textContent = isFrench ? 'Mes Réalisations' : 'My Work';
         document.getElementById('mastermind-desc').textContent = isFrench
-          ? 'Un jeu qui met votre esprit à l\'épreuve.'
-          : 'A game that challenges your mind.';
+          ? 'Jeu de logique classique recréé en Python, mettant en œuvre des algorithmes de vérification et une interface utilisateur intuitive.'
+          : 'Classic logic game recreated in Python, implementing verification algorithms and an intuitive user interface.';
         document.getElementById('calc-desc').textContent = isFrench
-          ? 'Une application de calculatrice élégante et fonctionnelle.'
-          : 'A sleek and functional calculator application.';
+          ? 'Application de calculatrice complète avec interface graphique moderne, incluant fonctions scientifiques et gestion des erreurs.'
+          : 'Complete calculator application with modern graphical interface, including scientific functions and error handling.';
         document.getElementById('pokedex-desc').textContent = isFrench
-          ? 'Une application web interactive pour explorer les données Pokémon.'
-          : 'An interactive Pokédex web app to explore Pokémon data.';
+          ? 'Application web interactive développée avec HTML, CSS et JavaScript, intégrant une API REST pour afficher des données Pokémon en temps réel.'
+          : 'Interactive web application developed with HTML, CSS and JavaScript, integrating a REST API to display Pokémon data in real time.';
+        
+        // Boutons
         document.getElementById('play-mastermind').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('play-calculator').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('visit-pokedex').textContent = isFrench ? 'Visiter' : 'Visit';
-        document.getElementById('testimonials-title').textContent = isFrench ? 'Témoignages' : 'Testimonials';
+        document.getElementById('download-pokedex').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('download-chatbot').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('play-survivor').textContent = isFrench ? 'Télécharger' : 'Download';
+        
+        // Témoignages
+        document.getElementById('testimonials-title').textContent = isFrench ? 'Témoignages Professionnels' : 'Professional Testimonials';
         document.getElementById('testimonial1').querySelector('p').textContent = isFrench
-          ? '"Irfan est un étudiant exceptionnel avec un grand potentiel !" - Eutelsat'
-          : '"Irfan is an exceptional student with great potential!" - Eutelsat';
+          ? '"Irfan est un étudiant exceptionnel avec un grand potentiel en ingénierie et technologies spatiales." - Eutelsat'
+          : '"Irfan is an exceptional student with great potential in engineering and space technologies." - Eutelsat';
         document.getElementById('testimonial2').querySelector('p').textContent = isFrench
-          ? '"Le dévouement et la sincérité d\'Irfan sont vraiment louables." - Safran'
-          : '"Irfan\'s dedication and sincerity are truly commendable." - Safran';
-        document.getElementById('contact-title').textContent = isFrench ? 'Contactez-moi' : 'Get in Touch';
+          ? '"Le dévouement, la curiosité intellectuelle et la sincérité d\'Irfan sont vraiment louables. Il démontre une capacité d\'apprentissage remarquable en IA." - Safran'
+          : '"Irfan\'s dedication, intellectual curiosity and sincerity are truly commendable. He demonstrates remarkable learning ability in AI." - Safran';
+        
+        // Contact
+        document.getElementById('contact-title').textContent = isFrench ? 'Discutons de Vos Projets' : 'Let\'s Discuss Your Projects';
         document.getElementById('contact-text').textContent = isFrench
-          ? 'Intéressé par une collaboration ? Connectons-nous !'
-          : 'Interested in collaborating? Let\'s connect!';
+          ? 'Intéressé par mes compétences ? Je suis ouvert aux opportunités de stage, projets collaboratifs et défis techniques. Connectons-nous !'
+          : 'Interested in my skills? I am open to internship opportunities, collaborative projects and technical challenges. Let\'s connect!';
         document.getElementById('contact-btn').textContent = isFrench ? 'Me Contacter' : 'Contact Me';
-        document.getElementById('contact-btn').setAttribute('aria-label', isFrench ? 'Me Contacter' : 'Contact Me');
+        
+        // Navigation
         document.getElementById('nav-home').textContent = isFrench ? 'Accueil' : 'Home';
         document.getElementById('nav-about').textContent = isFrench ? 'À Propos' : 'About Me';
         document.getElementById('nav-education').textContent = isFrench ? 'Éducation' : 'Education';
         document.getElementById('nav-skills').textContent = isFrench ? 'Compétences' : 'Skills';
-        document.getElementById('nav-hire').textContent = isFrench ? 'Embauchez-moi' : 'Hire Me';
-        document.getElementById('nav-cv').textContent = isFrench ? 'CV' : 'CV';
+        document.getElementById('nav-hire').textContent = isFrench ? 'Projet' : 'Project';
+        document.getElementById('nav-cv').textContent = 'CV';
         document.getElementById('nav-home-mobile').textContent = isFrench ? 'Accueil' : 'Home';
         document.getElementById('nav-about-mobile').textContent = isFrench ? 'À Propos' : 'About Me';
         document.getElementById('nav-education-mobile').textContent = isFrench ? 'Éducation' : 'Education';
         document.getElementById('nav-skills-mobile').textContent = isFrench ? 'Compétences' : 'Skills';
-        document.getElementById('nav-hire-mobile').textContent = isFrench ? 'Embauchez-moi' : 'Hire Me';
-        document.getElementById('nav-cv-mobile').textContent = isFrench ? 'CV' : 'CV';
+        document.getElementById('nav-hire-mobile').textContent = isFrench ? 'Projet' : 'Project';
+        document.getElementById('nav-cv-mobile').textContent = 'CV';
+        
+        // Footer
         document.getElementById('footer-text').textContent = isFrench
           ? '© 2025 Irfan Khan. Tous droits réservés.'
           : '© 2025 Irfan Khan. All rights reserved.';

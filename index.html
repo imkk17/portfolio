@@ -9,25 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Loader -->
-  <div class="loader">
-    <div class="box">
-      <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 94 94" class="svg">
-          <path d="M38.0481 4.82927C38.0481 2.16214 40.018 0 42.4481 0H51.2391C53.6692 0 55.6391 2.16214 55.6391 4.82927V40.1401C55.6391 48.8912 53.2343 55.6657 48.4248 60.4636C43.6153 65.2277 36.7304 67.6098 27.7701 67.6098C18.8099 67.6098 11.925 65.2953 7.11548 60.6663C2.37183 56.0036 3.8147e-06 49.2967 3.8147e-06 40.5456V4.82927C3.8147e-06 2.16213 1.96995 0 4.4 0H13.2405C15.6705 0 17.6405 2.16214 17.6405 4.82927V39.1265C17.6405 43.7892 18.4805 47.2018 20.1605 49.3642C21.8735 51.5267 24.4759 52.6079 27.9678 52.6079C31.4596 52.6079 34.0127 51.5436 35.6268 49.4149C37.241 47.2863 38.0481 43.8399 38.0481 39.0758V4.82927Z"></path>
-          <path d="M86.9 61.8682C86.9 64.5353 84.9301 66.6975 82.5 66.6975H73.6595C71.2295 66.6975 69.2595 64.5353 69.2595 61.8682V4.82927C69.2595 2.16214 71.2295 0 73.6595 0H82.5C84.9301 0 86.9 2.16214 86.9 4.82927V61.8682Z"></path>
-          <path d="M2.86102e-06 83.2195C2.86102e-06 80.5524 1.96995 78.3902 4.4 78.3902H83.6C86.0301 78.3902 88 80.5524 88 83.2195V89.1707C88 91.8379 86.0301 94 83.6 94H4.4C1.96995 94 0 91.8379 0 89.1707L2.86102e-06 83.2195Z"></path>
-        </svg>
-      </div>
-    </div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
-
   <!-- Main Content Wrapper -->
-  <div class="content-wrapper" style="display: none;">
+  <div class="content-wrapper">
     <header class="header">
       <a href="#" class="logo" aria-label="Home">Irfan.</a>
       <button id="menuBtn" aria-label="Open menu" aria-expanded="false" title="Menu">
@@ -39,10 +22,10 @@
       </button>
       <div class="overlay" id="overlay" aria-hidden="true"></div>
       <nav class="navbar" aria-label="Main navigation">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="Resume.html">Education</a>
-        <a href="Skills.html">Skills</a>
+        <a class="active" href="index.html" id="nav-home">Accueil</a>
+        <a href="about.html" id="nav-about">À propos</a>
+        <a href="Resume.html" id="nav-education">Éducation</a>
+        <a href="Skills.html" id="nav-skills">Compétences</a>
         <button class="download-button" id="cv-button" aria-label="Download CV">
           <div class="docs">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
@@ -66,10 +49,10 @@
       <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
         <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
         <div class="nav-inner">
-          <a class="active" href="index.html" id="nav-home">Home</a>
-          <a href="about.html" id="nav-about">About Me</a>
-          <a href="Resume.html" id="nav-education">Education</a>
-          <a href="Skills.html" id="nav-skills">Skills</a>
+          <a class="active" href="index.html" id="nav-home-mobile">Accueil</a>
+          <a href="about.html" id="nav-about-mobile">À propos</a>
+          <a href="Resume.html" id="nav-education-mobile">Éducation</a>
+          <a href="Skills.html" id="nav-skills-mobile">Compétences</a>
           <button class="download-button" id="cv-button-mobile" aria-label="Download CV">
             <div class="docs">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
@@ -111,20 +94,20 @@
 
     <section class="home">
       <div class="home-content">
-        <h1 id="main-title">Hi, I'm Irfan Khan</h1>
-        <h3 id="sub-title">Student</h3>
+        <h1 id="main-title">Bonjour, je suis Irfan Khan</h1>
+        <h3 id="sub-title">Étudiant</h3>
         <p id="main-text">
-          Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.
+          Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.
         </p>
         <div class="btn-box">
-          <a href="hire_me.html" id="btn-hire" class="loader-button">Hire Me</a>
-          <a href="contact_me.html" id="btn-talk" class="loader-button">Let's Talk</a>
+          <a href="hire_me.html" id="btn-hire">Projet</a>
+          <a href="contact_me.html" id="btn-talk">Discutons</a>
         </div>
       </div>
       <div class="home-photo">
         <div class="matrix-effect"></div>
         <img src="Nouveau dossier/image.png" alt="Portrait généré par IA d'Irfan">
-        <h4><strong>A Photo made by an AI image Generator</strong></h4>
+        <h4 id="photo-caption"><strong>Une photo créée par un générateur d'images IA</strong></h4>
       </div>
       <div class="home-sci">
         <a href="https://github.com/imkk17" title="GitHub" target="_blank" rel="noopener"><i class='bx bxl-github'></i></a>
@@ -134,22 +117,18 @@
     </section>
 
     <section class="recent-projects">
-      <h2 id="projects-title">Recent Projects</h2>
+      <h2 id="projects-title">Projets Récents</h2>
       <div class="project-list">
         <div class="project">
-          <h3 id="project1-title">Car E-commerce</h3>
-          <p id="project1-desc">Short description of Project 1.</p>
-          <a href="https://imkk17.github.io/car-ecommerce/" class="loader-button">View Project</a>
+          <h3 id="project1-title">Jeu Pyxel</h3>
+          <p id="project1-desc">Un jeu conçu lors de mon debut d'année de Terminale qui utilise Python et la bibliotheque Pyxel</p>
+          <a href="hire_me.html" id="project1-link">Voir le Projet</a>
         </div>
+    
         <div class="project">
-          <h3 id="project2-title">AI Morpion</h3>
-          <p id="project2-desc">Short description of Project 2.</p>
-          <a href="chat_bot2.html" class="loader-button">View Project</a>
-        </div>
-        <div class="project">
-          <h3 id="project3-title">Pokedex</h3>
-          <p id="project3-desc">Short description of Project 3.</p>
-          <a href="https://pokedex-pndu.onrender.com/" class="loader-button">View Project</a>
+          <h3 id="project3-title">Pokédex</h3>
+          <p id="project3-desc">Projet conçu lors de mon année de premiere génerale qui utilise python en back_end et HTML/CSS en Front end et utilise une base de données du type CSV  </p>
+          <a href="https://pokedex-pndu.onrender.com/" id="project3-link">Voir le Projet</a>
           <img src="Nouveau dossier/Sans_titre-removebg-preview.png" alt="Pikachu" class="pikachu" />
         </div>
       </div>
@@ -157,28 +136,13 @@
   </div>
 
   <script>
-    // Loader script for buttons
     document.addEventListener('DOMContentLoaded', function() {
-      const loader = document.querySelector('.loader');
-      const contentWrapper = document.querySelector('.content-wrapper');
-
-      // Show content after page load
-      setTimeout(() => {
-        loader.style.display = 'none';
-        contentWrapper.style.display = 'block';
-      }, 2000);
-
-      // Handle button clicks with loader
-      const buttons = document.querySelectorAll('.loader-button, #cv-button, #cv-button-mobile');
-      buttons.forEach(button => {
+      // Handle CV button clicks
+      const cvButtons = document.querySelectorAll('#cv-button, #cv-button-mobile');
+      cvButtons.forEach(button => {
         button.addEventListener('click', function(e) {
           e.preventDefault();
-          const href = this.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
-          loader.style.display = 'block';
-          contentWrapper.style.display = 'none';
-          setTimeout(() => {
-            window.location.href = href;
-          }, 2000);
+          window.location.href = 'Nouveau dossier/Irfan_CVmot-8.pdf';
         });
       });
 
@@ -227,26 +191,7 @@
       // Translation script
       document.getElementById('translate-toggle').addEventListener('change', function() {
         if (this.checked) {
-          document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
-          document.getElementById('sub-title').innerText = "Étudiant";
-          document.getElementById('main-text').innerText =
-            "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
-          document.getElementById('nav-home').innerText = "Accueil";
-          document.getElementById('nav-about').innerText = "À propos";
-          document.getElementById('nav-education').innerText = "Éducation";
-          document.getElementById('nav-skills').innerText = "Compétences";
-          document.getElementById('nav-cv').innerText = "CV";
-          document.getElementById('nav-cv-mobile').innerText = "CV";
-          document.getElementById('btn-hire').innerText = "Choisissez moi";
-          document.getElementById('btn-talk').innerText = "Discutons";
-          document.getElementById('projects-title').innerText = "Projets Récents";
-          document.getElementById('project1-title').innerText = "Commerce de Voitures";
-          document.getElementById('project1-desc').innerText = "Courte description du projet 1.";
-          document.getElementById('project2-title').innerText = "Morpion IA";
-          document.getElementById('project2-desc').innerText = "Courte description du projet 2.";
-          document.getElementById('project3-title').innerText = "Pokédex";
-          document.getElementById('project3-desc').innerText = "Courte description du projet 3.";
-        } else {
+          // Traduction en anglais
           document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
           document.getElementById('sub-title').innerText = "Student";
           document.getElementById('main-text').innerText =
@@ -255,17 +200,48 @@
           document.getElementById('nav-about').innerText = "About Me";
           document.getElementById('nav-education').innerText = "Education";
           document.getElementById('nav-skills').innerText = "Skills";
+          document.getElementById('nav-home-mobile').innerText = "Home";
+          document.getElementById('nav-about-mobile').innerText = "About Me";
+          document.getElementById('nav-education-mobile').innerText = "Education";
+          document.getElementById('nav-skills-mobile').innerText = "Skills";
           document.getElementById('nav-cv').innerText = "CV";
           document.getElementById('nav-cv-mobile').innerText = "CV";
-          document.getElementById('btn-hire').innerText = "Hire Me";
+          document.getElementById('btn-hire').innerText = "Project";
           document.getElementById('btn-talk').innerText = "Let's Talk";
+          document.getElementById('photo-caption').innerHTML = "<strong>A Photo made by an AI image Generator</strong>";
           document.getElementById('projects-title').innerText = "Recent Projects";
-          document.getElementById('project1-title').innerText = "Car E-commerce";
+          document.getElementById('project1-title').innerText = "Pyxel Game";
           document.getElementById('project1-desc').innerText = "Short description of Project 1.";
-          document.getElementById('project2-title').innerText = "AI Morpion";
-          document.getElementById('project2-desc').innerText = "Short description of Project 2.";
+          document.getElementById('project1-link').innerText = "View Project";
           document.getElementById('project3-title').innerText = "Pokedex";
           document.getElementById('project3-desc').innerText = "Short description of Project 3.";
+          document.getElementById('project3-link').innerText = "View Project";
+        } else {
+          // Retour au français
+          document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
+          document.getElementById('sub-title').innerText = "Étudiant";
+          document.getElementById('main-text').innerText =
+            "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
+          document.getElementById('nav-home').innerText = "Accueil";
+          document.getElementById('nav-about').innerText = "À propos";
+          document.getElementById('nav-education').innerText = "Éducation";
+          document.getElementById('nav-skills').innerText = "Compétences";
+          document.getElementById('nav-home-mobile').innerText = "Accueil";
+          document.getElementById('nav-about-mobile').innerText = "À propos";
+          document.getElementById('nav-education-mobile').innerText = "Éducation";
+          document.getElementById('nav-skills-mobile').innerText = "Compétences";
+          document.getElementById('nav-cv').innerText = "CV";
+          document.getElementById('nav-cv-mobile').innerText = "CV";
+          document.getElementById('btn-hire').innerText = "Projet";
+          document.getElementById('btn-talk').innerText = "Discutons";
+          document.getElementById('photo-caption').innerHTML = "<strong>Une photo créée par un générateur d'images IA</strong>";
+          document.getElementById('projects-title').innerText = "Projets Récents";
+          document.getElementById('project1-title').innerText = "Jeu Pyxel";
+          document.getElementById('project1-desc').innerText = "Courte description du projet 1.";
+          document.getElementById('project1-link').innerText = "Voir le Projet";
+          document.getElementById('project3-title').innerText = "Pokédex";
+          document.getElementById('project3-desc').innerText = "Courte description du projet 3.";
+          document.getElementById('project3-link').innerText = "Voir le Projet";
         }
       });
     });

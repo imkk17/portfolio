@@ -1,4 +1,5 @@
-import json
+# chatbot.py
+
 import customtkinter as ctk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
