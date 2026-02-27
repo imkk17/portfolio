@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Me</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,76 +15,35 @@
     html, body { height: 100%; }
     body { background: #081b29; color: #ededed; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
 
-    /* ---------- Loader ---------- */
-    #loader {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(8, 27, 41, 0.95); display: flex; justify-content: center; align-items: center;
-      z-index: 1000; transition: opacity 0.5s ease;
+    /* ---------- Glassmorphism Styles ---------- */
+    .glass {
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
     }
-    #loader.hidden { opacity: 0; pointer-events: none; }
-    .box-of-star {
-      width: 200px; height: 200px; position: relative; transform-style: preserve-3d;
-      animation: rotate 12s linear infinite;
+    .glass-button {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
-    .star {
-      width: 4px; height: 4px; background: #fff; position: absolute; border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-    .star-position1 { top: 20px; left: 40px; }
-    .star-position2 { top: 60px; left: 160px; }
-    .star-position3 { top: 100px; left: 20px; }
-    .star-position4 { top: 140px; left: 180px; }
-    .star-position5 { top: 80px; left: 80px; }
-    .star-position6 { top: 40px; left: 120px; }
-    .star-position7 { top: 160px; left: 60px; }
-    .box-of-star:nth-child(2) { animation-delay: -3s; }
-    .box-of-star:nth-child(3) { animation-delay: -6s; }
-    .box-of-star:nth-child(4) { animation-delay: -9s; }
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .astronaut {
-      width: 80px; height: 80px; position: absolute; z-index: 2;
-      animation: float 2.5s ease-in-out infinite;
-    }
-    .head {
-      width: 32px; height: 32px; background: #fff; border-radius: 50%;
-      position: absolute; top: 8px; left: 24px;
-    }
-    .arm-left, .arm-right {
-      width: 8px; height: 24px; background: #fff; position: absolute; top: 40px;
-    }
-    .arm-left { left: 16px; transform: rotate(30deg); }
-    .arm-right { left: 56px; transform: rotate(-30deg); }
-    .body {
-      width: 32px; height: 40px; background: #fff; position: absolute;
-      top: 40px; left: 24px; border-radius: 8px;
-    }
-    .panel {
-      width: 16px; height: 16px; background: #ccc; position: absolute;
-      top: 8px; left: 8px;
-    }
-    .leg-left, .leg-right {
-      width: 8px; height: 24px; background: #fff; position: absolute; top: 72px;
-    }
-    .leg-left { left: 24px; }
-    .leg-right { left: 48px; }
-    .schoolbag {
-      width: 24px; height: 24px; background: #ccc; position: absolute;
-      top: 48px; left: 28px; border-radius: 4px;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     /* ---------- Header ---------- */
     .header {
       position: fixed; top: 0; left: 0; width: 100%;
       padding: 18px 10%; display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(180deg, rgba(8, 27, 41, 0.95), rgba(8, 27, 41, 0.8));
-      z-index: 150; backdrop-filter: blur(6px);
+      z-index: 150;
       animation: fadeInDown 0.8s ease-out;
     }
     .logo {
@@ -110,95 +69,17 @@
     /* Header Right */
     .header-right { display: flex; align-items: center; gap: 12px; }
 
-    /* Language Toggle (Plane Switch) */
-    .plane-switch {
-      --dot: #fff; --street: #6B6D76; --street-line: #A8AAB4; --street-line-mid: #C0C2C8;
-      --sky-1: #60A7FA; --sky-2: #2F8EFC; --light-1: rgba(255, 233, 0, 1); --light-2: rgba(255, 233, 0, 0.3);
-      cursor: pointer; -webkit-tap-highlight-color: transparent;
-      animation: fadeIn 1s ease-out 0.4s both;
-    }
-    .plane-switch input { display: none; }
-    .plane-switch input + div {
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
-      position: relative; overflow: hidden; width: 50px; height: 25px;
-      padding: 1px; border-radius: 13px;
-      background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
-      background-position-x: var(--p, 0%); background-size: 400% auto;
-      transition: background-position 0.6s;
-    }
-    .plane-switch input + div:before,
-    .plane-switch input + div:after {
-      content: ""; display: block; position: absolute; transform: translateX(var(--s, 0)); transition: transform 0.3s;
-    }
-    .plane-switch input + div:before {
-      width: 42px; right: 2px; top: 4px; height: 1px; background: var(--street-line);
-      box-shadow: 0 16px 0 0 var(--street-line);
-    }
-    .plane-switch input + div:after {
-      width: 2px; height: 2px; border-radius: 50%; left: 23px; top: 1px;
-      animation: lights2 2s linear infinite;
-      box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
-    }
-    .plane-switch input + div span {
-      display: block; position: absolute;
-    }
-    .plane-switch input + div span.street-middle {
-      top: 12px; left: 21px; width: 3px; height: 1px; transform: translateX(var(--s, 0));
-      background: var(--street-line-mid);
-      box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
-      transition: transform 0.3s;
-    }
-    .plane-switch input + div span.cloud {
-      width: 12px; height: 4px; border-radius: 2px; background: #fff;
-      position: absolute; top: var(--ct, 8px); left: 100%; opacity: var(--co, 0);
-      transition: opacity 0.3s; animation: clouds2 2s linear infinite var(--cd, 0s);
-    }
-    .plane-switch input + div span.cloud:before,
-    .plane-switch input + div span.cloud:after {
-      content: ""; position: absolute; transform: translateX(var(--cx, 0));
-      border-radius: 50%; width: var(--cs, 5px); height: var(--cs, 5px); background: #fff; bottom: 1px; left: 1px;
-    }
-    .plane-switch input + div span.cloud:after { --cs: 6px; --cx: 4px; }
-    .plane-switch input + div span.cloud.two { --ct: 20px; --cd: 1s; opacity: var(--co-2, 0); }
-    .plane-switch input + div div {
-      display: table; position: relative; z-index: 1; padding: 5px; border-radius: 50%;
-      background: var(--dot); transform: translateX(var(--x, 0));
-      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
-    }
-    .plane-switch input + div div svg {
-      width: 13px; height: 13px; display: block; color: var(--c, var(--street));
-      transition: color 0.6s;
-    }
-    .plane-switch input:checked + div {
-      --p: 100%; --x: 25px; --s: -50px; --c: var(--sky-2); --co: 0.8; --co-2: 0.6;
-    }
-    @keyframes lights2 {
-      20%, 30% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-      55%, 65% { box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1); }
-      90%, 100% { box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2); }
-    }
-    @keyframes clouds2 {
-      97% { transform: translateX(-72px); visibility: visible; }
-      98%, 100% { visibility: hidden; }
-      99% { transform: translateX(-72px); }
-      100% { transform: translateX(0); }
-    }
-
     /* Burger Button */
     #menuBtn {
-      display: none; width: 65px; height: 65px; border-radius: 16px; border: 1px solid #1a1a1a;
-      background: rgba(74, 74, 74, 0.39); box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.20);
-      backdrop-filter: blur(15px); cursor: pointer; padding: 0; margin: 0;
+      display: none; width: 65px; height: 65px; padding: 0;
       align-items: center; justify-content: center;
-      animation: fadeIn 1s ease-out 0.6s both;
     }
-    #menuBtn:focus { outline: 3px solid rgba(0, 171, 240, 0.12); }
     .menu__icon {
       width: 32px; height: 32px; padding: 4px; display: flex; flex-direction: column; justify-content: center;
     }
     .menu__icon span {
       display: block; width: 100%; height: 0.125rem; border-radius: 2px; background-color: #00abf0;
-      box-shadow: 0 .5px 2px 0 hsla(0, 0%, 0%, .2); transition: background-color 0.4s, transform 0.4s; position: relative;
+      transition: background-color 0.4s, transform 0.4s; position: relative;
     }
     .menu__icon span + span { margin-top: .375rem; }
     body.menu-open .menu__icon span:nth-child(1) { transform: translateY(0.45rem) rotate(45deg); }
@@ -213,35 +94,24 @@
     body.menu-open .overlay { opacity: 1; pointer-events: auto; }
     .mobile-nav {
       position: fixed; top: 0; right: 0; height: 100vh; width: 82%; max-width: 360px;
-      background: linear-gradient(180deg, #071522, #081b29); transform: translateX(110%);
+      transform: translateX(110%);
       transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 200;
       padding: 72px 18px 24px; display: flex; flex-direction: column; align-items: flex-start;
     }
     body.menu-open .mobile-nav { transform: translateX(0); }
+    .mobile-nav.glass { padding: 72px 18px 24px; }
     .mobile-nav .nav-inner { width: 100%; height: 100%; overflow-y: auto; padding-bottom: 20px; }
     .mobile-nav a {
       display: block; padding: 12px 10px; font-size: 18px; color: #fff; text-decoration: none;
       border-radius: 8px; margin-bottom: 6px; transition: background 0.12s, color 0.12s, transform 0.3s;
       opacity: 0; transform: translateX(20px); animation: slideIn 0.5s ease-out forwards;
     }
-    .mobile-nav a:nth-child(1) { animation-delay: 0.1s; }
-    .mobile-nav a:nth-child(2) { animation-delay: 0.2s; }
-    .mobile-nav a:nth-child(3) { animation-delay: 0.3s; }
-    .mobile-nav a:nth-child(4) { animation-delay: 0.4s; }
-    .mobile-nav a:nth-child(5) { animation-delay: 0.5s; }
-    .mobile-nav a:nth-child(6) { animation-delay: 0.6s; }
-    .mobile-nav a:hover { background: rgba(255, 255, 255, 0.03); color: #00abf0; transform: translateX(5px); }
-    .close-btn {
-      position: absolute; top: 12px; right: 12px; background: transparent; border: none; color: #fff;
-      font-size: 28px; padding: 6px; cursor: pointer; transition: color 0.3s, transform 0.3s;
-    }
-    .close-btn:hover { color: #00abf0; transform: rotate(90deg); }
-    .close-btn:focus { outline: 3px solid rgba(0, 171, 240, 0.12); }
+    .mobile-nav a:hover { color: #00abf0; transform: translateX(5px); }
 
     /* ---------- Content ---------- */
     .home {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      padding: 0 10%; margin-top: 80px;
+      padding: 120px 10% 40px;
     }
     .home-content {
       max-width: 600px; animation: fadeInUp 0.8s ease-out;
@@ -253,43 +123,23 @@
     .contact-form {
       display: flex; flex-direction: column;
     }
-    .contact-form label {
-      margin: 10px 0 6px; opacity: 0; transform: translateY(20px);
-      animation: slideInUp 0.5s ease-out forwards;
-    }
-    .contact-form label:nth-child(1) { animation-delay: 0.1s; }
-    .contact-form label:nth-child(3) { animation-delay: 0.2s; }
-    .contact-form label:nth-child(5) { animation-delay: 0.3s; }
-    .contact-form label:nth-child(7) { animation-delay: 0.4s; }
+    .contact-form label { margin: 10px 0 6px; }
     .contact-form input, .contact-form textarea {
-      padding: 10px; margin-bottom: 20px; border: 2px solid #444; border-radius: 6px;
-      background: #f5f5f5; color: #333; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      opacity: 0; transform: translateY(20px); animation: slideInUp 0.5s ease-out forwards;
+      padding: 12px; margin-bottom: 20px; border-radius: 12px;
+      border: none; background: rgba(255,255,255,0.15); color: #fff;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .contact-form input:nth-child(2) { animation-delay: 0.15s; }
-    .contact-form input:nth-child(4) { animation-delay: 0.25s; }
-    .contact-form input:nth-child(6) { animation-delay: 0.35s; }
-    .contact-form textarea { animation-delay: 0.45s; }
     .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #00abf0; transform: scale(1.02); box-shadow: 0 0 8px rgba(0, 171, 240, 0.3); outline: none;
+      transform: scale(1.02); box-shadow: 0 0 12px rgba(0, 171, 240, 0.4); outline: none;
     }
     .send-btn {
-      font-family: inherit; font-size: 16px; background: #00abf0; color: #fff; padding: 0.6em 0.9em;
-      display: flex; align-items: center; justify-content: center; border-radius: 14px; border: 2px solid #000;
-      cursor: pointer; transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      animation: fadeIn 0.8s ease-out 0.5s both;
+      font-family: inherit; font-size: 16px; padding: 0.8em 1.2em; display: flex; align-items: center;
+      justify-content: center; border: none;
     }
-    .send-btn:hover {
-      background: #008acb; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 171, 240, 0.3);
-    }
-    .send-btn[aria-busy="true"] {
-      background: #005f8a; transform: scale(0.95); cursor: not-allowed;
-    }
-    .send-btn span { margin-left: 0.4em; }
     .success-message {
       display: none; margin-top: 20px; padding: 10px; background: #4caf50; color: #fff;
-      border-radius: 6px; text-align: center; opacity: 0; transform: scale(0.8);
-      animation: popIn 0.5s ease-out forwards;
+      border-radius: 6px; text-align: center;
     }
 
     /* Footer */
@@ -297,134 +147,40 @@
       padding: 22px 10%; text-align: center;
     }
     footer .socials a {
-      margin: 0 10px; font-size: 24px; color: #00abf0; transition: color 0.3s, transform 0.3s;
-      opacity: 0; transform: translateY(20px); animation: slideInUp 0.5s ease-out forwards;
-    }
-    footer .socials a:nth-child(1) { animation-delay: 0.1s; }
-    footer .socials a:nth-child(2) { animation-delay: 0.2s; }
-    footer .socials a:nth-child(3) { animation-delay: 0.3s; }
-    footer .socials a:hover { color: #008acb; transform: translateY(-2px); }
-    footer p {
-      margin-top: 10px; color: #aaa; font-size: 14px;
-      opacity: 0; transform: translateY(20px); animation: slideInUp 0.5s ease-out forwards 0.4s;
+      margin: 0 10px; font-size: 24px; color: #00abf0; transition: transform 0.3s;
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slideInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
     /* Responsive */
     @media (max-width: 802px) {
       .header { padding: 10px 5%; }
       #menuBtn { display: flex; }
       .navbar-desktop { display: none; }
-      .home { padding: 120px 5% 40px; align-items: flex-start; }
+      .home { padding: 140px 5% 40px; align-items: flex-start; }
       .home-content h1 { font-size: 28px; }
-      .contact-form input, .contact-form textarea { padding: 8px; width: 100%; }
-      .send-btn { width: 100%; padding: 12px 14px; font-size: 16px; }
     }
   </style>
 </head>
 <body>
-  <div id="loader">
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="box-of-star">
-      <div class="star star-position1"></div>
-      <div class="star star-position2"></div>
-      <div class="star star-position3"></div>
-      <div class="star star-position4"></div>
-      <div class="star star-position5"></div>
-      <div class="star star-position6"></div>
-      <div class="star star-position7"></div>
-    </div>
-    <div class="astronaut">
-      <div class="head"></div>
-      <div class="arm arm-left"></div>
-      <div class="arm arm-right"></div>
-      <div class="body">
-        <div class="panel"></div>
-      </div>
-      <div class="leg leg-left"></div>
-      <div class="leg leg-right"></div>
-      <div class="schoolbag"></div>
-    </div>
-  </div>
 
-  <div class="content-wrapper" style="display: none;">
-    <header class="header">
+  <div class="content-wrapper">
+    <header class="header glass">
       <a class="logo" href="index.html" aria-label="Home">Irfan.</a>
       <nav class="navbar-desktop" aria-label="Main navigation">
-        <a id="nav-home" href="index.html" class="loader-button">Home</a>
-        <a id="nav-about" href="about.html" class="loader-button">About Me</a>
-        <a id="nav-education" href="Resume.html" class="loader-button">Education</a>
-        <a id="nav-skills" href="Skills.html" class="loader-button">Skills</a>
-        <a id="nav-hire" href="HireMe.html" class="loader-button">Hire Me</a>
-        <a id="nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf" class="loader-button">CV</a>
+        <a id="nav-home" href="index.html">Home</a>
+        <a id="nav-about" href="about.html">About Me</a>
+        <a id="nav-education" href="Resume.html">Education</a>
+        <a id="nav-skills" href="Skills.html">Skills</a>
+        <a id="nav-hire" href="HireMe.html">Hire Me</a>
+        <a id="nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
       </nav>
       <div class="header-right">
-        <label class="plane-switch" aria-label="Toggle language: English or French">
-          <input type="checkbox" id="translate-toggle" aria-label="Toggle language">
-          <div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                <path d="M8 2v60" stroke="currentColor" stroke-width="4" fill="none"></path>
-                <path d="M8 2h48l-8 16 8 16h-48z" stroke="currentColor" stroke-width="4" fill="none"></path>
-              </svg>
-            </div>
-            <span class="street-middle"></span>
-            <span class="cloud"></span>
-            <span class="cloud two"></span>
-          </div>
-        </label>
-        <button id="menuBtn" aria-label="Open menu" aria-expanded="false" title="Menu">
+        <button id="menuBtn" aria-label="Open menu" aria-expanded="false" class="glass-button">
           <div class="menu__icon">
             <span></span>
             <span></span>
@@ -433,18 +189,20 @@
         </button>
       </div>
     </header>
+
     <div class="overlay" id="overlay" aria-hidden="true"></div>
-    <nav class="mobile-nav" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
-      <button class="close-btn" id="closeBtn" aria-label="Close menu">✕</button>
+    <nav class="mobile-nav glass" id="mobileNav" aria-hidden="true" aria-label="Mobile navigation">
+      <button class="close-btn" id="closeBtn">✕</button>
       <div class="nav-inner">
-        <a id="m-nav-home" href="index.html" class="loader-button">Home</a>
-        <a id="m-nav-about" href="about.html" class="loader-button">About Me</a>
-        <a id="m-nav-education" href="Resume.html" class="loader-button">Education</a>
-        <a id="m-nav-skills" href="Skills.html" class="loader-button">Skills</a>
-        <a id="m-nav-hire" href="HireMe.html" class="loader-button">Hire Me</a>
-        <a id="m-nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf" class="loader-button">CV</a>
+        <a id="m-nav-home" href="index.html">Home</a>
+        <a id="m-nav-about" href="about.html">About Me</a>
+        <a id="m-nav-education" href="Resume.html">Education</a>
+        <a id="m-nav-skills" href="Skills.html">Skills</a>
+        <a id="m-nav-hire" href="HireMe.html">Hire Me</a>
+        <a id="m-nav-cv" href="Nouveau dossier/Irfan_CVmot-8.pdf">CV</a>
       </div>
     </nav>
+
     <section class="home">
       <div class="home-content">
         <h1 id="contact-title">Contact Me</h1>
@@ -457,17 +215,14 @@
           <input id="subject" name="subject" type="text" required>
           <label for="message">Message *</label>
           <textarea id="message" name="message" rows="4" required></textarea>
-          <button type="submit" class="send-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-            </svg>
+          <button type="submit" class="send-btn glass-button">
             <span id="send-btn-text">Send</span>
           </button>
         </form>
         <div id="successMessage" class="success-message">Your message has been sent!</div>
       </div>
     </section>
+
     <footer>
       <div class="socials">
         <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
@@ -477,161 +232,51 @@
       <p id="footer-text">&copy; 2025 Irfan Khan. All rights reserved.</p>
     </footer>
   </div>
+
   <script>
     // EmailJS init
-    (function() {
-      try {
-        emailjs.init("9RiO1EMmVFptFknAB");
-      } catch (e) {
-        console.warn('EmailJS init failed', e);
-      }
-    })();
+    emailjs.init("n0tn-frTo9IePXRDG");
 
-    // Loader and Navigation
-    document.addEventListener('DOMContentLoaded', () => {
-      const loader = document.getElementById('loader');
-      const contentWrapper = document.querySelector('.content-wrapper');
-      const navbarDesktop = document.querySelector('.navbar-desktop');
-
-      // Ensure navbar is visible on load for desktop
-      if (window.innerWidth > 802) {
-        navbarDesktop.style.display = 'flex';
-        navbarDesktop.style.visibility = 'visible';
-      }
-
-      const hideLoader = () => {
-        loader.classList.add('hidden');
-        setTimeout(() => {
-          loader.style.display = 'none';
-          contentWrapper.style.display = 'block';
-          contentWrapper.style.opacity = '1';
-        }, 500);
-      };
-
-      window.addEventListener('load', () => setTimeout(hideLoader, 1500));
-
-      // Navigation with loader
-      document.querySelectorAll('.loader-button').forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          const href = button.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
-          const target = button.getAttribute('target');
-          loader.style.display = 'block';
-          loader.classList.remove('hidden');
-          contentWrapper.style.opacity = '0';
-          setTimeout(() => {
-            if (target === '_blank') {
-              window.open(href, '_blank');
-            } else {
-              window.location.href = href;
-            }
-          }, 1000);
+    // Form submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.send-btn');
+      btn.disabled = true;
+      emailjs.sendForm("service_kso7aaj", "template_x3xlti9", this)
+        .then(() => {
+          document.getElementById('successMessage').style.display = 'block';
+          this.reset();
+          btn.disabled = false;
+          setTimeout(() => { document.getElementById('successMessage').style.display = 'none'; }, 3000);
+        })
+        .catch(err => {
+          console.error('EmailJS error:', err);
+          const msg = err?.text || err?.message || JSON.stringify(err);
+          alert('Erreur: ' + msg);
+          btn.disabled = false;
         });
-      });
-
-      // Form submit via EmailJS
-      document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const btn = this.querySelector('.send-btn');
-        btn.disabled = true;
-        btn.setAttribute('aria-busy', 'true');
-        emailjs.sendForm("service_21pc3zs", "template_luj2d4h", this)
-          .then(() => {
-            document.getElementById('successMessage').style.display = 'block';
-            this.reset();
-            btn.disabled = false;
-            btn.removeAttribute('aria-busy');
-            setTimeout(() => {
-              document.getElementById('successMessage').style.display = 'none';
-            }, 3000);
-          })
-          .catch(() => {
-            alert('Error: Message not sent. Please try again later.');
-            btn.disabled = false;
-            btn.removeAttribute('aria-busy');
-          });
-      });
-
-      // Language toggle
-      const translateToggle = document.getElementById('translate-toggle');
-      translateToggle.addEventListener('change', () => {
-        const isFrench = translateToggle.checked;
-        translateToggle.setAttribute('aria-label', isFrench ? 'Switch to English' : 'Switch to French');
-        document.getElementById('contact-title').textContent = isFrench ? 'Contactez-moi' : 'Contact Me';
-        document.querySelector('.contact-form label[for="email"]').textContent = isFrench ? 'Email *' : 'Email *';
-        document.querySelector('.contact-form label[for="phone"]').textContent = isFrench ? 'Téléphone *' : 'Phone *';
-        document.querySelector('.contact-form label[for="subject"]').textContent = isFrench ? 'Sujet *' : 'Subject *';
-        document.querySelector('.contact-form label[for="message"]').textContent = isFrench ? 'Message *' : 'Message *';
-        document.getElementById('send-btn-text').textContent = isFrench ? 'Envoyer' : 'Send';
-        document.getElementById('successMessage').textContent = isFrench ? 'Votre message a été envoyé !' : 'Your message has been sent!';
-        document.getElementById('nav-home').textContent = isFrench ? 'Accueil' : 'Home';
-        document.getElementById('nav-about').textContent = isFrench ? 'À propos' : 'About Me';
-        document.getElementById('nav-education').textContent = isFrench ? 'Éducation' : 'Education';
-        document.getElementById('nav-skills').textContent = isFrench ? 'Compétences' : 'Skills';
-        document.getElementById('nav-hire').textContent = isFrench ? 'Choisissez-moi' : 'Hire Me';
-        document.getElementById('nav-cv').textContent = 'CV';
-        document.getElementById('m-nav-home').textContent = isFrench ? 'Accueil' : 'Home';
-        document.getElementById('m-nav-about').textContent = isFrench ? 'À propos' : 'About Me';
-        document.getElementById('m-nav-education').textContent = isFrench ? 'Éducation' : 'Education';
-        document.getElementById('m-nav-skills').textContent = isFrench ? 'Compétences' : 'Skills';
-        document.getElementById('m-nav-hire').textContent = isFrench ? 'Choisissez-moi' : 'Hire Me';
-        document.getElementById('m-nav-cv').textContent = 'CV';
-        document.getElementById('footer-text').textContent = isFrench
-          ? '© 2025 Irfan Khan. Tous droits réservés.'
-          : '© 2025 Irfan Khan. All rights reserved.';
-      });
-
-      // Mobile menu
-      const menuBtn = document.getElementById('menuBtn');
-      const overlay = document.getElementById('overlay');
-      const mobileNav = document.getElementById('mobileNav');
-      const closeBtn = document.getElementById('closeBtn');
-
-      const openMenu = () => {
-        document.body.classList.add('menu-open');
-        menuBtn.setAttribute('aria-expanded', 'true');
-        overlay.setAttribute('aria-hidden', 'false');
-        mobileNav.setAttribute('aria-hidden', 'false');
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => closeBtn.focus(), 180);
-      };
-
-      const closeMenu = () => {
-        document.body.classList.remove('menu-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        overlay.setAttribute('aria-hidden', 'true');
-        mobileNav.setAttribute('aria-hidden', 'true');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        menuBtn.focus();
-      };
-
-      menuBtn.addEventListener('click', () => {
-        if (document.body.classList.contains('menu-open')) closeMenu();
-        else openMenu();
-      });
-
-      overlay.addEventListener('click', closeMenu);
-      closeBtn.addEventListener('click', closeMenu);
-      document.querySelectorAll('.nav-inner a').forEach(a => {
-        a.addEventListener('click', () => closeMenu());
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
-      });
-
-      // Ensure navbar visibility on resize
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 802) {
-          navbarDesktop.style.display = 'flex';
-          navbarDesktop.style.visibility = 'visible';
-          closeMenu();
-        } else {
-          navbarDesktop.style.display = 'none';
-        }
-      });
     });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const overlay = document.getElementById('overlay');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('closeBtn');
+    const openMenu = () => {
+      document.body.classList.add('menu-open'); menuBtn.setAttribute('aria-expanded','true');
+      overlay.setAttribute('aria-hidden','false'); mobileNav.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden'; closeBtn.focus();
+    };
+    const closeMenu = () => {
+      document.body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded','false');
+      overlay.setAttribute('aria-hidden','true'); mobileNav.setAttribute('aria-hidden','true');
+      document.body.style.overflow=''; menuBtn.focus();
+    };
+    menuBtn.addEventListener('click', ()=>document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-inner a').forEach(a=>a.addEventListener('click', closeMenu));
+    window.addEventListener('resize',()=>{ if(window.innerWidth>802){ closeMenu(); } });
   </script>
 </body>
 </html>
