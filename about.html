@@ -98,18 +98,39 @@
             </div>
             <div class="about-content">
                 <h1 id="about-title">À propos de moi</h1>
-                <p id="about-text">Je suis un lycéen passionné par les nouvelles technologies, l'informatique et l'intelligence artificielle. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (Numérique et Sciences Informatiques) pour approfondir mes compétences techniques et développer un esprit innovant. J'adore explorer les nouvelles technologies, en particulier l'IA et la data science, et je prends un grand plaisir à coder et programmer.</p>
+
+                <p id="about-text">
+                    Je suis un lycéen passionné par l'innovation technologique et l'intelligence artificielle. 
+                    Spécialisé en Mathématiques et NSI, je transforme chaque défi en opportunité d'apprendre et de créer. 
+                    Je développe des projets concrets qui mêlent code, analyse de données et résolution de problèmes complexes, 
+                    pour préparer un futur où la technologie améliore la vie et transforme les idées en solutions impactantes.
+                </p>
+
                 <details>
-                    <summary id="summary-ai">Pourquoi l'IA et la Data m'attirent</summary>
-                    <p id="ai-text">L'intelligence artificielle et la science des données représentent l'avenir de l'innovation. Je suis fasciné par la capacité de l'IA à transformer les industries grâce à l'automatisation, l'analyse prédictive et les systèmes intelligents. La data science me permet de découvrir des patterns cachés dans les données et de créer des modèles qui peuvent prédire et optimiser des processus complexes. Ces domaines combinent parfaitement la logique mathématique et la créativité technologique.</p>
+                    <summary id="summary-ai">Pourquoi l’IA, la Data et les Mathématiques appliquées</summary>
+                    <p id="ai-text">
+                        L'intelligence artificielle et la data science sont au cœur des innovations de demain. 
+                        Je suis fasciné par leur capacité à automatiser, prédire et optimiser des systèmes complexes. 
+                        Explorer ces domaines me permet de combiner rigueur mathématique, logique algorithmique et créativité technique, 
+                        afin de créer des solutions efficaces et mesurables.
+                    </p>
                 </details>
+
                 <details>
-                    <summary id="summary-goals">Mes objectifs académiques</summary>
-                    <p id="goals-text">Je vise à intégrer une université réputée pour ses programmes en informatique, ingénierie ou data science, en particulier ceux qui excellent dans la recherche en IA et offrent des installations de pointe. Mon ambition est de contribuer aux avancées technologiques dans le domaine de l'intelligence artificielle et de l'analyse de données, en développant des solutions innovantes qui peuvent avoir un impact positif sur la société.</p>
+                    <summary id="summary-goals">Mon projet d’études</summary>
+                    <p id="goals-text">
+                        Mon ambition est d’intégrer une formation d’excellence en informatique, data science ou réseaux, 
+                        que ce soit un BUT, une licence ou une école d’ingénieurs. Je vise à acquérir des compétences pointues en IA, analyse de données et innovation numérique, 
+                        pour concevoir des projets concrets qui ont un impact réel sur la société et les entreprises.
+                    </p>
                 </details>
+
                 <details>
-                    <summary id="summary-vision">Préparation et vision</summary>
-                    <p id="vision-text">Pour préparer mes candidatures universitaires, je maintiens d'excellentes notes, participe à des projets de programmation et des compétitions en ligne, et cultive des relations avec des mentors dans le domaine technologique. Je reste constamment curieux, en apprenant de nouvelles technologies et frameworks, et je suis déterminé à contribuer au progrès technologique. Mon objectif est de devenir un expert en IA et data science, capable de résoudre des problèmes complexes du monde réel.</p>
+                    <summary id="summary-vision">Préparation et engagement</summary>
+                    <p id="vision-text">
+                        Pour atteindre mes objectifs, je maintiens un haut niveau académique, développe des projets personnels et participe à des challenges de programmation. 
+                        Curieux et autonome, je m’engage à apprendre constamment de nouvelles technologies pour devenir un acteur clé de la transformation numérique.
+                    </p>
                 </details>
             </div>
         </main>
@@ -126,7 +147,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle CV button clicks
             const cvButtons = document.querySelectorAll('#cv-button, #cv-button-mobile');
             cvButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
@@ -135,7 +155,6 @@
                 });
             });
 
-            // Mobile menu controls
             const menuBtn = document.getElementById('menuBtn');
             const overlay = document.getElementById('overlay');
             const mobileNav = document.getElementById('mobileNav');
@@ -177,20 +196,18 @@
                 if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
             });
 
-            // Translation script
             const translateToggle = document.getElementById('translate-toggle');
             translateToggle.addEventListener('change', function() {
                 if (this.checked) {
-                    // Traduction en anglais
                     translateToggle.setAttribute('aria-label', 'Switch to French');
                     document.getElementById('about-title').innerText = "About Me";
-                    document.getElementById('about-text').innerText = "I am a high school student passionate about new technologies, computer science, and artificial intelligence. I chose to specialize in mathematics, physics-chemistry, and NSI (Digital and Computer Science) to deepen my technical skills and develop an innovative mindset. I love exploring new technologies, especially AI and data science, and I take great pleasure in coding and programming.";
-                    document.getElementById('summary-ai').innerText = "Why AI and Data attract me";
-                    document.getElementById('ai-text').innerText = "Artificial intelligence and data science represent the future of innovation. I'm fascinated by AI's ability to transform industries through automation, predictive analytics, and intelligent systems. Data science allows me to discover hidden patterns in data and create models that can predict and optimize complex processes. These fields perfectly combine mathematical logic and technological creativity.";
+                    document.getElementById('about-text').innerText = "I am a high school student driven by technological innovation and artificial intelligence. Specializing in Mathematics and Computer Science, I turn every challenge into an opportunity to learn and create. I build real projects that combine coding, data analysis, and complex problem-solving to shape a future where technology improves lives and transforms ideas into impactful solutions.";
+                    document.getElementById('summary-ai').innerText = "Why AI, Data & Applied Mathematics attract me";
+                    document.getElementById('ai-text').innerText = "Artificial intelligence and data science are at the heart of tomorrow's innovations. I am fascinated by their ability to automate, predict, and optimize complex systems. Exploring these fields allows me to combine mathematical rigor, algorithmic logic, and technical creativity to deliver efficient and measurable solutions.";
                     document.getElementById('summary-goals').innerText = "My Academic Goals";
-                    document.getElementById('goals-text').innerText = "I aim to attend a university renowned for its computer science, engineering, or data science programs, especially those excelling in AI research and offering state-of-the-art facilities. My ambition is to contribute to technological advances in artificial intelligence and data analysis, developing innovative solutions that can have a positive impact on society.";
+                    document.getElementById('goals-text').innerText = "My ambition is to join a top-tier program in computer science, data science, or networks, whether a BUT, a bachelor's degree, or an engineering school. I aim to acquire advanced skills in AI, data analysis, and digital innovation to design concrete projects that make a real impact on society and businesses.";
                     document.getElementById('summary-vision').innerText = "Preparation & Vision";
-                    document.getElementById('vision-text').innerText = "To prepare for university applications, I maintain excellent grades, participate in programming projects and online competitions, and foster relationships with mentors in the tech field. I stay constantly curious, learning new technologies and frameworks, and I'm determined to contribute to technological progress. My goal is to become an expert in AI and data science, capable of solving complex real-world problems.";
+                    document.getElementById('vision-text').innerText = "To achieve my goals, I maintain strong academic performance, develop personal projects, and participate in programming challenges. Curious and autonomous, I commit to continuously learning new technologies to become a key player in digital transformation.";
                     document.getElementById('nav-home').innerText = "Home";
                     document.getElementById('nav-about').innerText = "About Me";
                     document.getElementById('nav-education').innerText = "Education";
@@ -205,16 +222,15 @@
                     document.getElementById('nav-cv-mobile').innerText = "CV";
                     document.getElementById('footer-text').innerText = "© 2024 Irfan Khan. All rights reserved.";
                 } else {
-                    // Retour au français
                     translateToggle.setAttribute('aria-label', 'Switch to English');
                     document.getElementById('about-title').innerText = "À propos de moi";
-                    document.getElementById('about-text').innerText = "Je suis un lycéen passionné par les nouvelles technologies, l'informatique et l'intelligence artificielle. J'ai choisi de me spécialiser en mathématiques, physique-chimie et NSI (Numérique et Sciences Informatiques) pour approfondir mes compétences techniques et développer un esprit innovant. J'adore explorer les nouvelles technologies, en particulier l'IA et la data science, et je prends un grand plaisir à coder et programmer.";
-                    document.getElementById('summary-ai').innerText = "Pourquoi l'IA et la Data m'attirent";
-                    document.getElementById('ai-text').innerText = "L'intelligence artificielle et la science des données représentent l'avenir de l'innovation. Je suis fasciné par la capacité de l'IA à transformer les industries grâce à l'automatisation, l'analyse prédictive et les systèmes intelligents. La data science me permet de découvrir des patterns cachés dans les données et de créer des modèles qui peuvent prédire et optimiser des processus complexes. Ces domaines combinent parfaitement la logique mathématique et la créativité technologique.";
-                    document.getElementById('summary-goals').innerText = "Mes objectifs académiques";
-                    document.getElementById('goals-text').innerText = "Je vise à intégrer une université réputée pour ses programmes en informatique, ingénierie ou data science, en particulier ceux qui excellent dans la recherche en IA et offrent des installations de pointe. Mon ambition est de contribuer aux avancées technologiques dans le domaine de l'intelligence artificielle et de l'analyse de données, en développant des solutions innovantes qui peuvent avoir un impact positif sur la société.";
-                    document.getElementById('summary-vision').innerText = "Préparation et vision";
-                    document.getElementById('vision-text').innerText = "Pour préparer mes candidatures universitaires, je maintiens d'excellentes notes, participe à des projets de programmation et des compétitions en ligne, et cultive des relations avec des mentors dans le domaine technologique. Je reste constamment curieux, en apprenant de nouvelles technologies et frameworks, et je suis déterminé à contribuer au progrès technologique. Mon objectif est de devenir un expert en IA et data science, capable de résoudre des problèmes complexes du monde réel.";
+                    document.getElementById('about-text').innerText = "Je suis un lycéen passionné par l'innovation technologique et l'intelligence artificielle. Spécialisé en Mathématiques et NSI, je transforme chaque défi en opportunité d'apprendre et de créer. Je développe des projets concrets qui mêlent code, analyse de données et résolution de problèmes complexes, pour préparer un futur où la technologie améliore la vie et transforme les idées en solutions impactantes.";
+                    document.getElementById('summary-ai').innerText = "Pourquoi l’IA, la Data et les Mathématiques appliquées";
+                    document.getElementById('ai-text').innerText = "L'intelligence artificielle et la data science sont au cœur des innovations de demain. Je suis fasciné par leur capacité à automatiser, prédire et optimiser des systèmes complexes. Explorer ces domaines me permet de combiner rigueur mathématique, logique algorithmique et créativité technique, afin de créer des solutions efficaces et mesurables.";
+                    document.getElementById('summary-goals').innerText = "Mon projet d’études";
+                    document.getElementById('goals-text').innerText = "Mon ambition est d’intégrer une formation d’excellence en informatique, data science ou réseaux, que ce soit un BUT, une licence ou une école d’ingénieurs. Je vise à acquérir des compétences pointues en IA, analyse de données et innovation numérique, pour concevoir des projets concrets qui ont un impact réel sur la société et les entreprises.";
+                    document.getElementById('summary-vision').innerText = "Préparation et engagement";
+                    document.getElementById('vision-text').innerText = "Pour atteindre mes objectifs, je maintiens un haut niveau académique, développe des projets personnels et participe à des challenges de programmation. Curieux et autonome, je m’engage à apprendre constamment de nouvelles technologies pour devenir un acteur clé de la transformation numérique.";
                     document.getElementById('nav-home').innerText = "Accueil";
                     document.getElementById('nav-about').innerText = "À propos";
                     document.getElementById('nav-education').innerText = "Éducation";
