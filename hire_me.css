@@ -627,6 +627,14 @@
       display: none;
     }
 
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
     .testimonials {
       margin-bottom: 2rem;
     }

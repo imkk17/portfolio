@@ -61,18 +61,6 @@
         <a href="Resume.html" id="nav-education" class="loader-button">Éducation</a>
         <a href="Skills.html" id="nav-skills" class="loader-button">Compétences</a>
         <a href="HireMe.html" id="nav-hire" class="active loader-button">Projet</a>
-        <button class="download-button loader-button" id="cv-button" aria-label="Télécharger CV">
-          <div class="docs">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            <span id="nav-cv">CV</span>
-          </div>
-        </button>
       </nav>
       <nav class="navbar-mobile" id="mobileNav" aria-hidden="true" aria-label="Navigation mobile">
         <button class="close-btn" id="closeBtn" aria-label="Fermer le menu">✕</button>
@@ -82,18 +70,6 @@
           <a href="Resume.html" id="nav-education-mobile" class="loader-button">Éducation</a>
           <a href="Skills.html" id="nav-skills-mobile" class="loader-button">Compétences</a>
           <a href="HireMe.html" id="nav-hire-mobile" class="active loader-button">Projet</a>
-          <button class="download-button loader-button" id="cv-button-mobile" aria-label="Télécharger CV">
-            <div class="docs">
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              <span id="nav-cv-mobile">CV</span>
-            </div>
-          </button>
         </div>
       </nav>
       <div class="language-toggle">
@@ -160,25 +136,6 @@
               </button>
             </div>
 
-            <!-- Calculatrice -->
-            <div class="work-item" id="work-calculator">
-              <h3>Calculatrice Scientifique</h3>
-              <video controls poster="Nouveau dossier/calculatrice_project.webp" aria-label="Démo du projet Calculatrice" class="mastermind-video">
-                <source src="Nouveau dossier/demo_calculator.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-              </video>
-              <p id="calc-desc">Application de calculatrice complète avec interface graphique moderne, incluant fonctions scientifiques et gestion des erreurs.</p>
-              <button class="play-now-btn download-with-instructions" 
-                      data-file="Nouveau dossier/calculatrice.py" 
-                      data-project="calculator"
-                      aria-label="Télécharger le projet Calculatrice">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
-                </svg>
-                <span id="play-calculator">Télécharger</span>
-              </button>
-            </div>
-
             <!-- Pokedex -->
             <div class="work-item" id="work-pokedex">
               <h3>Pokédex Interactif</h3>
@@ -186,18 +143,20 @@
                 <img src="Nouveau dossier/International_Pokémon_logo.svg.png" alt="Projet Pokédex" class="mastermind-image">
               </a>
               <p id="pokedex-desc">Application web interactive développée avec HTML, CSS et JavaScript, intégrant une API REST pour afficher des données Pokémon en temps réel.</p>
-              <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visiter le projet Pokédex" class="play-now-btn loader-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
-                </svg>
-                <span id="visit-pokedex">Visiter</span>
-              </a>
-              <button class="download-button download-with-instructions" 
-                      data-file="Nouveau dossier/POKEDEX project.zip" 
-                      data-project="pokedex"
-                      aria-label="Télécharger le projet Pokédex">
-                <span id="download-pokedex">Télécharger</span>
-              </button>
+              <div class="button-container">
+                <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Visiter le projet Pokédex" class="play-now-btn loader-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
+                  </svg>
+                  <span id="visit-pokedex">Visiter</span>
+                </a>
+                <button class="download-button download-with-instructions" 
+                        data-file="Nouveau dossier/POKEDEX project.zip" 
+                        data-project="pokedex"
+                        aria-label="Télécharger le projet Pokédex">
+                  <span id="download-pokedex">Télécharger</span>
+                </button>
+              </div>
             </div>
 
             <!-- Chatbot -->
@@ -292,30 +251,6 @@
             'Have fun playing!'
           ],
           warning: 'Make sure you have Python installed on your computer before running this file.'
-        }
-      },
-      calculator: {
-        fr: {
-          title: 'Instructions - Calculatrice',
-          steps: [
-            'Vérifiez que <code>Python 3.x</code> est installé',
-            'Téléchargez le fichier <code>calculatrice.py</code>',
-            'Installez les dépendances si nécessaire : <code>pip install tkinter</code>',
-            'Naviguez vers le dossier du fichier',
-            'Lancez avec : <code>python calculatrice.py</code>'
-          ],
-          warning: 'Le module Tkinter est généralement inclus avec Python. Si ce n\'est pas le cas, installez-le d\'abord.'
-        },
-        en: {
-          title: 'Instructions - Calculator',
-          steps: [
-            'Check that <code>Python 3.x</code> is installed',
-            'Download the file <code>calculatrice.py</code>',
-            'Install dependencies if needed: <code>pip install tkinter</code>',
-            'Navigate to the file directory',
-            'Run with: <code>python calculatrice.py</code>'
-          ],
-          warning: 'Tkinter module is usually included with Python. If not, install it first.'
         }
       },
       pokedex: {
@@ -588,13 +523,11 @@
         document.getElementById('nav-education').textContent = isFrench ? 'Éducation' : 'Education';
         document.getElementById('nav-skills').textContent = isFrench ? 'Compétences' : 'Skills';
         document.getElementById('nav-hire').textContent = isFrench ? 'Projet' : 'Project';
-        document.getElementById('nav-cv').textContent = 'CV';
         document.getElementById('nav-home-mobile').textContent = isFrench ? 'Accueil' : 'Home';
         document.getElementById('nav-about-mobile').textContent = isFrench ? 'À Propos' : 'About Me';
         document.getElementById('nav-education-mobile').textContent = isFrench ? 'Éducation' : 'Education';
         document.getElementById('nav-skills-mobile').textContent = isFrench ? 'Compétences' : 'Skills';
         document.getElementById('nav-hire-mobile').textContent = isFrench ? 'Projet' : 'Project';
-        document.getElementById('nav-cv-mobile').textContent = 'CV';
         
         // Footer
         document.getElementById('footer-text').textContent = isFrench

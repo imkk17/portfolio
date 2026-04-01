@@ -715,6 +715,215 @@
     .project:nth-child(1) { --i: 1; }
     .project:nth-child(2) { --i: 2; }
     .project:nth-child(3) { --i: 3; }
+    .project:nth-child(4) { --i: 4; }
+
+    .project-netflix {
+      position: relative;
+      background: linear-gradient(145deg, #0a1925, #111f34);
+      border: 2px solid #e50914;
+      overflow: hidden;
+    }
+
+    .project-netflix h3,
+    .project-netflix p,
+    .project-netflix a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-netflix h3 {
+      color: #e50914;
+    }
+
+    /* Netflix Tudum-type animation card */
+    #container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      overflow: hidden;
+      padding: 0;
+      pointer-events: none;
+    }
+
+    netflixintro {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      animation: zoom-in 3.5s ease-in .5s infinite alternate;
+      background-size: 4000px;
+      background-position: -1950px 0;
+    }
+
+    netflixintro::before {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: #000;
+      width: 150%;
+      height: 30%;
+      left: -25%;
+      bottom: -27%;
+      border-radius: 50%;
+      z-index: 5;
+      transform-origin: left center;
+      background-size: 4000px;
+      background-position: -1950px 0;
+    }
+
+    /* Helper shapes and animation */
+    netflixintro .helper-1,
+    netflixintro .helper-2,
+    netflixintro .helper-3,
+    netflixintro .helper-4 {
+      position: absolute;
+    }
+
+    netflixintro .helper-1 .effect-brush,
+    netflixintro .helper-2 .effect-brush,
+    netflixintro .helper-3 .effect-brush,
+    netflixintro .helper-4 .effect-brush {
+      position: absolute;
+      width: 100%;
+      height: 300%;
+      top: 0;
+      overflow: hidden;
+    }
+
+    netflixintro .effect-brush::before {
+      display: block;
+      content: "";
+      position: absolute;
+      background-color: #e40913;
+      width: 100%;
+      height: 70%;
+      box-shadow: 0 0 29px 24px #e40913;
+    }
+
+    netflixintro .effect-brush [class*="fur-"] {
+      display: block;
+      position: absolute;
+      bottom: 10%;
+      height: 30%;
+    }
+
+    /* Light effects */
+    netflixintro .effect-lumieres {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: showing-lumieres 2s .6s infinite alternate;
+    }
+
+    netflixintro .effect-lumieres [class*="lamp-"] {
+      position: absolute;
+      display: block;
+      height: 100%;
+      box-shadow: 0 0 10px 0 rgba(228, 9, 19, .75);
+      background: var(--color);
+    }
+
+    netflixintro .effect-lumieres [class*="lamp-"]::before {
+      position: absolute;
+      content: " ";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--color);
+      box-shadow: 0 0 10px 0 rgba(228, 9, 19, .75);
+    }
+
+    /* Animations */
+    @keyframes brush-moving {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+
+    @keyframes fading-out {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes zoom-in {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+
+    @keyframes showing-lumieres {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    netflixintro[letter="N"] .helper-1 {
+      width: 19.5%;
+      height: 100%;
+      background-color: rgba(228, 9, 19, .5);
+      left: 22.4%;
+      top: 0;
+      transform: rotate(180deg);
+      animation: fading-lumieres-box 2s .6s forwards;
+    }
+
+    netflixintro[letter="N"] .helper-1 .effect-brush {
+      animation: brush-moving 2.5s 1.2s infinite alternate;
+    }
+
+    netflixintro[letter="N"] .helper-3 {
+      width: 19%;
+      height: 150%;
+      left: 40.5%;
+      top: -25%;
+      transform: rotate(-19.5deg);
+      box-shadow: 0 0 35px -12px rgba(0, 0, 0, .4);
+      overflow: hidden;
+    }
+
+    netflixintro[letter="N"] .helper-3 .effect-brush {
+      animation: brush-moving 2s .8s infinite alternate;
+    }
+
+    netflixintro[letter="N"] .helper-2 {
+      width: 19.5%;
+      height: 100%;
+      left: 57.8%;
+      top: 0;
+      transform: rotate(180deg);
+      overflow: hidden;
+    }
+
+    netflixintro[letter="N"] .helper-2 .effect-brush {
+      animation: brush-moving 2s .5s infinite alternate;
+    }
+
+    @keyframes fading-lumieres-box {
+      0% { background-color: rgba(228, 9, 19, .5); }
+      100% { background-color: rgba(228, 9, 19, 0); }
+    }
+
+    .tudum-animation span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px) scale(0.8);
+      animation: tudumPulse 1.2s infinite ease-in-out;
+    }
+
+    .tudum-animation span:first-child { animation-delay: 0s; }
+    .tudum-animation span:last-child { animation-delay: 0.4s; }
+
+    @keyframes tudumPulse {
+      0%, 100% { opacity: 0; transform: translateY(10px) scale(0.8); }
+      35%, 65% { opacity: 1; transform: translateY(0) scale(1.05); }
+      50% { color: #e50914; text-shadow: 0 0 25px rgba(229, 9, 20, 0.75); }
+    }
 
     @keyframes slideInUp {
       from { opacity: 0; transform: translateY(50px); }
