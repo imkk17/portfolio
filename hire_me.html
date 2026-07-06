@@ -6,10 +6,8 @@
   <title>Embauchez-moi - Irfan Khan</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="hire_me.css">
-  
 </head>
 <body>
-  <!-- Modal Pop-up -->
   <div class="modal-overlay" id="downloadModal">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,8 +23,7 @@
           <span id="modal-subtitle">Comment exécuter ce projet :</span>
         </h4>
         <div class="modal-instructions" id="modalInstructions">
-          <!-- Les instructions seront insérées dynamiquement ici -->
-        </div>
+          </div>
         <div class="modal-warning">
           <i class='bx bx-error'></i>
           <p id="modal-warning">Assurez-vous d'avoir Python installé sur votre ordinateur avant d'exécuter ce fichier.</p>
@@ -111,13 +108,13 @@
               <p>Capacité à mener des projets de A à Z, de la conception à la réalisation, avec rigueur et créativité.</p>
             </div>
           </div>
+          
           <div class="portfolio">
             <h2 id="work-title">Mes Réalisations</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #ededed;">
+            <p id="work-subtitle" style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #ededed;">
               Chaque projet reflète ma passion pour l'informatique et ma volonté d'apprendre continuellement. Ces réalisations illustrent ma capacité à transformer des idées en solutions concrètes et fonctionnelles.
             </p>
             
-            <!-- Mastermind -->
             <div class="work-item" id="work-mastermind">
               <h3>Mastermind</h3>
               <h2>Date : décembre 2024</h2>
@@ -137,7 +134,6 @@
               </button>
             </div>
 
-            <!-- Pokedex -->
             <div class="work-item" id="work-pokedex">
               <h3>Pokédex Interactif</h3>
               <h2>Date : mai 2024</h2>
@@ -161,7 +157,6 @@
               </div>
             </div>
 
-            <!-- Chatbot -->
             <div class="work-item" id="work-chatbot">
               <h3>Chatbot d'Orientation Professionnelle</h3>
               <h2>Date : Janvier 2025</h2>
@@ -169,7 +164,7 @@
                 <source src="Nouveau dossier/chat_bot_demo.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
               </video>
-              <p>Intelligence artificielle simple basée sur des algorithmes de traitement du langage naturel pour guider les utilisateurs dans leurs choix de carrière.</p>
+              <p id="chatbot-desc">Intelligence artificielle simple basée sur des algorithmes de traitement du langage naturel pour guider les utilisateurs dans leurs choix de carrière.</p>
               <button class="play-now-btn download-with-instructions" 
                       data-file="projet/career_chat_bot.py" 
                       data-project="chatbot"
@@ -181,7 +176,6 @@
               </button>
             </div>
             
-            <!-- Survivor -->
             <div class="work-item" id="work-survivor">
               <h3>Survivor</h3>
               <h2>Date : Décembre 2026</h2>
@@ -200,6 +194,7 @@
                 <span id="play-survivor">Télécharger</span>
               </button>
             </div>
+
             <div class="work-item" id="work-ecommerce">
               <h3>Site_web Ecommerce</h3>
               <h2>Date : juillet 2024</h2>
@@ -212,29 +207,31 @@
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
                   </svg>
-                  <span id="visit-pokedex">Visiter</span>
+                  <span id="visit-ecommerce">Visiter</span>
                 </a>
-                <button class="download-button download-with-instructions" 
-                        data-file="Nouveau dossier/POKEDEX project.zip" 
-                        data-project="pokedex"
-                        aria-label="Télécharger le projet Pokédex">
-                  <span id="download-pokedex">Télécharger</span>
-                </button>
               </div>
             </div>
-            <!-- Ajoutez ce bloc dans la section .portfolio, après le bloc #work-survivor -->
-             <div class="work-item" id="work-netflix">
-                <h3>Reproduction de Netflix</h3>
-                <p class="date">Date de finition : 19 juin 2026 (Réalisé en Terminale)</p>
-                <div class="video-container">
-                  <video controls loop muted playsinline poster="Nouveau dossier/netflix_cover.png" class="mastermind-video">
-                    <source src="Nouveau dossier/intro.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la balise vidéo.
-                  </video>
-                </div>
-                <p id="netflix-desc">Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.</p>
-                <a href="https://26term17.eu.pythonanywhere.com" target="_blank" rel="noopener" class="btn">Accéder au projet</a>
-              </div>
+
+            <div class="project project-netflix" id="netflixCard">
+          <div class="video-background">
+            <video autoplay muted loop playsinline class="netflix-back-video">
+              <source src="Nouveau dossier/intro.mp4" type="video/mp4">
+              Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <div class="video-shield"></div>
+          </div>
+          
+          <div class="netflix-card-content">
+            <h3 id="project4-title">Reproduction de Netflix</h3>
+            <p id="project4-desc">Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.</p>
+            <a href="https://26term17.eu.pythonanywhere.com" id="project4-link" target="_blank" rel="noopener">Accéder au projet</a>
+            <span class="click-info"><i class='bx bx-refresh'></i> Cliquez pour revoir l'animation</span>
+          </div>
+
+          <div class="video-overlay-hint">
+            <span><i class='bx bx-info-circle'></i> Cliquez pour le descriptif</span>
+          </div>
+
           </div>
 
           <div class="testimonials" aria-labelledby="testimonials-title">
@@ -264,13 +261,12 @@
   </div>
 
   <script>
-    // Instructions pour chaque projet
     const projectInstructions = {
       mastermind: {
         fr: {
           title: 'Instructions - Mastermind',
           steps: [
-            'Assurez-vous que <code>Python 3.x</code> est installé sur votre système',
+            'Assurez-vous que <code>Python 3.x</code> is installé sur votre système',
             'Téléchargez le fichier <code>MastermindV6_final.py</code>',
             'Ouvrez un terminal dans le dossier du fichier',
             'Exécutez la commande : <code>python MastermindV6_final.py</code>',
@@ -335,7 +331,7 @@
             'Open a terminal in the project folder',
             'Run: <code>python career_chat_bot.py</code>'
           ],
-          warning: 'This chatbot may require downloading NLTK data on first run.'
+          warning: 'This box may require downloading NLTK data on first run.'
         }
       },
       survivor: {
@@ -365,6 +361,15 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
+      // --- Gestion de la carte Netflix interactive ---
+      const netflixCard = document.getElementById('netflixCard');
+      if (netflixCard) {
+        netflixCard.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A' || e.target.closest('a')) return;
+          this.classList.toggle('show-details');
+        });
+      }
+
       const modal = document.getElementById('downloadModal');
       const modalClose = document.getElementById('modalClose');
       const modalCancel = document.getElementById('modalCancel');
@@ -375,34 +380,23 @@
       let currentFile = '';
       let currentLang = 'fr';
 
-      // Fonction pour afficher le modal
       function showModal(project, file, lang) {
         currentFile = file;
         currentLang = lang;
         const instructions = projectInstructions[project][lang];
-        
-        // Mettre à jour le titre
         modalTitle.textContent = instructions.title;
-        
-        // Mettre à jour les instructions
         const stepsList = instructions.steps.map(step => `<li>${step}</li>`).join('');
         modalInstructions.innerHTML = `<ol>${stepsList}</ol>`;
-        
-        // Mettre à jour l'avertissement
         modalWarning.textContent = instructions.warning;
-        
-        // Afficher le modal
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
-      // Fonction pour fermer le modal
       function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
       }
 
-      // Fonction pour télécharger le fichier
       function downloadFile() {
         const link = document.createElement('a');
         link.href = currentFile;
@@ -413,7 +407,6 @@
         closeModal();
       }
 
-      // Événements pour tous les boutons de téléchargement
       document.querySelectorAll('.download-with-instructions').forEach(button => {
         button.addEventListener('click', (e) => {
           e.preventDefault();
@@ -424,27 +417,23 @@
         });
       });
 
-      // Événements pour fermer le modal
       modalClose.addEventListener('click', closeModal);
       modalCancel.addEventListener('click', closeModal);
       modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
       });
 
-      // Événement pour le bouton de téléchargement
       modalDownload.addEventListener('click', downloadFile);
 
-      // Fermer avec Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
           closeModal();
         }
       });
 
-      // Navigation
       document.querySelectorAll('.loader-button:not(.download-with-instructions)').forEach(button => {
         button.addEventListener('click', (e) => {
-          const href = button.getAttribute('href') || 'Nouveau dossier/Irfan_CVmot-8.pdf';
+          const href = button.getAttribute('href');
           const target = button.getAttribute('target');
           if (target === '_blank') {
             window.open(href, '_blank');
@@ -482,7 +471,6 @@
       overlay.addEventListener('click', closeMenu);
       closeBtn.addEventListener('click', closeMenu);
       document.querySelectorAll('.nav-inner a, .nav-inner .download-button:not(.download-with-instructions)').forEach(item => item.addEventListener('click', closeMenu));
-      document.addEventListener('keydown', (e) => e.key === 'Escape' && document.body.classList.contains('menu-open') && closeMenu());
 
       // Language toggle
       const translateToggle = document.getElementById('translate-toggle');
@@ -492,19 +480,16 @@
         const isFrench = translateToggle.checked;
         currentLang = isFrench ? 'fr' : 'en';
         
-        // Mettre à jour tous les textes de l'interface
         translateToggle.setAttribute('aria-label', isFrench ? 'Passer à l\'anglais' : 'Passer au français');
         document.getElementById('hire-title').textContent = isFrench ? 'Mes Projets' : 'My Projects';
         document.getElementById('hire-text').textContent = isFrench
           ? 'Je suis Irfan Khan, un étudiant passionné par l\'informatique et l\'intelligence artificielle. Mon objectif est d\'innover et de créer des solutions technologiques impactantes. Découvrez mes compétences et réalisations :'
           : 'I\'m Irfan Khan, a passionate student in computer science and artificial intelligence. My goal is to innovate and create impactful technological solutions. Discover my skills and achievements:';
         
-        // Mettre à jour les textes du modal
         document.getElementById('modal-subtitle').textContent = isFrench ? 'Comment exécuter ce projet :' : 'How to run this project:';
         document.getElementById('btn-cancel').textContent = isFrench ? 'Annuler' : 'Cancel';
         document.getElementById('btn-download').textContent = isFrench ? 'Télécharger' : 'Download';
         
-        // Services
         document.getElementById('service1').querySelector('h2').textContent = isFrench ? 'Développement' : 'Development';
         document.getElementById('service1').querySelector('p').textContent = isFrench
           ? 'Maîtrise de Python, HTML, CSS et JavaScript pour créer des applications web modernes et interactives.'
@@ -518,25 +503,44 @@
           ? 'Capacité à mener des projets de A à Z, de la conception à la réalisation, avec rigueur et créativité.'
           : 'Ability to lead projects from A to Z, from design to implementation, with rigor and creativity.';
         
-        // Projets
         document.getElementById('work-title').textContent = isFrench ? 'Mes Réalisations' : 'My Work';
+        document.getElementById('work-subtitle').textContent = isFrench 
+          ? 'Chaque projet reflète ma passion pour l\'informatique et ma volonté d\'apprendre continuellement. Ces réalisations illustrent ma capacité à transformer des idées en solutions concrètes et fonctionnelles.'
+          : 'Each project reflects my passion for computer science and my desire to learn continuously. These achievements illustrate my ability to turn ideas into concrete and functional solutions.';
+        
         document.getElementById('mastermind-desc').textContent = isFrench
           ? 'Jeu de logique classique recréé en Python, mettant en œuvre des algorithmes de vérification et une interface utilisateur intuitive.'
           : 'Classic logic game recreated in Python, implementing verification algorithms and an intuitive user interface.';
-        document.getElementById('calc-desc').textContent = isFrench
-          ? 'Application de calculatrice complète avec interface graphique moderne, incluant fonctions scientifiques et gestion des erreurs.'
-          : 'Complete calculator application with modern graphical interface, including scientific functions and error handling.';
+        document.getElementById('chatbot-desc').textContent = isFrench
+          ? 'Intelligence artificielle simple basée sur des algorithmes de traitement du langage naturel pour guider les utilisateurs dans leurs choix de carrière.'
+          : 'Simple artificial intelligence based on natural language processing algorithms to guide users in their career choices.';
         document.getElementById('pokedex-desc').textContent = isFrench
           ? 'Application web interactive développée avec HTML, CSS et JavaScript, intégrant une API REST pour afficher des données Pokémon en temps réel.'
           : 'Interactive web application developed with HTML, CSS and JavaScript, integrating a REST API to display Pokémon data in real time.';
-        
+        document.getElementById('survivor-desc').textContent = isFrench
+          ? 'Jeu de survie développé en Python avec une interface graphique immersive.'
+          : 'Survival game developed in Python with an immersive graphical interface.';
+        document.getElementById('ecommerce-desc').textContent = isFrench
+          ? 'Site web e-commerce complet développé avec HTML, CSS .'
+          : 'Complete e-commerce website developed with HTML, CSS.';
+          
+        // Nouveaux Textes Traduits Netflix
+        document.getElementById('netflix-card-title').textContent = isFrench ? 'Reproduction de Netflix' : 'Netflix Reproduction';
+        document.getElementById('netflix-card-date').textContent = isFrench ? 'Date de finition : 19 juin 2026 (Terminale)' : 'Completion date: June 19, 2026 (Terminale)';
+        document.getElementById('netflix-card-desc').innerHTML = isFrench
+          ? 'Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.<br><br><strong>Email :</strong> jean@gmail.com<br><strong>Mot de passe :</strong> 17'
+          : 'Complete Netflix interface: intelligent catalog, dynamic filters and immersive "Tudum" animation.<br><br><strong>Email:</strong> jean@gmail.com<br><strong>Password:</strong> 17';
+        document.getElementById('netflix-card-link').textContent = isFrench ? 'Accéder au projet' : 'Access the project';
+        document.getElementById('netflix-click-info').innerHTML = isFrench ? '<i class="bx bx-refresh"></i> Cliquez pour revoir l\'animation' : '<i class="bx bx-refresh"></i> Click to replay animation';
+        document.getElementById('netflix-hint-text').innerHTML = isFrench ? '<i class="bx bx-info-circle"></i> Cliquez pour le descriptif' : '<i class="bx bx-info-circle"></i> Click for details';
+
         // Boutons
         document.getElementById('play-mastermind').textContent = isFrench ? 'Télécharger' : 'Download';
-        document.getElementById('play-calculator').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('visit-pokedex').textContent = isFrench ? 'Visiter' : 'Visit';
         document.getElementById('download-pokedex').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('download-chatbot').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('play-survivor').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('visit-ecommerce').textContent = isFrench ? 'Visiter' : 'Visit';
         
         // Témoignages
         document.getElementById('testimonials-title').textContent = isFrench ? 'Témoignages Professionnels' : 'Professional Testimonials';
