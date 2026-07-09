@@ -117,7 +117,7 @@
             
             <div class="work-item" id="work-mastermind">
               <h3>Mastermind</h3>
-              <h2>Date : décembre 2024</h2>
+              <h2 id="mastermind-date">Date : Année scolaire : Première générale — Mai 2024</h2>
               <video controls poster="Nouveau dossier/Mastermind image .webp" aria-label="Démo du jeu Mastermind" class="mastermind-video">
                 <source src="Nouveau dossier/mastermind_demo.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
@@ -136,7 +136,7 @@
 
             <div class="work-item" id="work-pokedex">
               <h3>Pokédex Interactif</h3>
-              <h2>Date : mai 2024</h2>
+              <h2 id="pokedex-date">Date : Année scolaire : Première générale — Mars 2024</h2>
               <a href="https://pokedex-pndu.onrender.com/" target="_blank" rel="noopener" aria-label="Voir le projet Pokédex" class="loader-button">
                 <img src="Nouveau dossier/International_Pokémon_logo.svg.png" alt="Projet Pokédex" class="mastermind-image">
               </a>
@@ -159,7 +159,7 @@
 
             <div class="work-item" id="work-chatbot">
               <h3>Chatbot d'Orientation Professionnelle</h3>
-              <h2>Date : Janvier 2025</h2>
+              <h2>Date : Aout 2025</h2>
               <video controls poster="Nouveau dossier/chat_bot.png" aria-label="Démo du Chatbot de carrière" class="mastermind-video">
                 <source src="Nouveau dossier/chat_bot_demo.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
@@ -178,7 +178,7 @@
             
             <div class="work-item" id="work-survivor">
               <h3>Survivor</h3>
-              <h2>Date : Décembre 2026</h2>
+              <h2 id="survivor-date">Date : Année scolaire : Terminale générale — Décembre 2025</h2>
               <video controls poster="Nouveau dossier/image copy.png" aria-label="Démo du jeu Survivor" class="mastermind-video">
                 <source src="Nouveau dossier/survivor_demo.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
@@ -197,7 +197,7 @@
 
             <div class="work-item" id="work-ecommerce">
               <h3>Site_web Ecommerce</h3>
-              <h2>Date : juillet 2024</h2>
+              <h2 id="ecommerce-date">Date : Année scolaire : Seconde — Juillet 2023</h2>
               <a href="https://imkk17.github.io/car-ecommerce/" target="_blank" rel="noopener" aria-label="Voir le projet Ecommerce" class="loader-button">
                 <img src="Nouveau dossier/raciss.png" alt="Projet Ecommerce" class="mastermind-image">
               </a>
@@ -222,8 +222,20 @@
           </div>
           
           <div class="netflix-card-content">
-            <h3 id="project4-title">Reproduction de Netflix</h3>
+            <div class="netflix-badge">UI / UX • Front-end</div>
+            <h3 id="netflix-card-title">Reproduction de Netflix</h3>
+            <p class="netflix-subtitle" id="netflix-card-subtitle">Clone immersif inspiré du design Netflix</p>
+            <div class="netflix-meta">
+              <span class="netflix-pill">HTML / CSS / JS</span>
+              <span class="netflix-pill">Responsive</span>
+              <span class="netflix-pill">Animations</span>
+            </div>
+            <p class="netflix-date-compact" id="netflix-card-date">Année scolaire : Terminale générale — Mai 2026</p>
             <p id="project4-desc">Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.</p>
+            <div class="netflix-credentials">
+              <p class="netflix-cred"><strong>Email :</strong> jean@gmail.com</p>
+              <p class="netflix-cred"><strong>Mot de passe :</strong> 90</p>
+            </div>
             <a href="https://26term17.eu.pythonanywhere.com" id="project4-link" target="_blank" rel="noopener">Accéder au projet</a>
             <span class="click-info"><i class='bx bx-refresh'></i> Cliquez pour revoir l'animation</span>
           </div>
@@ -508,25 +520,29 @@
           ? 'Chaque projet reflète ma passion pour l\'informatique et ma volonté d\'apprendre continuellement. Ces réalisations illustrent ma capacité à transformer des idées en solutions concrètes et fonctionnelles.'
           : 'Each project reflects my passion for computer science and my desire to learn continuously. These achievements illustrate my ability to turn ideas into concrete and functional solutions.';
         
+        document.getElementById('mastermind-date').textContent = isFrench ? 'Date : Année scolaire : Première générale — Mai 2024' : 'Date: School year: Première générale — May 2024';
         document.getElementById('mastermind-desc').textContent = isFrench
           ? 'Jeu de logique classique recréé en Python, mettant en œuvre des algorithmes de vérification et une interface utilisateur intuitive.'
           : 'Classic logic game recreated in Python, implementing verification algorithms and an intuitive user interface.';
         document.getElementById('chatbot-desc').textContent = isFrench
           ? 'Intelligence artificielle simple basée sur des algorithmes de traitement du langage naturel pour guider les utilisateurs dans leurs choix de carrière.'
           : 'Simple artificial intelligence based on natural language processing algorithms to guide users in their career choices.';
+        document.getElementById('pokedex-date').textContent = isFrench ? 'Date : Année scolaire : Première générale — Mars 2024' : 'Date: School year: Première générale — March 2024';
         document.getElementById('pokedex-desc').textContent = isFrench
           ? 'Application web interactive développée avec HTML, CSS et JavaScript, intégrant une API REST pour afficher des données Pokémon en temps réel.'
           : 'Interactive web application developed with HTML, CSS and JavaScript, integrating a REST API to display Pokémon data in real time.';
+        document.getElementById('survivor-date').textContent = isFrench ? 'Date : Année scolaire : Terminale générale — Décembre 2025' : 'Date: School year: Terminale générale — December 2025';
         document.getElementById('survivor-desc').textContent = isFrench
           ? 'Jeu de survie développé en Python avec une interface graphique immersive.'
           : 'Survival game developed in Python with an immersive graphical interface.';
+        document.getElementById('ecommerce-date').textContent = isFrench ? 'Date : Année scolaire : Seconde — Juillet 2023' : 'Date: School year: Seconde — July 2023';
         document.getElementById('ecommerce-desc').textContent = isFrench
           ? 'Site web e-commerce complet développé avec HTML, CSS .'
           : 'Complete e-commerce website developed with HTML, CSS.';
           
         // Nouveaux Textes Traduits Netflix
         document.getElementById('netflix-card-title').textContent = isFrench ? 'Reproduction de Netflix' : 'Netflix Reproduction';
-        document.getElementById('netflix-card-date').textContent = isFrench ? 'Date de finition : 19 juin 2026 (Terminale)' : 'Completion date: June 19, 2026 (Terminale)';
+        document.getElementById('netflix-card-date').textContent = isFrench ? 'Date : Année scolaire : Terminale générale — Mai 2026' : 'Date: School year: Terminale générale — May 2026';
         document.getElementById('netflix-card-desc').innerHTML = isFrench
           ? 'Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.<br><br><strong>Email :</strong> jean@gmail.com<br><strong>Mot de passe :</strong> 17'
           : 'Complete Netflix interface: intelligent catalog, dynamic filters and immersive "Tudum" animation.<br><br><strong>Email:</strong> jean@gmail.com<br><strong>Password:</strong> 17';

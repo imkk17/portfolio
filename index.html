@@ -58,7 +58,7 @@
         <h1 id="main-title">Bonjour, je suis Irfan Khan</h1>
         <h3 id="sub-title">Étudiant</h3>
         <p id="main-text">
-          Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.
+          Bonjour, je m'appelle Irfan. J'ai 17 ans, j'ai obtenu mon baccalauréat avec la mention assez bien, avec les spécialités Mathématiques, Physique-Chimie et NSI en première générale, puis j'ai abandonné la spécialité Physique-Chimie en terminale. Pendant la seconde, la première et la terminale, j'ai suivi la section Euro Anglais Scientifique en Mathématiques. J'ai également été admis à l'école EPITA. Mon objectif est de poursuivre dans l'informatique et l'IA, des domaines qui me passionnent.
         </p>
         <div class="btn-box">
           <a href="hire_me.html" id="btn-hire">Projet</a>
@@ -81,12 +81,14 @@
       <div class="project-list">
         <div class="project">
           <h3 id="project1-title">Jeu Pyxel</h3>
+          <p class="project-date" id="project1-date">Année scolaire : Première générale — Mai 2024</p>
           <p id="project1-desc">Un jeu conçu lors de mon debut d'année de Terminale qui utilise Python et la bibliotheque Pyxel</p>
           <a href="hire_me.html" id="project1-link">Voir le Projet</a>
         </div>
     
         <div class="project">
           <h3 id="project3-title">Pokédex</h3>
+          <p class="project-date" id="project3-date">Année scolaire : Première générale — Mars 2024</p>
           <p id="project3-desc">Projet conçu lors de mon année de premiere génerale qui utilise python en back_end et HTML/CSS en Front end et utilise une base de données du type CSV</p>
           <a href="https://pokedex-pndu.onrender.com/" id="project3-link">Voir le Projet</a>
           <img src="Nouveau dossier/Sans_titre-removebg-preview.png" alt="Pikachu" class="pikachu" />
@@ -102,8 +104,20 @@
           </div>
           
           <div class="netflix-card-content">
+            <div class="netflix-badge">UI / UX • Front-end</div>
             <h3 id="project4-title">Reproduction de Netflix</h3>
+            <p class="netflix-subtitle" id="project4-subtitle">Clone immersif inspiré du design Netflix</p>
+            <div class="netflix-meta">
+              <span class="netflix-pill">HTML / CSS / JS</span>
+              <span class="netflix-pill">Responsive</span>
+              <span class="netflix-pill">Animations</span>
+            </div>
+            <p class="netflix-date-compact" id="project4-date">Année scolaire : Terminale générale — Mai 2026</p>
             <p id="project4-desc">Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.</p>
+            <div class="netflix-credentials">
+              <p class="netflix-cred"><strong>Email :</strong> jean@gmail.com</p>
+              <p class="netflix-cred"><strong>Mot de passe :</strong> 90</p>
+            </div>
             <a href="https://26term17.eu.pythonanywhere.com" id="project4-link" target="_blank" rel="noopener">Accéder au projet</a>
             <span class="click-info"><i class='bx bx-refresh'></i> Cliquez pour revoir l'animation</span>
           </div>
@@ -180,7 +194,7 @@
         if (this.checked) {
           document.getElementById('main-title').innerText = "Hi, I'm Irfan Khan";
           document.getElementById('sub-title').innerText = "Student";
-          document.getElementById('main-text').innerText = "Hello, my name is Irfan. I am 16 years old. My goal is to become something greater than the new technology, like AI. My iconic inspiration is my Dad, and my second inspiration is Alan Turing, the father of computer science.";
+          document.getElementById('main-text').innerText = "Hello, my name is Irfan. I am 17 years old. I obtained my baccalauréat with the mention assez bien, with Mathematics, Physics-Chemistry and Computer Science as specialities in first year, then I dropped Physics-Chemistry in terminale. During seconde, première and terminale, I followed the Euro English Scientific section in Mathematics. I was also admitted to EPITA. My goal is to continue in computer science and AI, fields that inspire me deeply.";
           document.getElementById('nav-home').innerText = "Home";
           document.getElementById('nav-about').innerText = "About Me";
           document.getElementById('nav-education').innerText = "Education";
@@ -194,18 +208,21 @@
           document.getElementById('photo-caption').innerHTML = "<strong>A Photo made by an AI image Generator</strong>";
           document.getElementById('projects-title').innerText = "Recent Projects";
           document.getElementById('project1-title').innerText = "Pyxel Game";
+          document.getElementById('project1-date').innerText = "School year: Première générale — May 2024";
           document.getElementById('project1-desc').innerText = "A game created at the beginning of my Terminale year using Python and the Pyxel library.";
           document.getElementById('project1-link').innerText = "View Project";
           document.getElementById('project3-title').innerText = "Pokedex";
+          document.getElementById('project3-date').innerText = "School year: Première générale — March 2024";
           document.getElementById('project3-desc').innerText = "Project created during my premiere year using Python for backend and HTML/CSS for frontend with a CSV-type database.";
           document.getElementById('project3-link').innerText = "View Project";
           document.getElementById('project4-title').innerText = "Netflix Reproduction";
+          document.getElementById('project4-date').innerText = "School year: Terminale générale — May 2026";
           document.getElementById('project4-desc').innerHTML = "Completed: Netflix interface, intelligent catalog, dynamic filters and immersive 'Tudum' animation.<br><br><strong>Email:</strong> jean@gmail.com<br><strong>Password:</strong> 17";
           document.getElementById('project4-link').innerText = "Access the project";
         } else {
           document.getElementById('main-title').innerText = "Bonjour, je suis Irfan Khan";
           document.getElementById('sub-title').innerText = "Étudiant";
-          document.getElementById('main-text').innerText = "Bonjour, je m'appelle Irfan. J'ai 16 ans. Mon objectif est de devenir quelque chose de plus grand que la nouvelle technologie, comme l'IA. Mon inspiration emblématique est mon père, et ma deuxième inspiration est Alan Turing, le père de l'informatique.";
+          document.getElementById('main-text').innerText = "Bonjour, je m'appelle Irfan. J'ai 17 ans, j'ai obtenu mon baccalauréat avec la mention assez bien, avec les spécialités Mathématiques, Physique-Chimie et NSI en première générale, puis j'ai abandonné la spécialité Physique-Chimie en terminale. Pendant la seconde, la première et la terminale, j'ai suivi la section Euro Anglais Scientifique en Mathématiques. J'ai également été admis à l'école EPITA. Mon objectif est de poursuivre dans l'informatique et l'IA, des domaines qui me passionnent.";
           document.getElementById('nav-home').innerText = "Accueil";
           document.getElementById('nav-about').innerText = "À propos";
           document.getElementById('nav-education').innerText = "Éducation";
@@ -219,12 +236,15 @@
           document.getElementById('photo-caption').innerHTML = "<strong>Une photo créée par un générateur d'images IA</strong>";
           document.getElementById('projects-title').innerText = "Projets Récents";
           document.getElementById('project1-title').innerText = "Jeu Pyxel";
+          document.getElementById('project1-date').innerText = "Année scolaire : Première générale — Mai 2024";
           document.getElementById('project1-desc').innerText = "Un jeu conçu lors de mon debut d'année de Terminale qui utilise Python et la bibliotheque Pyxel";
           document.getElementById('project1-link').innerText = "Voir le Projet";
           document.getElementById('project3-title').innerText = "Pokédex";
+          document.getElementById('project3-date').innerText = "Année scolaire : Première générale — Mars 2024";
           document.getElementById('project3-desc').innerText = "Projet conçu lors de mon année de premiere génerale qui utilise python en back_end et HTML/CSS en Front end et utilise une base de données du type CSV";
           document.getElementById('project3-link').innerText = "Voir le Projet";
           document.getElementById('project4-title').innerText = "Reproduction de Netflix";
+          document.getElementById('project4-date').innerText = "Année scolaire : Terminale générale — Mai 2026";
           document.getElementById('project4-desc').innerHTML = "Interface Netflix complète : catalogue intelligent, filtres dynamiques et animation « Tudum » immersive.<br><br><strong>Email :</strong> jean@gmail.com<br><strong>Mot de passe :</strong> 17";
           document.getElementById('project4-link').innerText = "Accéder au projet";
         }
