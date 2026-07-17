@@ -632,6 +632,9 @@ footer .socials a { font-size: 1.5rem; color: #00abf0; }
 .modal-instructions { background: rgba(0, 171, 240, 0.05); padding: 1rem; border-radius: 8px; border-left: 4px solid #00abf0; margin: 1rem 0; text-align: left; }
 .modal-instructions code { background: rgba(0, 171, 240, 0.2); color: #00abf0; padding: 2px 6px; border-radius: 4px; }
 .modal-warning { background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107; padding: 0.75rem; border-radius: 8px; display: flex; gap: 0.5rem; }
+.modal-copyright { background: rgba(220, 53, 69, 0.1); border-left: 4px solid #dc3545; padding: 0.75rem; border-radius: 8px; display: flex; gap: 0.5rem; margin-top: 1rem; }
+.modal-copyright i, .modal-warning i { flex-shrink: 0; color: #dc3545; }
+.modal-copyright p, .modal-warning p { margin: 0; font-size: 0.9rem; color: #ededed; }
 .modal-footer { display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem; }
 .modal-btn {
   padding: 0.75rem 1.5rem;

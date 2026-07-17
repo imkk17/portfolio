@@ -28,6 +28,10 @@
           <i class='bx bx-error'></i>
           <p id="modal-warning">Assurez-vous d'avoir Python installé sur votre ordinateur avant d'exécuter ce fichier.</p>
         </div>
+        <div class="modal-copyright">
+          <i class='bx bx-copyright'></i>
+          <p id="modal-copyright">⚠️ <strong>Avertissement :</strong> Ce projet est la propriété intellectuelle d'Irfan Khan. La copie, la modification ou la redistribution sans autorisation est interdite. Usage personnel uniquement.</p>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="modal-btn modal-btn-cancel" id="modalCancel">
@@ -501,6 +505,9 @@
         document.getElementById('modal-subtitle').textContent = isFrench ? 'Comment exécuter ce projet :' : 'How to run this project:';
         document.getElementById('btn-cancel').textContent = isFrench ? 'Annuler' : 'Cancel';
         document.getElementById('btn-download').textContent = isFrench ? 'Télécharger' : 'Download';
+        document.getElementById('modal-copyright').innerHTML = isFrench 
+          ? '⚠️ <strong>Avertissement :</strong> Ce projet est la propriété intellectuelle d\'Irfan Khan. La copie, la modification ou la redistribution sans autorisation est interdite. Usage personnel uniquement.'
+          : '⚠️ <strong>Warning:</strong> This project is the intellectual property of Irfan Khan. Copying, modifying or redistributing without authorization is prohibited. Personal use only.';
         
         document.getElementById('service1').querySelector('h2').textContent = isFrench ? 'Développement' : 'Development';
         document.getElementById('service1').querySelector('p').textContent = isFrench

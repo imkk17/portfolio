@@ -976,6 +976,57 @@ body.menu-open .navbar-mobile {
   bottom: 10px;
 }
 
+.survivor {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  width: 100px;
+  height: auto;
+  z-index: -1;
+}
+
+.project:hover .survivor {
+  opacity: 1;
+  bottom: 10px;
+}
+
+.survivor1 {
+  position: absolute;
+  bottom: -120px;
+  left: 35%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  width: 90px;
+  height: auto;
+  z-index: -1;
+}
+
+.project:hover .survivor1 {
+  opacity: 1;
+  bottom: 20px;
+}
+
+.survivor2 {
+  position: absolute;
+  bottom: -110px;
+  right: 35%;
+  transform: translateX(50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  width: 95px;
+  height: auto;
+  z-index: -1;
+}
+
+.project:hover .survivor2 {
+  opacity: 1;
+  bottom: 15px;
+}
+
 /* Responsive Mobile */
 @media (max-width: 802px) {
   .header { padding: 10px 5%; justify-content: space-between; }
