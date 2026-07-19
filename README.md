@@ -111,5 +111,5 @@ To run the Python applications, you need Python 3.x installed on your system.
 
 ## 🔗 Connect with Me
 
--   **LinkedIn:** [linkedin.com/in/irfan-khan-050522300](https://www.linkedin.com/in/irfan-khan-050522300/)
+-   **LinkedIn:** [linkedin.com/in/irfan-khan-050522300](https://www.linkedin.com/in/irfan-khan-7bb83a413)
 -   **GitHub:** [github.com/imkk17](https://github.com/imkk17)
