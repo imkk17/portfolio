@@ -182,6 +182,24 @@
               </button>
             </div>
 
+            <div class="work-item" id="work-ai-recognition">
+              <h3>AI Recognition</h3>
+              <h2 id="ai-date">Date : Année scolaire : Terminale générale — Juin 2026</h2>
+              <a href="project_python_ai.zip" target="_blank" rel="noopener" aria-label="Télécharger le dossier complet IA" class="loader-button">
+                <img src="Nouveau dossier/python_ai.png" alt="Projet AI Recognition" class="mastermind-image">
+              </a>
+              <p id="ai-desc">Projet Python d'IA utilisant un modèle de reconnaissance faciale et une interface Flask pour analyser des visages à partir d'images.</p>
+              <div class="button-container">
+                
+                <button class="download-button download-with-instructions"
+                        data-file="project_python_ai.zip"
+                        data-project="aiRecognition"
+                        aria-label="Télécharger le projet IA">
+                  <span id="download-ai">Télécharger</span>
+                </button>
+              </div>
+            </div>
+
             <div class="work-item" id="work-ecommerce">
               <h3>Site_web Ecommerce</h3>
               <h2 id="ecommerce-date">Date : Année scolaire : Seconde — Juillet 2023</h2>
@@ -307,6 +325,32 @@
             'Or host it on a local web server'
           ],
           warning: 'This web project doesn\'t require Python. It opens directly in your browser.'
+        }
+      },
+      aiRecognition: {
+        fr: {
+          title: 'Instructions - IA Reconnaissance',
+          steps: [
+            'Téléchargez le fichier <code>project_python_ai.zip</code>',
+            'Décompressez l\'archive dans votre dossier',
+            'Installez les dépendances : <code>pip install flask tensorflow opencv-python</code>',
+            'Ouvrez un terminal dans le dossier <code>project_python_ai</code>',
+            'Exécutez : <code>python app.py</code>',
+            'Copiez le lien affiché dans le terminal et collez-le dans votre navigateur'
+          ],
+          warning: 'Ce projet nécessite Python 3, Flask, TensorFlow et OpenCV. Lancez <code>app.py</code> pour obtenir un lien, puis copiez-collez ce lien dans votre navigateur.'
+        },
+        en: {
+          title: 'Instructions - AI Recognition',
+          steps: [
+            'Download the <code>project_python_ai.zip</code> file',
+            'Unzip the archive into your folder',
+            'Install dependencies: <code>pip install flask tensorflow opencv-python</code>',
+            'Open a terminal in the <code>project_python_ai</code> folder',
+            'Run: <code>python app.py</code>',
+            'Copy the link shown in the terminal and paste it into your browser'
+          ],
+          warning: 'This project requires Python 3, Flask, TensorFlow, and OpenCV. Run <code>app.py</code> to get a link, then copy-paste that link into your browser.'
         }
       },
       chatbot: {
@@ -525,6 +569,12 @@
         document.getElementById('survivor-desc').textContent = isFrench
           ? 'Jeu de survie développé en Python avec une interface graphique immersive.'
           : 'Survival game developed in Python with an immersive graphical interface.';
+        document.getElementById('ai-date').textContent = isFrench ? 'Date : Année scolaire : Terminale générale — Juin 2026' : 'Date: School year: Terminale générale — June 2026';
+        document.getElementById('ai-desc').textContent = isFrench
+          ? 'Projet Python d\'IA utilisant un modèle de reconnaissance faciale et une interface Flask pour analyser des visages à partir d\'images.'
+          : 'Python AI project using a facial recognition model and Flask interface to analyze faces from images.';
+        document.getElementById('visit-ai').textContent = isFrench ? 'Visiter' : 'Visit';
+        document.getElementById('download-ai').textContent = isFrench ? 'Télécharger' : 'Download';
         document.getElementById('ecommerce-date').textContent = isFrench ? 'Date : Année scolaire : Seconde — Juillet 2023' : 'Date: School year: Seconde — July 2023';
         document.getElementById('ecommerce-desc').textContent = isFrench
           ? 'Site web e-commerce complet développé avec HTML, CSS .'
