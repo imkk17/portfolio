@@ -90,18 +90,7 @@ To run the Python applications, you need Python 3.x installed on your system.
         python MasterMindV6_final.py
         ```
 
-3.  **Career Orientation Chatbot:**
-    -   Install the required libraries:
-        ```bash
-        pip install customtkinter nltk
-        ```
-    -   Run the application:
-        ```bash
-        python projet/career_chat_bot.py
-        ```
-        *Note: NLTK may prompt you to download additional data on the first run.*
-
-4.  **Survivor Game:**
+3.  **Survivor Game:**
     -   Unzip the `project_survivor1.zip` file.
     -   Install the required libraries:
         ```bash
